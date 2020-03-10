@@ -1,0 +1,212 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+Migrating to CreateSearches (20200310151757)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "searches" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "query_params" blob, "user_id" integer, "user_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200310151757_create_searches.blacklight.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_searches_on_user_id" ON "searches" ("user_id")[0m
+  ↳ db/migrate/20200310151757_create_searches.blacklight.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151757"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+Migrating to CreateBookmarks (20200310151758)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "bookmarks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "user_type" varchar, "document_id" varchar, "document_type" varchar, "title" blob, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200310151758_create_bookmarks.blacklight.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_bookmarks_on_user_id" ON "bookmarks" ("user_id")[0m
+  ↳ db/migrate/20200310151758_create_bookmarks.blacklight.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_bookmarks_on_document_id" ON "bookmarks" ("document_id")[0m
+  ↳ db/migrate/20200310151758_create_bookmarks.blacklight.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151758"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+Migrating to AddPolymorphicTypeToBookmarks (20200310151759)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151759"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+Migrating to DeviseCreateUsers (20200310151807)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200310151807_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200310151807_devise_create_users.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20200310151807_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151807"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+Migrating to AddDeviseGuestsToUsers (20200310151809)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "guest" boolean DEFAULT 0[0m
+  ↳ db/migrate/20200310151809_add_devise_guests_to_users.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151809"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-10 15:18:27.995924"], ["updated_at", "2020-03-10 15:18:27.995924"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bin/rake:23
+Started GET "/" for ::1 at 2020-03-10 08:37:25 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by CatalogController#index as HTML
+Solr query: get select {"qt"=>nil, "facet.field"=>["collection_sim", "creator_ssim", "creators_ssim", "date_range_sim", "level_sim", "names_ssim", "repository_sim", "geogname_sim", "places_ssim", "access_subjects_ssim"], "facet.query"=>["has_online_content_ssim:true"], "facet.pivot"=>[], "fq"=>[], "hl.fl"=>"text", "rows"=>10, "facet"=>true, "f.collection_sim.facet.limit"=>11, "f.creator_ssim.facet.limit"=>11, "f.level_sim.facet.limit"=>11, "f.names_ssim.facet.limit"=>11, "f.repository_sim.facet.limit"=>11, "f.geogname_sim.facet.limit"=>11, "f.access_subjects_ssim.facet.limit"=>11, "sort"=>"score desc, title_sort asc", "hl"=>true, "hl.snippets"=>3, "stats"=>"true", "stats.field"=>["date_range_sim"]}
+Solr fetch (216.2ms)
+  Rendering /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/index.html.erb within layouts/blacklight
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_home.html.erb (0.8ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/index.html.erb within layouts/blacklight (5.5ms)
+  Rendering /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "guest") VALUES (?, ?, ?, ?)[0m  [["email", "guest_Fpk9tdFhzHEzHjhpoxFD_1583854650_1@example.com"], ["created_at", "2020-03-10 15:37:30.453717"], ["updated_at", "2020-03-10 15:37:30.453717"], ["guest", 1]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."user_type" = ?[0m  [["user_id", 1], ["user_type", "User"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/blacklight/nav/_bookmark.html.erb (25.7ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/blacklight/nav/_search_history.html.erb (3.8ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-locale_picker-0.1.0/app/views/shared/_locale_picker.html.erb (0.8ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_user_util_links.html.erb (53.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_main_menu_links.html.erb (2.7ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_within_collection_dropdown.html.erb (0.7ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_search_form.html.erb (15.7ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb (81.1ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_flash_msg.html.erb (3.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_footer.html.erb (0.3ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_modal.html.erb (0.3ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb (4476.0ms)
+Completed 200 OK in 4834ms (Views: 4491.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-10 08:38:41 -0700
+Processing by CatalogController#index as HTML
+Solr query: get select {"qt"=>nil, "facet.field"=>["collection_sim", "creator_ssim", "creators_ssim", "date_range_sim", "level_sim", "names_ssim", "repository_sim", "geogname_sim", "places_ssim", "access_subjects_ssim"], "facet.query"=>["has_online_content_ssim:true"], "facet.pivot"=>[], "fq"=>[], "hl.fl"=>"text", "rows"=>10, "facet"=>true, "f.collection_sim.facet.limit"=>11, "f.creator_ssim.facet.limit"=>11, "f.level_sim.facet.limit"=>11, "f.names_ssim.facet.limit"=>11, "f.repository_sim.facet.limit"=>11, "f.geogname_sim.facet.limit"=>11, "f.access_subjects_ssim.facet.limit"=>11, "sort"=>"score desc, title_sort asc", "hl"=>true, "hl.snippets"=>3, "stats"=>"true", "stats.field"=>["date_range_sim"]}
+Solr fetch (31.5ms)
+  Rendering /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/index.html.erb within layouts/blacklight
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_home.html.erb (0.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/index.html.erb within layouts/blacklight (2.3ms)
+  Rendering /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest_Fpk9tdFhzHEzHjhpoxFD_1583854650_1@example.com"], ["LIMIT", 1]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."user_type" = ?[0m  [["user_id", 1], ["user_type", "User"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/blacklight/nav/_bookmark.html.erb (1.9ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/blacklight/nav/_search_history.html.erb (0.5ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-locale_picker-0.1.0/app/views/shared/_locale_picker.html.erb (0.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_user_util_links.html.erb (19.2ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_main_menu_links.html.erb (0.6ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_within_collection_dropdown.html.erb (0.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_search_form.html.erb (7.8ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb (33.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_flash_msg.html.erb (1.8ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_footer.html.erb (0.2ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_modal.html.erb (0.2ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb (127.8ms)
+Completed 200 OK in 173ms (Views: 135.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/collections" for ::1 at 2020-03-10 08:38:44 -0700
+Processing by CatalogController#index as HTML
+  Parameters: {"f"=>{"level_sim"=>["Collection"]}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSearch Create (1.0ms)[0m  [1m[32mINSERT INTO "searches" ("query_params", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["query_params", "<173 bytes of binary data>"], ["created_at", "2020-03-10 15:38:44.634036"], ["updated_at", "2020-03-10 15:38:44.634036"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Solr query: get select {"qt"=>nil, "facet.field"=>["collection_sim", "creator_ssim", "creators_ssim", "date_range_sim", "level_sim", "names_ssim", "repository_sim", "geogname_sim", "places_ssim", "access_subjects_ssim"], "facet.query"=>["has_online_content_ssim:true"], "facet.pivot"=>[], "fq"=>["{!term f=level_sim}Collection"], "hl.fl"=>"text", "rows"=>10, "facet"=>true, "f.collection_sim.facet.limit"=>11, "f.creator_ssim.facet.limit"=>11, "f.level_sim.facet.limit"=>11, "f.names_ssim.facet.limit"=>11, "f.repository_sim.facet.limit"=>11, "f.geogname_sim.facet.limit"=>11, "f.access_subjects_ssim.facet.limit"=>11, "sort"=>"score desc, title_sort asc", "hl"=>true, "hl.snippets"=>3, "stats"=>"true", "stats.field"=>["date_range_sim"]}
+Solr fetch (26.3ms)
+  Rendering /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/index.html.erb within layouts/blacklight
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_facet_group.html.erb (0.8ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_facets.html.erb (3.0ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_search_sidebar.html.erb (5.3ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_opensearch_response_metadata.html.erb (0.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_breadcrumbs.html.erb (0.7ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_search_results_repository.html.erb (0.3ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_start_over.html.erb (1.0ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_constraints_element.html.erb (2.1ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_constraints.html.erb (54.7ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_did_you_mean.html.erb (0.3ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_paginate_compact.html.erb (3.1ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_group_toggle.html.erb (1.1ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_sort_widget.html.erb (0.5ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_per_page_widget.html.erb (0.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_view_type_group.html.erb (0.5ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_sort_and_per_page.html.erb (14.9ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_search_header.html.erb (18.6ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_zero_results.html.erb (0.7ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/catalog/_results_pagination.html.erb (0.3ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_search_results.html.erb (91.9ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/index.html.erb within layouts/blacklight (101.6ms)
+  Rendering /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest_Fpk9tdFhzHEzHjhpoxFD_1583854650_1@example.com"], ["LIMIT", 1]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."user_type" = ?[0m  [["user_id", 1], ["user_type", "User"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/blacklight/nav/_bookmark.html.erb (1.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/blacklight/nav/_search_history.html.erb (0.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-locale_picker-0.1.0/app/views/shared/_locale_picker.html.erb (0.3ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_user_util_links.html.erb (5.7ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_main_menu_links.html.erb (0.5ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_within_collection_dropdown.html.erb (0.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_search_form.html.erb (8.1ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb (17.6ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_flash_msg.html.erb (2.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_footer.html.erb (0.3ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_modal.html.erb (0.3ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb (113.3ms)
+Completed 200 OK in 274ms (Views: 218.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/repositories" for ::1 at 2020-03-10 08:38:46 -0700
+Processing by Arclight::RepositoriesController#index as HTML
+Solr query: get select {:qt=>nil, :q=>"level_sim:Collection", :"facet.field"=>"repository_sim", :rows=>0}
+Solr fetch (131.8ms)
+  Rendering /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/arclight/repositories/index.html.erb within layouts/blacklight
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_breadcrumbs.html.erb (0.7ms)
+  Rendered collection of /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/arclight/repositories/_repository.html.erb [3 times] (2.2ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/arclight/repositories/index.html.erb within layouts/blacklight (5.8ms)
+  Rendering /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest_Fpk9tdFhzHEzHjhpoxFD_1583854650_1@example.com"], ["LIMIT", 1]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "bookmarks" WHERE "bookmarks"."user_id" = ? AND "bookmarks"."user_type" = ?[0m  [["user_id", 1], ["user_type", "User"]]
+  ↳ /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb:10
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/blacklight/nav/_bookmark.html.erb (2.0ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/blacklight/nav/_search_history.html.erb (0.6ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-locale_picker-0.1.0/app/views/shared/_locale_picker.html.erb (0.6ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_user_util_links.html.erb (8.6ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_main_menu_links.html.erb (0.9ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_within_collection_dropdown.html.erb (0.5ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_search_form.html.erb (6.2ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_header_navbar.html.erb (20.8ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_flash_msg.html.erb (1.4ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_footer.html.erb (0.2ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_modal.html.erb (0.2ms)
+  Rendered /Users/n8004/.rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb (112.5ms)
+Completed 200 OK in 257ms (Views: 121.2ms | ActiveRecord: 0.3ms)
+
+
