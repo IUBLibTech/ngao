@@ -1,6 +1,7 @@
-nlm:
-  name: 'National Library of Medicine. History of Medicine Division'
-  description: 'NLM’s History of Medicine Division collects, preserves, makes available, and interprets for diverse audiences one of the world’s richest collections of historical material related to human health and disease.'
+mix:
+  name: 'Mix of Collections'
+  visit_note: ''
+  description: 'This repository represents a variety of collections from different repos.'
   building: 'Building 38, Room 1E-21'
   address1: '8600 Rockville Pike'
   address2: ''
@@ -11,50 +12,35 @@ nlm:
   phone: ''
   contact_info: 'hmdref@nlm.nih.gov'
   thumbnail_url: "https://collections.nlm.nih.gov/pageturnerserver/ajaxp?theurl=http://localhost:8080/fedora/get/nlm:nlmuid-101421040-img/THUMB"
-  request_types:
-    google_form:
-      request_url: 'https://docs.google.com/a/stanford.edu/forms/d/e/1FAIpQLSeOamhY_IcFw4sPnz0ddwWWkrPaHbM5wp7JVbOLOL_mIusEyw/viewform'
-      request_mappings: "document_url=entry.1980510262&collection_name=entry.619150170&collection_creator=entry.14428541&eadid=entry.996397105&containers=entry.1125277048&title=entry.862815208"
-sul-spec:
-  name: 'Stanford University Libraries. Special Collections and University Archives'
-  visit_note: 'Special Collections and University Archives materials are stored offsite and must be paged 36 hours in advance.'
-  description: 'The Special Collections and University Archives Department of Stanford University Libraries is committed to acquiring, preserving, and providing access to primary source materials that support the research needs of the Stanford community and beyond. There are three distinct divisions in our department: Manuscripts, Rare Books and University Archives. We welcome all students, scholars and members of the general public to the Field Reading Room. Learn more about using and accessing our collections.'
-  building: 'Green Library'
-  address1: '557 Escondido Mall'
+lilly:
+  name: 'Lilly Library'
+  visit_note: ''
+  description: 'The Lilly Library is the rare books, manuscripts, and special collections library of the Indiana University Libraries, Bloomington. Its collections represent a diversity of subjects, including literature; children’s literature; history; folklore; science; radio, film and television; book collecting and bookselling; journalism; and translation.'
+  building: ''
+  address1: '1200 East Seventh Street'
   address2: ''
-  city: 'Stanford'
-  state: 'CA'
-  zip: '94305'
+  city: 'Bloomington'
+  state: 'IN'
+  zip: '47405-5500'
   country: 'USA'
-  phone: '(650) 725-1022'
-  contact_info: 'specialcollections@stanford.edu'
-  thumbnail_url: 'https://library.stanford.edu/sites/default/files/styles/150x150/public/collection/image/Collections-Super-Enlight.jpg'
+  phone: '(812) 855-2452'
+  contact_info: 'liblilly@indiana.edu'
+  thumbnail_url: 'https://libraries.indiana.edu/sites/default/files/iu_feature/Lilly%20Library.exteror.web_.jpg'
   request_types:
     aeon_web_ead:
       request_url: 'https://sample.request.com'
       request_mappings: 'Action=10&Form=31&Value=ead_url'
-umich-bhl:
-  name: 'University of Michigan. Bentley Historical Library'
-  description: 'The Bentley Historical Library collects the materials for and promotes the study of the histories of two great, intertwined institutions, the State of Michigan and the University of Michigan. The Library is open without fee to the public, and we welcome researchers regardless of academic or professional affiliation.'
+archives:
+  name: 'University Archives'
+  visit_note: ''
+  description: 'The Indiana University Archives is the largest and most comprehensive source of information on the history and culture of IU. This site includes finding aids for the records of university and campus organizations as well as the personal papers of IU faculty, staff, and alumni.'
   building: ''
-  address1: '1150 Beal Ave'
+  address1: '1320 East Tenth Street'
   address2: ''
-  city: 'Ann Arbor'
-  state: 'MI'
-  zip: '48109-2113'
-  country: 'USA'
-  phone: ''
-  contact_info: 'bentley.ref@umich.edu'
-  thumbnail_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Bhlexterior.jpg/150px-Bhlexterior.jpg'
-  request_types:
-    aeon_external_request_endpoint:
-      request_url: https://example.com/aeon/aeon.dll
-      request_mappings:
-        url_params:
-          Action: 11
-          Type: 200
-        static:
-          SystemId: ArcLight
-          ItemInfo1: manuscript
-        accessor:
-          ItemTitle: collection_name
+  city: 'Bloomington'
+  state: 'IN'
+  zip: '47405-7000'
+  country: 'United States'
+  phone: '812-855-1127'
+  contact_info: 'archives@indiana.edu'
+  thumbnail_url: "https://libraries.indiana.edu/sites/default/files/styles/iu_one_third_standard/public/LARGE_archives.jpg?itok=yM3aAt4l"
