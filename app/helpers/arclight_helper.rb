@@ -19,7 +19,8 @@ module ArclightHelper
   ##
   # @param [SolrDocument]
   def parents_to_links(document)
-    breadcrumb_links = [add_campus_link(document)]
+    breadcrumb_links = []
+    breadcrumb_links << add_campus_link(document) unless document.campus.nil?
     breadcrumb_links << build_repository_link(document)
     breadcrumb_links << document_parents(document).map do |parent|
       link_to parent.label, solr_document_path(parent.global_id)
@@ -36,7 +37,8 @@ module ArclightHelper
   #    shown in the mockup above. The repository and the collection parts are
   #    linked as usual; the ellipses is not linked.
   def regular_compact_breadcrumbs(document)
-    breadcrumb_links = [add_campus_link(document)]
+    breadcrumb_links = []
+    breadcrumb_links << add_campus_link(document) unless document.campus.nil?
     breadcrumb_links << build_repository_link(document)
 
     parents = document_parents(document)
@@ -336,7 +338,6 @@ module ArclightHelper
 
     # TODO - convert to link when campus route is added
     def add_campus_link(document)
-      # TODO campus doesn't seem to be part of this document
       content_tag(:span, convert_campus_id(document.campus))
     end
 end
