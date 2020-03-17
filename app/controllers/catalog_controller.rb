@@ -49,19 +49,19 @@ class CatalogController < ApplicationController
     config.show.display_type_field = 'level_ssm'
     # config.show.thumbnail_field = 'thumbnail_path_ss'
 
-    config.add_results_document_tool(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
+    # config.add_results_document_tool(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
 
     config.add_results_collection_tool(:sort_widget)
     config.add_results_collection_tool(:per_page_widget)
     config.add_results_collection_tool(:view_type_group)
 
-    config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
+    # config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
     config.add_show_tools_partial(:email, callback: :email_action, validator: :validate_email_params)
     config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :validate_sms_params)
     config.add_show_tools_partial(:citation)
 
-    config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
-    config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
+    # config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
+    # config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -219,8 +219,8 @@ class CatalogController < ApplicationController
     # Configuration for index actions
     config.index.document_actions << :containers
     config.index.document_actions << :online_content_label
-    config.add_results_document_tool :arclight_bookmark_control, partial: 'arclight_bookmark_control'
-    config.index.document_actions.delete(:bookmark)
+    # config.add_results_document_tool :arclight_bookmark_control, partial: 'arclight_bookmark_control'
+    # config.index.document_actions.delete(:bookmark)
 
     config.show.metadata_partials = %i[
       summary_field
@@ -367,7 +367,7 @@ class CatalogController < ApplicationController
     config.add_contact_field 'repository_ssm', if: :repository_config_present, label: 'Contact', helper_method: :access_repository_contact
 
     # Remove unused show document actions
-    %i[citation email sms].each do |action|
+    %i[citation email sms bookmark].each do |action|
       config.view_config(:show).document_actions.delete(action)
     end
 
