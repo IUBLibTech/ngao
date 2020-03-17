@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     concerns :range_searchable
 
   end
-  devise_for :users
+
+  # DISABLE DEVISE ROUTES
+  # devise_for :users
+  
   concern :exportable, Blacklight::Routes::Exportable.new
 
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
