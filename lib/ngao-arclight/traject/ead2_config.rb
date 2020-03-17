@@ -1,3 +1,7 @@
+##### COPIED FROM ARCLIGHT TO ADD CUSTOM INDEXING     #####
+##### REMOVED COLLECTION FROM CHILD COMPONENTS LEVELS #####
+##### ADDED CAMPUS TO INDEXING                        #####
+
 # frozen_string_literal: true
 
 require 'logger'
@@ -404,6 +408,7 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
     accumulator << record.attribute('id')
   end
 
+  ##### DON'T INDEX LEVEL=COLLECTION FOR CHILD COMPONENTS #####
   to_field 'level_ssm' do |record, accumulator|
     level = record.attribute('level')&.value
     other_level = record.attribute('otherlevel')&.value

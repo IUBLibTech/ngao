@@ -6,8 +6,8 @@
 require 'arclight'
 require 'benchmark'
 
-# Override default arclight:index task to point to NGAO-Arclight
-# indexing rules (ead2_config.rb) instead.
+##### Override default arclight:index task to point to #####
+##### NGAO-Arclight indexing rules (ead2_config.rb).   #####
 Rake::Task['arclight:index'].clear
 
 namespace :arclight do
