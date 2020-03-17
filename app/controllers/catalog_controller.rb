@@ -107,7 +107,7 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field 'unitid_ssm', label: 'Unit ID'
     config.add_index_field 'repository_ssm', label: 'Repository'
-    config.add_index_field 'campus_unit_ssm', label: 'Campus Unit', helper_method: :render_campus_name
+    config.add_index_field 'campus_unit_ssm', label: 'Campus', helper_method: :render_campus_name
     config.add_index_field 'normalized_date_ssm', label: 'Date'
     config.add_index_field 'creator_ssm', label: 'Creator'
     config.add_index_field 'language_ssm', label: 'Language'
@@ -366,7 +366,7 @@ class CatalogController < ApplicationController
     config.add_cite_field 'prefercite_ssm', label: 'Preferred citation', helper_method: :render_html_tags
 
     # Collection and Component Show Page Access Tab - Contact Section
-    config.add_contact_field 'campus_unit_ssm', label: 'Campus Unit', helper_method: :render_campus_name
+    config.add_contact_field 'campus_unit_ssm', label: 'Campus', helper_method: :render_campus_name
     config.add_contact_field 'repository_ssm', if: :repository_config_present, label: 'Contact', helper_method: :access_repository_contact
 
     # Remove unused show document actions
