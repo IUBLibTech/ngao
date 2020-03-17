@@ -70,27 +70,6 @@ end
 # Top level document
 # ==================
 
-##### ADD CAMPUS UNIT FOR NGAO #####
-to_field 'campus_unit_ssm' do |record, accumulator|
-  campus_unit = record.at_xpath('/ead/eadheader/eadid').attribute('mainagencycode')&.value
-  accumulator << campus_unit
-end
-
-to_field 'campus_unit_sim' do |record, accumulator|
-  campus_unit = record.at_xpath('/ead/eadheader/eadid').attribute('mainagencycode')&.value
-  accumulator << campus_unit
-end
-
-to_field 'campus_unit_ssim' do |record, accumulator|
-  campus_unit = record.at_xpath('/ead/eadheader/eadid').attribute('mainagencycode')&.value
-  accumulator << campus_unit
-end
-
-to_field 'campus_unit_teim' do |record, accumulator|
-  campus_unit = record.at_xpath('/ead/eadheader/eadid').attribute('mainagencycode')&.value
-  accumulator << campus_unit
-end
-
 to_field 'id', extract_xpath('/ead/eadheader/eadid'), strip, gsub('.', '-')
 to_field 'title_filing_si', extract_xpath('/ead/eadheader/filedesc/titlestmt/titleproper[@type="filing"]')
 to_field 'title_ssm', extract_xpath('/ead/archdesc/did/unittitle')
@@ -255,6 +234,27 @@ to_field 'language_sim', extract_xpath('/ead/archdesc/did/langmaterial')
 to_field 'language_ssm', extract_xpath('/ead/archdesc/did/langmaterial')
 
 to_field 'descrules_ssm', extract_xpath('/ead/eadheader/profiledesc/descrules')
+
+##### ADD CAMPUS UNIT FOR NGAO #####
+to_field 'campus_unit_ssm' do |record, accumulator|
+  campus_unit = record.at_xpath('/ead/eadheader/eadid').attribute('mainagencycode')&.value
+  accumulator << campus_unit
+end
+
+to_field 'campus_unit_sim' do |record, accumulator|
+  campus_unit = record.at_xpath('/ead/eadheader/eadid').attribute('mainagencycode')&.value
+  accumulator << campus_unit
+end
+
+to_field 'campus_unit_ssim' do |record, accumulator|
+  campus_unit = record.at_xpath('/ead/eadheader/eadid').attribute('mainagencycode')&.value
+  accumulator << campus_unit
+end
+
+to_field 'campus_unit_teim' do |record, accumulator|
+  campus_unit = record.at_xpath('/ead/eadheader/eadid').attribute('mainagencycode')&.value
+  accumulator << campus_unit
+end
 
 # =============================
 # Each component child document
