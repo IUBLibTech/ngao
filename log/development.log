@@ -210,3 +210,204 @@ Solr fetch (131.8ms)
 Completed 200 OK in 257ms (Views: 121.2ms | ActiveRecord: 0.3ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+Migrating to CreateSearches (20200310151757)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "searches" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "query_params" blob, "user_id" integer, "user_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200310151757_create_searches.blacklight.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_searches_on_user_id" ON "searches" ("user_id")[0m
+  ↳ db/migrate/20200310151757_create_searches.blacklight.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151757"]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+Migrating to CreateBookmarks (20200310151758)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "bookmarks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "user_type" varchar, "document_id" varchar, "document_type" varchar, "title" blob, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200310151758_create_bookmarks.blacklight.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_bookmarks_on_user_id" ON "bookmarks" ("user_id")[0m
+  ↳ db/migrate/20200310151758_create_bookmarks.blacklight.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_bookmarks_on_document_id" ON "bookmarks" ("document_id")[0m
+  ↳ db/migrate/20200310151758_create_bookmarks.blacklight.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (4.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151758"]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+Migrating to AddPolymorphicTypeToBookmarks (20200310151759)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[36mActiveRecord::SchemaMigration Create (6.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151759"]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+Migrating to DeviseCreateUsers (20200310151807)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200310151807_devise_create_users.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200310151807_devise_create_users.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20200310151807_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151807"]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+Migrating to AddDeviseGuestsToUsers (20200310151809)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (6.0ms)[0m  [1m[35mALTER TABLE "users" ADD "guest" boolean DEFAULT 0[0m
+  ↳ db/migrate/20200310151809_add_devise_guests_to_users.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151809"]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[36mActiveRecord::InternalMetadata Create (8.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-21 21:49:42.012543"], ["updated_at", "2020-03-21 21:49:42.012543"]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (15.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rake-13.0.1/lib/rake/task.rb:281
+Started GET "/" for 172.18.0.5 at 2020-03-21 21:52:00 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97
+Processing by CatalogController#index as HTML
+Completed 500 Internal Server Error in 492ms (ActiveRecord: 0.0ms)
+
+
+  
+Blacklight::Exceptions::InvalidRequest (RSolr::Error::Http - 500 Internal Server Error
+Error: {
+  "error":{
+    "metadata":[
+      "error-class","org.apache.solr.core.SolrCoreInitializationException",
+      "root-error-class","java.lang.ClassNotFoundException"],
+    "msg":"SolrCore 'ngao' is not available due to init failure: Could not load conf for core ngao: Can't load schema /opt/solr/server/solr/mycores/ngao/schema.xml: Plugin init failure for [schema.xml] fieldType \"_nest_path_\": Error loading class 'solr.NestPathField'",
+    "trace":"org.apache.solr.core.SolrCoreInitializationException: SolrCore 'ngao' is not available due to init failure: Could not load conf for core ngao: Can't load schema /opt/solr/server/solr/mycores/ngao/schema.xml: Plugin init failure for [schema.xml] fieldType \"_nest_path_\": Error loading class 'solr.NestPathField'\n\tat org.apache.solr.core.CoreContainer.getCore(CoreContainer.java:1653)\n\tat org.apache.solr.servlet.HttpSolrCall.init(HttpSolrCall.java:249)\n\tat org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:469)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:395)\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:341)\n\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1602)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:540)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1588)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1345)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:480)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1557)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1247)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)\n\tat org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)\n\tat org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\n\tat org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:335)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:502)\n\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)\n\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)\n\tat org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)\n\tat org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)\n\tat org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)\n\tat java.base/java.lang.Thread.run(Thread.java:834)\nCaused by: org.apache.solr.common.SolrException: Could not load conf for core ngao: Can't load schema /opt/solr/server/solr/mycores/ngao/schema.xml: Plugin init failure for [schema.xml] fieldType \"_nest_path_\": Error loading class 'solr.NestPathField'\n\tat org.apache.solr.core.ConfigSetService.getConfig(ConfigSetService.java:97)\n\tat org.apache.solr.core.CoreContainer.getConfigSet(CoreContainer.java:1236)\n\tat org.apache.solr.core.CoreContainer.createFromDescriptor(CoreContainer.java:1183)\n\tat org.apache.solr.core.CoreContainer.lambda$load$13(CoreContainer.java:699)\n\tat com.codahale.metrics.InstrumentedExecutorService$InstrumentedCallable.call(InstrumentedExecutorService.java:197)\n\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)\n\tat org.apache.solr.common.util.ExecutorUtil$MDCAwareThreadPoolExecutor.lambda$execute$0(ExecutorUtil.java:209)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\t... 1 more\nCaused by: org.apache.solr.common.SolrException: Can't load schema /opt/solr/server/solr/mycores/ngao/schema.xml: Plugin init failure for [schema.xml] fieldType \"_nest_path_\": Error loading class 'solr.NestPathField'\n\tat org.apache.solr.schema.IndexSchema.readSchema(IndexSchema.java:590)\n\tat org.apache.solr.schema.IndexSchema.<init>(IndexSchema.java:180)\n\tat org.apache.solr.schema.IndexSchemaFactory.create(IndexSchemaFactory.java:56)\n\tat org.apache.solr.schema.IndexSchemaFactory.buildIndexSchema(IndexSchemaFactory.java:75)\n\tat org.apache.solr.core.ConfigSetService.createIndexSchema(ConfigSetService.java:119)\n\tat org.apache.solr.core.ConfigSetService.getConfig(ConfigSetService.java:92)\n\t... 9 more\nCaused by: org.apache.solr.common.SolrException: Plugin init failure for [schema.xml] fieldType \"_nest_path_\": Error loading class 'solr.NestPathField'\n\tat org.apache.solr.util.plugin.AbstractPluginLoader.load(AbstractPluginLoader.java:182)\n\tat org.apache.solr.schema.IndexSchema.readSchema(IndexSchema.java:481)\n\t... 14 more\nCaused by: org.apache.solr.common.SolrException: Error loading class 'solr.NestPathField'\n\tat org.apache.solr.core.SolrResourceLoader.findClass(SolrResourceLoader.java:557)\n\tat org.apache.solr.core.SolrResourceLoader.newInstance(SolrResourceLoader.java:626)\n\tat org.apache.solr.core.SolrResourceLoader.newInstance(SolrResourceLoader.java:591)\n\tat org.apache.solr.core.SolrResourceLoader.newInstance(SolrResourceLoader.java:584)\n\tat org.apache.solr.schema.FieldTypePluginLoader.create(FieldTypePluginLoader.java:90)\n\tat org.apache.solr.schema.FieldTypePluginLoader.create(FieldTypePluginLoader.java:53)\n\tat org.apache.solr.util.plugin.AbstractPluginLoader.load(AbstractPluginLoader.java:152)\n\t... 15 more\nCaused by: java.lang.ClassNotFoundException: solr.NestPathField\n\tat java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:471)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:588)\n\tat java.base/java.net.FactoryURLClassLoader.loadClass(URLClassLoader.java:899)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)\n\tat java.base/java.lang.Class.forName0(Native Method)\n\tat java.base/java.lang.Class.forName(Class.java:398)\n\tat org.apache.solr.core.SolrResourceLoader.findClass(SolrResourceLoader.java:541)\n\t... 21 more\n",
+    "code":500}}
+
+URI: http://solr:8983/solr/ngao/select?wt=json&facet.field=collection_sim&facet.field=creator_ssim&facet.field=creators_ssim&facet.field=date_range_sim&facet.field=level_sim&facet.field=names_ssim&facet.field=repository_sim&facet.field=geogname_sim&facet.field=places_ssim&facet.field=access_subjects_ssim&facet.field=campus_unit_sim&facet.query=has_online_content_ssim%3Atrue&&&hl.fl=text&rows=10&facet=true&f.collection_sim.facet.limit=11&f.creator_ssim.facet.limit=11&f.level_sim.facet.limit=11&f.names_ssim.facet.limit=11&f.repository_sim.facet.limit=11&f.geogname_sim.facet.limit=11&f.access_subjects_ssim.facet.limit=11&sort=score+desc%2C+title_sort+asc&hl=true&hl.snippets=3&stats=true&stats.field=date_range_sim
+
+Backtrace: /usr/local/rvm/gems/ruby-2.6.5/gems/rsolr-2.3.0/lib/rsolr/client.rb:206:in `rescue in execute'
+/usr/local/rvm/gems/ruby-2.6.5/gems/rsolr-2.3.0/lib/rsolr/client.rb:196:in `execute'
+/usr/local/rvm/gems/ruby-2.6.5/gems/rsolr-2.3.0/lib/rsolr/client.rb:191:in `send_and_receive'
+/usr/local/rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/lib/blacklight/solr/repository.rb:62:in `block in send_and_receive'
+/usr/local/rvm/gems/ruby-2.6.5/gems/activesupport-5.2.4.1/lib/active_support/benchmarkable.rb:43:in `block in benchmark'
+/usr/local/rvm/gems/ruby-2.6.5/gems/activesupport-5.2.4.1/lib/active_support/core_ext/benchmark.rb:14:in `block in ms'
+/usr/local/rvm/rubies/ruby-2.6.5/lib/ruby/2.6.0/benchmark.rb:308:in `realtime'
+/usr/local/rvm/gems/ruby-2.6.5/gems/activesupport-5.2.4.1/lib/active_support/core_ext/benchmark.rb:14:in `ms'
+/usr/local/rvm/gems/ruby-2.6.5/gems/activesupport-5.2.4.1/lib/active_support/benchmarkable.rb:43:in `benchmark'
+/usr/local/rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/lib/blacklight/solr/repository.rb:60:in `send_and_receive'
+/usr/local/rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/lib/blacklight/solr/repository.rb:23:in `search'):
+  
+blacklight (7.7.0) lib/blacklight/solr/repository.rb:73:in `rescue in send_and_receive'
+blacklight (7.7.0) lib/blacklight/solr/repository.rb:59:in `send_and_receive'
+blacklight (7.7.0) lib/blacklight/solr/repository.rb:23:in `search'
+blacklight (7.7.0) app/services/blacklight/search_service.rb:29:in `search_results'
+blacklight (7.7.0) app/controllers/concerns/blacklight/catalog.rb:27:in `index'
+actionpack (5.2.4.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.4.1) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.4.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.4.1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.4.1) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.4.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.4.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.4.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.4.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.4.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.4.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.4.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.4.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.4.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.4.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.4.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.4.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.4.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.4.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.4.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.4.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.4.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.4.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.4.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.4.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.1) lib/rails/engine.rb:524:in `call'
+/usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+/usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+/usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+/usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:415:in `block (3 levels) in start_threads'
+/usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+Started GET "/" for 172.18.0.3 at 2020-03-21 22:05:06 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97
+Processing by CatalogController#index as HTML
+Solr query: get select {"qt"=>nil, "facet.field"=>["collection_sim", "creator_ssim", "creators_ssim", "date_range_sim", "level_sim", "names_ssim", "repository_sim", "geogname_sim", "places_ssim", "access_subjects_ssim", "campus_unit_sim"], "facet.query"=>["has_online_content_ssim:true"], "facet.pivot"=>[], "fq"=>[], "hl.fl"=>"text", "rows"=>10, "facet"=>true, "f.collection_sim.facet.limit"=>11, "f.creator_ssim.facet.limit"=>11, "f.level_sim.facet.limit"=>11, "f.names_ssim.facet.limit"=>11, "f.repository_sim.facet.limit"=>11, "f.geogname_sim.facet.limit"=>11, "f.access_subjects_ssim.facet.limit"=>11, "sort"=>"score desc, title_sort asc", "hl"=>true, "hl.snippets"=>3, "stats"=>"true", "stats.field"=>["date_range_sim"]}
+Solr fetch (473.8ms)
+  Rendering /usr/local/rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/index.html.erb within layouts/blacklight
+  Rendered /usr/local/rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_home.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/index.html.erb within layouts/blacklight (14.4ms)
+  Rendering /usr/local/rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb
+  Rendered layouts/_branding_bar.html.erb (5.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/shared/_main_menu_links.html.erb (6.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_within_collection_dropdown.html.erb (0.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.5/bundler/gems/arclight-a4aff512bb81/app/views/catalog/_search_form.html.erb (37.7ms)
+  Rendered shared/_header_navbar.html.erb (74.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_flash_msg.html.erb (7.7ms)
+  Rendered shared/_footer.html.erb (6.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/shared/_modal.html.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.5/gems/blacklight-7.7.0/app/views/layouts/blacklight/base.html.erb (7134.6ms)
+Completed 200 OK in 7719ms (Views: 7178.8ms | ActiveRecord: 0.0ms)
+
+

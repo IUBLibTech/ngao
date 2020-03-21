@@ -65,6 +65,7 @@ gem 'arclight', github: 'sul-dlss/arclight'
 gem 'blacklight_range_limit', '~> 7.1'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
+  gem 'nulldb'
 end
 
 gem 'rsolr', '>= 1.0', '< 3'
@@ -74,3 +75,4 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'blacklight-locale_picker'
+gem 'activerecord-nulldb-adapter'

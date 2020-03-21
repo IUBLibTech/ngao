@@ -1,0 +1,24 @@
+version: '2.1'
+services:
+  web:
+    image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG:-master}"
+    environment:
+      - RAILS_ENV=production
+      - RACK_ENV=production
+      - PASSENGER_APP_ENV=production
+    restart: unless-stopped
+    ports:
+      - "80"
+    labels:
+      rap.host: ${SITE_URI}
+      rap.le_host: ${SITE_URI}
+      rap.le_test: true
+      io.rancher.container.pull_image: always
+    env_file:
+      - .env
+      - .env.production
+
+  solr:
+
+  
+

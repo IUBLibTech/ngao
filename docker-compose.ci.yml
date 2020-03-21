@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  web:
+    image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG:-master}"
+    env_file:
+      - .env
+      rap.host: ${SITE_URI}
+      rap.le_host: ${SITE_URI}
+      rap.le_test: true
+      io.rancher.container.pull_image: always
+    ports:
+      - "80"
+    depends_on:
+
