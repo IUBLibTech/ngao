@@ -49,6 +49,8 @@ group :development, :test do
   gem 'simplecov', require: false
 
   gem 'database_cleaner'
+  gem 'factory_bot'
+  gem 'rails-controller-testing'
 
   gem 'rubocop'
   gem 'rubocop-rspec'

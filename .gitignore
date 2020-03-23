@@ -12,6 +12,7 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
+log/development.log
 /log/*
 /tmp/*
 !/log/.keep
@@ -34,4 +35,6 @@
 /.vscode
 .idea
 .generators
-log/development.log
+
+#ignore coverage report
+/coverage/*
