@@ -11,12 +11,11 @@ metadata:
   annotations:
     # This is what defines this resource as a hook. Without this line, the
     # job is considered part of the release.
-    # If the job takes a long time (eg. because it's waiting for solr to come up)
-    # the job may fail because of this, and leave you with a running cluster, but 
-    # no helm release, which is difficult to rescue from
-    "helm.sh/hook": post-install
-    "helm.sh/hook-weight": "-5"
-    "helm.sh/hook-delete-policy": hook-succeeded
+    # These will cause the job to timeout and cause the release to fail
+    # and then the only way out is to do a full uninstall (volumes included)
+    # "helm.sh/hook": post-install
+    # "helm.sh/hook-weight": "-5"
+    # "helm.sh/hook-delete-policy": hook-succeeded
 spec:
   backoffLimit: 4
   template:
