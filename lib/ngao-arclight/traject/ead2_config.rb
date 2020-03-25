@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 ##### COPIED FROM ARCLIGHT TO ADD CUSTOM INDEXING     #####
 ##### REMOVED COLLECTION FROM CHILD COMPONENTS LEVELS #####
 ##### ADDED CAMPUS TO INDEXING                        #####
-
-# frozen_string_literal: true
 
 require 'logger'
 require 'traject'
@@ -90,7 +90,8 @@ to_field 'level_ssm' do |_record, accumulator|
   accumulator << 'collection'
 end
 
-# Keep the original top-level archdesc/@level for Level facet in addition to 'Collection'
+# Keep the original top-level archdesc/@level for
+# Level facet in addition to 'Collection'
 to_field 'level_sim' do |record, accumulator|
   level = record.at_xpath('/ead/archdesc').attribute('level')&.value
   other_level = record.at_xpath('/ead/archdesc').attribute('otherlevel')&.value
@@ -412,7 +413,7 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
   to_field 'level_ssm' do |record, accumulator|
     level = record.attribute('level')&.value
     other_level = record.attribute('otherlevel')&.value
-    accumulator << Arclight::LevelLabel.new(level, other_level).to_s unless level == 'collection'
+    accumulator << Arclight::LevelLabel.new(level, other_level).to_s #unless level == 'collection'
   end
 
   to_field 'level_sim' do |_record, accumulator, context|

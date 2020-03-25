@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe 'Search Breadcrumb', type: :feature do
   context 'on regular search results' do
     it do

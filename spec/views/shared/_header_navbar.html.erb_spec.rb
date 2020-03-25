@@ -1,4 +1,3 @@
-require 'rails_helper'
 RSpec.describe 'shared/_header_navbar.html.erb', type: :view do
   context 'header' do
     before do
