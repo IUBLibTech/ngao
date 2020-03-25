@@ -413,7 +413,7 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
   to_field 'level_ssm' do |record, accumulator|
     level = record.attribute('level')&.value
     other_level = record.attribute('otherlevel')&.value
-    accumulator << Arclight::LevelLabel.new(level, other_level).to_s #unless level == 'collection'
+    accumulator << Arclight::LevelLabel.new(level, other_level).to_s unless level == 'collection'
   end
 
   to_field 'level_sim' do |_record, accumulator, context|
