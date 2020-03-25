@@ -1,0 +1,14 @@
+<%# COPIED FROM ARCLIGHT TO ADD CAMPUS LEVEL %>
+<h1 class="sr-only"><%= t('arclight.repositories') %></h1>
+
+<div class="al-repositories">
+  <% @page_title = t('arclight.views.repositories.title') %>
+  <%= render 'shared/breadcrumbs' %>
+  <%# ADDED CAMPUS LEVEL FOR DISPLAY %>
+  <% @campuses.each do |campus, repositories| %>
+    <h2><%= convert_campus_id(campus) %></h2>
+    <% repositories.each do |repository| %>
+      <%= render partial: 'repository', locals: { repository: repository } %>
+    <% end %>
+  <% end %>
+</div>
