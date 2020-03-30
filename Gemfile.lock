@@ -45,8 +45,6 @@ GEM
       activemodel (= 5.2.4.1)
       activesupport (= 5.2.4.1)
       arel (>= 9.0)
-    activerecord-nulldb-adapter (0.4.0)
-      activerecord (>= 2.0.0)
     activestorage (5.2.4.1)
       actionpack (= 5.2.4.1)
       activerecord (= 5.2.4.1)
@@ -187,6 +185,7 @@ GEM
     msgpack (1.3.3)
     multi_json (1.14.1)
     multipart-post (2.1.1)
+    mysql2 (0.5.3)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -336,7 +335,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-nulldb-adapter
   arclight!
   blacklight-locale_picker
   blacklight_range_limit (~> 7.1)
@@ -351,6 +349,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  mysql2
   nulldb
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.1)

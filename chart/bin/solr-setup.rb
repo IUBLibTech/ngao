@@ -111,4 +111,3 @@ SolrConfigUploader.default.upload(ENV.fetch('SOLR_CONFIGSET_SOURCE_PATH'))
 
 puts 'Creating the Solr Collection'
 CreateSolrCollection.new(ENV.fetch('SOLR_CONFIGSET')).create_solr_collection
-

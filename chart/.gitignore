@@ -1,4 +1,2 @@
 # Ignore *-values files
-*-values.yml
-chart/*-values.yml
-s
+*-values.y*ml
