@@ -1,45 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd"><eadheader countryencoding="iso3166-1" dateencoding="iso8601" findaidstatus="originaldraft" langencoding="iso639-2b" repositoryencoding="iso15511"><eadid>InU-Li-VAD7049</eadid><filedesc><titlestmt><titleproper>Slavic mss., <date calendar="gregorian" normal="1817/1947" era="ce">1817-1947</date> <num>LMC 1980</num></titleproper><subtitle>Papers of Various at the Lilly Library, Indiana University, Bloomington, Indiana</subtitle><author>Electronic finding aid encoded by Indiana University Libraries.</author></titlestmt><publicationstmt><publisher>Test</publisher><p><date>© 2017</date></p></publicationstmt><notestmt><note><p><date normal="2017">© 2017</date> Trustees of Indiana University. All rights reserved.</p></note></notestmt></filedesc><profiledesc><creation>This finding aid was produced using ArchivesSpace on <date>2020-03-10 11:54:26 -0400</date>.</creation><langusage>Description is in English.</langusage></profiledesc><revisiondesc><change audience="internal"><date>March 10, 2017</date><item>Encoded finding aid created.</item></change><change audience="internal"><date>October 31, 2017</date><item>Edits and rearrangement of content to create sections for abstract, bioghist, controlaccess, scopecontent, acquisitioninfo, related materials, and levels for container list were applied. Madison Chartier</item></change><change audience="internal"><date>April 27, 2018</date><item>Batch update to change subject links.</item></change></revisiondesc></eadheader><archdesc level="collection">
-  <did>
-    <repository>
-      <corpname>Test</corpname>
-    </repository>
-    <unittitle>Slavic mss.</unittitle>
-    <unitid>LMC 1980</unitid>
-    <physdesc altrender="whole">
-      <extent altrender="materialtype spaceoccupied">34 items</extent>
-      <extent altrender="carrier">(6 volumes 1 box 1 oversize)</extent>
-    </physdesc>
-    <unitdate calendar="gregorian" era="ce" normal="1817/1947" type="inclusive">1817-1947</unitdate>
-    <abstract id="aspace_7ddcc4115a332d23e77d3340c6accbf8">The Slavic mss., 1817-1947, consist of letters and documents of Russian and Czech political and literary figures.</abstract>
-    <langmaterial id="aspace_1ddc374ac784b5083a9c189e56e3badb">Materials are in <language langcode="eng">English</language>; <language langcode="cze">Czech</language>; <language langcode="rus">Russian</language>.</langmaterial>
-  </did>
-  <accessrestrict id="aspace_76fdd5e23aa6078f801739f159d47a00">
-    <head>Access Restrictions</head>
-<p>This collection is open for research.</p>  </accessrestrict>
-  <bioghist id="aspace_a1ce00ad9089765aab67391b38b855a6">
-    <head>Biographical Note</head>
-<p>Jan Garrigue Masaryk, 1886-1948, was a Czech diplomat, politician, and Foreign Minister of Czechoslovakia (1940-1948).</p><p> Tomáš Garrigue Masaryk, 1850-1937, was a Czech politician, sociologist, philosopher, and first President of Czechoslovokia.</p><p> Ivan Alekseevich Bunin, 1870-1953, was the first Russian writer awarded the Nobel Prize for Literature.</p><p> Nicholas I, 1796-1855, was Emperor of Russia (1825-1855).</p><p> Alexander I, 1777-1825, was Emperor of Russia (1801-1825).</p><p> Peter II, 1715-1730, was Emperor of Russia (1727-1730).</p>  </bioghist>
-  <scopecontent id="aspace_666e1112aebee3cb4fba1c011419c9bd">
-    <head>Scope and Content Note</head>
-<p>The Slavic mss., 1817-1947, consist of letters and documents of Russian and Czech political and literary figures.</p>  </scopecontent>
-  <acqinfo id="aspace_a950426ae4dafeddb2c1c930bbff0637">
-    <head>Acquisition Information</head>
-<p>Transfer, 1980-1981; Purchase, 2005.</p>  </acqinfo>
-  <userestrict id="aspace_2b53d81ba9edf6bda7b6d0c4fb2515e6">
-    <head>Usage Restrictions</head>
-<p>Prior arrangements are not necessary before coming to the Library. However, patrons from out of town are encouraged to communicate with the Library in advance of their visits to ascertain availability of materials.</p><p> Photocopying permitted only with permission of the curator.</p>  </userestrict>
-  <prefercite id="aspace_3ed7878507f25046cfb054669ede8a7e">
-    <head>Preferred Citation</head>
-<p>[Item], Slavic mss., Lilly Library, Indiana University, Bloomington, Indiana.</p>  </prefercite>
-  <controlaccess>
-    <persname audience="internal" source="lcnaf">Nicholas I, Emperor of Russia, 1796-1855</persname>
-    <persname audience="internal" source="lcnaf">Alexander I, Emperor of Russia, 1777-1825</persname>
-    <persname audience="internal" source="lcnaf">Peter II, Emperor of Russia, 1715-1730</persname>
-    <persname audience="internal" source="lcnaf">Masaryk, Jan, 1886-1948</persname>
-    <persname audience="internal" source="lcnaf">Masaryk, T. G. (Tomáš Garrigue), 1850-1937</persname>
-    <persname audience="internal" source="lcnaf">Bunin, Ivan Alekseevich, 1870-1953</persname>
-  </controlaccess>
-  <dsc><c01 id="aspace_VAD7049-00001" level="collection"><did><unittitle>Slavic mss.</unittitle></did><c02 id="aspace_VAD7049-00002" level="item"><did><unittitle>(folio). Alexander I. Certificate of promotion...</unittitle><unitdate normal="1817/1817">1817</unitdate><container id="aspace_9779fe4023c888fc5595d61cdcd85f5b" label="bound" type="bound">1</container></did></c02><c02 id="aspace_VAD7049-00003" level="item"><did><unittitle>(facsimile - folio). Peter II. [the mountain wreath]</unittitle><unitdate>n.d.</unitdate></did></c02><c02 id="aspace_VAD7049-00004" level="item"><did><unittitle>Nezval, Viteslav. Poem and photograph.</unittitle><unitdate normal="1956-06-24/1956-06-24">1956, June 24.</unitdate></did></c02><c02 id="aspace_VAD7049-00005" level="item"><did><unittitle>Petr Bezruč. <title render="italic">Siezskě pisně</title>.</unittitle><unitdate normal="1942/1942">1942.</unitdate></did></c02><c02 id="aspace_VAD7049-00006" level="item"><did><unittitle>Hitchcock, Edward B. <title render="italic">"He Was My Friend": The Story of Jan Masaryk</title>.</unittitle><unitdate>n.d.</unitdate></did></c02><c02 id="aspace_VAD7049-00007" level="item"><did><unittitle>Volume of Poetry by Dr. Fr. Prešéren.</unittitle><unitdate normal="1846-06-10/1846-06-10">1846, June 10.</unitdate></did></c02><c02 id="aspace_VAD7049-00008" level="recordgrp"><did><unittitle>Slavic papers</unittitle><container id="aspace_0220d471f12e54488e86cd6008624c9b" label="box" type="box">1</container></did><c03 id="aspace_VAD7049-00009" level="item"><did><unittitle>Volume. Rodokmen, Vladimira Vaška.</unittitle></did></c03><c03 id="aspace_VAD7049-00010" level="item"><did><unittitle>Volume. A. Sova/Rukopisy.</unittitle></did></c03><c03 id="aspace_VAD7049-00011" level="file"><did><unittitle>Masaryk, Tomáš Garrigue. To "Your Excellency."</unittitle><unitdate normal="1900-03-28/1900-03-28">1900, Mar. 28.</unitdate></did></c03><c03 id="aspace_VAD7049-00012" level="file"><did><unittitle>Masaryk, Tomáš Garrigue. To [?]</unittitle><unitdate normal="1895-10-20/1895-10-20">1895, Oct. 20.</unitdate></did></c03><c03 id="aspace_VAD7049-00013" level="file"><did><unittitle>Masaryk, Tomáš Garrigue. To Gruber, Josef.</unittitle><unitdate normal="1907-01-16/1907-01-16">1907, Jan. 16.</unitdate></did></c03><c03 id="aspace_VAD7049-00014" level="file"><did><unittitle>Yudin, A. [?]. To [?].</unittitle><unitdate normal="1919-12-26/1919-12-26">1919, Dec. 26.</unitdate></did></c03><c03 id="aspace_VAD7049-00015" level="file"><did><unittitle>Bunin, I.A. To his publisher.</unittitle><unitdate normal="1921/1921">1921.</unitdate></did></c03><c03 id="aspace_VAD7049-00016" level="file"><did><unittitle>Masaryk, Tomáš Garrigue. To Fondu legioná...</unittitle><unitdate normal="1920-04-22/1920-04-22">1920, Apr. 22.</unitdate></did></c03><c03 id="aspace_VAD7049-00017" level="file"><did><unittitle>Masaryk, Jan Garrigue. To Templewood, Samuel J.G. Hoare, 1st viscount.</unittitle><unitdate normal="1938-10-14/1938-10-14">1938, Oct. 14.</unitdate></did></c03><c03 id="aspace_VAD7049-00018" level="file"><did><unittitle>Masaryk, Jan Garrigue. To Ministerstvu zahranicnich veci, [Prague].</unittitle><unitdate normal="1938-10-14/1938-10-14">1938, Oct. 14.</unitdate></did></c03><c03 id="aspace_VAD7049-00019" level="file"><did><unittitle>Masaryk, Jan Garrigue. "Ani opona, ani most..."</unittitle><unitdate normal="1947-03-20/1947-03-20">1947, Mar. 20.</unitdate></did></c03><c03 id="aspace_VAD7049-00020" level="file"><did><unittitle>Bunin, I.A. <title render="doublequote">Neskol'ko slov angliis-komu pisateliu.</title></unittitle><unitdate>n.d.</unitdate></did></c03><c03 id="aspace_VAD7049-00021" level="file"><did><unittitle>Bunin, I.A. <title render="doublequote">O Gorkom.</title></unittitle><unitdate>n.d.</unitdate></did></c03><c03 id="aspace_VAD7049-00022" level="file"><did><unittitle>Kuprin, A.I. <title render="doublequote">Leinn: opyt kharak-teristiki.</title></unittitle><unitdate>n.d.</unitdate></did></c03><c03 id="aspace_VAD7049-00023" level="file"><did><unittitle>Kuprin, A.I. <title render="doublequote">Pro drugoe.</title></unittitle><unitdate>n.d.</unitdate></did></c03><c03 id="aspace_VAD7049-00024" level="file"><did><unittitle>Remizov, A.M. iz knigi "zviezda dadzviez dnaia."</unittitle><unitdate>n.d.</unitdate></did></c03><c03 id="aspace_VAD7049-00025" level="item"><did><unittitle>Envelope of two coins bearing likeness of Masaryk, Tomáš Garrigue.</unittitle></did></c03></c02><c02 id="aspace_VAD7049-00026" level="item"><did><unittitle>(folio). Nicholas I. Certificate of promotion...</unittitle><unitdate normal="1826/1826">1826</unitdate><container id="aspace_f0714e564d2e15e83eda5ff189a2b649" label="oversize" type="oversize">1</container></did></c02></c01></dsc>
-</archdesc>
+<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd">
+  <eadheader countryencoding="iso3166-1" dateencoding="iso8601" findaidstatus="originaldraft"
+    langencoding="iso639-2b" repositoryencoding="iso15511">
+    <eadid countrycode="US" mainagencycode="US-InU">InU-Li-VAD7049</eadid>
+    <filedesc>
+      <titlestmt>
+        <titleproper>Slavic mss., <date calendar="gregorian" normal="1817/1947" era="ce"
+            >1817-1947</date>
+          <num>LMC 1980</num></titleproper>
+        <subtitle>Papers of Various at the Lilly Library, Indiana University, Bloomington,
+          Indiana</subtitle>
+        <author>Electronic finding aid encoded by Indiana University Libraries.</author>
+      </titlestmt>
+      <publicationstmt>
+        <publisher>Test</publisher>
+        <p><date>© 2017</date></p>
+      </publicationstmt>
+      <notestmt>
+        <note>
+          <p><date normal="2017">© 2017</date> Trustees of Indiana University. All rights
+            reserved.</p>
+        </note>
+      </notestmt>
+    </filedesc>
+    <profiledesc>
+      <creation>This finding aid was produced using ArchivesSpace on <date>2020-03-10 11:54:26
+          -0400</date>.</creation>
+      <langusage>Description is in English.</langusage>
+    </profiledesc>
+    <revisiondesc>
+      <change audience="internal">
+        <date>March 10, 2017</date>
+        <item>Encoded finding aid created.</item>
+      </change>
+      <change audience="internal">
+        <date>October 31, 2017</date>
+        <item>Edits and rearrangement of content to create sections for abstract, bioghist,
+          controlaccess, scopecontent, acquisitioninfo, related materials, and levels for container
+          list were applied. Madison Chartier</item>
+      </change>
+      <change audience="internal">
+        <date>April 27, 2018</date>
+        <item>Batch update to change subject links.</item>
+      </change>
+    </revisiondesc>
+  </eadheader>
+  <archdesc level="collection">
+    <did>
+      <repository>
+        <corpname>Test</corpname>
+      </repository>
+      <unittitle>Slavic mss.</unittitle>
+      <unitid>LMC 1980</unitid>
+      <physdesc altrender="whole">
+        <extent altrender="materialtype spaceoccupied">34 items</extent>
+        <extent altrender="carrier">(6 volumes 1 box 1 oversize)</extent>
+      </physdesc>
+      <unitdate calendar="gregorian" era="ce" normal="1817/1947" type="inclusive"
+        >1817-1947</unitdate>
+      <abstract id="aspace_7ddcc4115a332d23e77d3340c6accbf8">The Slavic mss., 1817-1947, consist of
+        letters and documents of Russian and Czech political and literary figures.</abstract>
+      <langmaterial id="aspace_1ddc374ac784b5083a9c189e56e3badb">Materials are in <language
+          langcode="eng">English</language>; <language langcode="cze">Czech</language>; <language
+          langcode="rus">Russian</language>.</langmaterial>
+    </did>
+    <accessrestrict id="aspace_76fdd5e23aa6078f801739f159d47a00">
+      <head>Access Restrictions</head>
+      <p>This collection is open for research.</p>
+    </accessrestrict>
+    <bioghist id="aspace_a1ce00ad9089765aab67391b38b855a6">
+      <head>Biographical Note</head>
+      <p>Jan Garrigue Masaryk, 1886-1948, was a Czech diplomat, politician, and Foreign Minister of
+        Czechoslovakia (1940-1948).</p>
+      <p> Tomáš Garrigue Masaryk, 1850-1937, was a Czech politician, sociologist, philosopher, and
+        first President of Czechoslovokia.</p>
+      <p> Ivan Alekseevich Bunin, 1870-1953, was the first Russian writer awarded the Nobel Prize
+        for Literature.</p>
+      <p> Nicholas I, 1796-1855, was Emperor of Russia (1825-1855).</p>
+      <p> Alexander I, 1777-1825, was Emperor of Russia (1801-1825).</p>
+      <p> Peter II, 1715-1730, was Emperor of Russia (1727-1730).</p>
+    </bioghist>
+    <scopecontent id="aspace_666e1112aebee3cb4fba1c011419c9bd">
+      <head>Scope and Content Note</head>
+      <p>The Slavic mss., 1817-1947, consist of letters and documents of Russian and Czech political
+        and literary figures.</p>
+    </scopecontent>
+    <acqinfo id="aspace_a950426ae4dafeddb2c1c930bbff0637">
+      <head>Acquisition Information</head>
+      <p>Transfer, 1980-1981; Purchase, 2005.</p>
+    </acqinfo>
+    <userestrict id="aspace_2b53d81ba9edf6bda7b6d0c4fb2515e6">
+      <head>Usage Restrictions</head>
+      <p>Prior arrangements are not necessary before coming to the Library. However, patrons from
+        out of town are encouraged to communicate with the Library in advance of their visits to
+        ascertain availability of materials.</p>
+      <p> Photocopying permitted only with permission of the curator.</p>
+    </userestrict>
+    <prefercite id="aspace_3ed7878507f25046cfb054669ede8a7e">
+      <head>Preferred Citation</head>
+      <p>[Item], Slavic mss., Lilly Library, Indiana University, Bloomington, Indiana.</p>
+    </prefercite>
+    <controlaccess>
+      <persname audience="internal" source="lcnaf">Nicholas I, Emperor of Russia,
+        1796-1855</persname>
+      <persname audience="internal" source="lcnaf">Alexander I, Emperor of Russia,
+        1777-1825</persname>
+      <persname audience="internal" source="lcnaf">Peter II, Emperor of Russia, 1715-1730</persname>
+      <persname audience="internal" source="lcnaf">Masaryk, Jan, 1886-1948</persname>
+      <persname audience="internal" source="lcnaf">Masaryk, T. G. (Tomáš Garrigue),
+        1850-1937</persname>
+      <persname audience="internal" source="lcnaf">Bunin, Ivan Alekseevich, 1870-1953</persname>
+    </controlaccess>
+    <dsc>
+      <c01 id="aspace_VAD7049-00001" level="collection">
+        <did>
+          <unittitle>Slavic mss.</unittitle>
+        </did>
+        <c02 id="aspace_VAD7049-00002" level="item">
+          <did>
+            <unittitle>(folio). Alexander I. Certificate of promotion...</unittitle>
+            <unitdate normal="1817/1817">1817</unitdate>
+            <container id="aspace_9779fe4023c888fc5595d61cdcd85f5b" label="bound" type="bound"
+              >1</container>
+          </did>
+        </c02>
+        <c02 id="aspace_VAD7049-00003" level="item">
+          <did>
+            <unittitle>(facsimile - folio). Peter II. [the mountain wreath]</unittitle>
+            <unitdate>n.d.</unitdate>
+          </did>
+        </c02>
+        <c02 id="aspace_VAD7049-00004" level="item">
+          <did>
+            <unittitle>Nezval, Viteslav. Poem and photograph.</unittitle>
+            <unitdate normal="1956-06-24/1956-06-24">1956, June 24.</unitdate>
+          </did>
+        </c02>
+        <c02 id="aspace_VAD7049-00005" level="item">
+          <did>
+            <unittitle>Petr Bezruč. <title render="italic">Siezskě pisně</title>.</unittitle>
+            <unitdate normal="1942/1942">1942.</unitdate>
+          </did>
+        </c02>
+        <c02 id="aspace_VAD7049-00006" level="item">
+          <did>
+            <unittitle>Hitchcock, Edward B. <title render="italic">"He Was My Friend": The Story of
+                Jan Masaryk</title>.</unittitle>
+            <unitdate>n.d.</unitdate>
+          </did>
+        </c02>
+        <c02 id="aspace_VAD7049-00007" level="item">
+          <did>
+            <unittitle>Volume of Poetry by Dr. Fr. Prešéren.</unittitle>
+            <unitdate normal="1846-06-10/1846-06-10">1846, June 10.</unitdate>
+          </did>
+        </c02>
+        <c02 id="aspace_VAD7049-00008" level="recordgrp">
+          <did>
+            <unittitle>Slavic papers</unittitle>
+            <container id="aspace_0220d471f12e54488e86cd6008624c9b" label="box" type="box"
+              >1</container>
+          </did>
+          <c03 id="aspace_VAD7049-00009" level="item">
+            <did>
+              <unittitle>Volume. Rodokmen, Vladimira Vaška.</unittitle>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00010" level="item">
+            <did>
+              <unittitle>Volume. A. Sova/Rukopisy.</unittitle>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00011" level="file">
+            <did>
+              <unittitle>Masaryk, Tomáš Garrigue. To "Your Excellency."</unittitle>
+              <unitdate normal="1900-03-28/1900-03-28">1900, Mar. 28.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00012" level="file">
+            <did>
+              <unittitle>Masaryk, Tomáš Garrigue. To [?]</unittitle>
+              <unitdate normal="1895-10-20/1895-10-20">1895, Oct. 20.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00013" level="file">
+            <did>
+              <unittitle>Masaryk, Tomáš Garrigue. To Gruber, Josef.</unittitle>
+              <unitdate normal="1907-01-16/1907-01-16">1907, Jan. 16.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00014" level="file">
+            <did>
+              <unittitle>Yudin, A. [?]. To [?].</unittitle>
+              <unitdate normal="1919-12-26/1919-12-26">1919, Dec. 26.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00015" level="file">
+            <did>
+              <unittitle>Bunin, I.A. To his publisher.</unittitle>
+              <unitdate normal="1921/1921">1921.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00016" level="file">
+            <did>
+              <unittitle>Masaryk, Tomáš Garrigue. To Fondu legioná...</unittitle>
+              <unitdate normal="1920-04-22/1920-04-22">1920, Apr. 22.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00017" level="file">
+            <did>
+              <unittitle>Masaryk, Jan Garrigue. To Templewood, Samuel J.G. Hoare, 1st
+                viscount.</unittitle>
+              <unitdate normal="1938-10-14/1938-10-14">1938, Oct. 14.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00018" level="file">
+            <did>
+              <unittitle>Masaryk, Jan Garrigue. To Ministerstvu zahranicnich veci,
+                [Prague].</unittitle>
+              <unitdate normal="1938-10-14/1938-10-14">1938, Oct. 14.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00019" level="file">
+            <did>
+              <unittitle>Masaryk, Jan Garrigue. "Ani opona, ani most..."</unittitle>
+              <unitdate normal="1947-03-20/1947-03-20">1947, Mar. 20.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00020" level="file">
+            <did>
+              <unittitle>Bunin, I.A. <title render="doublequote">Neskol'ko slov angliis-komu
+                  pisateliu.</title></unittitle>
+              <unitdate>n.d.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00021" level="file">
+            <did>
+              <unittitle>Bunin, I.A. <title render="doublequote">O Gorkom.</title></unittitle>
+              <unitdate>n.d.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00022" level="file">
+            <did>
+              <unittitle>Kuprin, A.I. <title render="doublequote">Leinn: opyt
+                  kharak-teristiki.</title></unittitle>
+              <unitdate>n.d.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00023" level="file">
+            <did>
+              <unittitle>Kuprin, A.I. <title render="doublequote">Pro drugoe.</title></unittitle>
+              <unitdate>n.d.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00024" level="file">
+            <did>
+              <unittitle>Remizov, A.M. iz knigi "zviezda dadzviez dnaia."</unittitle>
+              <unitdate>n.d.</unitdate>
+            </did>
+          </c03>
+          <c03 id="aspace_VAD7049-00025" level="item">
+            <did>
+              <unittitle>Envelope of two coins bearing likeness of Masaryk, Tomáš
+                Garrigue.</unittitle>
+            </did>
+          </c03>
+        </c02>
+        <c02 id="aspace_VAD7049-00026" level="item">
+          <did>
+            <unittitle>(folio). Nicholas I. Certificate of promotion...</unittitle>
+            <unitdate normal="1826/1826">1826</unitdate>
+            <container id="aspace_f0714e564d2e15e83eda5ff189a2b649" label="oversize" type="oversize"
+              >1</container>
+          </did>
+        </c02>
+      </c01>
+    </dsc>
+  </archdesc>
 </ead>

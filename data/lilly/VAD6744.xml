@@ -1,51 +1,431 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd"><eadheader countryencoding="iso3166-1" dateencoding="iso8601" findaidstatus="originaldraft" langencoding="iso639-2b" repositoryencoding="iso15511"><eadid>InU-Li-VAD6744</eadid><filedesc><titlestmt><titleproper>McCutcheon/Dodd, Mead mss., <date calendar="gregorian" normal="1903/1944" era="ce">1903-1944</date> <num>LMC 1697</num> <num>LMC 1697</num></titleproper><subtitle>Papers of George Barr; Dodd, Mead and Company McCutcheon at the Lilly Library, Indiana University, Bloomington, Indiana</subtitle><author>Electronic finding aid encoded by Indiana University Libraries.</author></titlestmt><publicationstmt><publisher>Test</publisher><p><date>© 2017</date></p></publicationstmt><notestmt><note><p><date normal="2017">© 2017</date> Trustees of Indiana University. All rights reserved.</p></note></notestmt></filedesc><profiledesc><creation>This finding aid was produced using ArchivesSpace on <date>2020-03-10 11:53:43 -0400</date>.</creation><langusage>Description is in English.</langusage></profiledesc><revisiondesc><change audience="internal"><date>March 10, 2017</date><item>Encoded finding aid created.</item></change><change audience="internal"><date>April 2, 2019</date><item>Edits and rearrangement of content into requisite Lilly EAD structure, including addition of abstract, bioghist, scopecontent, controlaccess, and c01 levels of container list. Mahaley Evans.</item></change></revisiondesc></eadheader><archdesc level="collection">
-  <did>
-    <repository>
-      <corpname>Test</corpname>
-    </repository>
-    <unittitle>McCutcheon/Dodd, Mead mss.</unittitle>
-    <origination audience="internal" label="Creator">
-      <persname source="ingest">George Barr</persname>
-    </origination>
-    <origination audience="internal" label="Creator">
-      <corpname source="ingest">Dodd, Mead and Company McCutcheon</corpname>
-    </origination>
-    <unitid>LMC 1697</unitid>
-    <physdesc altrender="whole">
-      <extent altrender="materialtype spaceoccupied">224 items</extent>
-      <extent altrender="carrier">1 box</extent>
-    </physdesc>
-    <unitdate calendar="gregorian" era="ce" normal="1903/1944" type="inclusive">1903-1944</unitdate>
-    <abstract id="aspace_f0cdec59ef6b8f0fd8138b90328eccb4">The McCutcheon / Dodd, Mead mss., 1903-1944, consist of contracts and correspondence between author George Barr McCutcheon, 1866-1928, and his publisher Dodd, Mead &amp; Company.</abstract>
-    <langmaterial id="aspace_f28d044d7e7539b6c8ee6d6607047de6">Materials are in <language langcode="eng">English</language>.</langmaterial>
-  </did>
-  <accessrestrict id="aspace_ca91dc2681251fd8ac414a1d80fdcab6">
-    <head>Access Restrictions</head>
-<p>This collection is open for research.</p>  </accessrestrict>
-  <bioghist id="aspace_492d04f1e074f7198573263d306cb44e">
-    <head>Biographical Note</head>
-<p>George Barr McCutcheon was an American novelist and playwright. Born in Tippecanoe County, Indiana, he is considered among the authors of the Golden Age of Indiana Literature (1880-1920).</p>  </bioghist>
-  <scopecontent id="aspace_3eee518b032cf26bcbc37967957b8634">
-    <head>Scope and Content Note</head>
-<p>The main correspondents in the collection are McCutcheon and Edward Howard Dodd, 1869-1965, or Frank Courtenay Dodd, 1875-1968. The correspondence after 1928 is with Marie Van Antwerp Fay McCutcheon (Mrs. George Barr McCutcheon) or her son, William P. Fay.</p><p> Other materials include signed contracts for every title but two that Dodd, Mead published; assignments of copyright for several of the titles; and some correspondence re: film rights, serial rights, and foreign publication.</p><p> The first folder contains correspondence and contracts relating to more than one title or to miscellaneous topics. The other files are arranged alphabetically by title of publication and include correspondence about the specific title as well as contracts and copyright assignments when present.</p>  </scopecontent>
-  <acqinfo id="aspace_98f4b30f7232b6540b4e410f88a9c3d4">
-    <head>Acquisition Information</head>
-<p>Purchase: <date normal="1990">1990</date></p>  </acqinfo>
-  <userestrict id="aspace_149c7e5095746683f8bca6c0a2219367">
-    <head>Usage Restrictions</head>
-<p>Prior arrangements are not necessary before coming to the Library, however, patrons from out of town are encouraged to communicate with the Library in advance of their visits to ascertain availability of materials.</p><p> Photocopying permitted only with permission of the curator.</p>  </userestrict>
-  <prefercite id="aspace_6e03f45cbc1286108e51bcd11c577b22">
-    <head>Preferred Citation</head>
-<p>[Item], McCutcheon/Dodd, Mead mss., Lilly Library, Indiana University, Bloomington, Indiana.</p>  </prefercite>
-  <controlaccess>
-    <persname audience="internal" source="lcnaf">McCutcheon, George Barr, 1866-1928</persname>
-    <corpname audience="internal" source="lcnaf">Dodd, Mead and Company</corpname>
-    <persname audience="internal" source="lcnaf">Dodd, Edward Howard, 1869-1965</persname>
-    <persname audience="internal" source="lcnaf">Dodd, Frank Courtenay, 1875-1968</persname>
-    <persname audience="internal" source="lcnaf">McCutcheon, Marie Van Antwerp Fay</persname>
-    <persname audience="internal" source="lcnaf">Fay, William P.</persname>
-  </controlaccess>
-  <dsc><c01 id="aspace_VAD6744-00001" level="file"><did><unittitle>Correspondence, etc.</unittitle><unitdate normal="1905/1944" type="inclusive">1905-1944</unitdate><container id="aspace_812ee64c931583c117adf7ee473a811a" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00003" level="file"><did><unittitle>Anderson Crow, Detective</unittitle><container id="aspace_04d764ced45f6a949b2ab8b397b5903c" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00004" level="file"><did><unittitle>Beverley of Graustark</unittitle><container id="aspace_911256d83c25a14e2a2357f1d6a9d2fd" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00005" level="file"><did><unittitle>Black is White</unittitle><container id="aspace_51f7c5cbd4883a32d445507876c8afa1" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00006" level="file"><did><unittitle>Blades</unittitle><container id="aspace_ee2b63f9609d87d5164dbb0d8c3a04dd" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00007" level="file"><did><unittitle>Books Once were Men</unittitle><container id="aspace_c3905de9200a735436dd224547115b3b" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00008" level="file"><did><unittitle>Brewster's Millions</unittitle><container id="aspace_50156b50d978d3e6a2693e7e66718eb5" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00009" level="file"><did><unittitle>The Butterfly Man</unittitle><container id="aspace_f8de6418c457d75d46de2c9dab491f12" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00010" level="file"><did><unittitle>Castle Craneycrow</unittitle><container id="aspace_d5f5f888b02b7f93d7389d75d5c6b710" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00011" level="file"><did><unittitle>The City of Masks</unittitle><container id="aspace_0f12d63d2386f3706a8db69b139a011d" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00012" level="file"><did><unittitle>Cowardice Court</unittitle><container id="aspace_cdffea4e03321d17d4b4b34ab7f14240" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00013" level="file"><did><unittitle>The Daughter of Anderson Crow</unittitle><container id="aspace_1dbbdf77781a41103696821870f790a4" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00014" level="file"><did><unittitle>The Day of the Dog</unittitle><container id="aspace_da8477f843629131da67010f0a55f83f" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00015" level="file"><did><unittitle>East of the Setting Sun</unittitle><container id="aspace_a3136ec7336f27d8523a0f1138c6bf88" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00016" level="file"><did><unittitle>The Flyers</unittitle><container id="aspace_6c3551f4bfdced3215e901a40a251b2d" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00017" level="file"><did><unittitle>A Fool and his Money</unittitle><container id="aspace_46928eaff0d572ea709e8e099eff0e55" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00018" level="file"><did><unittitle>Graustark</unittitle><container id="aspace_ffc17a7e11fbe9b11669cc76200d9b15" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00019" level="file"><did><unittitle>Green Fancy</unittitle><container id="aspace_e5d19b12d1d1111b38b4ba8beadbd55b" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00020" level="file"><did><unittitle>Her Weight in Gold</unittitle><container id="aspace_b9c6b828fe379ea9ac78d00a820f5dff" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00021" level="file"><did><unittitle>The Hollow of Her Hand</unittitle><container id="aspace_d08c5558771971de0c17ba90cac7a389" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00022" level="file"><did><unittitle>The Husbands of Edith</unittitle><container id="aspace_a8296256397617e5564cff869e4efdcb" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00023" level="file"><did><unittitle>The Inn of the Hawk and Raven</unittitle><container id="aspace_0750920e76ee1811893acd77628804c4" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00024" level="file"><did><unittitle>Jane Cable</unittitle><container id="aspace_cf7cf7fbe92423ec9eb1cb0ed79afc62" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00025" level="file"><did><unittitle>Kindling and Ashes</unittitle><container id="aspace_a7d1c6cecd12f264ab657e9cfcf4bf1d" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00026" level="file"><did><unittitle>The Light that Lies</unittitle><container id="aspace_941b520b9a53de2797aaef160541781b" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00027" level="file"><did><unittitle>The Man from Brodneys</unittitle><container id="aspace_06e362dae600b9491cc40684df768dc3" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00028" level="file"><did><unittitle>Mary Midthorne</unittitle><container id="aspace_aa90f7fa06d88970aa5036a13d95795e" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00029" level="file"><did><unittitle>The Merivales</unittitle><container id="aspace_d0c457fd390ef8f7edac53d2066dec2d" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00030" level="file"><did><unittitle>Mr. Bingle</unittitle><container id="aspace_e18808a15935a54f8e9b9534cca04d72" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00031" level="file"><did><unittitle>Nedra</unittitle><container id="aspace_67123fcc6731eefffc3d29d6f644bac7" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00032" level="file"><did><unittitle>Oliver October</unittitle><container id="aspace_1198e3413205b410b241a58f9c725a59" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00033" level="file"><did><unittitle>The Prince of Graustark</unittitle><container id="aspace_4fc4f900bb80fb98034babc5149aff56" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00034" level="file"><did><unittitle>The Purple Parasol</unittitle><container id="aspace_88cdcc3f57901a827372d595e7c5868d" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00035" level="file"><did><unittitle>Quill's Window</unittitle><container id="aspace_d83fab830a14b05aa08bc854939d5ed6" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00036" level="file"><did><unittitle>Romeo in Moon Village</unittitle><container id="aspace_8ca2f0258191eb4f9e1c7b837301b0d3" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00037" level="file"><did><unittitle>The Rose in the Ring</unittitle><container id="aspace_f97d41a0e65495134da1577b74ade1f5" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00038" level="file"><did><unittitle>The Sherrods</unittitle><container id="aspace_1a9f7cea19e80c1b7351245f4f0c0a31" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00039" level="file"><did><unittitle>Sherry</unittitle><container id="aspace_af8c4db98fefea3f7f9d77de782c26de" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00040" level="file"><did><unittitle>Shot with Crimson</unittitle><container id="aspace_4265f681520b6c2d4ce5e57286434ff8" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00041" level="file"><did><unittitle>Truxton King</unittitle><container id="aspace_8cce6e0f99036a5de02b8066e6f5ff80" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00042" level="file"><did><unittitle>Viola Gwyn</unittitle><container id="aspace_ad5db27b4482532b71f8bbe41166fd76" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00043" level="file"><did><unittitle>West Wind Drift</unittitle><container id="aspace_8ff6374239f3d0c23c85fbfde6cf2881" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00044" level="file"><did><unittitle>What's-His-Name</unittitle><container id="aspace_ccdb640b178d88e9e33c44961e2cc420" label="box" type="box">1</container></did></c01><c01 id="aspace_VAD6744-00045" level="file"><did><unittitle>Yollop</unittitle><container id="aspace_4b885c243ae8e2617278353c58db3e52" label="box" type="box">1</container></did></c01></dsc>
-</archdesc>
+<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd">
+  <eadheader countryencoding="iso3166-1" dateencoding="iso8601" findaidstatus="originaldraft"
+    langencoding="iso639-2b" repositoryencoding="iso15511">
+    <eadid countrycode="US" mainagencycode="US-InU">InU-Li-VAD6744</eadid>
+    <filedesc>
+      <titlestmt>
+        <titleproper>McCutcheon/Dodd, Mead mss., <date calendar="gregorian" normal="1903/1944"
+            era="ce">1903-1944</date>
+          <num>LMC 1697</num>
+          <num>LMC 1697</num></titleproper>
+        <subtitle>Papers of George Barr; Dodd, Mead and Company McCutcheon at the Lilly Library,
+          Indiana University, Bloomington, Indiana</subtitle>
+        <author>Electronic finding aid encoded by Indiana University Libraries.</author>
+      </titlestmt>
+      <publicationstmt>
+        <publisher>Test</publisher>
+        <p><date>© 2017</date></p>
+      </publicationstmt>
+      <notestmt>
+        <note>
+          <p><date normal="2017">© 2017</date> Trustees of Indiana University. All rights
+            reserved.</p>
+        </note>
+      </notestmt>
+    </filedesc>
+    <profiledesc>
+      <creation>This finding aid was produced using ArchivesSpace on <date>2020-03-10 11:53:43
+          -0400</date>.</creation>
+      <langusage>Description is in English.</langusage>
+    </profiledesc>
+    <revisiondesc>
+      <change audience="internal">
+        <date>March 10, 2017</date>
+        <item>Encoded finding aid created.</item>
+      </change>
+      <change audience="internal">
+        <date>April 2, 2019</date>
+        <item>Edits and rearrangement of content into requisite Lilly EAD structure, including
+          addition of abstract, bioghist, scopecontent, controlaccess, and c01 levels of container
+          list. Mahaley Evans.</item>
+      </change>
+    </revisiondesc>
+  </eadheader>
+  <archdesc level="collection">
+    <did>
+      <repository>
+        <corpname>Test</corpname>
+      </repository>
+      <unittitle>McCutcheon/Dodd, Mead mss.</unittitle>
+      <origination audience="internal" label="Creator">
+        <persname source="ingest">George Barr</persname>
+      </origination>
+      <origination audience="internal" label="Creator">
+        <corpname source="ingest">Dodd, Mead and Company McCutcheon</corpname>
+      </origination>
+      <unitid>LMC 1697</unitid>
+      <physdesc altrender="whole">
+        <extent altrender="materialtype spaceoccupied">224 items</extent>
+        <extent altrender="carrier">1 box</extent>
+      </physdesc>
+      <unitdate calendar="gregorian" era="ce" normal="1903/1944" type="inclusive"
+        >1903-1944</unitdate>
+      <abstract id="aspace_f0cdec59ef6b8f0fd8138b90328eccb4">The McCutcheon / Dodd, Mead mss.,
+        1903-1944, consist of contracts and correspondence between author George Barr McCutcheon,
+        1866-1928, and his publisher Dodd, Mead &amp; Company.</abstract>
+      <langmaterial id="aspace_f28d044d7e7539b6c8ee6d6607047de6">Materials are in <language
+          langcode="eng">English</language>.</langmaterial>
+    </did>
+    <accessrestrict id="aspace_ca91dc2681251fd8ac414a1d80fdcab6">
+      <head>Access Restrictions</head>
+      <p>This collection is open for research.</p>
+    </accessrestrict>
+    <bioghist id="aspace_492d04f1e074f7198573263d306cb44e">
+      <head>Biographical Note</head>
+      <p>George Barr McCutcheon was an American novelist and playwright. Born in Tippecanoe County,
+        Indiana, he is considered among the authors of the Golden Age of Indiana Literature
+        (1880-1920).</p>
+    </bioghist>
+    <scopecontent id="aspace_3eee518b032cf26bcbc37967957b8634">
+      <head>Scope and Content Note</head>
+      <p>The main correspondents in the collection are McCutcheon and Edward Howard Dodd, 1869-1965,
+        or Frank Courtenay Dodd, 1875-1968. The correspondence after 1928 is with Marie Van Antwerp
+        Fay McCutcheon (Mrs. George Barr McCutcheon) or her son, William P. Fay.</p>
+      <p> Other materials include signed contracts for every title but two that Dodd, Mead
+        published; assignments of copyright for several of the titles; and some correspondence re:
+        film rights, serial rights, and foreign publication.</p>
+      <p> The first folder contains correspondence and contracts relating to more than one title or
+        to miscellaneous topics. The other files are arranged alphabetically by title of publication
+        and include correspondence about the specific title as well as contracts and copyright
+        assignments when present.</p>
+    </scopecontent>
+    <acqinfo id="aspace_98f4b30f7232b6540b4e410f88a9c3d4">
+      <head>Acquisition Information</head>
+      <p>Purchase: <date normal="1990">1990</date></p>
+    </acqinfo>
+    <userestrict id="aspace_149c7e5095746683f8bca6c0a2219367">
+      <head>Usage Restrictions</head>
+      <p>Prior arrangements are not necessary before coming to the Library, however, patrons from
+        out of town are encouraged to communicate with the Library in advance of their visits to
+        ascertain availability of materials.</p>
+      <p> Photocopying permitted only with permission of the curator.</p>
+    </userestrict>
+    <prefercite id="aspace_6e03f45cbc1286108e51bcd11c577b22">
+      <head>Preferred Citation</head>
+      <p>[Item], McCutcheon/Dodd, Mead mss., Lilly Library, Indiana University, Bloomington,
+        Indiana.</p>
+    </prefercite>
+    <controlaccess>
+      <persname audience="internal" source="lcnaf">McCutcheon, George Barr, 1866-1928</persname>
+      <corpname audience="internal" source="lcnaf">Dodd, Mead and Company</corpname>
+      <persname audience="internal" source="lcnaf">Dodd, Edward Howard, 1869-1965</persname>
+      <persname audience="internal" source="lcnaf">Dodd, Frank Courtenay, 1875-1968</persname>
+      <persname audience="internal" source="lcnaf">McCutcheon, Marie Van Antwerp Fay</persname>
+      <persname audience="internal" source="lcnaf">Fay, William P.</persname>
+    </controlaccess>
+    <dsc>
+      <c01 id="aspace_VAD6744-00001" level="file">
+        <did>
+          <unittitle>Correspondence, etc.</unittitle>
+          <unitdate normal="1905/1944" type="inclusive">1905-1944</unitdate>
+          <container id="aspace_812ee64c931583c117adf7ee473a811a" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00003" level="file">
+        <did>
+          <unittitle>Anderson Crow, Detective</unittitle>
+          <container id="aspace_04d764ced45f6a949b2ab8b397b5903c" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00004" level="file">
+        <did>
+          <unittitle>Beverley of Graustark</unittitle>
+          <container id="aspace_911256d83c25a14e2a2357f1d6a9d2fd" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00005" level="file">
+        <did>
+          <unittitle>Black is White</unittitle>
+          <container id="aspace_51f7c5cbd4883a32d445507876c8afa1" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00006" level="file">
+        <did>
+          <unittitle>Blades</unittitle>
+          <container id="aspace_ee2b63f9609d87d5164dbb0d8c3a04dd" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00007" level="file">
+        <did>
+          <unittitle>Books Once were Men</unittitle>
+          <container id="aspace_c3905de9200a735436dd224547115b3b" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00008" level="file">
+        <did>
+          <unittitle>Brewster's Millions</unittitle>
+          <container id="aspace_50156b50d978d3e6a2693e7e66718eb5" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00009" level="file">
+        <did>
+          <unittitle>The Butterfly Man</unittitle>
+          <container id="aspace_f8de6418c457d75d46de2c9dab491f12" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00010" level="file">
+        <did>
+          <unittitle>Castle Craneycrow</unittitle>
+          <container id="aspace_d5f5f888b02b7f93d7389d75d5c6b710" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00011" level="file">
+        <did>
+          <unittitle>The City of Masks</unittitle>
+          <container id="aspace_0f12d63d2386f3706a8db69b139a011d" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00012" level="file">
+        <did>
+          <unittitle>Cowardice Court</unittitle>
+          <container id="aspace_cdffea4e03321d17d4b4b34ab7f14240" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00013" level="file">
+        <did>
+          <unittitle>The Daughter of Anderson Crow</unittitle>
+          <container id="aspace_1dbbdf77781a41103696821870f790a4" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00014" level="file">
+        <did>
+          <unittitle>The Day of the Dog</unittitle>
+          <container id="aspace_da8477f843629131da67010f0a55f83f" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00015" level="file">
+        <did>
+          <unittitle>East of the Setting Sun</unittitle>
+          <container id="aspace_a3136ec7336f27d8523a0f1138c6bf88" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00016" level="file">
+        <did>
+          <unittitle>The Flyers</unittitle>
+          <container id="aspace_6c3551f4bfdced3215e901a40a251b2d" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00017" level="file">
+        <did>
+          <unittitle>A Fool and his Money</unittitle>
+          <container id="aspace_46928eaff0d572ea709e8e099eff0e55" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00018" level="file">
+        <did>
+          <unittitle>Graustark</unittitle>
+          <container id="aspace_ffc17a7e11fbe9b11669cc76200d9b15" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00019" level="file">
+        <did>
+          <unittitle>Green Fancy</unittitle>
+          <container id="aspace_e5d19b12d1d1111b38b4ba8beadbd55b" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00020" level="file">
+        <did>
+          <unittitle>Her Weight in Gold</unittitle>
+          <container id="aspace_b9c6b828fe379ea9ac78d00a820f5dff" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00021" level="file">
+        <did>
+          <unittitle>The Hollow of Her Hand</unittitle>
+          <container id="aspace_d08c5558771971de0c17ba90cac7a389" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00022" level="file">
+        <did>
+          <unittitle>The Husbands of Edith</unittitle>
+          <container id="aspace_a8296256397617e5564cff869e4efdcb" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00023" level="file">
+        <did>
+          <unittitle>The Inn of the Hawk and Raven</unittitle>
+          <container id="aspace_0750920e76ee1811893acd77628804c4" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00024" level="file">
+        <did>
+          <unittitle>Jane Cable</unittitle>
+          <container id="aspace_cf7cf7fbe92423ec9eb1cb0ed79afc62" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00025" level="file">
+        <did>
+          <unittitle>Kindling and Ashes</unittitle>
+          <container id="aspace_a7d1c6cecd12f264ab657e9cfcf4bf1d" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00026" level="file">
+        <did>
+          <unittitle>The Light that Lies</unittitle>
+          <container id="aspace_941b520b9a53de2797aaef160541781b" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00027" level="file">
+        <did>
+          <unittitle>The Man from Brodneys</unittitle>
+          <container id="aspace_06e362dae600b9491cc40684df768dc3" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00028" level="file">
+        <did>
+          <unittitle>Mary Midthorne</unittitle>
+          <container id="aspace_aa90f7fa06d88970aa5036a13d95795e" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00029" level="file">
+        <did>
+          <unittitle>The Merivales</unittitle>
+          <container id="aspace_d0c457fd390ef8f7edac53d2066dec2d" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00030" level="file">
+        <did>
+          <unittitle>Mr. Bingle</unittitle>
+          <container id="aspace_e18808a15935a54f8e9b9534cca04d72" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00031" level="file">
+        <did>
+          <unittitle>Nedra</unittitle>
+          <container id="aspace_67123fcc6731eefffc3d29d6f644bac7" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00032" level="file">
+        <did>
+          <unittitle>Oliver October</unittitle>
+          <container id="aspace_1198e3413205b410b241a58f9c725a59" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00033" level="file">
+        <did>
+          <unittitle>The Prince of Graustark</unittitle>
+          <container id="aspace_4fc4f900bb80fb98034babc5149aff56" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00034" level="file">
+        <did>
+          <unittitle>The Purple Parasol</unittitle>
+          <container id="aspace_88cdcc3f57901a827372d595e7c5868d" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00035" level="file">
+        <did>
+          <unittitle>Quill's Window</unittitle>
+          <container id="aspace_d83fab830a14b05aa08bc854939d5ed6" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00036" level="file">
+        <did>
+          <unittitle>Romeo in Moon Village</unittitle>
+          <container id="aspace_8ca2f0258191eb4f9e1c7b837301b0d3" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00037" level="file">
+        <did>
+          <unittitle>The Rose in the Ring</unittitle>
+          <container id="aspace_f97d41a0e65495134da1577b74ade1f5" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00038" level="file">
+        <did>
+          <unittitle>The Sherrods</unittitle>
+          <container id="aspace_1a9f7cea19e80c1b7351245f4f0c0a31" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00039" level="file">
+        <did>
+          <unittitle>Sherry</unittitle>
+          <container id="aspace_af8c4db98fefea3f7f9d77de782c26de" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00040" level="file">
+        <did>
+          <unittitle>Shot with Crimson</unittitle>
+          <container id="aspace_4265f681520b6c2d4ce5e57286434ff8" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00041" level="file">
+        <did>
+          <unittitle>Truxton King</unittitle>
+          <container id="aspace_8cce6e0f99036a5de02b8066e6f5ff80" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00042" level="file">
+        <did>
+          <unittitle>Viola Gwyn</unittitle>
+          <container id="aspace_ad5db27b4482532b71f8bbe41166fd76" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00043" level="file">
+        <did>
+          <unittitle>West Wind Drift</unittitle>
+          <container id="aspace_8ff6374239f3d0c23c85fbfde6cf2881" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00044" level="file">
+        <did>
+          <unittitle>What's-His-Name</unittitle>
+          <container id="aspace_ccdb640b178d88e9e33c44961e2cc420" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+      <c01 id="aspace_VAD6744-00045" level="file">
+        <did>
+          <unittitle>Yollop</unittitle>
+          <container id="aspace_4b885c243ae8e2617278353c58db3e52" label="box" type="box"
+            >1</container>
+        </did>
+      </c01>
+    </dsc>
+  </archdesc>
 </ead>

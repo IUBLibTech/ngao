@@ -1,4 +1,5 @@
 mix:
+  campus: 'US-InU-Sb'
   name: 'Mix of Collections'
   visit_note: ''
   description: 'This repository represents a variety of collections from different repos.'
@@ -12,7 +13,23 @@ mix:
   phone: ''
   contact_info: 'hmdref@nlm.nih.gov'
   thumbnail_url: "https://collections.nlm.nih.gov/pageturnerserver/ajaxp?theurl=http://localhost:8080/fedora/get/nlm:nlmuid-101421040-img/THUMB"
+archives:
+    campus: 'US-InU'
+    name: 'University Archives'
+    visit_note: ''
+    description: 'The Indiana University Archives is the largest and most comprehensive source of information on the history and culture of IU. This site includes finding aids for the records of university and campus organizations as well as the personal papers of IU faculty, staff, and alumni.'
+    building: ''
+    address1: '1320 East Tenth Street'
+    address2: ''
+    city: 'Bloomington'
+    state: 'IN'
+    zip: '47405-7000'
+    country: 'United States'
+    phone: '812-855-1127'
+    contact_info: 'archives@indiana.edu'
+    thumbnail_url: "https://libraries.indiana.edu/sites/default/files/styles/iu_one_third_standard/public/LARGE_archives.jpg?itok=yM3aAt4l"
 lilly:
+  campus: 'US-InU'
   name: 'Lilly Library'
   visit_note: ''
   description: 'The Lilly Library is the rare books, manuscripts, and special collections library of the Indiana University Libraries, Bloomington. Its collections represent a diversity of subjects, including literature; children’s literature; history; folklore; science; radio, film and television; book collecting and bookselling; journalism; and translation.'
@@ -30,17 +47,3 @@ lilly:
     aeon_web_ead:
       request_url: 'https://sample.request.com'
       request_mappings: 'Action=10&Form=31&Value=ead_url'
-archives:
-  name: 'University Archives'
-  visit_note: ''
-  description: 'The Indiana University Archives is the largest and most comprehensive source of information on the history and culture of IU. This site includes finding aids for the records of university and campus organizations as well as the personal papers of IU faculty, staff, and alumni.'
-  building: ''
-  address1: '1320 East Tenth Street'
-  address2: ''
-  city: 'Bloomington'
-  state: 'IN'
-  zip: '47405-7000'
-  country: 'United States'
-  phone: '812-855-1127'
-  contact_info: 'archives@indiana.edu'
-  thumbnail_url: "https://libraries.indiana.edu/sites/default/files/styles/iu_one_third_standard/public/LARGE_archives.jpg?itok=yM3aAt4l"
