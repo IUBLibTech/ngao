@@ -22,6 +22,8 @@
 //= require bootstrap
 //= require blacklight/blacklight
 
+//= require context_navigation
+
 //= require_tree .
 
 
