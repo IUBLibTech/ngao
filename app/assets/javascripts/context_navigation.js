@@ -1,4 +1,4 @@
-// imported from arclight 0.3.1 to override placeholder
+// imported from arclight 0.3.1 to override placeholders
 class NavigationDocument {
   constructor(el) {
     this.el = $(el);
@@ -99,12 +99,9 @@ class Placeholder {
   /* eslint-disable class-methods-use-this */
   buildElement() {
     const elementMarkup = '<div class="al-hierarchy-placeholder">' +
-      '<h3 class="col-md-9"></h3>' +
-      '<p class="col-md-6"></p>' +
-      '<p class="col-md-12"></p>' +
-      '<p class="col-md-3"></p>' +
+      '<h3 class="col-md-9">Loading...</h3>' +
       '</div>';
-    const markup = Array(3).join(elementMarkup);
+    const markup = Array(2).join(elementMarkup);
 
     return $(markup);
   }
