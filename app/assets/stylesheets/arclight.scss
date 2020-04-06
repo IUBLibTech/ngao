@@ -13,3 +13,14 @@ body {
 #main-container {
   flex: 1 0 auto;
 }
+
+// Placeholder styling override
+.al-hierarchy-placeholder {
+  margin-top: 0em;
+  margin-bottom: 1rem;
+
+  h3 {
+    padding-top: .5rem;
+    padding-bottom: 3rem;
+  }
+}
