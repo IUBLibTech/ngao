@@ -98,11 +98,10 @@ class Placeholder {
    */
   /* eslint-disable class-methods-use-this */
   buildElement() {
+    // CHANGED PLACEHOLDER ELEMENT
     const elementMarkup = '<div class="al-hierarchy-placeholder">' +
       '<h3 class="col-md-9"> <img alt="loading icon" src="/assets/ajax-loader.gif"> Loading...</h3>' +
       '</div>';
-    const markup = Array(2).join(elementMarkup);
-
     return $(elementMarkup);
   }
   /* eslint-enable class-methods-use-this */
