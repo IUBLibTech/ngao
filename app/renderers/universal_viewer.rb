@@ -5,7 +5,7 @@ class UniversalViewer
   end
 
   def to_partial_path
-    "viewers/_universal_viewer"
+    'viewers/_universal_viewer'
   end
 
   def url
