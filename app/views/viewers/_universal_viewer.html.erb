@@ -1,3 +1,20 @@
-<div class="uv__overlay" onClick="style.pointerEvents='none'">
-  <iframe src="<%= viewer.url %>" allowfullscreen="true"></iframe>
-  <%#= link_to image_tag("iiif.png", class: "logo", alt: "IIIF Drag and Drop"), viewer.url %>
+<h2><%= viewer.manifest_url %></h2>
+<div 
+  class="uv" 
+  data-locale="en-GB:English (GB),cy-GB:Cymraeg" 
+  data-config="/uv_config.json" 
+  data-uri=<%= viewer.manifest_url %>
+  data-collectionindex="0" 
+  data-manifestindex="0" 
+  data-sequenceindex="0" 
+  data-canvasindex="0" 
+  data-xywh="-2204,-248,7873,4957" 
+  data-rotation="0" 
+  style="width:560px; height:420px; background-color: #000">
+</div>
+<script   
+  type="text/javascript" 
+  id="embedUV" 
+  src="https://pages.dlib.indiana.edu/bower_includes/universalviewer/dist/uv-2.0.1/lib/embed.js">
+</script>
+<script type="text/javascript">/* wordpress fix */</script>
