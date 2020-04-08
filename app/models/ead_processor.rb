@@ -4,7 +4,6 @@ class EadProcessor
   require 'zip'
   require 'fileutils'
   require 'arclight'
-  require 'benchmark'
 
   def self.import_eads
     uri = "https://aspacedev.dlib.indiana.edu/assets/ead_export/"
@@ -41,6 +40,10 @@ class EadProcessor
     rescue StandardError
       ENV['SOLR_URL'] || 'http://127.0.0.1:8983/solr/blacklight-core'
     end
+    # TODO: implement indexing
     # `bundle exec traject -u #{solr_url} -i xml -c ./lib/ngao-arclight/traject/ead2_config.rb #{filename}`
   end
+
+  # TODO: method to get list of zip files to show on admin import page
+  # TODO: method to import and index specific zip files
 end
