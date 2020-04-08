@@ -24,6 +24,6 @@ namespace :arclight do
     elapsed_time = Benchmark.realtime do
       `bundle exec traject -u #{solr_url} -i xml -c ./lib/ngao-arclight/traject/ead2_config.rb #{ENV['FILE']}`
     end
-    print "DUL-Arclight indexed #{ENV['FILE']} (in #{elapsed_time.round(3)} secs).\n"
+    print "NGAO-Arclight indexed #{ENV['FILE']} (in #{elapsed_time.round(3)} secs).\n"
   end
 end

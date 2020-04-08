@@ -89,3 +89,4 @@ gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'blacklight-locale_picker'
 gem 'mysql2'
+gem 'whenever', require: false
