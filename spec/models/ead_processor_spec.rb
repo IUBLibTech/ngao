@@ -31,11 +31,8 @@ RSpec.describe EadProcessor do
     expect(repositories).to include 'Wylie House Museum'
   end
 
-  # it 'only processes file in args' do
-  #   args = { url: "#{Rails.root}/spec/fixtures/html/test.html", files: ['Test file'] }
-  #   EadProcessor.process_files(args)
-  #   expect(directory).to eq 'test'
-  # end
+  # TODO: test for process_files method
+  # TODO: test for index_file method
 
   it 'checks to see if it should process files' do
     args = { url: "#{Rails.root}/spec/fixtures/html/test.html", files: ['Test file'] }
