@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 class EadProcessor
-  require 'nokogiri'
-  require 'zip'
-  require 'fileutils'
-  require 'arclight'
 
   # calls all the methods
   def self.import_eads(args = {})

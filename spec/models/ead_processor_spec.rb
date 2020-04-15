@@ -19,7 +19,7 @@ RSpec.describe EadProcessor do
   end
 
   it 'can extract a zip file' do
-    zip_file = Rails.root.join('spec', 'fixtures', 'zips', 'test.zip')
+    zip_file = Rails.root.join('spec', 'fixtures', 'html', 'test.zip')
     unzipped_file = Rails.root.join('data', 'test', 'VAC0754.xml')
     EadProcessor.extract_and_index(zip_file, 'test')
     expect(unzipped_file).to exist
