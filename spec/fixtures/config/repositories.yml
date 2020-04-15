@@ -53,14 +53,14 @@ wylie_house_museum:
   visit_note: ''
   description: 'Wylie House Museum description here'
   building: ''
-  address1: '123 Main Street'
+  address1: '15064 Avenida Montuosa'
   address2: ''
   city: 'San Diego'
   state: 'CA'
   zip: '92129'
   country: 'USA'
   phone: '(812) 855-2452'
-  contact_info: 'wylie@indiana.edu'
+  contact_info: 'liblilly@indiana.edu'
   thumbnail_url: 'https://libraries.indiana.edu/sites/default/files/iu_feature/Lilly%20Library.exteror.web_.jpg'
   request_types:
     aeon_web_ead:
@@ -79,7 +79,26 @@ working_men_s_institute_of_new_harmony_indiana:
   zip: '92120'
   country: 'USA'
   phone: '(812) 855-2452'
-  contact_info: 'working-men@indiana.edu'
+  contact_info: 'liblilly@indiana.edu'
+  thumbnail_url: 'https://libraries.indiana.edu/sites/default/files/iu_feature/Lilly%20Library.exteror.web_.jpg'
+  request_types:
+    aeon_web_ead:
+      request_url: 'https://sample.request.com'
+      request_mappings: 'Action=10&Form=31&Value=ead_url'
+test:
+  campus: 'US-InU'
+  name: 'Wylie House Museum'
+  visit_note: ''
+  description: 'Wylie House Museum description here'
+  building: ''
+  address1: '15064 Avenida Montuosa'
+  address2: ''
+  city: 'San Diego'
+  state: 'CA'
+  zip: '92129'
+  country: 'USA'
+  phone: '(812) 855-2452'
+  contact_info: 'liblilly@indiana.edu'
   thumbnail_url: 'https://libraries.indiana.edu/sites/default/files/iu_feature/Lilly%20Library.exteror.web_.jpg'
   request_types:
     aeon_web_ead:

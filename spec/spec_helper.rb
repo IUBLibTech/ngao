@@ -4,9 +4,7 @@
 # https://github.com/projectblacklight/arclight/blob/master/spec/spec_helper.rb
 
 ENV['RAILS_ENV'] ||= 'test'
-
-# Use our actual repositories config file, not a test one.
-ENV['REPOSITORY_FILE'] ||= 'config/repositories.yml'
+ENV['REPOSITORY_FILE'] ||= 'spec/fixtures/config/repositories.yml'
 require File.expand_path('../config/environment', __dir__)
 SPEC_ROOT = Pathname.new(__dir__)
 

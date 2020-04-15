@@ -5,20 +5,37 @@ class EadProcessor
   require 'fileutils'
   require 'arclight'
 
-  def self.import_eads
-    uri = "https://aspacedev.dlib.indiana.edu/assets/ead_export/"
-    page = Nokogiri::HTML(open(uri)) # Open web address with Nokogiri
+  # calls all the methods
+  def self.import_eads(args = {})
+    process_files(args)
+  end
 
-    for file_link in page.css('a')
-      link = uri + file_link.attributes['href'].value
+  # sets the url
+  def self.client(args = {})
+    args[:url] || 'https://aspacedev.dlib.indiana.edu/assets/ead_export/'
+  end
+
+  # Open web address with Nokogiri
+  def self.page(args = {})
+    Nokogiri::HTML(open(client(args)))
+  end
+
+  # open file and call extract
+  def self.process_files(args={})
+    for file_link in page(args).css('a')
+      directory = file_link.children.text
+      link = client(args) + file_link.attributes['href'].value
+      next unless should_process_file(args, directory)
+
       open(link, 'rb') do |file|
-        directory = file_link.children.text
-        extract_zip(file, directory)
+        directory = directory.parameterize.underscore
+        extract_and_index(file, directory)
       end
     end
   end
 
-  def self.extract_zip(file, directory)
+  # unzip the file and call index
+  def self.extract_and_index(file, directory)
     Zip::File.open(file) do |zip_file|
       zip_file.each do |f|
         path = "./data/#{directory}"
@@ -26,24 +43,37 @@ class EadProcessor
         fpath = File.join(path, f.name)
         File.delete(fpath) if File.exist?(fpath)
         zip_file.extract(f, fpath)
-        run_index_task(fpath, directory)
+        index_file(fpath, directory)
       end
     end
   end
 
-  def self.run_index_task(filename, directory)
-    repository = directory
-    # TODO - run the indexer from model
-    puts "#{filename}, #{repository}"
+  # index a file
+  def self.index_file(filename, repository)
+    ENV['REPOSITORY_ID'] = repository
+    ENV['FILE'] = filename
     solr_url = begin
       Blacklight.default_index.connection.base_uri
     rescue StandardError
       ENV['SOLR_URL'] || 'http://127.0.0.1:8983/solr/blacklight-core'
     end
-    # TODO: implement indexing
-    # `bundle exec traject -u #{solr_url} -i xml -c ./lib/ngao-arclight/traject/ead2_config.rb #{filename}`
+    `bundle exec rake arclight:index`
   end
 
-  # TODO: method to get list of zip files to show on admin import page
-  # TODO: method to import and index specific zip files
+  # get list of zip files to show on admin import page
+  def self.get_repository_names(args = {})
+    repositories = []
+    for repository in page(args).css('a')
+      name = repository.children.text
+      repositories << name
+    end
+    return repositories
+  end
+
+  # check if should process file
+  # if args are nil, process all zip files
+  # otherwise, only process the specified file
+  def self.should_process_file(args, name)
+    args[:files].nil? || args[:files].include?(name)
+  end
 end
