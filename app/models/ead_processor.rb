@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class EadProcessor
-
+  require 'zip'
+  
   # calls all the methods
   def self.import_eads(args = {})
     process_files(args)
