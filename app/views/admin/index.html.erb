@@ -1,0 +1,11 @@
+<div class="container">
+  
+  <h2>Manage Repositories</h2>
+  
+  <%= link_to "Import and Index All EADs", index_eads_url, remote: true, class: "btn btn-lg btn-primary" %>
+
+  <%# <h2>Manage Users</h2> %>
+  <div>
+    <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %>
+  </div>
+</div>

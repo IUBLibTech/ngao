@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   end
 
-  # DISABLE DEVISE ROUTES
   devise_for :users
 
   concern :exportable, Blacklight::Routes::Exportable.new
@@ -29,5 +28,10 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
+  get '/admin', to: 'admin#index', as: 'admin'
+
+  get 'admin/index_eads', to: 'admin#index_eads', as: 'index_eads'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

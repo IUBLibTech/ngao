@@ -2,6 +2,6 @@
   <% if current_user %>
     <%= link_to "Logout", destroy_user_session_path%>
   <% else %>
-    <%= link_to "Admin", new_user_session_path%>
+    <%= link_to "Admin", admin_path%>
   <% end %>
 <% end %>
