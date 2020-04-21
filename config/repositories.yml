@@ -32,7 +32,7 @@ lilly:
     aeon_web_ead:
       request_url: 'https://sample.request.com'
       request_mappings: 'Action=10&Form=31&Value=ead_url'
-wylie_house_museum:
+wyliehouse:
   campus: 'US-InU'
   name: 'Wylie House Museum'
   visit_note: ''
@@ -47,7 +47,7 @@ wylie_house_museum:
   phone: '812-855-6224'
   contact_info: 'libwylie@indiana.edu'
   thumbnail_url: "https://libraries.indiana.edu/sites/default/files/styles/iu_one_third_standard/public/wylie-house-spring.jpg"
-working_men_s_institute_of_new_harmony_indiana:
+wmi:
   campus: 'US-InU'
   name: 'Working Men’s Institute'
   visit_note: ''

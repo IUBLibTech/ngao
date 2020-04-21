@@ -13,13 +13,13 @@
     </div>
     
   </div>
-  <% @repositories.each do |repo| %>
+  <% @repositories.each do |key, value| %>
     <div class="row mb-4">
       <div class="col-md-9">
-        <p><%= repo %></p>
+        <p><%= value %></p>
       </div>
       <div class="col-md-3">
-        <%= link_to "Index Repository EADs", index_ead_url(repo), remote: true, class: 'btn btn-sm btn-primary' %>
+        <%= link_to "Index Repository EADs", index_ead_url(key), remote: true, class: 'btn btn-sm btn-primary' %>
       </div>
     </div>
   <% end %>

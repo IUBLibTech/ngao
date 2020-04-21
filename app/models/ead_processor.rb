@@ -20,8 +20,9 @@ class EadProcessor
   # open file and call extract
   def self.process_files(args={})
     for file_link in page(args).css('a')
-      directory = file_link.children.text
-      link = client(args) + file_link.attributes['href'].value
+      file_name = file_link.attributes['href'].value
+      link = client(args) + file_name
+      directory = File.basename(file_name, File.extname(file_name))
       next unless should_process_file(args, directory)
 
       open(link, 'rb') do |file|
@@ -59,10 +60,12 @@ class EadProcessor
 
   # get list of zip files to show on admin import page
   def self.get_repository_names(args = {})
-    repositories = []
+    repositories = {}
     for repository in page(args).css('a')
-      name = repository.children.text
-      repositories << name
+      name = repository.attributes['href'].value
+      key = File.basename(name, File.extname(name))
+      value = repository.children.text
+      repositories[key] = value
     end
     return repositories
   end

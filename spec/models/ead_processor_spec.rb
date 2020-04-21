@@ -16,6 +16,7 @@ RSpec.describe EadProcessor do
 
   after do
     FileUtils.rm_rf(Dir["#{Rails.root}/data/test"])
+    FileUtils.rm_rf(Dir["#{Rails.root}/data/test"])
   end
 
   it 'can extract a zip file' do
@@ -28,7 +29,10 @@ RSpec.describe EadProcessor do
   it 'gets the list of repositories' do
     client = "#{Rails.root}/spec/fixtures/html/test.html"
     repositories = EadProcessor.get_repository_names({ url: client })
-    expect(repositories).to include 'Wylie House Museum'
+    expect(repositories).to include(
+      "test"=>"Working Men's Institute of New Harmony, Indiana", 
+      "test2"=>"Wylie House Museum"
+    )
   end
 
   # TODO: test for process_files method
