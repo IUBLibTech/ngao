@@ -7,19 +7,30 @@ services:
       context: .
       dockerfile: Dockerfile.base
 
-  web:
+  main:
     build: .
     image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG:-master}"
     env_file:
-      - .env
       - .env.development
-    volumes:
-      - .:/home/app/webapp
-    # Keep the stdin open, so we can attach to our app container's process
-    # and do things such as byebug, etc:
+      - .env
     stdin_open: true
-    # Enable sending signals (CTRL+C, CTRL+P + CTRL+Q) into the container:
     tty: true
+    volumes:
+      - .:/home/app/webapp:delegated
+
+  web:
+    extends: main
+    environment:
+      VIRTUAL_HOST: ngao.docker
+      VIRTUAL_PORT: 3000
+    depends_on:
+      - dj
+      - solr
+      - db
+
+  dj:
+    extends: main
+    command: bash -l -c "yarn install && bin/rails jobs:work"
     depends_on:
       - solr
       - db

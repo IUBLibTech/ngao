@@ -1,0 +1,86 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "app.delayed-job.name" . }}
+  labels:
+    app: {{ template "app.name" . }}
+    chart: {{ template "app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: delayed-job
+spec:
+  replicas: {{ .Values.delayed-job.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "app.name" . }}
+      release: {{ .Release.Name }}
+      component: delayed-job
+  template:
+    metadata:
+      labels:
+        app: {{ template "app.name" . }}
+        release: {{ .Release.Name }}
+        component: delayed-job
+      annotations:
+        checksum/rails-env-cm: {{ include (print $.Template.BasePath "/rails-env-cm.yaml") . | sha256sum }}
+        checksum/rails-env-secret: {{ include (print $.Template.BasePath "/rails-env-secret.yaml") . | sha256sum }}
+    spec:
+      restartPolicy: Always
+      terminationGracePeriodSeconds: {{ .Values.delayed-job.timeout | add 5 }}
+      {{- if .Values.rails.imagePullSecrets }}
+      imagePullSecrets:
+        {{ toYaml .Values.rails.imagePullSecrets }}
+      {{- end }}
+      volumes:
+        - name: shared
+          persistentVolumeClaim:
+            claimName: {{ template "app.rails-env.name" . }}-shared
+      initContainers:
+        - name: check-solr-ready
+          image: {{ .Values.rails.image.repository }}:{{ .Values.rails.image.tag }}
+          command: ["/bin/bash"]
+          args:
+            - "-l"
+            - "-c"
+            - "response=0 && until [ $response == 200 ]; do response=$(curl --write-out %{http_code} --silent --output /dev/null $(echo $SOLR_BASE_URL)/admin/collections?action=LIST); echo Response is $response; sleep 5; done;"
+          envFrom:
+            - configMapRef:
+                name: {{ template "app.rails-env.name" . }}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                topologyKey: "kubernetes.io/hostname"
+                labelSelector:
+                  matchExpressions:
+                    - key: component
+                      operator: In
+                      values:
+                        - web
+                        - delayed-job
+      containers:
+        - name: delayed-job
+          image: {{ .Values.rails.image.repository }}:{{ .Values.rails.image.tag }}
+          imagePullPolicy: Always
+          command: ["/bin/bash"]
+          args:
+            - "-l"
+            - "-c"
+            - "bin/rails jobs:work"
+          # livenessProbe:
+          #   exec:
+          #     command:
+          #       - ./bin/rails runner ./chart/bin/check_delayed-job.rb
+          #   initialDelaySeconds: 30
+          # Use sub-path for individual folders
+          volumeMounts:
+            - mountPath: /home/app/webapp/public/assets
+              name: shared
+              subPath: assets
+          envFrom:
+            - configMapRef:
+                name: {{ template "app.rails-env.name" . }}
+            - secretRef:
+                name: {{ template "app.rails-env.name" . }}
