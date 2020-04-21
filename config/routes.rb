@@ -34,7 +34,9 @@ Rails.application.routes.draw do
   get 'admin/index_eads', to: 'admin#index_eads', as: 'index_eads'
   get 'admin/index_ead', to: 'admin#index_ead', as: 'index_ead'
 
-  match "/delayed_job" => DelayedJobWeb, :anchor => false, :via => [:get, :post]
+  authenticated :user do
+    mount DelayedJobWeb, at: "/delayed_job"
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
