@@ -90,3 +90,5 @@ gem 'devise-guests', '~> 0.6'
 gem 'blacklight-locale_picker'
 gem 'mysql2'
 gem 'whenever', require: false
+gem 'delayed_job_active_record'
+gem "delayed_job_web"

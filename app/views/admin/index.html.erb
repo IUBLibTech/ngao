@@ -1,11 +1,30 @@
 <div class="container">
   
-  <h2>Manage Repositories</h2>
+  <h3>Manage Repositories</h3>
+  <%# if current_user.admin? %>
+    <div class="row col">
+      <%= link_to "Index All EADs", index_eads_url, remote: true, class: "btn btn-lg btn-primary mt-4 mb-4" %>
+    </div>
+  <%# end %>
   
-  <%= link_to "Import and Index All EADs", index_eads_url, remote: true, class: "btn btn-lg btn-primary" %>
+  <div class="row border-bottom mb-4">
+    <div class="col-md-9">
+      <h4>Repository</h4>
+    </div>
+    
+  </div>
+  <% @repositories.each do |repo| %>
+    <div class="row mb-4">
+      <div class="col-md-9">
+        <p><%= repo %></p>
+      </div>
+      <div class="col-md-3">
+        <%= link_to "Index Repository EADs", index_ead_url(repo), remote: true, class: 'btn btn-sm btn-primary' %>
+      </div>
+    </div>
+  <% end %>
 
-  <%# <h2>Manage Users</h2> %>
-  <div>
+  <div class="mt-4">
     <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %>
   </div>
 </div>
