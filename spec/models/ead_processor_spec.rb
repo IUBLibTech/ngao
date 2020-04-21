@@ -30,8 +30,8 @@ RSpec.describe EadProcessor do
     client = "#{Rails.root}/spec/fixtures/html/test.html"
     repositories = EadProcessor.get_repository_names({ url: client })
     expect(repositories).to include(
-      "test"=>"Working Men's Institute of New Harmony, Indiana", 
-      "test2"=>"Wylie House Museum"
+      "test"=>{:name => "Working Men's Institute of New Harmony, Indiana"},
+      "test2"=> {:name => "Wylie House Museum"}
     )
   end
 
