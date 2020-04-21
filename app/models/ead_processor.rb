@@ -64,7 +64,7 @@ class EadProcessor
     for repository in page(args).css('a')
       name = repository.attributes['href'].value
       key = File.basename(name, File.extname(name))
-      value = repository.children.text
+      value = { :name => repository.children.text }
       repositories[key] = value
     end
     return repositories
