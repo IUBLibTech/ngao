@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class EadProcessor
   require 'zip'
-  
+
   # calls all the methods
   def self.import_eads(args = {})
     process_files(args)
@@ -46,6 +46,34 @@ class EadProcessor
     end
   end
 
+  # for indexing a single ead file
+  # need to unzip parent and index only the file selected
+  def self.index_single_ead(args = {})
+    repository = args[:repository]
+    file_name = args[:ead]
+    link = client(args) + "#{repository}.zip"
+    directory = repository.parameterize.underscore
+    open(link, 'rb') do |file|
+      extract_file(file, directory)
+    end
+    path = "./data/#{directory}"
+    fpath = File.join(path, file_name)
+    EadProcessor.delay.index_file(fpath, repository)
+  end
+
+  # extract file
+  def self.extract_file(file, directory)
+    Zip::File.open(file) do |zip_file|
+      zip_file.each do |f|
+        path = "./data/#{directory}"
+        FileUtils.mkdir_p path unless File.exist?(path)
+        fpath = File.join(path, f.name)
+        File.delete(fpath) if File.exist?(fpath)
+        zip_file.extract(f, fpath)
+      end
+    end
+  end
+
   # index a file
   def self.index_file(filename, repository)
     ENV['REPOSITORY_ID'] = repository
@@ -58,16 +86,35 @@ class EadProcessor
     `bundle exec rake arclight:index`
   end
 
-  # get list of zip files to show on admin import page
+  # get list of zip files and ead contents to show on admin import page
   def self.get_repository_names(args = {})
     repositories = {}
     for repository in page(args).css('a')
       name = repository.attributes['href'].value
+      link = client(args) + name
       key = File.basename(name, File.extname(name))
       value = { :name => repository.children.text }
       repositories[key] = value
+      eads = []
+      open(link, 'rb') do |file|
+        eads = get_ead_names(file)
+      end
+      repositories[key][:eads] = eads
     end
     return repositories
+  end
+
+  # get list of eads contained in zip file
+  def self.get_ead_names(file)
+    eads = []    
+    Zip::File.open(file) do |zip_file|
+      zip_file.each do |entry|
+        if entry.file?
+          eads << entry.name
+        end
+      end
+    end
+    return eads
   end
 
   # check if should process file

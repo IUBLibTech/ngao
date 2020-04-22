@@ -3,23 +3,41 @@
   <h3>Manage Repositories</h3>
   <% if current_user.admin? %>
     <div class="row col">
-      <%= link_to "Index All EADs", index_eads_url, remote: true, class: "btn btn-lg btn-primary mt-4 mb-4" %>
+      <%= link_to "Index all EADs for all repositories", index_eads_url, remote: true, class: "btn btn-lg btn-primary mt-4 mb-4" %>
     </div>
   <% end %>
   
-  <div class="row border-bottom mb-4">
+  <div class="row mb-1">
     <div class="col-md-9">
-      <h4>Repository</h4>
+      <h4>Repositories</h4>
     </div>
     
   </div>
   <% @repositories.each do |key, value| %>
-    <div class="row mb-4">
+    <div class="row mt-2 pt-4 border-top">
       <div class="col-md-9">
-        <p><%= value[:name] %></p>
+        <h5><%= value[:name] %></h5>
       </div>
       <div class="col-md-3">
-        <%= link_to "Index Repository EADs", index_ead_url(key), remote: true, class: 'btn btn-sm btn-primary' %>
+        <%= link_to "Index all EADs in this repository", index_repository_url(repository: key), remote: true, class: 'btn btn-primary' %>
+      </div>
+    </div>
+    <div class="row pb-4">
+      <div class="col-md-12">
+        <table class="table-responsive">
+          <tr>
+            <th>Eads in this Repository</th>
+            <th></th>
+          </tr>
+          <% value[:eads].each do |ead| %>
+            <tr>
+              <td><%= ead %></td>
+              <td>
+                <%= link_to "Index", index_ead_url(repository: key, ead: ead),  remote: true, class: 'btn btn-sm btn-primary' %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
       </div>
     </div>
   <% end %>

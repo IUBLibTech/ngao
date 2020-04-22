@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
-    mount Arclight::Engine => '/'
+  mount Arclight::Engine => '/'
 
-  root to: "catalog#index"
+  root to: 'catalog#index'
   concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
     concerns :range_searchable
-
   end
 
   devise_for :users
@@ -32,6 +30,7 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin#index', as: 'admin'
 
   get 'admin/index_eads', to: 'admin#index_eads', as: 'index_eads'
+  get 'admin/index_repository', to: 'admin#index_repository', as: 'index_repository'
   get 'admin/index_ead', to: 'admin#index_ead', as: 'index_ead'
 
   authenticated :user do
