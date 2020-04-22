@@ -16,7 +16,7 @@ RSpec.describe EadProcessor do
 
   after do
     FileUtils.rm_rf(Dir["#{Rails.root}/data/test"])
-    FileUtils.rm_rf(Dir["#{Rails.root}/data/test"])
+    FileUtils.rm_rf(Dir["#{Rails.root}/data/test2"])
   end
 
   it 'can extract a zip file' do
