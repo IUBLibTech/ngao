@@ -87,6 +87,7 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
+gem 'devise-bootstrap-views', '~> 1.0'
 gem 'blacklight-locale_picker'
 gem 'mysql2'
 gem 'whenever', require: false
