@@ -2,32 +2,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "app.delayed_job.name" . }}
+  name: {{ template "app.dj.name" . }}
   labels:
     app: {{ template "app.name" . }}
     chart: {{ template "app.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-    component: delayed_job
+    component: dj
 spec:
-  replicas: {{ .Values.delayed_job.replicas }}
+  replicas: {{ .Values.dj.replicas }}
   selector:
     matchLabels:
       app: {{ template "app.name" . }}
       release: {{ .Release.Name }}
-      component: delayed_job
+      component: dj
   template:
     metadata:
       labels:
         app: {{ template "app.name" . }}
         release: {{ .Release.Name }}
-        component: delayed_job
+        component: dj
       annotations:
         checksum/rails-env-cm: {{ include (print $.Template.BasePath "/rails-env-cm.yaml") . | sha256sum }}
         checksum/rails-env-secret: {{ include (print $.Template.BasePath "/rails-env-secret.yaml") . | sha256sum }}
     spec:
       restartPolicy: Always
-      terminationGracePeriodSeconds: {{ .Values.delayed_job.timeout | add 5 }}
+      terminationGracePeriodSeconds: {{ .Values.dj.timeout | add 5 }}
       {{- if .Values.rails.imagePullSecrets }}
       imagePullSecrets:
         {{ toYaml .Values.rails.imagePullSecrets }}
@@ -59,9 +59,9 @@ spec:
                       operator: In
                       values:
                         - web
-                        - delayed_job
+                        - dj
       containers:
-        - name: delayed_job
+        - name: dj
           image: {{ .Values.rails.image.repository }}:{{ .Values.rails.image.tag }}
           imagePullPolicy: Always
           command: ["/bin/bash"]
@@ -72,7 +72,7 @@ spec:
           # livenessProbe:
           #   exec:
           #     command:
-          #       - ./bin/rails runner ./chart/bin/check_delayed_job.rb
+          #       - ./bin/rails runner ./chart/bin/check_dj.rb
           #   initialDelaySeconds: 30
           # Use sub-path for individual folders
           volumeMounts:
