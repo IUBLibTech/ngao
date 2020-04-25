@@ -22,7 +22,9 @@ class EadProcessor
     for file_link in page(args).css('a')
       file_name = file_link.attributes['href'].value
       link = client(args) + file_name
+      ext = File.extname(name)
       directory = File.basename(file_name, File.extname(file_name))
+      next if ext == '.zip'
       next unless should_process_file(args, directory)
 
       open(link, 'rb') do |file|
@@ -92,12 +94,15 @@ class EadProcessor
     for repository in page(args).css('a')
       name = repository.attributes['href'].value
       link = client(args) + name
+      ext = File.extname(name)
       key = File.basename(name, File.extname(name))
       value = { :name => repository.children.text }
       repositories[key] = value
       eads = []
-      open(link, 'rb') do |file|
+      if ext == '.zip'
+        open(link, 'rb') do |file|
         eads = get_ead_names(file)
+        end
       end
       repositories[key][:eads] = eads
     end
