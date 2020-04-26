@@ -22,13 +22,8 @@ class EadProcessor
     for file_link in page(args).css('a')
       file_name = file_link.attributes['href'].value
       link = client(args) + file_name
-<<<<<<< HEAD
-      ext = File.extname(file_name)
-      directory = File.basename(file_name, File.extname(file_name))
-=======
       directory = File.basename(file_name, File.extname(file_name))
       ext = File.extname(file_name)
->>>>>>> master
       next unless ext == '.zip'
       next unless should_process_file(args, directory)
 
