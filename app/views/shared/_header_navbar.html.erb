@@ -1,18 +1,7 @@
 <!--overriding from arclight 0.3.1 to remove devise and add IU header branding_bar, from https://assets.iu.edu/brand/3.2.x/header-iu.html -->
 <header>
   <%= render '/layouts/branding_bar' %>
-  <%# ADD IU BRANDING %>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark topbar" aria-label="utilities" role="navigation">
-    <div class="<%= container_classes %>">
-      <%= link_to application_name, root_path, class: "navbar-brand" %>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <%# REMOVED DEVISE LINKS %>
-
-    </div>
-  </nav>
+  <%# ADD IU BRANDING AND REMOVE BLACK NAVBAR %>
 
   <% if controller_name == 'catalog' && !has_search_parameters? && action_name == 'index' %>
     <div class='al-homepage-masthead jumbotron'>

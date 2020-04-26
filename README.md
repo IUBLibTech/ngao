@@ -81,3 +81,11 @@ bundle update arclight
 ## Updating the application
 
 See https://github.com/sul-dlss/arclight/wiki/Upgrading-your-ArcLight-application
+
+## Customizing the devise views
+
+This uses the [Devise Bootstrap Views](https://github.com/hisea/devise-bootstrap-views) gem to style the user authentication pages.
+
+The gem supports i18n localizations, though it is not enabled by default. To add it to the app, use [devise-i18n](https://github.com/tigrish/devise-i18n)
+
+This app uses the default views in the bootstrap-views gem, if you wish to customize them further, run `rails generate devise:views:bootstrap_templates` to create a local copy to modify.

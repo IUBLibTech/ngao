@@ -44,8 +44,8 @@ Shorthand for component names
 {{- define "app.rails-env.name" -}}
 {{- include "app.fullname" . -}}-rails-env
 {{- end -}}
-{{- define "app.delayed-job.name" -}}
-{{- include "app.fullname" . -}}-delayed-job
+{{- define "app.dj.name" -}}
+{{- include "app.fullname" . -}}-dj
 {{- end -}}
 {{- define "app.setup.name" -}}
 {{- include "app.fullname" . -}}-setup
