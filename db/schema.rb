@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_224554) do
+ActiveRecord::Schema.define(version: 2020_04_26_164347) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2020_04_20_224554) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "repositories", force: :cascade do |t|
+    t.string "repository_id"
+    t.string "name"
+    t.datetime "last_updated_at"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "searches", force: :cascade do |t|

@@ -22,9 +22,9 @@ class EadProcessor
     for file_link in page(args).css('a')
       file_name = file_link.attributes['href'].value
       link = client(args) + file_name
-      ext = File.extname(name)
+      ext = File.extname(file_name)
       directory = File.basename(file_name, File.extname(file_name))
-      next if ext == '.zip'
+      next unless ext == '.zip'
       next unless should_process_file(args, directory)
 
       open(link, 'rb') do |file|
@@ -93,11 +93,14 @@ class EadProcessor
     repositories = {}
     for repository in page(args).css('a')
       name = repository.attributes['href'].value
-      link = client(args) + name
-      ext = File.extname(name)
+      link = client(args) + name 
       key = File.basename(name, File.extname(name))
+      ext = File.extname(name)
+      next unless ext == '.zip'
       value = { :name => repository.children.text }
       repositories[key] = value
+      last_updated_at = DateTime.parse(repository.next_sibling.text)
+      add_repository_to_db(key, value[:name], last_updated_at)
       eads = []
       if ext == '.zip'
         open(link, 'rb') do |file|
@@ -107,6 +110,14 @@ class EadProcessor
       repositories[key][:eads] = eads
     end
     return repositories
+  end
+
+  def self.add_repository_to_db(id, name, last_updated_at)
+    Repository.where(repository_id: id).first_or_create do |repo|
+      repo.name = name
+      repo.last_updated_at = last_updated_at
+      # repo.save
+    end
   end
 
   # get list of eads contained in zip file

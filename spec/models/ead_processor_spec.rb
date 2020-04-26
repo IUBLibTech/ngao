@@ -41,4 +41,15 @@ RSpec.describe EadProcessor do
     expect(EadProcessor.should_process_file(args, 'Test file')).to be true
     expect(EadProcessor.should_process_file(args, 'Not a test file')).to be false
   end
+
+  it 'adds the repository to the db' do
+    repo_id = "test"
+    repo_name = "Working Men's Institute of New Harmony, Indiana"
+    repo_last_updated_at = DateTime.parse("(last updated: 2020-04-24 06:01:53)") 
+
+    new_repository = EadProcessor.add_repository_to_db(repo_id, repo_name, repo_last_updated_at)
+    expect(new_repository.repository_id).to eq(repo_id)
+    expect(new_repository.name).to eq(repo_name)
+    expect(new_repository.last_updated_at).to eq(repo_last_updated_at)
+  end
 end
