@@ -24,7 +24,7 @@ class EadProcessor
       link = client(args) + file_name
       ext = File.extname(name)
       directory = File.basename(file_name, File.extname(file_name))
-      next if ext == '.zip'
+      next unless ext == '.zip'
       next unless should_process_file(args, directory)
 
       open(link, 'rb') do |file|
@@ -96,12 +96,13 @@ class EadProcessor
       link = client(args) + name
       ext = File.extname(name)
       key = File.basename(name, File.extname(name))
-      value = { :name => repository.children.text }
+      next unless ext == '.zip'
+      value = { name: repository.children.text }
       repositories[key] = value
       eads = []
       if ext == '.zip'
         open(link, 'rb') do |file|
-        eads = get_ead_names(file)
+          eads = get_ead_names(file)
         end
       end
       repositories[key][:eads] = eads
@@ -111,12 +112,10 @@ class EadProcessor
 
   # get list of eads contained in zip file
   def self.get_ead_names(file)
-    eads = []    
+    eads = []
     Zip::File.open(file) do |zip_file|
       zip_file.each do |entry|
-        if entry.file?
-          eads << entry.name
-        end
+        eads << entry.name if entry.file?
       end
     end
     return eads
