@@ -61,6 +61,11 @@
         <%# if current_user.admin? %>
         <div class="tab-pane fade" id="manage-users" role="tabpanel" aria-labelledby="manage-users-tab">
           <h3>Manage Users</h3>
+          <% if current_user.admin?%>
+            <div class="row col">
+              <%= link_to "Invite a new user", new_user_invitation_path, class: "btn btn-lg btn-primary mt-4 mb-4"%>
+            </div>
+          <% end %>
           <div class="row">
             <div class="col-md-12">
               <table class="table">
