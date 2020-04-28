@@ -4,4 +4,7 @@ class ApplicationController < ActionController::Base
   include Blacklight::LocalePicker::Concern
   layout :determine_layout if respond_to? :layout
 
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || admin_path
+  end
 end
