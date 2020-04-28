@@ -13,7 +13,7 @@ module CampusHelper
   }
 
   def convert_campus_id value
-    return CAMPUSES[value]
+    # returns a default value of "Indiana University" if there is no corresponding mainagencycode
+    CAMPUSES[value] || "Indiana University"
   end
-  
 end
