@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_155228) do
+ActiveRecord::Schema.define(version: 2020_04_28_025058) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -39,13 +39,28 @@ ActiveRecord::Schema.define(version: 2020_04_27_155228) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "eads", force: :cascade do |t|
+    t.string "filename"
+    t.datetime "last_updated_at"
+    t.datetime "last_indexed_at"
+    t.integer "repository_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "repositories", force: :cascade do |t|
     t.string "repository_id"
     t.string "name"
     t.datetime "last_updated_at"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "repositories_users", id: false, force: :cascade do |t|
+    t.integer "repository_id", null: false
+    t.integer "user_id", null: false
+    t.index ["repository_id"], name: "index_repositories_users_on_repository_id"
+    t.index ["user_id"], name: "index_repositories_users_on_user_id"
   end
 
   create_table "searches", force: :cascade do |t|

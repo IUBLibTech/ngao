@@ -21,17 +21,14 @@
           <% end %>
         
           <div class="row mb-1">
-            <div class="col-md-9">
-              <h4>Repositories</h4>
-            </div> 
           </div>
-          <% @repositories.each do |key, value| %>
+          <% @repositories.each do |repo| %>
             <div class="row mt-2 pt-4 border-top">
               <div class="col-md-9">
-                <h5><%= value[:name] %></h5>
+                <h5><%= repo.name %></h5>
               </div>
               <div class="col-md-3">
-                <%= link_to "Index all EADs in this repository", index_repository_url(repository: key), remote: true, class: 'btn btn-primary' %>
+                <%= link_to "Index all EADs in this repository", index_repository_url(repository: repo.name), remote: true, class: 'btn btn-primary' %>
               </div>
             </div>
             <div class="row pb-4">
@@ -44,11 +41,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% value[:eads].each do |ead| %>
+                    <% repo.eads.each do |ead| %>
                       <tr>
-                        <td><%= ead %></td>
+                        <td><%= ead.filename %></td>
                         <td>
-                          <%= link_to "Index", index_ead_url(repository: key, ead: ead),  remote: true, class: 'btn btn-sm btn-primary' %>
+                          <%= link_to "Index", index_ead_url(repository: repo.name, ead: ead.filename),  remote: true, class: 'btn btn-sm btn-primary' %>
                         </td>
                       </tr>
                     <% end %>
@@ -83,22 +80,24 @@
                       <td><%= user.email%></td>
                       <td><%= user.role %></td>
                       <td>
-                        <% if user.repositories.present? %>
+                        <% if user.admin? %>
+                          All repositories
+                        <% else %>
                           <% user.repositories.each do |r| %>
                             <%= r.name %><br/>
                           <% end %>
                         <% end %>
                       </td>
                       <td>
-                        <%= link_to "Delete", admin_delete_user_path(user), class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: "Are you sure you want to delete this user?" } %>
+                        <%= link_to "Delete", admin_delete_user_path(user), class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: "Are you sure you want to delete this user?" } %>
                         <% if user.role == "admin"%>
-                          <%= link_to "Make Manager", admin_update_user_role_path(user), class: 'btn btn-primary btn-xs' %>
+                          <%= link_to "Make Manager", admin_update_user_role_path(user), class: 'btn btn-primary btn-sm' %>
                         <% else %>
-                          <%= link_to "Make Admin", admin_update_user_role_path(user), class: 'btn btn-primary btn-xs' %>
+                          <%= link_to "Make Admin", admin_update_user_role_path(user), class: 'btn btn-primary btn-sm' %>
                         <% end %>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-repositories">
-                          Update User Repositories
-                        </button>
+                        <% unless user.admin? %>
+                          <%= link_to 'Edit Repositories', admin_edit_repository_path(user), class: 'btn btn-primary btn-sm' %>
+                        <% end %>
                       </td>
                     </tr>
                   <% end %>
@@ -111,32 +110,10 @@
       </div>
     </div>
   </div>
-  <!-- Modal -->
-  <div class="modal fade" id="update-repositories" tabindex="-1" role="dialog" aria-labelledby="udpate-repositories-label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="update-repositories-label">Update User Repositories</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <%#= form_for @user.last do |f| %>
-          <div class="modal-body">
-            <%#= f.text_field :title, class: 'form-control' %>
-            ... form here
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <%#= f.button :submit, :class => 'btn btn-primary' %>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        <%# end %>
-      </div>
-    </div>
-  </div>
+  
   
   <div class="row col mt-4">
     <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %>
   </div>
 </div>
+

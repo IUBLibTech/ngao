@@ -2,8 +2,9 @@ class AdminController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    EadProcessor.get_repository_names
     @users = User.all
-    @repositories = EadProcessor.get_repository_names
+    @repositories = current_user.admin? ? Repository.all : current_user.repositories
   end
 
   def index_eads
@@ -38,5 +39,26 @@ class AdminController < ApplicationController
     else
       redirect_to admin_path, notice: 'User was not updated'
     end
+  end
+
+  def edit_repository
+    @user = User.find(params[:id])
+    @repositories = Repository.all
+  end
+
+  def update_repository
+    @user = User.find(params[:id])
+    @user = User.update(admin_user_params)
+    if @user.save
+      redirect_to admin_path, notice: 'Repositories were successfully assigned'
+    else
+      redirect_to admin_path, notice: 'User repositories were not updated'
+    end
+  end
+
+  private
+
+  def admin_user_params
+    params.require(:user).permit(repositories: [])
   end
 end

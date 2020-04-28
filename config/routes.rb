@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   get 'admin/index_ead', to: 'admin#index_ead', as: 'index_ead'
   delete 'admin/delete_user/:id', to: 'admin#delete_user', as: 'admin_delete_user'
   get 'admin/update_user_role/:id', to: 'admin#update_user_role', as: 'admin_update_user_role'
+  get 'admin/edit_repository/:id', to: 'admin#edit_repository', as: 'admin_edit_repository'
+  patch 'admin/update_repository/:id', to: 'admin#update_repository', as: 'admin_update_repository'
 
   authenticated :user do
     mount DelayedJobWeb, at: '/delayed_job'

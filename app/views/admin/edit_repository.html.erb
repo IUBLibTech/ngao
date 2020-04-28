@@ -1,0 +1,10 @@
+<h2>Edit Repositories for <%= @user.email %></h2>
+<%= form_for @user, url: admin_update_repository_path(@user) do |f| %>
+  <%= hidden_field_tag(:user_id, @user.id) %>
+  <div class="form-group">
+  
+    <%= f.select :repository_ids, options_from_collection_for_select(Repository.all, :id, :name), {}, 
+      { multiple: true, class: "form-control" } %>
+    </div>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+<% end %>
