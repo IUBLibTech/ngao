@@ -20,7 +20,7 @@ class AdminController < ApplicationController
     repository = params[:repository]
     file = params[:ead]
     args = { ead: file, repository: repository }
-    EadProcessor.delay.index_single_ead(args)
+    EadProcessor.index_single_ead(args)
   end
 
   def delete_user
@@ -47,8 +47,8 @@ class AdminController < ApplicationController
   end
 
   def update_repository
-    @user = User.find(params[:id])
-    @user = User.update(admin_user_params)
+    @user = User.find(params[:user_id])
+    @user.update(admin_user_params)
     if @user.save
       redirect_to admin_path, notice: 'Repositories were successfully assigned'
     else
@@ -59,6 +59,6 @@ class AdminController < ApplicationController
   private
 
   def admin_user_params
-    params.require(:user).permit(repositories: [])
+    params.require(:user).permit(repository_ids: [])
   end
 end
