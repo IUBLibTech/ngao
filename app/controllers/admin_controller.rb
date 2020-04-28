@@ -20,7 +20,7 @@ class AdminController < ApplicationController
     repository = params[:repository]
     file = params[:ead]
     args = { ead: file, repository: repository }
-    EadProcessor.index_single_ead(args)
+    EadProcessor.delay.index_single_ead(args)
   end
 
   def delete_user
