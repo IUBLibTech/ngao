@@ -1,14 +1,12 @@
-<% if has_user_authentication_provider? %>
-  <% if current_user %>
-    <li class="nav-item ml-3">
-      <%= link_to "Admin", admin_path, class: 'nav-link' %>
-    </li>
-    <li class="nav-item ml-3">
-      <%= link_to "Logout", destroy_user_session_path, class: 'nav-link' %>
-    </li>
-  <% else %>
-    <li class="nav-item ml-3">
-      <%= link_to "Admin", admin_path, class: 'nav-link' %>
-    </li>
-  <% end %>
+<% if current_user %>
+  <li class="nav-item ml-3">
+    <%= link_to "Admin", admin_path, class: 'nav-link' %>
+  </li>
+  <li class="nav-item ml-3">
+    <%= link_to "Logout", destroy_user_session_path, class: 'nav-link' %>
+  </li>
+<% else %>
+  <li class="nav-item ml-3">
+    <%= link_to "Admin", admin_path, class: 'nav-link' %>
+  </li>
 <% end %>
