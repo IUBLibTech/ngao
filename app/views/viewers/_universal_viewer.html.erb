@@ -1,4 +1,5 @@
-<div 
+<div
+  id="uv"
   class="uv" 
   data-locale="en-GB:English (GB),cy-GB:Cymraeg" 
   data-config="/uv_config.json" 
@@ -15,4 +16,17 @@
   type="text/javascript" 
   id="embedUV" 
   src="https://pages.dlib.indiana.edu/bower_includes/universalviewer/dist/uv-2.0.1/lib/embed.js">
+</script>
+
+<script>
+  (function() {
+    var firstLoad = true;
+    Blacklight.onLoad(function () {
+      if (!firstLoad) {
+        window.location.reload();
+      } else {
+        firstLoad = false;
+      }
+    })
+  })();
 </script>
