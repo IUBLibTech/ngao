@@ -4,7 +4,11 @@
 <div class="al-repositories">
   <% @page_title = t('arclight.views.repositories.title') %>
   <%= render 'shared/breadcrumbs' %>
-  <%# ADDED CAMPUS LEVEL FOR DISPLAY %>
+
+  <%# ADD CUSTOM CONTENT HERE FOR NGAO REPOSITORY PAGE CONTENT %>
+  <h5>Add custom content here</h5>
+
+    <%# ADDED CAMPUS LEVEL FOR DISPLAY %>
   <% @campuses.each do |campus, repositories| %>
     <h2><%= convert_campus_id(campus) %></h2>
     <% repositories.each do |repository| %>

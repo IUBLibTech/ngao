@@ -19,9 +19,9 @@ sc up
 ``` bash
 sc release {staging | production} # creates and pushes the correct tags
 sc deploy {staging | production} # deployes those tags to the server
+
 ```
 
-Releaese and Deployment are handled by the gitlab ci by default. See ops/deploy-app to deploy from locally, but note all Rancher install pull the currently tagged registry image
 # ngao
 Next Generation Archives Online
 
@@ -82,6 +82,12 @@ bundle update arclight
 
 See https://github.com/sul-dlss/arclight/wiki/Upgrading-your-ArcLight-application
 
+## Delayed Job
+The indexing for this application is performed as a background process using Delayed Jobs. https://github.com/collectiveidea/delayed_job
+
+Make sure to run `rake jobs:work` to start the background processing.
+More information about running the jobs in production can be found here: https://github.com/collectiveidea/delayed_job#running-jobs
+
 ## Customizing the devise views
 
 This uses the [Devise Bootstrap Views](https://github.com/hisea/devise-bootstrap-views) gem to style the user authentication pages.
@@ -89,6 +95,13 @@ This uses the [Devise Bootstrap Views](https://github.com/hisea/devise-bootstrap
 The gem supports i18n localizations, though it is not enabled by default. To add it to the app, use [devise-i18n](https://github.com/tigrish/devise-i18n)
 
 This app uses the default views in the bootstrap-views gem, if you wish to customize them further, run `rails generate devise:views:bootstrap_templates` to create a local copy to modify.
+
+## Add custom content to Home and Repositories page
+To add home page content:
+1. add html content at 'app/catalog/_home.html.erb
+
+To add Repositories page content:
+1. add html content to 'app/views/arclight/repositories/index.html.erb'
 
 ## Adding new static pages:
 To add new static pages:
