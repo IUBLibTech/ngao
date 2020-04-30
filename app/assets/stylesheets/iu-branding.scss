@@ -1,0 +1,94 @@
+@import "iu_variables";
+
+// links (e.g. in the menu bar)
+a {
+  color: $iu-crimson;
+}
+.page-link {
+  color: $iu-crimson;
+}
+.page-item.active .page-link {
+  background-color: $iu-crimson;
+}
+
+// button colors
+.btn-primary {
+  background-color: $iu-crimson;
+  border-color: $iu-mahogany;
+}
+.btn-secondary{
+  background-color: $iu-mahogany;
+}
+.btn-outline-secondary {
+  border-color: $iu-mahogany;
+}
+// active colors for toggable buttons on search results
+.btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-outline-secondary.dropdown-toggle {
+  background-color: $iu-mahogany;
+}
+// search box outlines
+.custom-select, #q {
+  border-color: $iu-mahogany;
+}
+// search button
+.search-btn {
+  background-color: $iu-crimson;
+}
+// facet colors
+.card {
+  background-color: $iu-cream;
+
+}
+// Active (i.g. elected) facet
+.bg-sucess, .facet-limit-active {
+  border-color: $iu-crimson !important;
+  .card-header {
+    background-color: $iu-crimson !important;
+    .btn{
+      color: $iu-cream;
+    }
+  }
+  .card-body > .facet-values  {
+    color: $iu-crimson;
+  }
+}
+.text-success, .facet-values li .selected {
+  color: $iu-crimson !important;
+}
+
+// icon colors
+article.document .blacklight-icons svg {
+  fill: $iu-mahogany;
+}
+
+// online content icon
+article.document .blacklight-icons.al-online-content-icon svg,
+li.al-collection-context .al-online-content-icon svg,
+.al-online-content-icon .blacklight-icons svg {
+  fill: $iu-crimson;
+}
+
+// extents (eg "# items")
+.documents-list article.document .document-title-heading .al-document-extent,
+.documents-online_contents article.document .document-title-heading .al-document-extent {
+  background-color: $iu-cream;
+}
+// Raw item count (eg. "#") in the collection/item tabs
+.badge-secondary {
+  background-color: $iu-mahogany;
+}
+
+// Search "label" on the menubar
+.input-group-text {
+  background-color: $iu-cream;
+}
+
+// item show page action box (e.g. downloads)
+.al-show-actions-box {
+  background-color: $iu-cream;
+}
+// tabs on the collect/item pages
+.nav.nav-tabs .nav-item .nav-link:not(.active) {
+  background-color: $iu-cream;
+}
