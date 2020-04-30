@@ -1,0 +1,30 @@
+@import "iu_variables";
+
+#ngao-footer {
+  width: 100%;
+  margin: 0 auto;
+  background-color: $iu-mahogany;
+  .ngao-links {
+    margin: 0 auto;
+    position: relative;
+    max-width: 64rem;
+    justify-content: space-between;
+  }
+}
+
+.link-caddy {
+  display: flex;
+  list-style-type: none;
+  li > a {
+    color: $iu-cream;
+  }
+}
+
+@media only screen and (min-width:40em) {
+  #ngao-footer {
+    padding: 1rem 0;
+  }
+  #footer {
+    margin-top: 0px;
+  }
+}

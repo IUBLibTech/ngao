@@ -2,5 +2,7 @@ en:
   arclight:
     masthead_heading: Archives Online
     views:
+      about:
+        title: Archives Online - About
       home:
         title: Archives Online

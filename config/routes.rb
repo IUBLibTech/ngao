@@ -40,5 +40,6 @@ Rails.application.routes.draw do
     mount DelayedJobWeb, at: '/delayed_job'
   end
 
+  get '/about', to: 'pages#about', as: 'about'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
