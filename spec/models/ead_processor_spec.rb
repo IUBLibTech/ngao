@@ -58,11 +58,32 @@ RSpec.describe EadProcessor do
     expect(new_repository.last_updated_at).to eq(repo_last_updated_at)
   end
 
-  it 'adds the ead to the db' do
-    repository = Repository.new(repository_id: 'mix')
-    ead_filename = 'VAD3254.xml'
-    new_ead = EadProcessor.add_ead_to_db(ead_filename, repository.repository_id)
-    expect(new_ead.filename).to eq(ead_filename)
-    expect(new_ead.repository)
+  context 'eads' do
+    let(:repository) { Repository.new }
+
+    it 'adds the ead to the db' do
+      filename = 'VAD3254.xml'
+      repository.repository_id = 'mix'
+      ead = EadProcessor.add_ead_to_db(filename, repository.repository_id)
+      expect(ead.filename).to eq(filename)
+    end
+
+    it 'adds the ead last_updated_at' do
+      repository.repository_id = 'mix'
+      filename = 'VAD3254.xml'
+      ead = EadProcessor.add_ead_to_db(filename, repository.repository_id)
+      last_updated_at = Time.now
+      updated_ead = EadProcessor.add_last_updated(filename, last_updated_at)
+      expect(updated_ead).to be true
+    end
+
+    it 'adds the ead last_indexed_at' do
+      repository.repository_id = 'mix'
+      filename = 'VAD3254.xml'
+      ead = EadProcessor.add_ead_to_db(filename, repository.repository_id)
+      last_indexed_at = Time.now
+      updated_ead = EadProcessor.add_last_updated(filename, last_indexed_at)
+      expect(updated_ead).to be true
+    end
   end
 end

@@ -24,3 +24,10 @@ body {
     padding-bottom: 3rem;
   }
 }
+
+tr.needs-update {
+  font-style: italic;
+  font-weight: bold;
+  // background-color: $iu-cream;
+  background-color: #EDEBEB;
+}

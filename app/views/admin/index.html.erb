@@ -16,7 +16,7 @@
           <h3>Manage Repositories</h3>
           <% if current_user.admin? %>
             <div class="row col">
-              <%= link_to "Index all EADs for all repositories", index_eads_url, remote: true, class: "btn btn-lg btn-primary mt-4 mb-4" %>
+              <%= link_to "Index all EADs for all repositories", index_eads_url, class: "btn btn-lg btn-primary mt-4 mb-4" %>
             </div>
           <% end %>
         
@@ -28,7 +28,7 @@
                 <h5><%= repo.name %></h5>
               </div>
               <div class="col-md-3">
-                <%= link_to "Index all EADs in this repository", index_repository_url(repository: repo.repository_id), remote: true, class: 'btn btn-primary' %>
+                <%= link_to "Index all EADs in this repository", index_repository_url(repository: repo.repository_id), class: 'btn btn-primary' %>
               </div>
             </div>
             <div class="row pb-4">
@@ -37,15 +37,21 @@
                   <thead>
                     <tr>
                       <th>Eads in this Repository</th>
+                      <th>Last Update</th>
+                      <th>Last Index</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     <% repo.eads.each do |ead| %>
-                      <tr>
+                      <% last_update = ead.last_updated_at.present? ? ead.last_updated_at : ead.repository&.last_updated_at %>
+                      <% needs_update_style = !ead.last_indexed_at.present? || (ead.last_indexed_at.present? && last_update > ead.last_indexed_at) ? 'needs-update' : 'no-update' %>
+                      <tr class="<%= needs_update_style %>">
                         <td><%= ead.filename %></td>
+                        <td><%= last_update&.strftime("%m/%d/%Y at %I:%M%p") %></td>
+                        <td><%= ead.last_indexed_at&.strftime("%m/%d/%Y at %I:%M%p") %></td>
                         <td>
-                          <%= link_to "Index", index_ead_url(repository: repo.repository_id, ead: ead.filename),  remote: true, class: 'btn btn-sm btn-primary' %>
+                          <%= link_to "Index", index_ead_url(repository: repo.repository_id, ead: ead.filename), class: 'btn btn-sm btn-primary' %>
                         </td>
                       </tr>
                     <% end %>

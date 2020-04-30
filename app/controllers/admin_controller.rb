@@ -3,17 +3,20 @@ class AdminController < ApplicationController
 
   def index
     EadProcessor.get_repository_names
+    EadProcessor.get_updated_eads
     @users = User.all
     @repositories = current_user.admin? ? Repository.all : current_user.repositories
   end
 
   def index_eads
     EadProcessor.delay.import_eads
+    redirect_to admin_path, notice: 'These files are being indexed in the background and will be ready soon.'
   end
 
   def index_repository
     repository = params[:repository]
     EadProcessor.delay.import_eads({ files: [repository] })
+    redirect_to admin_path, notice: 'These files are being indexed in the background and will be ready soon.'
   end
 
   def index_ead
@@ -21,6 +24,7 @@ class AdminController < ApplicationController
     file = params[:ead]
     args = { ead: file, repository: repository }
     EadProcessor.delay.index_single_ead(args)
+    redirect_to admin_path, notice: 'The file is being indexed in the background and will be ready soon.'
   end
 
   def delete_user

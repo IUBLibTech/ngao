@@ -42,7 +42,9 @@ class EadProcessor
         FileUtils.mkdir_p path unless File.exist?(path)
         fpath = File.join(path, f.name)
         File.delete(fpath) if File.exist?(fpath)
+        filename = File.basename(fpath)
         zip_file.extract(f, fpath)
+        add_last_indexed(filename, DateTime.now)
         index_file(fpath, directory)
       end
     end
@@ -60,6 +62,8 @@ class EadProcessor
     end
     path = "./data/#{directory}"
     fpath = File.join(path, file_name)
+    filename = File.basename(fpath)
+    add_last_indexed(filename, DateTime.now)
     EadProcessor.delay.index_file(fpath, repository)
   end
 
@@ -136,6 +140,26 @@ class EadProcessor
   def self.add_ead_to_db(filename, repository_id)
     Ead.where(filename: filename).first_or_create do |ead|
       ead.repository = Repository.find_by(repository_id: repository_id)
+    end
+  end
+
+  def self.add_last_indexed(filename, indexed_at)
+    Ead.find_by(filename: filename)&.update_attributes(last_indexed_at: indexed_at)
+  end
+
+  def self.add_last_updated(filename, updated_at)
+    Ead.find_by(filename: filename)&.update_attributes(last_updated_at: updated_at)
+  end
+
+  def self.get_updated_eads(args = {})
+    for ead in page(args).css('a')
+      name = ead.attributes['href'].value
+      ext = File.extname(name)
+      name = File.basename(name, File.extname(name))
+      next unless ext == '.xml'
+      ead_filename = name + ext
+      ead_last_updated_at = DateTime.parse(ead.next_sibling.text)
+      add_last_updated(ead_filename, ead_last_updated_at)
     end
   end
 
