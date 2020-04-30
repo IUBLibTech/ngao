@@ -4,8 +4,14 @@
 a {
   color: $iu-crimson;
 }
+a:hover {
+  color: $iu-mahogany;
+}
 .page-link {
   color: $iu-crimson;
+}
+.page-link:hover {
+  color: $iu-mahogany;
 }
 .page-item.active .page-link {
   background-color: $iu-crimson;
@@ -16,12 +22,21 @@ a {
   background-color: $iu-crimson;
   border-color: $iu-mahogany;
 }
+.btn-primary:hover, .btn-primary:active {
+  background-color: $iu-mahogany;
+}
 .btn-secondary{
   background-color: $iu-mahogany;
 }
 .btn-outline-secondary {
   border-color: $iu-mahogany;
 }
+
+// The "X" button to remove a facet from your search results
+.btn-danger:hover, .applied-filter .remove:hover  {
+  background-color: $iu-cream;
+}
+
 // active colors for toggable buttons on search results
 .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-secondary.dropdown-toggle {
@@ -34,6 +49,10 @@ a {
 // search button
 .search-btn {
   background-color: $iu-crimson;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle, .btn-primary:focus, .btn-primary.focus {
+  background-color: $iu-mahogany;
 }
 // facet colors
 .card {
@@ -91,4 +110,15 @@ li.al-collection-context .al-online-content-icon svg,
 // tabs on the collect/item pages
 .nav.nav-tabs .nav-item .nav-link:not(.active) {
   background-color: $iu-cream;
+}
+
+// sliders on date range facet
+.slider-handle {
+  background-image: linear-gradient($iu-crimson 0%, $iu-crimson 100%) !important;
+}
+
+// change search button dropshadow to iu crimson
+.btn-primary:focus, .btn-primary.focus, .btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(153, 0, 0, 0.5);
 }
