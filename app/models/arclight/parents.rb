@@ -10,7 +10,7 @@ module Arclight
       @ids = ids
       @labels = labels
       @eadid = eadid
-      @campus = @campus
+      @campus = campus
       @levels = levels
     end
 
