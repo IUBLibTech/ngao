@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class SolrDocument
   include Blacklight::Solr::Document
- include Arclight::SolrDocument
+  include Arclight::SolrDocument
 
   # self.unique_key = 'id'
 
@@ -20,5 +20,9 @@ class SolrDocument
 
   def campus
     first('campus_unit_ssm')
+  end
+
+  def parent_campus
+    fetch('parent_campus_unit_ssm', [])
   end
 end

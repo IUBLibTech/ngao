@@ -366,6 +366,17 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
     end
   end
 
+  to_field 'parent_campus_unit_ssm' do |_record, accumulator, context|
+    ## Top level document
+    accumulator.concat context.clipboard[:parent].output_hash['campus_unit_ssm']
+    ## Other components
+    context.output_hash['parent_ssim']&.drop(1)&.each do |id|
+      accumulator.concat Array
+        .wrap(context.clipboard[:parent].output_hash['components'])
+        .select { |c| c['ref_ssi'] == [id] }.map { |c| c['campus_unit_ssm'] }.flatten
+    end
+  end
+
   to_field 'unitid_ssm', extract_xpath('./did/unitid')
   to_field 'collection_unitid_ssm' do |_record, accumulator, context|
     accumulator.concat Array.wrap(context.clipboard[:parent].output_hash['unitid_ssm'])

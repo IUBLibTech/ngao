@@ -9,7 +9,11 @@
       <% if document.campus.present? %>
         <span class="media-body" aria-hidden="true"><%= blacklight_icon :campus, classes: 'al-campus-content-icon' %></span>
         <span class="col"><%= add_campus_link(document) %></span>
+      <% elsif document.parent_campus.present? %>
+        <span class="media-body" aria-hidden="true"><%= blacklight_icon :campus, classes: 'al-campus-content-icon' %></span>
+        <span class="col"><%= add_parent_campus_link(document) %></span>
       <% else %>
+        <span class="media-body" aria-hidden="true"><%= blacklight_icon :campus, classes: 'al-campus-content-icon' %></span>
         <span class="col">Indiana University</span>
       <% end %>
     </li>

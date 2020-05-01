@@ -21,6 +21,7 @@ module ArclightHelper
   def parents_to_links(document)
     breadcrumb_links = []
     breadcrumb_links << add_campus_link(document) unless document.campus.nil?
+    breadcrumb_links << add_parent_campus_link(document) unless document.parent_campus.nil? && !document.campus.nil?
     breadcrumb_links << build_repository_link(document)
     breadcrumb_links << document_parents(document).map do |parent|
       link_to parent.label, solr_document_path(parent.global_id)
@@ -39,6 +40,7 @@ module ArclightHelper
   def regular_compact_breadcrumbs(document)
     breadcrumb_links = []
     breadcrumb_links << add_campus_link(document) unless document.campus.nil?
+    breadcrumb_links << add_parent_campus_link(document) unless document.parent_campus.nil? && !document.campus.nil?
     breadcrumb_links << build_repository_link(document)
 
     parents = document_parents(document)
@@ -279,7 +281,7 @@ module ArclightHelper
 
   def within_original_tree?(document)
     Array.wrap(params['original_parents']).map do |parent|
-      Arclight::Parent.new(id: parent, eadid: document.parent_ids.first, level: nil, label: nil).global_id
+      Arclight::Parent.new(id: parent, eadid: document.parent_ids.first, campus: document.parent_campus, level: nil, label: nil).global_id
     end.include?(document.id)
   end
 
@@ -339,6 +341,12 @@ module ArclightHelper
     def add_campus_link(document)
       campus_name = content_tag(:span, convert_campus_id(document.campus))
       search_query = "/?f[campus_unit_sim][]=#{document.campus}&q=&search_field=all_fields"
+      link_to(campus_name, search_query)
+    end
+
+    def add_parent_campus_link(document)
+      campus_name = content_tag(:span, convert_campus_id(document.parent_campus&.first))
+      search_query = "/?f[parent_campus_unit_sim][]=#{document.parent_campus}&q=&search_field=all_fields"
       link_to(campus_name, search_query)
     end
 end
