@@ -33,12 +33,14 @@ a:hover {
 }
 
 // The "X" button to remove a facet from your search results
-.btn-danger:hover, .applied-filter .remove:hover  {
+.btn-danger:hover,
+.applied-filter .remove:hover  {
   background-color: $iu-cream;
 }
 
 // active colors for toggable buttons on search results
-.btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active,
+.btn-outline-secondary:not(:disabled):not(.disabled):active,
+.btn-outline-secondary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-secondary.dropdown-toggle {
   background-color: $iu-mahogany;
 }
@@ -50,8 +52,10 @@ a:hover {
 .search-btn {
   background-color: $iu-crimson;
 }
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle, .btn-primary:focus, .btn-primary.focus {
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle,
+.btn-primary:focus, .btn-primary.focus {
   background-color: $iu-mahogany;
 }
 // facet colors
@@ -60,7 +64,8 @@ a:hover {
 
 }
 // Active (i.g. elected) facet
-.bg-sucess, .facet-limit-active {
+.bg-sucess,
+.facet-limit-active {
   border-color: $iu-crimson !important;
   .card-header {
     background-color: $iu-crimson !important;
@@ -72,7 +77,8 @@ a:hover {
     color: $iu-crimson;
   }
 }
-.text-success, .facet-values li .selected {
+.text-success,
+.facet-values li .selected {
   color: $iu-crimson !important;
 }
 
@@ -111,6 +117,10 @@ li.al-collection-context .al-online-content-icon svg,
 .nav.nav-tabs .nav-item .nav-link:not(.active) {
   background-color: $iu-cream;
 }
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: $iu-crimson;
+}
 
 // sliders on date range facet
 .slider-handle {
@@ -118,7 +128,13 @@ li.al-collection-context .al-online-content-icon svg,
 }
 
 // change search button dropshadow to iu crimson
-.btn-primary:focus, .btn-primary.focus, .btn-primary:not(:disabled):not(.disabled):active:focus,
-.btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+.btn-primary:focus, .btn-primary.focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(153, 0, 0, 0.5);
+}
+// fixed blue on some button clicks
+.btn:disabled, .btn.disabled {
+  background-color: $iu-mahogany;
 }
