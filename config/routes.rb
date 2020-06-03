@@ -11,8 +11,18 @@ Rails.application.routes.draw do
     concerns :range_searchable
   end
 
-  #devise_for :users
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, controllers: { sessions: 'users/sessions', omniauth_callbacks: "users/omniauth_callbacks" },
+             skip: [:sessions, :passwords, :registration]
+  # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_scope :user do
+    get 'users/auth/cas', to: 'users/omniauth_authorize#passthru', defaults: { provider: :cas }, as: "new_user_session"
+    get('global_sign_out',
+        to: 'users/sessions#global_logout',
+        as: :destroy_global_session)
+    get "users/auth/cas",
+        to: 'users/omniauth_authorize#passthru',
+        defaults: { provider: :cas }, as: "new_cas_user_session"
+  end
 
   concern :exportable, Blacklight::Routes::Exportable.new
 
