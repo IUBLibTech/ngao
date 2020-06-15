@@ -9,7 +9,7 @@ class EadProcessor
 
   # sets the url
   def self.client(args = {})
-    args[:url] || 'https://aspacedev.dlib.indiana.edu/assets/ead_export/'
+    args[:url] || ENV['ASPACE_EXPORT_URL'] || 'http://localhost/assets/ead_export/'
   end
 
   # Open web address with Nokogiri
