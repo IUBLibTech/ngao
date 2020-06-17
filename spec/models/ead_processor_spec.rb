@@ -6,7 +6,7 @@ require 'pathname'
 RSpec.describe EadProcessor do
   it 'gets the client without args' do
     client = EadProcessor.client
-    expect(client).to eq 'https://aspacedev.dlib.indiana.edu/assets/ead_export/'
+    expect(client).to eq 'http://localhost/assets/ead_export/'
   end
 
   it 'gets the client with args' do
