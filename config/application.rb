@@ -17,6 +17,12 @@ module Ngao
     # the framework and any gems in your application.
 
     config.active_job.queue_adapter = :delayed_job
-    
+
+    # Set the OpenURI buffer to zero so that remote files are forced to flush to temporary
+    # files.  Needed for extracting Zip files on the fly from the ArchiveSpace export URL.
+    # This solves https://github.com/IUBLibTech/ngao/issues/72
+
+    OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+    OpenURI::Buffer.const_set 'StringMax', 0
   end
 end
