@@ -495,7 +495,13 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
   to_field 'acqinfo_ssim', extract_xpath('./acqinfo/*[local-name()!="head"]')
   to_field 'acqinfo_ssim', extract_xpath('./descgrp/acqinfo/*[local-name()!="head"]')
 
-  to_field 'language_ssm', extract_xpath('./did/langmaterial')
+  #to_field 'language_ssm', extract_xpath('./did/langmaterial')
+  to_field 'language_ssm' do |record, accumulator|
+    record.xpath('./did/langmaterial').each do |node|
+      accumulator << node.text
+    end
+  end
+
   to_field 'containers_ssim' do |record, accumulator|
     record.xpath('./did/container').each do |node|
       accumulator << [node.attribute('type'), node.text].join(' ').strip

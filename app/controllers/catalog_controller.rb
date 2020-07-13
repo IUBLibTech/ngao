@@ -320,6 +320,7 @@ class CatalogController < ApplicationController
     config.add_component_field 'extent_ssm', label: 'Extent'
     config.add_component_field 'scopecontent_ssm', label: 'Scope and Content', helper_method: :render_html_tags
     config.add_component_field 'acqinfo_ssim', label: 'Acquisition information', helper_method: :render_html_tags
+    config.add_component_field 'language_ssm', label: 'Language', helper_method: :render_html_tags
     config.add_component_field 'appraisal_ssm', label: 'Appraisal information', helper_method: :render_html_tags
     config.add_component_field 'custodhist_ssm', label: 'Custodial history', helper_method: :render_html_tags
     config.add_component_field 'processinfo_ssm', label: 'Processing information', helper_method: :render_html_tags
