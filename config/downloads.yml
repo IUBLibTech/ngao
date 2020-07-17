@@ -18,8 +18,8 @@ sample_unitid:
     size: 123456
     # size_accessor: 'level'
 default:
-  disabled: true
+  disabled: false
   pdf:
     template: 'http://example.com/%{unitid}.pdf'
   ead:
-    template: 'http://example.com/%{unitid}.xml'
+    template: 'http://purl.dlib.indiana.edu/iudl/findingaids/%{repository_id}/encodedtext/%{eadid}'
