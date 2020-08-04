@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   include Blacklight::LocalePicker::Concern
   layout :determine_layout if respond_to? :layout
 
+  def default_url_options(opts={})
+    opts.merge(Ngao::Application.config.action_mailer.default_url_options || {})
+  end
+
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || admin_path
   end
