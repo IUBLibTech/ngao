@@ -3,10 +3,13 @@ en:
     masthead_heading: Archives Online
     views:
       about:
-        title: Archives Online - About
+        title: About - Archives Online at Indiana University
       home:
-        title: Archives Online
+        title: Archives Online at Indiana University
       contribute:
-        title: Archives Online - Contribute
+        title: Contribute - Archives Online at Indiana University
       help:
-        title: Archives Online - Help
+        title: Help - Archives Online at Indiana University
+      repositories:
+        show: "%{name} - Archives Online at Indiana University"
+        title: Repositories - Archives Online at Indiana University
