@@ -41,6 +41,7 @@ group :development, :test do
 
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
 
   # TODO: set up coveralls
   gem 'coveralls', require: false

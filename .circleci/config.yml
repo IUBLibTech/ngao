@@ -1,0 +1,128 @@
+# Ruby CircleCI 2.1 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2.1
+
+default_environment: &default_environment
+  RAILS_ENV: test
+  RACK_ENV: test
+  FCREPO_TEST_PORT: 8080/fcrepo
+  BUNDLE_JOBS: 4
+  BUNDLE_RETRY: 3
+  NOKOGIRI_USE_SYSTEM_LIBRARIES: true
+  ENGINE_CART_RAILS_OPTIONS: --skip-git --skip-bundle --skip-listen --skip-spring --skip-yarn --skip-keeps --skip-action-cable --skip-coffee --skip-puma --skip-test
+  SPEC_OPTS: --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec.xml --format progress
+  COVERALLS_PARALLEL: true
+  WD_INSTALL_DIR: ./webdriver
+  SOLR_URL: http://localhost:8983/solr/arclight-test
+
+jobs:
+  build:
+    docker:
+    - image: circleci/ruby:2.6.6-stretch-node-browsers
+    - image: solr:8
+      command: bin/solr -cloud -noprompt -f -p 8985
+
+    working_directory: ~/repo
+
+    environment:
+      <<: *default_environment
+
+    steps:
+    - setup_remote_docker
+    - restore_cache:
+        keys:
+        - source-v1-{{ .Branch }}-{{ .Revision }}
+        - source-v1-{{ .Branch }}-
+        - source-v1-
+
+    - checkout
+
+    - save_cache:
+        key: source-v1-{{ .Branch }}-{{ .Revision }}
+        paths:
+        - ".git"
+
+    # BUNDLE_PATH is unset to allow for `bundle config path` to take precedence.
+    - run:
+        name: Extra environment setup
+        command: |
+          echo 'unset BUNDLE_PATH' >> $BASH_ENV
+
+    - run:
+        name: Load config into SolrCloud
+        command: |
+          cd solr/conf
+          zip -1 -r solr_arclight_config.zip ./*
+    #      curl --user solr:SolrRocks -H "Content-type:application/octet-stream" --data-binary @solr_arclight_config.zip "http://localhost:8985/solr/admin/configs?action=UPLOAD&name=arclight"
+    #      curl --user solr:SolrRocks -H 'Content-type: application/json' http://localhost:8985/api/collections/ -d '{create: {name: arclight-test, config: arclight, numShards: 1}}'
+
+    - run:
+        name: Create Solr core
+        command: |
+          docker run -p 8983:8983 -d --name arclight_solr solr:8
+          docker cp solr/conf/ arclight_solr:/opt/solr/server/solr/configsets/arclight-test
+          docker cp spec/fixtures/config/security.json arclight_solr:/security.json
+          docker exec -it arclight_solr solr create_core -c arclight-test -d /opt/solr/server/solr/configsets/arclight-test
+    #      docker exec -it arclight_solr bin/solr zk cp file:security.json zk:/security.json -z localhost:9985
+          
+    - run:
+        name: Install system deps
+        command: |
+          sudo apt-get update -qq
+          sudo apt-get install -y build-essential libpq-dev nodejs
+
+    # Download and cache dependencies
+    - restore_cache:
+        keys:
+        - dependencies-v3-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        - dependencies-v3-{{ .Branch }}
+        - dependencies-v3-
+
+    - run:
+        name: Install dependencies
+        command: |
+          gem update --system
+          gem update bundler
+          bundle config path $CIRCLE_WORKING_DIRECTORY/vendor/bundle
+          bundle install
+          bundle pristine webdrivers
+          bundle clean
+          bundle exec rails webdrivers:chromedriver:update
+
+    - save_cache:
+        paths:
+        - ./vendor/bundle
+        - ./webdriver
+        key: dependencies-v3-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+
+#    - run:
+#        name: Call Rubocop
+#        command: bundle exec rubocop
+
+    #- run:
+    #    name: Start headless Chrome
+    #    command: google-chrome-stable --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost
+    #    background: true
+
+    - run:
+        name: Run rspec in parallel
+        command: |
+          docker ps
+          mkdir /tmp/test-results
+          RAILS_ENV=test bundle exec rake db:migrate
+          bundle exec rspec $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+
+    # - run:
+    #    name: Run javascript tests
+    #    command: bundle exec rake spec:javascript
+
+
+
+    # collect reports
+    - store_test_results:
+        path: /tmp/test-results
+    - store_artifacts:
+        path: /tmp/test-results
+        destination: test-results
