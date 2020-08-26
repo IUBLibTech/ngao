@@ -177,7 +177,7 @@ ewv:
   phone: '812-855-9544'
   contact_info: 'gbl@indiana.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/ewv.jpg'
-  repo_inst_url: 'http://www.gbl.indiana.edu/collec/archive-library/'
+  repo_inst_url: 'https://gbl.indiana.edu/collections/library-archives.html'
 folklore:
   campus: 'US-InU'
   name: 'Folklore Collection'
@@ -337,7 +337,7 @@ politicalpapers:
   phone: '812-856-4601'
   contact_info: 'congpprs@indiana.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/politicalpapers.jpg'
-  repo_inst_url: 'https://libraries.iub.edu/modern-political-papers'
+  repo_inst_url: 'https://libraries.indiana.edu/modern-political-papers'
 paleontology:
   campus: 'US-InU'
   name: 'Paleontology Collection'
@@ -385,7 +385,7 @@ kinsey:
   phone: '812-855-7686'
   contact_info: 'libknsy@indiana.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/kinsey.jpg'
-  repo_inst_url: 'http://www.kinseyinstitute.org/library/'
+  repo_inst_url: 'https://kinseyinstitute.org/collections/library'
 mediaschool:
   campus: 'US-InU'
   name: 'The Media School Archive'
