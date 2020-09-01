@@ -46,4 +46,5 @@ log/*
 # ignore data managed by import processes
 /data/*
 !/data/.keep
+!/data/paleontology
 

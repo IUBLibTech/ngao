@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd"><eadheader countryencoding="iso3166-1" dateencoding="iso8601" findaidstatus="edited-full-draft" langencoding="iso639-2b" repositoryencoding="iso15511"><eadid countrycode="US" mainagencycode="US-InU">VAD5804</eadid><filedesc><titlestmt><titleproper>Alan Stanley Horowitz Media Materials<date normal="1940/1999"> 1940-1999</date> <num>PC005</num></titleproper><author>Processed by Wen Nie Ng<lb/>Electonic finding aid encoded by Wen Nie Ng</author></titlestmt><publicationstmt><publisher>Test - Paleontology Collection</publisher><p><date>2016</date></p><address><addressline>Indiana University</addressline><addressline>1001 E. 10th St.</addressline><addressline>Bloomington, Indiana 47405-1405</addressline><addressline>palcoll@indiana.edu</addressline><addressline>URL: <extptr xlink:href="http://www.indiana.edu/~palcoll/" xlink:show="new" xlink:title="http://www.indiana.edu/~palcoll/" xlink:type="simple"/></addressline></address></publicationstmt><notestmt><note><p><date normal="2016">2016</date></p></note></notestmt></filedesc><profiledesc><creation>This finding aid was produced using ArchivesSpace on <date>2020-09-01 04:04:17 -0400</date>.</creation><langusage>Description is in English.</langusage></profiledesc><revisiondesc><change audience="internal"><date>April 7, 2016</date><item>Completed</item></change><change audience="internal"><date>May 13, 2016</date><item>Updated related item, inserted direct link to the related item</item></change><change audience="internal"><date>July 7, 2017</date><item>Edited box id</item></change></revisiondesc></eadheader><archdesc level="collection">
+  <did>
+    <repository>
+      <corpname>Test - Paleontology Collection</corpname>
+    </repository>
+    <unittitle>Test Change - Alan Stanley Horowitz Media Materials</unittitle>
+    <origination audience="internal" label="Creator">
+      <persname source="lcnaf">Horowitz, Alan Stanley, 1930-</persname>
+    </origination>
+    <unitid>PC005</unitid>
+    <physdesc altrender="part">
+      <extent altrender="materialtype spaceoccupied">1 box</extent>
+      <dimensions>8"x 14"x 9.5"</dimensions>
+    </physdesc>
+    <physdesc altrender="part">
+      <extent altrender="materialtype spaceoccupied">2 boxes</extent>
+      <dimensions>4.5"x 4"x 5.5"</dimensions>
+    </physdesc>
+    <physdesc altrender="part">
+      <extent altrender="materialtype spaceoccupied">1 box</extent>
+      <dimensions>11.5"x 6.5"x 5.5"</dimensions>
+    </physdesc>
+    <physdesc altrender="part">
+      <extent altrender="materialtype spaceoccupied">1 stack of envelopes</extent>
+      <dimensions>2.25"x7.75"x9.5"</dimensions>
+    </physdesc>
+    <physdesc altrender="part">
+      <extent altrender="materialtype spaceoccupied">3 card catalog drawers</extent>
+    </physdesc>
+    <physdesc altrender="part">
+      <extent altrender="materialtype spaceoccupied">4 file folder cabinets</extent>
+    </physdesc>
+    <physdesc altrender="part">
+      <extent altrender="materialtype spaceoccupied">1 tray of materials in locked cabinet.</extent>
+    </physdesc>
+    <unitdate certainty="circa" normal="1940/1999" type="inclusive">1940-1999</unitdate>
+    <abstract id="aspace_978b50cfc902840ffc6e0430e0b6567a">Alan Stanley Horowitz was curator of paleontology and part time professor of geology at Indiana University from 1966-1996. His collection consists of materials relating to his research interests and position at IU, including geological and paleontological research, publications, and records relating to professional organizations with which he was involved.</abstract>
+    <langmaterial id="aspace_3d7de32d0404ea46871b990e60b551fa">Materials are in <language langcode="eng">English</language></langmaterial>
+  </did>
+  <accessrestrict id="aspace_014b3c5637e6a05fb73c44eb25c92fbc">
+    <head>Access Restrictions</head>
+<p>This collection is open for research. Advance notice required.</p>  </accessrestrict>
+  <bioghist id="aspace_63a5958fe1c166c0b1bbe17d728f7323">
+    <head>Biographical Note</head>
+<p>Alan Stanley Horowitz was born on June 12, 1930 in Ashland, Kentucky. In 1948 he entered Washington and Lee University in Virginia and earned a B.S. degree in 1952. Horowitz completed graduate coursework at The Ohio State University and in 1954 entered the doctoral program at Indiana University, receiving his Ph.D. in 1957. After completing school, Horowitz went to Littleton, Colorado where he took a position as a research geologist with Marathon Oil Company. In 1966 he returned to IU as curator of paleontology and later became part time professor of geology. By his retirement in 1996, Horowitz was the author or co-author of 53 papers, 57 abstracts and several other written works. He also received the Owen Award, which is presented to a distinguished alumnus of the IU Geology Department. A longtime member of the Paleontological Society, Horowitzâs primary areas of research involved stratigraphic and taxonomic analysis of blastoids and bryozoans. Dr. Horowitz passed away on February 18, 1999 after battling leukemia.</p>  </bioghist>
+  <arrangement id="aspace_899a1075ef1b397f924df67d9614386d">
+    <head>Arrangement</head>
+<p>The Horowitz collection is organized into four series: published media, specimens, co-authored, thesis, and correspondence.</p>  </arrangement>
+  <scopecontent id="aspace_64827483a2e3dce6386f2983dbdfc390">
+    <head>Scope and Content Note</head>
+<p>Published media includes graphs, negatives for graphs, and large prints for publication</p><p> Specimen series spans the year from ca. 1989-1991, mostly bryozoans thin section sheet film negatives.</p><p> Co-authored, ca. 1948-1980s includes prints and negatives, specimen slides, and slides for teaching that were co-authored with Thomas Gregory Perry.</p><p> Correspondence consists of Horowitzâs curation reports, publications information, routine administrative correspondence and etc. compiled by Horowitz during his 30-year tenure at IU.</p><p> Thesis, ca. 1954 consists of media materials related to Horowitz's MA thesis.</p>  </scopecontent>
+  <relatedmaterial id="aspace_2482067a72b9d92798af2d63e0ecdcaf">
+    <head>Related Material</head>
+<p><extref xlink:href="http://webapp1.dlib.indiana.edu/findingaids/view?brand=general&amp;docId=VAD5804.xml&amp;doc.view=entire_text"> Alan Stanley Horowitz Media Materials, ca. 1940-1999</extref>.</p>  </relatedmaterial>
+  <acqinfo id="aspace_1d2f3923b7535e917ccb39db54a5143e">
+    <head>Acquisition Information</head>
+<p>Inherited from the author.</p>  </acqinfo>
+  <userestrict id="aspace_e1a9184c05991466a41d1fe27d77d83d">
+    <head>Usage Restrictions</head>
+<p>Photocopying permitted only with permission of the Curator(s) or Collections Manager of the Paleontology Collection.</p>  </userestrict>
+  <prefercite id="aspace_00e3a6e6e70a86f9f882741ae5f1feee">
+    <head>Preferred Citation</head>
+<p>[Item], Alan Stanley Horowitz Media Materials, ca. 1940-1999, IU Paleontology Collection</p>  </prefercite>
+  <processinfo id="aspace_b16ec7b9481f102e2464d2106f562a78">
+    <head>Processing Information</head>
+<p>Processed by Wen Nie Ng</p><p> Completed on <date normal="2016-04-07" type="source">April, 7 2016</date></p>  </processinfo>
+  <controlaccess>
+    <subject source="lcsh">Geology–Montana</subject>
+    <subject source="lcsh">Geology, Stratigraphy–Ordovician</subject>
+    <subject source="lcsh">Paleontology–Montana</subject>
+    <subject source="lcsh">Bryozoa, Fossil</subject>
+    <subject source="lcsh">Crinoidea, Fossil</subject>
+    <subject source="lcsh">Foraminifera, Fossil</subject>
+    <subject source="lcsh">Pentremites</subject>
+    <persname audience="internal" source="lcnaf">Horowitz, Alan Stanley, 1930-</persname>
+    <persname audience="internal" source="lcnaf">Perry, Thomas G. (Thomas Gregory), 1918-</persname>
+    <persname audience="internal" source="lcnaf">Potter, Paul Edwin</persname>
+  </controlaccess>
+  <dsc><c01 id="aspace_VAD5804-00001" level="series"><did><unittitle>Published Media</unittitle><unitdate normal="1940/1999" type="inclusive">undated</unitdate></did><c02 id="aspace_VAD5804-00002" level="file"><did><unittitle>Located in Cabinet AB Tray4 - Graphs, sheet film negatives, and large prints</unittitle><unitdate normal="1940/1999" type="inclusive">1940-1999</unitdate><container id="aspace_01e4112fbedcd10e180da2955056ecbb" label="tray" type="box">1</container></did></c02><c02 id="aspace_VAD5804-00003" level="file"><did><unittitle>Co-authored textbook with Paul Edwin Potter, Introductory Petrography of Fossils</unittitle><unitdate normal="1940/1999" type="inclusive">undated</unitdate><container id="aspace_f0b42522783a53cde04c62f90a4460be" label="tray" type="box">1</container></did><c03 id="aspace_595c31f61737a66ba9e9d9c39ddddbfb" level="file"><did><unittitle>Located in B1 - 500 cardboard mounted 35mm slides</unittitle><container id="aspace_39bae45741e097e19277d6760c511a0c" label="drawer" type="box">2</container></did><c04 id="aspace_6698c71d9de344cf70588a3947ea06dc" level="file"><did><unittitle>Mixed specimens</unittitle><container id="aspace_758248f52df219187e1ad14cdf1ca52b" label="drawer" type="box">2</container></did></c04></c03><c03 id="aspace_edbc905f8ac5bcae483b6483c35a10b9" level="file"><did><unittitle>1,900 cardboard mounted 35mm slides</unittitle><container id="aspace_edcde4d4d619bde8f7d95ccd8ea3c345" label="box" type="box">1</container></did></c03><c03 id="aspace_2ad6237b287e1f53dfe50327fac2ad4c" level="file"><did><unittitle>Atlas, fossils list, classification and specimen card</unittitle><container id="aspace_7e3129b2f6ea2fa64d03aa300213b0c2" label="cabinet" type="box">1</container></did></c03></c02></c01><c01 id="aspace_VAD5804-00004" level="series"><did><unittitle>Specimens</unittitle><unitdate certainty="circa" normal="1989/1991" type="inclusive">1989-1991</unitdate><unitdate normal="1940/1999" type="inclusive">undated</unitdate></did><c02 id="aspace_VAD5804-00005" level="file"><did><unittitle>Bryozoans thin section, 470 sheet film negatives</unittitle><unitdate normal="1989/1991" type="inclusive">1989-1991</unitdate><container id="aspace_72280b9a6f67a5f831cd8839cbae5e55" label="box" type="box">2 and 3</container></did></c02><c02 id="aspace_VAD5804-00006" level="file"><did><unittitle>Nicholson series bryozoans thin section, 675 sheet film negatives and 20 prints</unittitle><unitdate normal="1940/1999" type="inclusive">undated</unitdate><container id="aspace_0cf1a4c58204ff1f35daa871958f7583" label="box" type="box">4</container></did></c02><c02 id="aspace_VAD5804-00007" level="file"><did><unittitle>Bryozoans thin section, 115 sheet film negatives in envelope</unittitle><unitdate certainty="circa" normal="1991/1991">1991</unitdate><container id="aspace_54da94fae96dc890d71b359404be9a3d" label="envelope" type="box">1</container></did></c02></c01><c01 id="aspace_VAD5804-00008" level="series"><did><unittitle>Co-authored</unittitle><unitdate normal="1948/1989" type="inclusive">1948-1989</unitdate></did><c02 id="aspace_VAD5804-00009" level="file"><did><unittitle>Co-authored with Thomas Gregory Perry</unittitle><container id="aspace_02e5f78648004495890aa4b88f8cd815" label="envelope" type="box">1</container></did><c03 id="aspace_a83ad0d71332e906cb5e8e6faeb7ad64" level="file"><did><unittitle>Located in Drawer15 - 49 sheet film negatives and 60 prints</unittitle><unitdate normal="1940/1999" type="inclusive">undated</unitdate><container id="aspace_f5c9eb0f15290c6e048adb867ba367ae" label="drawer" type="box">1</container></did><c04 id="aspace_aea96b57fe96a78699caa04bc41eaedc" level="file"><did><unittitle>Bryozoans</unittitle><container id="aspace_6e8b15e51f2f678e8b71e4937a2f38d1" label="drawer" type="box">1</container></did></c04><c04 id="aspace_4e05aad333646a86bbd9e1a5b3360d2f" level="file"><did><unittitle>Blastoids</unittitle><container id="aspace_1a5f9b0ede541b5d84fac4f2eb9aa125" label="drawer" type="box">1</container></did></c04><c04 id="aspace_83983242197d9a667fc3305138e48d6c" level="file"><did><unittitle>Foraminifera</unittitle><container id="aspace_f9f187283a05fa3b1f7c350e43daec17" label="drawer" type="box">1</container></did></c04><c04 id="aspace_b459ae13eab0a78185587e2d2d62d0f5" level="file"><did><unittitle>Other specimens</unittitle><container id="aspace_46219c06ccda2b7a255a139844253410" label="drawer" type="box">1</container></did></c04></c03><c03 id="aspace_ac0aec371f94d747c30605652523b0e5" level="file"><did><unittitle>Located in B2 - 226 cardboard/plastic/glass mounted 35mm slides</unittitle><unitdate normal="1940/1999" type="inclusive">undated</unitdate><container id="aspace_03012777613ccd01e182de744df2172c" label="drawer" type="box">2</container></did><c04 id="aspace_de86384d24271bf1e88773109ac8f73f" level="file"><did><unittitle>Conference</unittitle><container id="aspace_124ec9d8ca7d8abf256a35a76efc6925" label="drawer" type="box">2</container></did></c04><c04 id="aspace_53b19ec73843b867ff2203d2af6f9473" level="file"><did><unittitle>Field trip teaching</unittitle><container id="aspace_9cf2e8481c3cc7fb1619e4f5724e67a0" label="drawer" type="box">2</container></did></c04><c04 id="aspace_bd08feb7414bf467761771b05de55967" level="file"><did><unittitle>Other specimens</unittitle><container id="aspace_1ce7d3e614ec1cc152f01df1967b79f1" label="drawer" type="box">2</container></did></c04></c03></c02></c01><c01 id="aspace_VAD5804-00010" level="series"><did><unittitle>Correspondence</unittitle><unitdate normal="1940/1989" type="inclusive">1940-1989</unitdate></did><c02 id="aspace_VAD5804-00011" level="file"><did><unittitle>Grant proposals, routine administrative correspondence, and recommendation letters.</unittitle><container id="aspace_b8489c3acbe03090adb60c570e529046" label="cabinet" type="box">2</container></did></c02><c02 id="aspace_InU-Li-VAD5804-00012" level="file"><did><unittitle>Curation reports, locality maps and guides, research/publication information compiled by Horowitz.</unittitle><container id="aspace_1ee660377f207304e7643b79c3516469" label="cabinet" type="box">3</container></did></c02></c01><c01 id="aspace_VAD5804-00013" level="series"><did><unittitle>MA Thesis</unittitle><unitdate certainty="circa" normal="1954/1954">1954</unitdate></did><c02 id="aspace_VAD5804-00014" level="file"><did><unittitle>Classification and specimen cards, sheet film negatives and prints.</unittitle><container id="aspace_a8b1feb96467ae99736151ae9977b33d" label="cabinet" type="box">4</container></did></c02></c01></dsc>
+</archdesc>
+</ead>
