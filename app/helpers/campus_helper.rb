@@ -9,7 +9,7 @@ module CampusHelper
     'US-InU-Se' => 'Indiana University Southeast',
     'US-inrmiue' => 'Indiana University East',
     'US-InU-K' => 'Indiana University Kokomo',
-    'US-iniu' => 'Indiana University-Purdue University, Indianapolis',
+    'US-iniu' => 'IUPUI',
     'US-InU-N' => 'Indiana University Northwest'
   }
 
