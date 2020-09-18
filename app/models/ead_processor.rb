@@ -61,6 +61,7 @@ class EadProcessor
         File.delete(fpath) if File.exist?(fpath)
         filename = File.basename(fpath)
         zip_file.extract(f, fpath)
+        add_ead_to_db(filename, directory)
         add_last_indexed(filename, DateTime.now)
         EadProcessor.delay.index_file(fpath, directory)
       end
