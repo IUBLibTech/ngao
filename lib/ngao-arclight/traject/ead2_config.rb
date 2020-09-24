@@ -15,7 +15,8 @@ require 'arclight/normalized_title'
 require 'active_model/conversion' ## Needed for Arclight::Repository
 require 'active_support/core_ext/array/wrap'
 require 'arclight/digital_object'
-require 'arclight/year_range'
+# IU customization: allow for collection date ranges over 1,000 years
+require_relative '../year_range'
 require 'arclight/repository'
 require 'arclight/missing_id_strategy'
 require 'arclight/traject/nokogiri_namespaceless_reader'
