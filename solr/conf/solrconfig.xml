@@ -85,7 +85,7 @@
        -->
 
        <str name="qf">
-         collection_title_tesim^150
+         collection_title_tesim^500
          title_tesim^100
          name_tesim^10
          place_tesim^10
@@ -94,7 +94,7 @@
          text
        </str>
        <str name="pf">
-         collection_title_tesim^150
+         collection_title_tesim^500
          title_tesim^100
          name_tesim^10
          place_tesim^10
