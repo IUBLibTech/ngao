@@ -21,14 +21,12 @@
 //= require twitter/typeahead
 //= require bootstrap
 //= require blacklight/blacklight
-// Required by Arclight
-//= require arclight/arclight
+//= require arclight
 //= require stickyfill
 
-//= require_tree .
+//= require collection_navigation
 
 
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
 // this:
 //= require 'blacklight_range_limit'
-

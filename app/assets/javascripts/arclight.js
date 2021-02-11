@@ -5,8 +5,8 @@
 // don't load collection navigation file from arclight
 // require arclight/collection_navigation
 
-// don't load context navigation file from arclight
-// require arclight/context_navigation
+// load overridden local file
+// require context_navigation
 
 //= require arclight/oembed_viewer
 //= require arclight/truncator
