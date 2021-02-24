@@ -145,3 +145,9 @@ li.al-collection-context .al-online-content-icon svg,
 .btn:disabled, .btn.disabled {
   background-color: $iu-mahogany;
 }
+
+// custom next previous in more modal
+.prev_next_links .btn.disabled {
+  background-color: $iu-white;
+  color: $iu-grey;
+}
