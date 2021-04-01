@@ -34,6 +34,7 @@ class EadProcessor
       open(link, 'rb') do |file|
         directory = directory.parameterize.underscore
         extract_and_index(file, directory)
+        save_ead_for_downloading(file)
       end
     end
   end
@@ -180,6 +181,19 @@ class EadProcessor
       ead_filename = name + ext
       ead_last_updated_at = DateTime.parse(ead.next_sibling.text)
       add_last_updated(ead_filename, ead_last_updated_at)
+    end
+  end
+
+  # saves the eads to the public directory for downloading
+  def self.save_ead_for_downloading(file)
+    Zip::File.open(file) do |zip_file|
+      zip_file.each do |f|
+        path = './public/ead'
+        FileUtils.mkdir_p path unless File.exist?(path)
+        fpath = File.join(path, f.name)
+        File.delete(fpath) if File.exist?(fpath)
+        zip_file.extract(f, fpath)
+      end
     end
   end
 

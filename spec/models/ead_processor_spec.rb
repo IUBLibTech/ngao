@@ -26,6 +26,21 @@ RSpec.describe EadProcessor do
     expect(unzipped_file).to exist
   end
 
+  after do
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC0754.xml"])
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC0944.xml"])
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC1801.xml"])
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC2939.xml"])
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC3254.xml"])
+  end
+
+  it 'can extract a zip file and copy it to public directory' do
+    zip_file = Rails.root.join('spec', 'fixtures', 'html', 'test.zip')
+    unzipped_file = Rails.root.join('public', 'ead', 'VAC0754.xml')
+    EadProcessor.save_ead_for_downloading(zip_file)
+    expect(unzipped_file).to exist
+  end
+
   # skipping for now, cannot open zip file locally for testing to get the ead names
   xit 'gets the list of repositories' do
     client = "#{Rails.root}/spec/fixtures/html/test.html"

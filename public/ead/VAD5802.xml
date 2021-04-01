@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd"><eadheader countryencoding="iso3166-1" dateencoding="iso8601" findaidstatus="edited-full-draft" langencoding="iso639-2b" repositoryencoding="iso15511"><eadid countrycode="US" mainagencycode="US-InU">VAD5802</eadid><filedesc><titlestmt><titleproper>Edgar Roscoe Cumings Published Research Media Materials<date normal="1908"> 1908</date> <num>PC003</num></titleproper><author>Processed by Wen Nie Ng<lb/>Electonic finding aid encoded by Wen Nie Ng</author></titlestmt><publicationstmt><publisher>Test - Paleontology Collection</publisher><p><date>2016</date></p><address><addressline>Indiana University</addressline><addressline>1001 E. 10th St.</addressline><addressline>Bloomington, Indiana 47405-1405</addressline><addressline>palcoll@indiana.edu</addressline><addressline>URL: <extptr xlink:href="http://www.indiana.edu/~palcoll/" xlink:show="new" xlink:title="http://www.indiana.edu/~palcoll/" xlink:type="simple"/></addressline></address></publicationstmt><notestmt><note><p><date normal="2016">2016</date></p></note></notestmt></filedesc><profiledesc><creation>This finding aid was produced using ArchivesSpace on <date>2020-09-01 04:04:16 -0400</date>.</creation><langusage>Description is in English.</langusage></profiledesc><revisiondesc><change audience="internal"><date>March 28, 2016</date><item>Date the finding aid was created</item></change><change audience="internal"><date>July 07, 2017</date><item>Added subject headings</item></change></revisiondesc></eadheader><archdesc level="collection">
+  <did>
+    <repository>
+      <corpname>Test - Paleontology Collection</corpname>
+    </repository>
+    <unittitle>Edgar Roscoe Cumings Published Research Media Materials</unittitle>
+    <origination audience="internal" label="Creator">
+      <persname source="lcnaf">Cumings, E. R. (Edgar Roscoe), 1874-1967</persname>
+    </origination>
+    <unitid>PC003</unitid>
+    <physdesc altrender="whole">
+      <extent altrender="materialtype spaceoccupied">13 boxes</extent>
+      <physfacet>containing specimen glass negatives</physfacet>
+    </physdesc>
+    <unitdate normal="1908/1908">1908</unitdate>
+    <abstract id="aspace_239d7e0c8042e9892e18ec8924c7cb46">Edgar Roscoe Cumings was a long-time chair of the Geology Department of Indiana University from 1904 to 1942. Cumings notably led work on the Cincinnatian (Late Ordovician) of Indiana, the Silurian reefs in the northern part of the state, and on the fauna of the Salem Limestone.</abstract>
+    <langmaterial id="aspace_f655dc1f2f13ad398b5794b71c732fab">Materials are in <language langcode="eng">English</language></langmaterial>
+  </did>
+  <accessrestrict id="aspace_61d21440c811217638836d22130798a2">
+    <head>Access Restrictions</head>
+<p>This collection is open for research. Advance notice required.</p>  </accessrestrict>
+  <bioghist id="aspace_c82bcb8f99773bbb0f70897f5fcc5cf0">
+    <head>Biographical Note</head>
+<p>Edgar Roscoe Cumings was a long-time chair of the Geology Department of Indiana University from 1904 to 1942. He arrived at IU in 1898, after doing graduate work at Cornell University in Ithaca, New York. He later took a leave of absence to obtain his Ph.D. from Yale University in 1903. He and his students studied the paleontology of Indiana and began building the IU Paleontology Collection in earnest. Cumings notably led work on the Cincinnatian (Late Ordovician) of Indiana, the Silurian reefs in the northern part of the state, and on the fauna of the Salem Limestone. Cumings was originally from Ohio and was married to Frances L. Cumings, originally of Pennsylvania. They had two children, Edith K. and Edgar C. Cumings.</p>  </bioghist>
+  <arrangement id="aspace_d2e3fbdc4b02fa1bddd938183493dbc6">
+    <head>Arrangement</head>
+<p>The collection was arranged according to author's organization.</p>  </arrangement>
+  <scopecontent id="aspace_fa8bf2f64681a3be75b678bd8ae4d308">
+    <head>Scope and Content Note</head>
+<p>Negatives, 1908, consists of Cumings' glass negatives for publication of The Stratigraphy and Paleontology of the Cincinnati Series of Indiana.</p>  </scopecontent>
+  <acqinfo id="aspace_e9d1624675fa9cd3f304a80d928bcb92">
+    <head>Acquisition Information</head>
+<p>Inherited from the author.</p>  </acqinfo>
+  <userestrict id="aspace_3b55215ca0899e77e811d529f30bd5e7">
+    <head>Usage Restrictions</head>
+<p>Photocopying permitted only with permission of the Curator(s) or Collections Manager of the Paleontology Collection.</p>  </userestrict>
+  <prefercite id="aspace_d01b93d5e003bef671515ca84c01a6d6">
+    <head>Preferred Citation</head>
+<p>[Item], Edgar Roscoe Cumings Published Research Media Materials, IU Paleontology Collection</p>  </prefercite>
+  <processinfo id="aspace_e4354dc84f1f1194a7940877f40a4155">
+    <head>Processing Information</head>
+<p>Processed by Wen Nie Ng</p><p> Completed on <date normal="2016-03-28" type="source">March 28, 2016</date></p>  </processinfo>
+  <controlaccess>
+    <subject source="lcsh">Geology, Stratigraphy-Ordovician</subject>
+    <subject source="lcsh">Groups (Stratigraphy)-Indiana</subject>
+    <subject source="lcsh">Paleontology-Ordovician</subject>
+    <persname audience="internal" source="lcnaf">Cumings, E. R. (Edgar Roscoe)</persname>
+    <persname audience="internal" source="lcnaf">Cumings, Edgar Roscoe</persname>
+  </controlaccess>
+  <dsc><c01 id="aspace_VAD5802-00001" level="series"><did><unittitle>Negatives</unittitle><unitdate normal="1908/1908">1908</unitdate></did><c02 id="aspace_VAD5802-00002" level="file"><did><unittitle>Located in Cabinet EF Tray8 - Glass negatives for publication</unittitle><unitdate normal="1908/1908">1908</unitdate><container id="aspace_cea50e1231ccad8364ba4f8ff66846ad" label="box" type="box">1-13</container></did></c02></c01></dsc>
+</archdesc>
+</ead>

@@ -20,6 +20,5 @@ sample_unitid:
 default:
   disabled: false
   ead:
-    template: "%{root_path}/data/%{eadid}.xml')"
-    size: '20MB'
+    template: "/ead/%{eadid}.xml"
   
