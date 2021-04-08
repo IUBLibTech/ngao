@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd"><eadheader countryencoding="iso3166-1" dateencoding="iso8601" findaidstatus="edited-full-draft" langencoding="iso639-2b" repositoryencoding="iso15511"><eadid countrycode="US" mainagencycode="US-InU">VAD5801</eadid><filedesc><titlestmt><titleproper>Jesse James Galloway Media Materials<date normal="1947/1959"> 1947-1959</date> <num>PC002</num></titleproper><author>Processed by Wen Nie Ng<lb/>Electonic finding aid encoded by Wen Nie Ng</author></titlestmt><publicationstmt><publisher>Test - Paleontology Collection</publisher><p><date>2016</date></p><address><addressline>Indiana University</addressline><addressline>1001 E. 10th St.</addressline><addressline>Bloomington, Indiana 47405-1405</addressline><addressline>palcoll@indiana.edu</addressline><addressline>URL: <extptr xlink:href="http://www.indiana.edu/~palcoll/" xlink:show="new" xlink:title="http://www.indiana.edu/~palcoll/" xlink:type="simple"/></addressline></address></publicationstmt><notestmt><note><p><date normal="2016">2016</date>All rights reserved.</p></note></notestmt></filedesc><profiledesc><creation>This finding aid was produced using ArchivesSpace on <date>2020-09-01 04:04:16 -0400</date>.</creation><langusage>Description is in English.</langusage></profiledesc><revisiondesc><change audience="internal"><date>March 28, 2016</date><item>Completed</item></change></revisiondesc></eadheader><archdesc level="collection">
+<ead xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd"><eadheader countryencoding="iso3166-1" dateencoding="iso8601" findaidstatus="edited-full-draft" langencoding="iso639-2b" repositoryencoding="iso15511"><eadid countrycode="US" mainagencycode="US-InU">VAD5801</eadid><filedesc><titlestmt><titleproper>Jesse James Galloway Media Materials<date normal="1947/1959"> 1947-1959</date> <num>PC002</num></titleproper><author>Processed by Wen Nie Ng<lb/>Electonic finding aid encoded by Wen Nie Ng</author></titlestmt><publicationstmt><publisher>Test - Paleontology Collection</publisher><p><date>2016</date></p><address><addressline>Indiana University</addressline><addressline>1001 E. 10th St.</addressline><addressline>Bloomington, Indiana 47405-1405</addressline><addressline>palcoll@indiana.edu</addressline><addressline>URL: <extptr xlink:href="http://www.indiana.edu/~palcoll/" xlink:show="new" xlink:title="http://www.indiana.edu/~palcoll/" xlink:type="simple"/></addressline></address></publicationstmt><notestmt><note><p><date normal="2016">2016</date>All rights reserved.</p></note></notestmt></filedesc><profiledesc><creation>This finding aid was produced using ArchivesSpace on <date>2021-03-24 20:20:40 -0400</date>.</creation><langusage>Description is in English.</langusage></profiledesc><revisiondesc><change audience="internal"><date>March 28, 2016</date><item>Completed</item></change></revisiondesc></eadheader><archdesc level="collection">
   <did>
     <repository>
       <corpname>Test - Paleontology Collection</corpname>
     </repository>
     <unittitle>Test Change Jesse James Galloway Media Materials</unittitle>
     <origination audience="internal" label="Creator">
-      <persname source="lcnaf">Galloway, J. J. (Jesse James), 1882-1962</persname>
+      <persname role="ivr" source="lcnaf">Galloway, J. J. (Jesse James), 1882-1962</persname>
     </origination>
     <unitid>PC002</unitid>
     <physdesc altrender="part">
@@ -16,10 +16,22 @@
       <extent altrender="materialtype spaceoccupied">1 tray in locked cabinet</extent>
     </physdesc>
     <unitdate normal="1947/1959" type="inclusive">1947-1959</unitdate>
-    <abstract id="aspace_eed7eaf9b7cf2593196d8353caf3fb79">Jesse James Galloway was a professor of Geology and Paleontology at IU from 1931-1953. Gallowayâs collection consists of materials relating to foraminifera, stromatoporoids, and bryozoans.</abstract>
-    <langmaterial id="aspace_64ff4996e8763f95193870ff3449ae7d">Materials are in <language langcode="eng">English</language></langmaterial>
+    <abstract audience="internal" id="aspace_eed7eaf9b7cf2593196d8353caf3fb79">Jesse James Galloway was a professor of Geology and Paleontology at IU from 1931-1953. Gallowayâs collection consists of materials relating to foraminifera, stromatoporoids, and bryozoans.</abstract>
+    <physdesc audience="internal">
+      <dimensions id="aspace_bc59042dcd7a1978c06bd24749df5112">text for dimensions</dimensions>
+    </physdesc>
+    <materialspec audience="internal" id="aspace_65545e1f55d2609fe9d90db7dd680904">text for materials specific details</materialspec>
+    <physdesc audience="internal" id="aspace_7af7cdb89de68100b07bf56c22a9bbaa">text for physical description</physdesc>
+    <physdesc audience="internal">
+      <physfacet id="aspace_57903f043439ca349526862fda7d7b3d">text for physical facet</physfacet>
+    </physdesc>
+    <physloc audience="internal" id="aspace_526adf767e8c67e4493b82e34d6078a7">text for physical location</physloc>
+    <langmaterial id="aspace_64ff4996e8763f95193870ff3449ae7d">Materials are in <language langcode="eng">English</language> and <language>Spanish.</language></langmaterial>
   </did>
-  <accessrestrict id="aspace_b71869e9ecbb560cf56a1a239e42aa5f">
+  <odd audience="internal" id="aspace_aa449455b8bc943ddcb69e3c8b655b34">
+    <head>Harmful Language Statement</head>
+<p>Text of Harmful Language Statement</p>  </odd>
+  <accessrestrict audience="internal" id="aspace_b71869e9ecbb560cf56a1a239e42aa5f">
     <head>Access Restrictions</head>
 <p>This collection is open for research. Advance notice required.</p>  </accessrestrict>
   <bioghist id="aspace_452b9d41daa26588be60c03583f29df4">
@@ -27,7 +39,12 @@
 <p>Galloway was a Hoosier paleontologist educated at Indiana University and is noted for having received the first PhD in Geology awarded there in 1913. Galloway studied with E.R. Cumings, first on the Indiana Ordovician sections of the Cincinnati Arch, notably the section exposed in the railway cutting at Tanners Creek, and later on strata from the rest of the state. Galloway was a pioneer in stratigraphic and industrial applications of micropaleontology and taught the first courses in micropaleontology and petroleum geology at IU.</p>  </bioghist>
   <arrangement id="aspace_eb8a06c04ae9ecde2e75b3c2af0d0093">
     <head>Arrangement</head>
-<p>The collection is organized into two series: maps and other media materials. All series are arranged according to author's organization.</p>  </arrangement>
+<p>The collection is organized into two series: maps and other media materials. All series are arranged according to author's organization.</p>    <list audience="internal" type="ordered">
+      <head>Ordered list</head>
+      <item>Committees: <extref xlink:href="https://archives.iu.edu/catalog/VAC9320">Committee on Appropriations</extref></item>
+      <item>Committees: <extref xlink:href="https://archives.iu.edu/catalog/VAC9320">Committee on Public Works</extref></item>
+    </list>
+  </arrangement>
   <scopecontent id="aspace_6a55c270cb77406e266a1aec2a22646b">
     <head>Scope and Content Note</head>
 <p>Maps, 1959, consists of Galloway's locality maps associated with The Stratigraphy and Paleontology of the Harrodsburg Limestone. </p><p> Other media materials, 1947-1956, undated, consists of prints and negatives for specimens and when Galloway was a petroleum consultant in Mexico.</p>  </scopecontent>
@@ -43,6 +60,43 @@
   <processinfo id="aspace_3249a2a04c0b78bc98785ecc0230c687">
     <head>Processing Information</head>
 <p>Processed by Wen Nie Ng</p><p> Completed in <date normal="2016-03-28" type="source">March 28, 2016</date></p>  </processinfo>
+  <accruals audience="internal" id="aspace_64b2a01666e261680ab51ac379e2ec01">
+    <head>Accruals</head>
+<p>Test for accruals</p>  </accruals>
+  <appraisal audience="internal" id="aspace_0de840bacb0b9e5928a60dd368ec0eeb">
+    <head>Appraisal</head>
+<p>test for appraisal</p>  </appraisal>
+  <custodhist audience="internal" id="aspace_3488a5f12e5e11ed4a79562cea51dd52">
+    <head>Custodial History</head>
+<p>text for custodial history</p>  </custodhist>
+  <altformavail audience="internal" id="aspace_11e76627bb39224559600c5a567b0309">
+    <head>Existence and Location of Copies</head>
+<p>text for existence and location of copies</p>  </altformavail>
+  <originalsloc audience="internal" id="aspace_efbd8665ee7b0e97acceceea987243cc">
+    <head>Existence and Location of Originals</head>
+<p>Text for existence and location of originals</p>  </originalsloc>
+  <fileplan audience="internal" id="aspace_327014d449589dc6cdcdf5a49892432d">
+    <head>File Plan</head>
+<p>Text for file plan</p>  </fileplan>
+  <accessrestrict audience="internal">
+    <legalstatus audience="internal" id="aspace_37634f2515f7115e4d396d71b6d34f33">text for legal status</legalstatus>
+  </accessrestrict>
+  <otherfindaid audience="internal" id="aspace_ad6ca526b4d8e1265fc816c71e0f0c3f">
+    <head>Other Finding Aids</head>
+<p>text for other finding aids</p>  </otherfindaid>
+  <phystech audience="internal" id="aspace_71abb5a4b9f49d90d71a54257e446727">
+    <head>Physical Characteristics and Technical Requirements</head>
+<p>text for physical characteristics and technical requirements</p>  </phystech>
+  <relatedmaterial audience="internal" id="aspace_0410f0aebc3099808b36950b5e66c834">
+    <head>Related Materials</head>
+<p>text for related materials</p>  </relatedmaterial>
+  <separatedmaterial audience="internal" id="aspace_771895e910c58782732fafb941e5f99d">
+    <head>Separated Materials</head>
+<p>text for separated materials</p>  </separatedmaterial>
+  <bibliography audience="internal" id="aspace_92106bb92b72dafae0c630147a72427f">
+    <head>Bibliography</head>
+<p>text 2 for bibliography</p>  </bibliography>
+  <index audience="internal" id="aspace_f71099c1549c7871c8bcd0185619f228"><p>Text for index</p></index>
   <controlaccess>
     <subject source="lcsh">Foraminifera, Fossil</subject>
     <subject source="lcsh">Stromatoporoidea</subject>
@@ -55,6 +109,6 @@
     <persname audience="internal" source="lcnaf">Galloway, J. J. (Jesse James)</persname>
     <persname audience="internal" source="lcnaf">Galloway, Jesse James</persname>
   </controlaccess>
-  <dsc><c01 id="aspace_VAD5801-00001" level="series"><did><unittitle>Maps</unittitle><unitdate normal="1959/1959">1959</unitdate></did><c02 id="aspace_VAD5801-00002" level="file"><did><unittitle>Located in Cabinet AB Tray5 - Locality Maps</unittitle><unitdate normal="1959/1959">1959</unitdate><container id="aspace_2c31d0048969476b645011745cbbfde2" label="tray" type="box">1</container></did></c02></c01><c01 id="aspace_VAD5801-00003" level="series"><did><unittitle>Other media materials</unittitle><unitdate normal="1956/1956">1956</unitdate><unitdate normal="1947/1956" type="inclusive">undated</unitdate></did><c02 id="aspace_VAD5801-00004" level="file"><did><unittitle>Located in Drawer5 - 79 prints of J.J Galloway as a petroleum consultant in Mexico</unittitle><unitdate normal="1882/1962" type="inclusive">undated</unitdate><container id="aspace_868a0d18d39f9684319ad17da3164ac2" label="drawer" type="box">1</container></did></c02><c02 id="aspace_VAD8501-00005" level="file"><did><unittitle>Located in Drawer15 - 155 sheet film negatives and 140 prints</unittitle><unitdate normal="1948/1956" type="inclusive">1948-1956</unitdate><container id="aspace_30f3526007d070e23d62fcc4a1c76a1a" label="drawer" type="box">2</container></did><c03 id="aspace_73d93308330f14f3dfda2b13550a8bcc" level="file"><did><unittitle>Bryozoans film negatives and prints</unittitle><container id="aspace_e98d56746e30eadb5d30741e62843b01" label="drawer" type="box">2</container></did></c03><c03 id="aspace_f5c230e5a810e9a82562d5f7c79fddce" level="file"><did><unittitle>Other specimen negatives and prints</unittitle><container id="aspace_87e13bc237f1520802cd3ee69f15624e" label="drawer" type="box">2</container></did></c03></c02><c02 id="aspace_VAD8501-00006" level="file"><did><unittitle>Located in Drawer20 - 261 unique specimen and book prints sheet film negatives</unittitle><unitdate normal="1950/1952" type="inclusive">1950-1952</unitdate><container id="aspace_611c6ead1704ef2199252e6fd918879d" label="drawer" type="box">3</container></did><c03 id="aspace_19bec3569f3c563ee053462312623b7c" level="file"><did><unittitle>Bryzoans sheet film negatives and prints</unittitle><container id="aspace_4a1e705d86fcb1fbec289a77c5537c8c" label="drawer" type="box">3</container></did></c03><c03 id="aspace_ba1a5573462937d648c47e5b0c750c68" level="file"><did><unittitle>Crinoids sheet film negatives and prints</unittitle><container id="aspace_9b400534f8b048c195887471131e6dcc" label="drawer" type="box">3</container></did></c03><c03 id="aspace_7100188220abb28f5dc52f884e72f030" level="file"><did><unittitle>Trilobites sheet film negatives and prints</unittitle><container id="aspace_4c29306117ccaa2dc581e328b7b7175b" label="drawer" type="box">3</container></did></c03><c03 id="aspace_06386cc59ec3f1609152c6e401455871" level="file"><did><unittitle>Other specimen sheet film negatives and prints</unittitle><container id="aspace_a585fefdabe709c66624f5a481b11661" label="drawer" type="box">3</container></did></c03><c03 id="aspace_14a349a6727b920900096d500b7c12c1" level="file"><did><unittitle>Book print sheet film negatives</unittitle><container id="aspace_3b8c08142e3c32406c540fb21620526a" label="drawer" type="box">3</container></did></c03></c02></c01></dsc>
+  <dsc><c01 id="aspace_VAD5801-00001" level="series"><did><unittitle>Maps</unittitle><unitdate normal="1959/1959">1959</unitdate></did><c02 id="aspace_VAD5801-00002" level="file"><did><unittitle>Located in Cabinet AB Tray5 - Locality Maps</unittitle><unitdate normal="1959/1959">1959</unitdate><abstract audience="internal" id="aspace_93edf1d60c340a5647b064579b9a9b51">text for abstract</abstract><physdesc audience="internal"><dimensions id="aspace_7eb5eb118aa62127b2a94466518ab0fb">text for dimensions</dimensions></physdesc><materialspec audience="internal" id="aspace_e45e5301a522b84554c7c5000beedc49">text for materials specific details</materialspec><physdesc audience="internal" id="aspace_b8520be286a35b3788092eb11d5eaa62">text for physical description</physdesc><physdesc audience="internal"><physfacet id="aspace_a49e2f690828e09c74970302640b243c">text for physical facet</physfacet></physdesc><physloc audience="internal" id="aspace_19999a954abd8a7ed2b6a07634b59546">text for physical location</physloc><container id="aspace_c696dfd4be22c033c3473b71f32c57d4" label="tray" type="box">1</container></did><accruals audience="internal" id="aspace_799b4c073fb1296b11d870b1cad048e6"><head>Accruals</head><p>text for accruals</p></accruals><appraisal audience="internal" id="aspace_447fc1b4a76195deb621cf77b1812851"><head>Appraisal</head><p>text for appraisal</p></appraisal><arrangement audience="internal" id="aspace_bfa91a2b5e9376b915c24f1a7e132b37"><head>Arrangement</head><p>text for arrangement</p></arrangement><bioghist audience="internal" id="aspace_c0b88857f99f68f1f3716ffeff20d562"><head>Biographical / Historical</head><p>text for bio/hist</p></bioghist><accessrestrict audience="internal" id="aspace_835ec3c218f7ea055fbb6084ceaf719d"><head>Conditions Governing Access</head><p>text for conditions governing access</p></accessrestrict><userestrict audience="internal" id="aspace_8ea8e82d9050ab356a989ceb3f29f4bd"><head>Conditions Governing Use</head><p>text for conditions governing use</p></userestrict><custodhist audience="internal" id="aspace_c0fa3449c69667068fcf5bf17fefe5a2"><head>Custodial History</head><p>text for custodial history</p></custodhist><altformavail audience="internal" id="aspace_1d52321ef0462e9d3565fb3c8d72cca2"><head>Existence and Location of Copies</head><p>text for existence and location of copies</p><p>text for existence and location of copies subnote</p></altformavail><originalsloc audience="internal" id="aspace_a7b277866943fcb6a114c6101d94850d"><head>Existence and Location of Originals</head><p>text for existence and location of originals</p></originalsloc><fileplan audience="internal" id="aspace_28d12fc3e8af68bb78a11617b0564b20"><head>File Plan</head><p>text for file plan</p></fileplan><odd audience="internal" id="aspace_e03b4b8fc90013e2cfcacb97b007b8a5"><head>General</head><p>text for general</p></odd><acqinfo audience="internal" id="aspace_e262af0727802385c32b314803f0bded"><head>Immediate Source of Acquisition</head><p>text for acquisition</p></acqinfo><accessrestrict audience="internal"><legalstatus audience="internal" id="aspace_14bdefafc00908899c8faa5e9f1bfde1">text for legal status</legalstatus></accessrestrict><otherfindaid audience="internal" id="aspace_a213268eff89d9a8dd15370da6d33f14"><head>Other Finding Aids</head><p>text for other finding aids</p></otherfindaid><phystech audience="internal" id="aspace_798a7ce9a812fad3b207eedbfb2d14e3"><head>Physical Characteristics and Technical Requirements</head><p>text for physical characteristics</p></phystech><prefercite audience="internal" id="aspace_045cdcf32648488cf77f4b9f8c790c97"><head>Preferred Citation</head><p>text for preferred citation</p></prefercite><processinfo audience="internal" id="aspace_bec3c8adf8a3191e7a096193f6e85aa9"><head>Processing Information</head><p>text for processing information</p></processinfo><relatedmaterial audience="internal" id="aspace_209e2766f38f804f95de7c4c18374a65"><head>Related Materials</head><p>text for related materials</p></relatedmaterial><scopecontent audience="internal" id="aspace_2e8632cd05ff5ef9c222bb9ed249b704"><head>Scope and Contents</head><p>text for scope and contents</p></scopecontent><separatedmaterial audience="internal" id="aspace_1d971869026e716d9c461f12ff65f4b3"><head>Separated Materials</head><p>text for separated materials</p></separatedmaterial><bibliography audience="internal" id="aspace_21556bb5665da77738a47814fb44ca5c"><head>Bibliography</head><p>text for  bibliography</p></bibliography><index audience="internal" id="aspace_9d5be3e926e209f1f1983d2152f08afa"><p>text for index</p></index></c02></c01><c01 id="aspace_VAD5801-00003" level="series"><did><unittitle>Other media materials</unittitle><unitdate normal="1956/1956">1956</unitdate><unitdate normal="1947/1956" type="inclusive">undated</unitdate></did><c02 id="aspace_VAD5801-00004" level="file"><did><unittitle>Located in Drawer5 - 79 prints of J.J Galloway as a petroleum consultant in Mexico</unittitle><unitdate normal="1882/1962" type="inclusive">undated</unitdate><container id="aspace_6072232e909743802abb6f035a9c0371" label="drawer" type="box">1</container></did></c02><c02 id="aspace_VAD8501-00005" level="file"><did><unittitle>Located in Drawer15 - 155 sheet film negatives and 140 prints</unittitle><unitdate normal="1948/1956" type="inclusive">1948-1956</unitdate><container id="aspace_8670179c918c17e115f16331578fbf00" label="drawer" type="box">2</container></did><c03 id="aspace_73d93308330f14f3dfda2b13550a8bcc" level="file"><did><unittitle>Bryozoans film negatives and prints</unittitle><container id="aspace_e0463cedc32868a89eeca735e39c9785" label="drawer" type="box">2</container></did></c03><c03 id="aspace_f5c230e5a810e9a82562d5f7c79fddce" level="file"><did><unittitle>Other specimen negatives and prints</unittitle><container id="aspace_b2c8178f994cea20955f1e217230d9ba" label="drawer" type="box">2</container></did></c03></c02><c02 id="aspace_VAD8501-00006" level="file"><did><unittitle>Located in Drawer20 - 261 unique specimen and book prints sheet film negatives</unittitle><unitdate normal="1950/1952" type="inclusive">1950-1952</unitdate><container id="aspace_76080f13edbe1eaedb995307bad20e0a" label="drawer" type="box">3</container></did><c03 id="aspace_19bec3569f3c563ee053462312623b7c" level="file"><did><unittitle>Bryzoans sheet film negatives and prints</unittitle><container id="aspace_6d8cd9660e3252ec76c1ffd1b627381c" label="drawer" type="box">3</container></did></c03><c03 id="aspace_ba1a5573462937d648c47e5b0c750c68" level="file"><did><unittitle>Crinoids sheet film negatives and prints</unittitle><container id="aspace_c50f1bc34238078af9c95761f398f522" label="drawer" type="box">3</container></did></c03><c03 id="aspace_7100188220abb28f5dc52f884e72f030" level="file"><did><unittitle>Trilobites sheet film negatives and prints</unittitle><container id="aspace_f71839c8bedb5e423a495687f65c378e" label="drawer" type="box">3</container></did></c03><c03 id="aspace_06386cc59ec3f1609152c6e401455871" level="file"><did><unittitle>Other specimen sheet film negatives and prints</unittitle><container id="aspace_015b1515a5b653abdffd51f14d84062c" label="drawer" type="box">3</container></did></c03><c03 id="aspace_14a349a6727b920900096d500b7c12c1" level="file"><did><unittitle>Book print sheet film negatives</unittitle><container id="aspace_af662e7d6304cc85bb445d52118974bd" label="drawer" type="box">3</container></did></c03></c02></c01></dsc>
 </archdesc>
 </ead>
