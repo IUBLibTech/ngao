@@ -116,7 +116,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'normalized_date_ssm', label: 'Date'
     config.add_index_field 'creator_ssm', label: 'Creator'
     config.add_index_field 'language_ssm', label: 'Language'
-    config.add_index_field 'scopecontent_ssm', label: 'Scope Content', helper_method: :render_html_tags
+    config.add_index_field 'scopecontent_tesim', label: 'Scope Content', helper_method: :render_html_tags
     config.add_index_field 'extent_ssm', label: 'Physical Description'
     config.add_index_field 'accessrestrict_ssm', label: 'Conditions Governing Access', helper_method: :render_html_tags
     config.add_index_field 'collection_ssm', label: 'Collection Title'
@@ -275,7 +275,7 @@ class CatalogController < ApplicationController
     config.add_summary_field 'prefercite_ssm', label: 'Preferred citation', helper_method: :render_html_tags
 
     # Collection Show Page - Background Section
-    config.add_background_field 'scopecontent_ssm', label: 'Scope and Content', helper_method: :render_html_tags
+    config.add_background_field 'scopecontent_tesim', label: 'Scope and Content', helper_method: :render_html_tags
     config.add_background_field 'bioghist_ssm', label: 'Biographical / Historical', helper_method: :render_html_tags
     config.add_background_field 'acqinfo_ssim', label: 'Acquisition information', helper_method: :render_html_tags
     config.add_background_field 'appraisal_ssm', label: 'Appraisal information', helper_method: :render_html_tags
@@ -327,7 +327,7 @@ class CatalogController < ApplicationController
     }
     config.add_component_field 'abstract_ssm', label: 'Abstract', helper_method: :render_html_tags
     config.add_component_field 'extent_ssm', label: 'Extent'
-    config.add_component_field 'scopecontent_ssm', label: 'Scope and Content', helper_method: :render_html_tags
+    config.add_component_field 'scopecontent_tesim', label: 'Scope and Content', helper_method: :render_html_tags
     config.add_component_field 'acqinfo_ssim', label: 'Acquisition information', helper_method: :render_html_tags
     config.add_component_field 'language_ssm', label: 'Language', helper_method: :render_html_tags
     config.add_component_field 'appraisal_ssm', label: 'Appraisal information', helper_method: :render_html_tags
