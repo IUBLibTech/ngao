@@ -286,6 +286,8 @@ class CatalogController < ApplicationController
     config.add_background_field 'phystech_ssm', label: 'Physical / technical requirements', helper_method: :render_html_tags
     config.add_background_field 'physloc_ssm', label: 'Physical location', helper_method: :render_html_tags
     config.add_background_field 'descrules_ssm', label: 'Rules or conventions', helper_method: :render_html_tags
+    config.add_background_field 'physfacet_ssm', label: 'Physical facet', helper_method: :render_html_tags
+    config.add_background_field 'dimensions_ssm', label: 'Dimensions', helper_method: :render_html_tags
 
     # Collection Show Page - Related Section
     config.add_related_field 'relatedmaterial_ssm', label: 'Related material', helper_method: :render_html_tags
@@ -338,7 +340,9 @@ class CatalogController < ApplicationController
     config.add_component_field 'phystech_ssm', label: 'Physical / technical requirements', helper_method: :render_html_tags
     config.add_component_field 'physloc_ssm', label: 'Physical location', helper_method: :render_html_tags
     config.add_component_field 'altformavail_ssm', label: 'Alternative form available', helper_method: :render_html_tags
-
+    config.add_component_field 'physfacet_ssm', label: 'Physical facet', helper_method: :render_html_tags
+    config.add_component_field 'dimensions_ssm', label: 'Dimensions', helper_method: :render_html_tags
+    
     # Component Show Page - Indexed Terms Section
     config.add_component_indexed_terms_field 'access_subjects_ssim', label: 'Subjects', link_to_facet: true, separator_options: {
       words_connector: '<br/>',

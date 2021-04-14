@@ -232,6 +232,12 @@ to_field 'extent_teim', extract_xpath('/ead/archdesc/did/physdesc', to_text: fal
   end
 end
 
+to_field 'physfacet_ssm', extract_xpath('/ead/archdesc/did/physdesc/physfacet')
+to_field 'physfacet_teim', extract_xpath('/ead/archdesc/did/physdesc/physfacet')
+
+to_field 'dimensions_ssm', extract_xpath('/ead/archdesc/did/physdesc/dimensions')
+to_field 'dimensions_teim', extract_xpath('/ead/archdesc/did/physdesc/dimensions')
+
 to_field 'genreform_sim', extract_xpath('/ead/archdesc/controlaccess/genreform')
 to_field 'genreform_ssm', extract_xpath('/ead/archdesc/controlaccess/genreform')
 
@@ -451,6 +457,12 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
       extent_array.join(' ')
     end
   end
+
+  to_field 'physfacet_ssm', extract_xpath('./did/physdesc/physfacet')
+  to_field 'physfacet_teim', extract_xpath('./did/physdesc/physfacet')
+
+  to_field 'dimensions_ssm', extract_xpath('./did/physdesc/dimensions')
+  to_field 'dimensions_teim', extract_xpath('./did/physdesc/dimensions')
 
   to_field 'creator_ssm', extract_xpath('./did/origination')
   to_field 'creator_ssim', extract_xpath('./did/origination')
