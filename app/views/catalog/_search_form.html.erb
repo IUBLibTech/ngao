@@ -1,6 +1,5 @@
 <% 
 # Copied from ArcLight at commit 57dc0ae to specify suggest path for autocomplete
-# This file can be removed once new ArcLight ( > 0.4.0) release is available 
 %>
 
 <%
@@ -26,11 +25,31 @@
       <% end %>
 
       <label for="q" class="sr-only"><%= t('blacklight.search.form.search.label') %></label>
+    
       <%
-        # Use "autocomplete_path: suggest_index_catalog_path" explicitly so that the RepositoriesController gets the appropriate
-        # autocomplete path w/o having to have the search form action be local to the controller (by including Blacklight::Catalog)
+        # Customizes autocomplete for within collection scope
       %>
-      <%= text_field_tag :q, params[:q], placeholder: t('blacklight.search.form.search.placeholder'), class: "search-q q rounded-0 form-control", id: "q", autofocus: presenter.autofocus?, data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: suggest_index_catalog_path }  %>
+      <% if within_collection_context? %>
+        <%= text_field_tag :q, 
+                          params[:q], 
+                          placeholder: t('blacklight.search.form.search.placeholder'), 
+                          class: "search-q q rounded-0 form-control", 
+                          id: "q", 
+                          autofocus: presenter.autofocus?, 
+                          data: { autocomplete_enabled: false }  %>
+      <% else %>
+        <%
+          # Use "autocomplete_path: suggest_index_catalog_path" explicitly so that the RepositoriesController gets the appropriate
+          # autocomplete path w/o having to have the search form action be local to the controller (by including Blacklight::Catalog)
+        %>
+        <%= text_field_tag :q, 
+                          params[:q], 
+                          placeholder: t('blacklight.search.form.search.placeholder'), 
+                          class: "search-q q rounded-0 form-control", 
+                          id: "q", 
+                          autofocus: presenter.autofocus?, 
+                          data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: suggest_index_catalog_path }  %>
+      <% end %>
 
       <span class="input-group-append">
         <button type="submit" class="btn btn-primary search-btn" id="search">

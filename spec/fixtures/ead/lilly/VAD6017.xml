@@ -52,12 +52,13 @@
       <unitid>LMC 1015</unitid>
       <physdesc altrender="whole">
         <extent altrender="materialtype spaceoccupied">184 items</extent>
-        <extent altrender="carrier">(1 box)</extent>
+        <extent altrender="carrier">1 box</extent>
       </physdesc>
       <physdesc altrender="whole">
         <extent altrender="materialtype spaceoccupied">8.15 cubic feet</extent>
         <extent altrender="carrier">One full-size records case, one letter-size documents case, twenty-six shelved books, and oversize material in flat storage.</extent>
       </physdesc>
+      <physdesc audience="internal" id="aspace_7af7cdb89de68100b07bf56c22a9bbaa">text for physical description</physdesc>
       <unitdate calendar="gregorian" era="ce" normal="1779/1784" type="inclusive"
         >1779-1784</unitdate>
       <abstract id="aspace_e53188a797f390d497dfe86fc19f5b0f">The Alströmer mss., 1779-1784 and 1865,
@@ -175,7 +176,8 @@
         <did>
           <unittitle>Alströmer mss.</unittitle>
           <physdesc altrender="whole"><extent altrender="materialtype spaceoccupied">184
-              items</extent><extent altrender="carrier">(1 box)</extent></physdesc>
+              items</extent><extent altrender="carrier">1 box</extent></physdesc>
+          <physdesc audience="internal" id="aspace_b8520be286a35b3788092eb11d5eaa62">text for physical description</physdesc>
         </did>
         <descgrp>
           <acqinfo id="aspace_b6a2bbe27ee03701a27909d6c7bf0f0e">
@@ -185,5 +187,8 @@
         </descgrp>
       </c01>
     </dsc>
+    <odd id="aspace_03c5d94d48f3927457ef141f48332291"><head>General</head><p>Note:</p><p> One burnt field notebook with locality coordinates is separated for special care.</p></odd>
+    <materialspec id="aspace_03c5d94d48f3927457ef141f48332291"><head>General</head><p>Note:</p><p> Materials specific details.</p></materialspec>
+    <originalsloc id="aspace_03c5d94d48f3927457ef141f48332291"><head>General</head><p>Note:</p><p>Existence and location of originals.</p></originalsloc>
   </archdesc>
 </ead>

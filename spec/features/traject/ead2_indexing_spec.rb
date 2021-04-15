@@ -58,7 +58,17 @@ RSpec.describe 'EAD 2 traject indexing', type: :feature do
     end
 
     it 'indexes extents contained within a single physdesc as one string' do
-      expect(result['extent_ssm']).to eq ['184 items ((1 box))', '8.15 cubic feet (One full-size records case, one letter-size documents case, twenty-six shelved books, and oversize material in flat storage.)']
+      expect(result['extent_ssm']).to eq ['184 items (1 box)', '8.15 cubic feet (One full-size records case, one letter-size documents case, twenty-six shelved books, and oversize material in flat storage.)']
+    end
+
+    it 'indexes the text in physdesc' do
+      expect(result['physdesc_ssm']).to eq ['text for physical description']
+    end
+
+    it 'indexes all of the notes fields' do
+      expect(result['odd_ssm'].last).to match(/One burnt field notebook with locality coordinates is separated for special care/)
+      expect(result['materialspec_ssm'].last).to match(/Materials specific details/)
+      expect(result['originalsloc_ssm'].last).to match(/Existence and location of originals/)
     end
 
     it 'collection acqinfo does not show on child elements' do
