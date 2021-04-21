@@ -278,12 +278,14 @@ end
 
 SEARCHABLE_NOTES_FIELDS.map do |selector|
   to_field "#{selector}_ssm", extract_xpath("/ead/archdesc/#{selector}/*[local-name()!='head']", to_text: false)
+  to_field "scopecontent_tesim", extract_xpath("/ead/archdesc/scopecontent/*[local-name()!='head']", to_text: false)
   to_field "#{selector}_heading_ssm", extract_xpath("/ead/archdesc/#{selector}/head") unless selector == 'prefercite'
   to_field "#{selector}_teim", extract_xpath("/ead/archdesc/#{selector}/*[local-name()!='head']")
 end
 
 DID_SEARCHABLE_NOTES_FIELDS.map do |selector|
   to_field "#{selector}_ssm", extract_xpath("/ead/archdesc/did/#{selector}", to_text: false)
+  to_field "scopecontent_tesim", extract_xpath("/ead/archdesc/did/scopecontent", to_text: false)
 end
 
 NAME_ELEMENTS.map do |selector|
@@ -461,7 +463,7 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
       physdesc = []
       element.children.map do |child|
         next if child.class == Nokogiri::XML::Element
-  
+
         physdesc << child.text&.strip unless child.text&.strip.empty?
       end.flatten
       physdesc.join(' ') unless physdesc.empty?
@@ -473,7 +475,7 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
       physdesc = []
       element.children.map do |child|
         next if child.class == Nokogiri::XML::Element
-  
+
         physdesc << child.text&.strip unless child.text&.strip.empty?
       end.flatten
       physdesc.join(' ') unless physdesc.empty?
@@ -622,11 +624,13 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
 
   SEARCHABLE_NOTES_FIELDS.map do |selector|
     to_field "#{selector}_ssm", extract_xpath("./#{selector}/*[local-name()!='head']", to_text: false)
+    to_field "scopecontent_tesim", extract_xpath("./scopecontent/*[local-name()!='head']", to_text: false)
     to_field "#{selector}_heading_ssm", extract_xpath("./#{selector}/head")
     to_field "#{selector}_teim", extract_xpath("./#{selector}/*[local-name()!='head']")
   end
   DID_SEARCHABLE_NOTES_FIELDS.map do |selector|
     to_field "#{selector}_ssm", extract_xpath("./did/#{selector}", to_text: false)
+    to_field "scopecontent_tesim", extract_xpath("./did/scopecontent", to_text: false)
   end
   to_field 'did_note_ssm', extract_xpath('./did/note')
 end
