@@ -23,6 +23,14 @@ REPOSITORY_ID=paleontology DIR=./data/paleontology rake arclight:index_dir
 ```
 Open a browser and verify the application and indexed EAD files at http://localhost:3000/collections
 
+## Build suggest field
+Building the suggest list for searching, typeahead, is not done on indexing.  Building the suggest list is done with either the rake task or curl command below.  This should be run after indexing sample data.  Note: update solr url if not running the curl command in local development.
+
+```
+rake build_solr_suggest
+
+curl http://127.0.0.1:8983/solr/blacklight-core/suggest\?suggest.build\=true
+```
 ## Updating the application
 
 See https://github.com/sul-dlss/arclight/wiki/Upgrading-your-ArcLight-application
