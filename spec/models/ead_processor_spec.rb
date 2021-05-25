@@ -26,19 +26,25 @@ RSpec.describe EadProcessor do
     expect(unzipped_file).to exist
   end
 
-  after do
-    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC0754.xml"])
-    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC0944.xml"])
-    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC1801.xml"])
-    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC2939.xml"])
-    FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAC3254.xml"])
-  end
-
-  it 'can extract a zip file and copy it to public directory' do
-    zip_file = Rails.root.join('spec', 'fixtures', 'html', 'test.zip')
-    unzipped_file = Rails.root.join('public', 'ead', 'VAC0754.xml')
-    EadProcessor.save_ead_for_downloading(zip_file)
-    expect(unzipped_file).to exist
+  context 'eads and html for downloads' do
+    after do
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/ead/VAD6017.xml"])
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/html/VAD6017.html"])
+    end
+    
+    it 'can copy ead to public directory' do
+      ead = Rails.root.join('spec', 'fixtures', 'ead', 'lilly', 'VAD6017.xml')
+      public_ead = Rails.root.join('public', 'ead', 'VAD6017.xml')
+      EadProcessor.save_ead_for_downloading(ead)
+      expect(public_ead).to exist
+    end
+    
+    it 'can transform an ead to html and place it in public directory' do
+      html = Rails.root.join('public', 'html', 'VAD6017.html')
+      ead = Rails.root.join('spec', 'fixtures', 'ead', 'lilly', 'VAD6017.xml')
+      EadProcessor.convert_ead_to_html(ead)
+      expect(html).to exist
+    end
   end
 
   # skipping for now, cannot open zip file locally for testing to get the ead names
