@@ -272,7 +272,7 @@ class CatalogController < ApplicationController
     config.add_summary_field 'abstract_ssm', label: 'Abstract', helper_method: :render_html_tags
     config.add_summary_field 'extent_ssm', label: 'Extent'
     config.add_summary_field 'language_ssm', label: 'Language'
-    config.add_summary_field 'prefercite_ssm', label: 'Preferred citation', helper_method: :render_html_tags
+    config.add_summary_field 'full_citation_ssm', label: 'Preferred citation', helper_method: :render_html_tags
 
     # Collection Show Page - Background Section
     config.add_background_field 'scopecontent_tesim', label: 'Scope and Content', helper_method: :render_html_tags
@@ -397,7 +397,7 @@ class CatalogController < ApplicationController
     config.add_in_person_field 'id', if: :before_you_visit_note_present, label: 'Before you visit', helper_method: :context_access_tab_visit_note # Using ID because we know it will always exist
 
     # Collection and Component Show Page Access Tab - How to Cite Section
-    config.add_cite_field 'prefercite_ssm', label: 'Preferred citation', helper_method: :render_html_tags
+    config.add_cite_field 'full_citation_ssm', label: 'Preferred citation', helper_method: :render_html_tags
 
     # Collection and Component Show Page Access Tab - Contact Section
     config.add_contact_field 'campus_unit_ssm', label: 'Campus', helper_method: :render_campus_name

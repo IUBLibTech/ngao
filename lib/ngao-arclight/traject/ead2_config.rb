@@ -230,6 +230,12 @@ to_field 'physdesc_teim', extract_xpath('/ead/archdesc/did/physdesc', to_text: f
   end
 end
 
+to_field 'purl_ssi' do |_record, accumulator, context|
+  repo_name = settings['repository']
+  ead_number = context.output_hash['ead_ssi']&.first
+  accumulator << "<a href='http://purl.dlib.indiana.edu/iudl/findingaids/#{repo_name}/#{ead_number}'>http://purl.dlib.indiana.edu/iudl/findingaids/#{repo_name}/#{ead_number}</a>"
+end
+
 to_field 'extent_ssm', extract_xpath('/ead/archdesc/did/physdesc', to_text: false) do |_record, accumulator|
   accumulator.map! do |element|
     extent_array = []
@@ -294,6 +300,20 @@ NAME_ELEMENTS.map do |selector|
   to_field 'names_coll_ssim', extract_xpath("/ead/archdesc/controlaccess/#{selector}")
   to_field 'names_ssim', extract_xpath("//#{selector}")
   to_field "#{selector}_ssm", extract_xpath("//#{selector}")
+end
+
+to_field 'full_citation_ssm' do |_record, accumulator, context|
+  preferred_citation = context.output_hash['prefercite_ssm']&.first&.children&.text
+  purl_link = context.output_hash['purl_ssi']&.first
+  if preferred_citation.present? && purl_link.present?
+    accumulator << preferred_citation + ' ' + purl_link
+  elsif preferred_citation.present? && purl_link.blank?
+    accumulator << preferred_citation
+  elsif preferred_citation.blank? && purl_link.present?
+    accumulator << purl_link
+  else
+    accumulator
+  end
 end
 
 to_field 'corpname_sim', extract_xpath('//corpname')

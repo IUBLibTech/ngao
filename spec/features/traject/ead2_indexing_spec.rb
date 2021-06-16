@@ -76,5 +76,13 @@ RSpec.describe 'EAD 2 traject indexing', type: :feature do
       component = result['components'].find { |c| c['id'] == ['InU-Li-VAD6017aspace_VAD6017-00001'] }
       expect(component['acqinfo_ssim']).to eq ['Child acqinfo']
     end
+
+    it 'generates a purl link' do
+      expect(result['purl_ssi']).to eq ["<a href='http://purl.dlib.indiana.edu/iudl/findingaids/lilly/InU-Li-VAD6017'>http://purl.dlib.indiana.edu/iudl/findingaids/lilly/InU-Li-VAD6017</a>"]
+    end
+
+    it 'generates a preferred citation' do
+      expect(result['full_citation_ssm']).to eq ["[Item], Alströmer mss., Lilly Library, Indiana University, Bloomington, Indiana. <a href='http://purl.dlib.indiana.edu/iudl/findingaids/lilly/InU-Li-VAD6017'>http://purl.dlib.indiana.edu/iudl/findingaids/lilly/InU-Li-VAD6017</a>"]
+    end
   end
 end
