@@ -96,6 +96,9 @@ class EadProcessor
     filename = args[:ead]
     ENV['FILE'] = filename
     `bundle exec rake ngao:delete_ead`
+    # FIXME In production deployment, the row isn't being destroyed by the rake task
+    #  so try a direct invocation of the remove_ead_from_db method
+    remove_ead_from_db(filename)
   end
 
   # extract file
