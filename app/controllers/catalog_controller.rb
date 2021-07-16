@@ -357,6 +357,7 @@ class CatalogController < ApplicationController
     config.add_component_field 'fileplan_ssm', label: 'File plan', helper_method: :render_html_tags
     config.add_component_field 'materialspec_ssm', label: 'Materials specific details', helper_method: :render_html_tags
     config.add_component_field 'physdesc_ssm', label: 'Physical description', helper_method: :render_html_tags
+    config.add_component_field 'creator_ssm', label: 'Creator', helper_method: :render_html_tags
 
     # Component Show Page - Indexed Terms Section
     config.add_component_indexed_terms_field 'access_subjects_ssim', label: 'Subjects', link_to_facet: true, separator_options: {
