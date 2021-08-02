@@ -1,0 +1,14 @@
+<div id="content" class="col-md-12 well square-corners">
+   <a id="gotoviewer" />
+   <legend>
+     <h3>Viewer</h3>
+   </legend>
+   <%= PulUvRails::UniversalViewer.script_tag %>
+   <div class="viewer-wrapper">
+      <iframe
+      src="<%= request&.base_url %>/uv/uv.html#?manifest=<%= manifest(@document['dao_ssi'])%>&config=<%= request&.base_url %>/uv_config.json"
+      allowfullscreen="true" 
+      frameborder="0" 
+    ></iframe>
+   </div>
+ </div> 
