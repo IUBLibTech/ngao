@@ -175,14 +175,18 @@ class EadProcessor
   def self.get_delta_eads(args = {})
     delta_eads = []
     archive_space_eads = []
-    for ead in page(args).css('a')
-      name = ead.attributes['href'].value
+    for repository in page(args).css('a')
+      name = repository.attributes['href'].value
       ext = File.extname(name)
-      name = File.basename(name, File.extname(name))
-      next unless ext == '.xml'
-
-      ead_filename = name + ext
-      archive_space_eads << ead_filename
+      next unless ext == '.zip'
+      zipped_file = name + ext
+      Zip::File.open(zipped_file) do |zip_file|
+        zip_file.each do |ead|
+          if ead.file?      
+            archive_space_eads << ead
+          end
+        end
+      end
     end
     local_eads = Ead.all.collect.each { |e| e.filename }
     delta_eads = local_eads - archive_space_eads
