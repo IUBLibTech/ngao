@@ -11,7 +11,7 @@ RSpec.describe AdminController, type: :controller, omni: true do
   before do
     request.env['devise.mapping'] = Devise.mappings[:user]
     request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:cas]
-    ENV['ASPACE_EXPORT_URL'] = 'https://aspacedev.dlib.indiana.edu/assets/ead_export/'
+    ENV['ASPACE_EXPORT_URL'] = 'https://aspace-dev.dlib.indiana.edu/assets/ead_export/'
   end
 
   OmniAuth.config.mock_auth[:cas] =
