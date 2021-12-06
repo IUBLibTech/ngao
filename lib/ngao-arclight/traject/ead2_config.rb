@@ -344,7 +344,7 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
                      record['id'] = hexdigest
                      hexdigest
                    else
-                     record.attribute('id')&.value&.strip&.gsub('.', '-')
+                     record.attribute('id')&.value&.strip
                    end
   end
   to_field 'ref_ssm' do |_record, accumulator, context|
