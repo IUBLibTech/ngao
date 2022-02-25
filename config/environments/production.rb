@@ -96,11 +96,13 @@ Rails.application.configure do
     :user_name => ENV["SMTP_USERNAME"], #Your SMTP user
     :password => ENV["SMTP_PASSWORD"], #Your SMTP password
     :authentication => :login,
+    :openssl_verify_mode => ENV["SMTP_SSL_VERIFY"] || "none",
     :enable_starttls_auto => true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+
   # config.action_mailer.raise_delivery_errors = false
   #
   config.action_mailer.default_url_options = { protocol: ENV['SITE_PROTOCOL'] || 'http',
