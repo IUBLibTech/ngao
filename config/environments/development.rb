@@ -64,5 +64,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { protocol: ENV['SITE_PROTOCOL'] || 'http',
                                                host: ENV['SITE_HOST'] || 'localhost:3000'}
-  config.force_ssl = true
+  unless ENV['AL_AUTHN'] == 'database'
+    config.force_ssl = true
+  end
 end
