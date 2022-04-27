@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+Last-Modified: Thu, 15 Jul 2021 18:56:10 GMT
+Content-Type: text/html
+Content-Length: 510
+
+<html>
+	<head>
+		<title>Indiana University Finding Aids</title>
+	</head>
+	<body>
+		<p><b>Indiana University Finding Aids</b></p>
+		<p>(page last updated: 2021-03-09 15:20:08)</p>
+
+		<p><a href="paleontology.zip">Test - Paleontology Collection</a> (last updated: 2021-03-09 04:04:49)</p>
+		<ul>
+			<li><a href="paleontology/VAD4696.xml">VAD4696</a> (last updated: 2021-03-09 12:13:39)</li>
+			<li><a href="paleontology/VAD4692.xml">VAD4692</a> (last updated: 2021-03-09 11:45:46)</li>
+		</ul>
+
+	</body>
+</html>
