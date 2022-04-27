@@ -50,6 +50,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot'
   gem 'rails-controller-testing'
+  gem 'webmock'
 
   gem 'rubocop'
   gem 'rubocop-rspec'
