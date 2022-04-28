@@ -47,16 +47,6 @@ RSpec.describe EadProcessor, clean: true do
     end
   end
 
-  # skipping for now, cannot open zip file locally for testing to get the ead names
-  xit 'gets the list of repositories' do
-    client = "#{Rails.root}/spec/fixtures/html/test.html"
-    repositories = EadProcessor.get_repository_names({ url: client })
-    expect(repositories).to include(
-      "test"=>{:name=>"Working Men's Institute of New Harmony, Indiana", :eads=>["VAA9110.xml", "VAA6610.xml", "VAA4026.xml"]}, 
-      "test2"=>{:name=>"Wylie House Museum", :eads=>["VAD3254.xml", "VAC2939.xml", "VAC0754.xml", "VAC1801.xml", "VAC0944.xml"]}
-    )
-  end
-
   it 'gets the list of eads' do
     file = "#{Rails.root}/spec/fixtures/html/test.zip"
     eads = EadProcessor.get_ead_names(file, 'mix')

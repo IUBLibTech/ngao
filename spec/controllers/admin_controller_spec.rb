@@ -1,17 +1,25 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'webmock/rspec'
 
 RSpec.describe AdminController, type: :controller, omni: true do
   include Devise::Test::ControllerHelpers
 
   let(:admin_user) { FactoryBot.create(:user, role = 'admin') }
   let(:manager_user) { FactoryBot.create(:user, role = 'manager') }
-  
+  let(:export_response_body) { File.open('./spec/fixtures/as_export.txt') }
+  let(:zip_response_body) { File.open('./spec/fixtures/paleontology.zip') }
+  let(:zip_response_headers) { { 'Content-Type' => 'application/zip' } }
+  let(:aspace_export_url) { 'http://aspace.host/ead_export/' }
+
   before do
     request.env['devise.mapping'] = Devise.mappings[:user]
     request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:cas]
-    ENV['ASPACE_EXPORT_URL'] = 'http://localhost/assets/ead_export/'
+    ENV['ASPACE_EXPORT_URL'] = aspace_export_url
+    stub_request(:get, aspace_export_url).to_return(export_response_body)
+    stub_request(:get, "#{aspace_export_url}paleontology.zip").
+      to_return(status: 200, body: zip_response_body, headers: zip_response_headers)
   end
 
   OmniAuth.config.mock_auth[:cas] =
@@ -49,13 +57,13 @@ RSpec.describe AdminController, type: :controller, omni: true do
         expect(response.redirect_url).to eq 'http://test.host/admin'
       end
 
-      xit 'returns a success response' do
+      it 'returns a success response' do
         valid_session = {}
         get :index, params: {}, session: valid_session
         expect(response).to be_successful
       end
 
-      xit 'indexes the users and repository' do
+      it 'indexes the users and repository' do
         get :index
         expect(assigns(:users)).to eq(User.all)
         expect(assigns(:repositories)).to eq(manager_user.repositories)
@@ -72,7 +80,7 @@ RSpec.describe AdminController, type: :controller, omni: true do
 
     describe 'GET #index_ead' do
       it 'redirects to dashboard' do
-        get :index_ead, params: { repository: 'lilly', ead: 'VAD6017.xml' }
+        get :index_ead, params: { repository: 'lilly', ead: 'VAD4692.xml' }
         expect(response.redirect_url).to eq 'http://test.host/admin'
         expect(flash[:notice]).to eq 'The file is being indexed in the background and will be ready soon.'
       end
@@ -80,7 +88,7 @@ RSpec.describe AdminController, type: :controller, omni: true do
 
     describe 'GET #delete_ead' do
       it 'redirects to dashboard' do
-        get :delete_ead, params: { ead: 'VAD6017.xml' }
+        get :delete_ead, params: { ead: 'VAD4692.xml' }
         expect(response.redirect_url).to eq 'http://test.host/admin'
         expect(flash[:notice]).to eq 'The file is being deleted in the background and will be removed soon.'
       end
@@ -102,13 +110,13 @@ RSpec.describe AdminController, type: :controller, omni: true do
         expect(response.redirect_url).to eq 'http://test.host/admin'
       end
 
-      xit 'returns a success response' do
+      it 'returns a success response' do
         valid_session = {}
         get :index, params: {}, session: valid_session
         expect(response).to be_successful
       end
 
-      xit 'indexes the users and repository' do
+      it 'indexes the users and repository' do
         get :index
         expect(assigns(:users)).to eq(User.all)
         expect(assigns(:repositories)).to eq(admin_user.repositories)
@@ -125,7 +133,7 @@ RSpec.describe AdminController, type: :controller, omni: true do
 
     describe 'GET #index_ead' do
       it 'redirects to dashboard' do
-        get :index_ead, params: { repository: 'lilly', ead: 'VAD6017.xml' }
+        get :index_ead, params: { repository: 'lilly', ead: 'VAD4692.xml' }
         expect(response.redirect_url).to eq 'http://test.host/admin'
         expect(flash[:notice]).to eq 'The file is being indexed in the background and will be ready soon.'
       end
@@ -133,7 +141,7 @@ RSpec.describe AdminController, type: :controller, omni: true do
 
     describe 'GET #delete_ead' do
       it 'redirects to dashboard' do
-        get :delete_ead, params: { ead: 'VAD6017.xml' }
+        get :delete_ead, params: { ead: 'VAD4692.xml' }
         expect(response.redirect_url).to eq 'http://test.host/admin'
         expect(flash[:notice]).to eq 'The file is being deleted in the background and will be removed soon.'
       end
