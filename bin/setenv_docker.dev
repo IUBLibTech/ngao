@@ -1,0 +1,10 @@
+# RAILS_ENV is set to production in the image, so set following in
+# order to serve files out of the public HTML directory
+RAILS_SERVE_STATIC_FILES=true
+
+# Set AL_AUTHN to disable CAS authentication; also runs site as plain http
+AL_AUTHN=database
+
+# Use a mocked up version of the ArchiveSpace export site in public/as_export
+# Must create the mocked content using: rails g archives_online:mock_aspace
+ASPACE_EXPORT_URL=http://localhost:3000/as_export/

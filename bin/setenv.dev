@@ -1,0 +1,6 @@
+# Set AL_AUTHN to disable CAS authentication; also runs site as plain http
+export AL_AUTHN=database
+
+# Use a mocked up version of the ArchiveSpace export site in public/as_export
+# Must create the mocked content using: rails g archives_online:mock_aspace
+export ASPACE_EXPORT_URL=http://localhost:3000/as_export/
