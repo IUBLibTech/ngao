@@ -1,6 +1,30 @@
-# Set AL_AUTHN to disable CAS authentication; also runs site as plain http
+# Set AL_AUTHN to disable IU CAS authentication
 export AL_AUTHN=database
 
-# Use a mocked up version of the ArchiveSpace export site in public/as_export
+# Use a mocked up version of the ArchiveSpace export site in ./public/as_export
 # Must create the mocked content using: rails g archives_online:mock_aspace
 export ASPACE_EXPORT_URL=http://localhost:3000/as_export/
+
+# export SOLR_URL=http://localhost:8983/solr
+
+# ArcLight allows overriding the location of the repo config file.
+# Default is ./config/repositories.yml
+# export REPOSITORY_FILE=
+
+# Database default is sqlite3 at ./db/development.sqlite3
+# export DB_ADAPTER=mysql2
+# export MYSQL_DATABASE=
+# export MYSQL_HOST=
+# export MYSQL_USER=
+# export MYSQL_PASSWORD=
+
+# Controls how Rails sends email
+# export SMTP_ADDRESS=
+# export SMTP_SSL_VERIFY=
+# export SMTP_PORT=25
+# export SMTP_SENDER=
+
+# Controls how some methods get site context
+# export SITE_URL=
+# export SITE_HOST=
+# export SITE_PROTOCOL=
