@@ -4,3 +4,4 @@ version: 8.8.2
 collection:
   dir: solr/conf/
   name: blacklight-core
+  persist: true
