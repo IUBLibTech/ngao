@@ -1,6 +1,9 @@
 <%# COPIED FROM ARCLIGHT TO ADD NUMBERING TO SEARCH RESULTS %>
 <div class="al-search-result-index-article row d-flex align-items-start">
   <% counter = document_counter_with_offset(document_counter) %>
+  <div class="col-auto">
+    &nbsp;
+  </div>
 
   <div class="col col-no-left-padding d-flex flex-wrap">
     <div class="documentHeader my-w-75 w-md-100 order-0" data-document-id="<%= document.id %>">
