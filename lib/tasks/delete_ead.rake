@@ -7,6 +7,7 @@ namespace :ngao do
 
     filename = ENV['FILE']
     solr_id = File.basename(filename)
+    raise "Unexpected file type: #{File.extname(filename)}" unless  File.extname(filename) =~/.xml/
 
     print "NGAO-Arclight deleting #{ENV['FILE']}...\n"
 
@@ -20,7 +21,7 @@ namespace :ngao do
                 end
     end
     # one slash per segment only please
-    solr_url.chomp!('/')
+    solr_url = solr_url.chomp('/')
 
     solr_elapsed_time = Benchmark.realtime do
       cmd = %Q{curl -X POST "#{solr_url}/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><id>#{solr_id}</id></delete>"}
