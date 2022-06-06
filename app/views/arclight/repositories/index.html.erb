@@ -13,7 +13,7 @@
     <%# ADD CAMPUS CARDS %>
     <div class="row">
       <% @campuses.each do |campus| %>
-        <%= render partial: 'campus_card', locals: {campus: campus[0]} %>
+        <%= render partial: 'campus_card', locals: {campus: campus.first} %>
       <% end %>
     </div>
   
