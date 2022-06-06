@@ -1,5 +1,6 @@
 <%# COPIED FROM ARCLIGHT TO REMOVE BOOKMARK CHECKBOX %>
-<div class='al-show-actions-box'>
+<%# disable turbolinks on download links to handle CSS stylesheets for printable EAD properly %>
+<div class='al-show-actions-box' data-turbolinks="false">
   <div class="al-actions-box-container">
     <% if document.unitid || document.containers.present? %>
       <div class='al-collection-id'>
