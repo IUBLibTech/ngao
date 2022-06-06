@@ -6,7 +6,7 @@ namespace :ngao do
     raise 'Please specify your EAD document, ex. ead.xml' unless ENV['FILE']
 
     filename = ENV['FILE']
-    solr_id = filename.tr('.xml','')
+    solr_id = File.basename(filename)
 
     print "NGAO-Arclight deleting #{ENV['FILE']}...\n"
 
