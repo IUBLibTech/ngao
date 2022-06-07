@@ -217,7 +217,7 @@ GEM
     mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.4)
+    nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     nulldb (0.3.7.pre.alpha.1)
@@ -241,8 +241,8 @@ GEM
     puma (4.3.12)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.3)
-    rack-protection (2.1.0)
+    rack (2.2.3.1)
+    rack-protection (2.2.0)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -330,7 +330,7 @@ GEM
     rubocop-rspec (1.43.2)
       rubocop (~> 0.87)
     ruby-progressbar (1.10.1)
-    ruby2_keywords (0.0.2)
+    ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
     sass (3.7.4)
@@ -363,10 +363,10 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.3)
-    sinatra (2.1.0)
+    sinatra (2.2.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
-      rack-protection (= 2.1.0)
+      rack-protection (= 2.2.0)
       tilt (~> 2.0)
     slop (4.8.2)
     solr_wrapper (3.1.2)
@@ -511,4 +511,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   2.2.29
+   2.3.14
