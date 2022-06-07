@@ -275,8 +275,8 @@ class CatalogController < ApplicationController
     config.add_summary_field 'prefercite_ssm', label: 'Preferred citation', helper_method: :render_html_tags
 
     # Collection Show Page - Background Section
-    config.add_background_field 'scopecontent_tesim', label: 'Scope and Content', helper_method: :render_html_tags
     config.add_background_field 'bioghist_ssm', label: 'Biographical / Historical', helper_method: :render_html_tags
+    config.add_background_field 'scopecontent_tesim', label: 'Scope and Content', helper_method: :render_html_tags
     config.add_background_field 'acqinfo_ssim', label: 'Acquisition information', helper_method: :render_html_tags
     config.add_background_field 'appraisal_ssm', label: 'Appraisal information', helper_method: :render_html_tags
     config.add_background_field 'custodhist_ssm', label: 'Custodial history', helper_method: :render_html_tags
