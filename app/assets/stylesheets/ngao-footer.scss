@@ -12,10 +12,14 @@
 }
 
 .link-caddy {
-  display: flex;
-  list-style-type: none;
-  li > a {
-    color: $iu-cream;
+  ul {
+    list-style-type: none;
+    li {
+      display: inline-flex;
+      a {
+        color: $iu-cream;
+      }
+    }
   }
 }
 
