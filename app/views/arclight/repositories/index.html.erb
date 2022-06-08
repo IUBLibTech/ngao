@@ -20,7 +20,7 @@
     <%# ADDED CAMPUS LEVEL FOR DISPLAY %>
     <% @campuses.each do |campus, repositories| %>
       <h2 id="<%= campus %>" class="repository-header"><%= convert_campus_id(campus) %></h2>
-      <% repositories.each do |repository| %>
+      <% repositories.sort{|a,b| a.name <=> b.name}.each do |repository| %>
         <%= render partial: 'repository', locals: { repository: repository } %>
       <% end %>
     <% end %>
