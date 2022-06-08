@@ -94,15 +94,16 @@ class CatalogController < ApplicationController
     config.add_facet_field 'repository_sim', label: 'Repository', limit: 10
     config.add_facet_field 'collection_sim', label: 'Collection', limit: 10
     config.add_facet_field 'level_sim', label: 'Level', limit: 10
-    config.add_facet_field 'access_subjects_ssim', label: 'Subject', limit: 10
     config.add_facet_field 'creator_ssim', label: 'Creator', limit: 10
     config.add_facet_field 'creators_ssim', label: 'Creator', show: false
-    config.add_facet_field 'date_range_sim', label: 'Date range', range: true
+    config.add_facet_field 'component_level_isim', show: false
+    config.add_facet_field 'date_range_sim', label: 'Date Range', range: true
     config.add_facet_field 'geogname_sim', label: 'Place', limit: 10
     config.add_facet_field 'names_ssim', label: 'Names', limit: 10
     config.add_facet_field 'places_ssim', label: 'Places', show: false
-    config.add_facet_field 'component_level_isim', show: false
+    config.add_facet_field 'access_subjects_ssim', label: 'Subject', limit: 10
     config.add_facet_field 'parent_ssim', show: false
+
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
