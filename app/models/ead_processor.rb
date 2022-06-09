@@ -60,7 +60,7 @@ class EadProcessor
         path = "./data/#{directory}"
         FileUtils.mkdir_p path
         fpath = File.join(path, f.name)
-        FileUtil.rm_f(fpath)
+        FileUtils.rm_f(fpath)
         filename = File.basename(fpath)
         zip_file.extract(f, fpath)
         add_ead_to_db(filename, directory)
