@@ -9,7 +9,7 @@ namespace :ngao do
     solr_id = File.basename(filename)
     raise "Unexpected file type: #{File.extname(filename)}" unless  File.extname(filename) =~/.xml/
 
-    print "NGAO-Arclight deleting #{ENV['FILE']}...\n"
+    puts "NGAO-Arclight deleting #{ENV['FILE']}...\n"
 
     if Rails.env == 'development'
       solr_url = 'http://localhost:8983/solr/blacklight-core'
@@ -24,17 +24,15 @@ namespace :ngao do
     solr_url = solr_url.chomp('/')
 
     solr_elapsed_time = Benchmark.realtime do
-      cmd = %Q{curl -s -X POST "#{solr_url}/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><id>#{solr_id}</id></delete>"}
-      puts cmd
-      `#{cmd}`
+      system(%Q{curl -s -X POST "#{solr_url}/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><id>#{solr_id}</id></delete>"}, exception: true)
     end
 
-    print "NGAO-Arclight deleted #{filename} from solr index (in #{solr_elapsed_time.round(3)} secs).\n"
+    puts "NGAO-Arclight deleted #{filename} from solr index (in #{solr_elapsed_time.round(3)} secs).\n"
 
     postgres_elapsed_time = Benchmark.realtime do
       EadProcessor.remove_ead_from_db(filename)
     end
 
-    print "NGAO-Arclight deleted #{filename} from postgres database (in #{postgres_elapsed_time.round(3)} secs).\n"
+    puts "NGAO-Arclight deleted #{filename} from postgres database (in #{postgres_elapsed_time.round(3)} secs).\n"
   end
 end
