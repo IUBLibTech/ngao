@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class EadProcessor
   require 'zip'
 
@@ -18,12 +19,12 @@ class EadProcessor
 
   # Open web address with Nokogiri
   def self.page(args = {})
-    Nokogiri::HTML(open(client(args)))
+    Nokogiri::HTML(URI.open(client(args)))
   end
 
   # open file and call extract
-  def self.process_files(args={})
-    for file_link in page(args).css('a')
+  def self.process_files(args = {})
+    page(args).css('a').each do |file_link|
       file_name = file_link.attributes['href'].value
       link = client(args) + file_name
       directory = File.basename(file_name, File.extname(file_name))
@@ -31,21 +32,22 @@ class EadProcessor
       next unless ext == '.zip'
       next unless should_process_file(args, directory)
 
-      open(link, 'rb') do |file|
+      URI.open(link, 'rb') do |file|
         directory = directory.parameterize.underscore
         extract_and_index(file, directory)
       end
     end
   end
 
-  def self.process_updated_files(args={})
-    for file_link in page(args).css('a')
+  def self.process_updated_files(args = {})
+    page(args).css('a').each do |file_link|
       file_name = file_link.attributes['href'].value
       file_name.slice! client(args)
       repository = File.dirname(file_name)
       file = File.basename(file_name)
       ext = File.extname(file_name)
       next unless ext == '.xml'
+
       args = { ead: file, repository: repository }
       EadProcessor.index_single_ead(args)
     end
@@ -56,9 +58,9 @@ class EadProcessor
     Zip::File.open(file) do |zip_file|
       zip_file.each do |f|
         path = "./data/#{directory}"
-        FileUtils.mkdir_p path unless File.exist?(path)
+        FileUtils.mkdir_p path
         fpath = File.join(path, f.name)
-        File.delete(fpath) if File.exist?(fpath)
+        FileUtils.rm_f(fpath)
         filename = File.basename(fpath)
         zip_file.extract(f, fpath)
         add_ead_to_db(filename, directory)
@@ -73,15 +75,14 @@ class EadProcessor
   # for indexing a single ead file
   # need to unzip parent and index only the file selected
   def self.index_single_ead(args = {})
-    puts args
     repository = args[:repository]
     file_name = args[:ead]
     link = client(args) + "#{repository}/#{file_name}"
     directory = repository.parameterize.underscore
     path = "./data/#{directory}"
-    Dir.mkdir(path) unless Dir.exist?(path)
+    FileUtils.mkdir_p(path)
     puts link
-    download = open(link, 'rb')
+    download = URI.open(link, 'rb')
     fpath = File.join(path, file_name)
     IO.copy_stream(download, fpath)
     filename = File.basename(fpath)
@@ -95,8 +96,8 @@ class EadProcessor
   def self.delete_single_ead(args = {})
     filename = args[:ead]
     ENV['FILE'] = filename
-    `bundle exec rake ngao:delete_ead`
-    # FIXME In production deployment, the row isn't being destroyed by the rake task
+    system('bundle exec rake ngao:delete_ead', exception: true)
+    # FIXME: In production deployment, the row isn't being destroyed by the rake task
     #  so try a direct invocation of the remove_ead_from_db method
     remove_ead_from_db(filename)
   end
@@ -106,7 +107,7 @@ class EadProcessor
     Zip::File.open(file) do |zip_file|
       zip_file.each do |f|
         path = "./data/#{directory}"
-        FileUtils.mkdir_p path unless File.exist?(path)
+        FileUtils.mkdir_p path
         fpath = File.join(path, f.name)
         File.delete(fpath) if File.exist?(fpath)
         zip_file.extract(f, fpath)
@@ -118,43 +119,38 @@ class EadProcessor
   def self.index_file(filename, repository)
     ENV['REPOSITORY_ID'] = repository
     ENV['FILE'] = filename
-    solr_url = begin
-      Blacklight.default_index.connection.base_uri
-    rescue StandardError
-      ENV['SOLR_URL'] || 'http://127.0.0.1:8983/solr/blacklight-core'
-    end
-    `bundle exec rake arclight:index`
+    system('bundle exec rake arclight:index', exception: true)
   end
 
   # get list of zip files and ead contents to show on admin import page
   def self.get_repository_names(args = {})
     repositories = {}
-    for repository in page(args).css('a')
+    page(args).css('a').each do |repository|
       name = repository.attributes['href'].value
       link = client(args) + name
       ext = File.extname(name)
       key = File.basename(name, File.extname(name))
       next unless ext == '.zip'
+
       value = { name: repository.children.text }
       repositories[key] = value
       last_updated_at = DateTime.parse(repository.next_sibling.text)
-      add_repository_to_db(key, value[:name], last_updated_at)
+      update_repository(key, value[:name], last_updated_at)
       eads = []
       if ext == '.zip'
-        open(link, 'rb') do |file|
+        URI.open(link, 'rb') do |file|
           eads = get_ead_names(file, key)
         end
       end
       repositories[key][:eads] = eads
     end
-    return repositories
+    repositories
   end
 
-  def self.add_repository_to_db(id, name, last_updated_at)
-    Repository.where(repository_id: id).first_or_create do |repo|
-      repo.name = name
-      repo.last_updated_at = last_updated_at
-    end
+  # Only updates name & last update date w/ data from aspace
+  def self.update_repository(id, name, last_updated_at)
+    repo = Repository.find_by(repository_id: id)
+    repo.update_attributes(name: name, last_updated_at: last_updated_at)
   end
 
   # get list of eads contained in zip file
@@ -168,14 +164,13 @@ class EadProcessor
         end
       end
     end
-    return eads
+    eads
   end
 
   # get list of eads in solr and postgres but no longer on archive space
   def self.get_delta_eads(args = {})
-    delta_eads = []
     archive_space_eads = []
-    for ead in page(args).css('a')
+    page(args).css('a').each do |ead|
       name = ead.attributes['href'].value
       ext = File.extname(name)
       name = File.basename(name, File.extname(name))
@@ -184,7 +179,7 @@ class EadProcessor
       ead_filename = name + ext
       archive_space_eads << ead_filename
     end
-    local_eads = Ead.all.collect.each { |e| e.filename }
+    local_eads = Ead.all.collect.each(&:filename)
     delta_eads = local_eads - archive_space_eads
     delta_eads.uniq.sort
   end
@@ -208,11 +203,12 @@ class EadProcessor
   end
 
   def self.get_updated_eads(args = {})
-    for ead in page(args).css('a')
+    page(args).css('a').each do |ead|
       name = ead.attributes['href'].value
       ext = File.extname(name)
       name = File.basename(name, File.extname(name))
       next unless ext == '.xml'
+
       ead_filename = name + ext
       ead_last_updated_at = DateTime.parse(ead.next_sibling.text)
       add_last_updated(ead_filename, ead_last_updated_at)
@@ -222,7 +218,7 @@ class EadProcessor
   # copies ead to public directory for downloading
   def self.save_ead_for_downloading(file)
     directory = './public/ead'
-    FileUtils.mkdir_p directory unless File.exist?(directory)
+    FileUtils.mkdir_p directory
     fpath = File.join(directory, file)
     File.delete(fpath) if File.exist?(fpath)
     FileUtils.cp(file, directory)
@@ -231,8 +227,8 @@ class EadProcessor
   # converts the saved ead to html and saves in public directory for downloading
   def self.convert_ead_to_html(file)
     directory = './public/html'
-    FileUtils.mkdir_p directory unless File.exist?(directory)
-    filename = File.basename(file, '.xml')    
+    FileUtils.mkdir_p directory
+    filename = File.basename(file, '.xml')
     xslt = Nokogiri::XSLT(File.read('app/templates/template.xslt'))
     doc = Nokogiri::XML(File.read(file))
     doc.remove_namespaces!
