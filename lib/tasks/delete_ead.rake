@@ -24,7 +24,7 @@ namespace :ngao do
     solr_url = solr_url.chomp('/')
 
     solr_elapsed_time = Benchmark.realtime do
-      cmd = %Q{curl -X POST "#{solr_url}/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><id>#{solr_id}</id></delete>"}
+      cmd = %Q{curl -s -X POST "#{solr_url}/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><id>#{solr_id}</id></delete>"}
       puts cmd
       `#{cmd}`
     end
