@@ -133,10 +133,10 @@ rake arclight:index               # Index an EAD document, use FILE=<path/to/ead
 rake arclight:index_dir           # Index a directory of EADs, use DIR=<path/to/directory> and REPOSITORY_ID=<myid>
 rake arclight:index_url           # Index an EAD document, use URL=<http[s]://domain/path/to/ead.xml> and REPOSITORY_ID=<myid>
 rake arclight:index_url_batch     # Index EADs from a file of URLs, use BATCH=<path/to/urls.txt> and REPOSITORY_ID=<myid>
-rake clear_eads_history    # Clear database entries for EADs to clear indexing history
-rake import_eads           # Import and Index EADs
-rake import_updated_eads   # Import and Index EADs
-rake purge_and_index_doc   # Clear EAD indexing history, destroy Solr docs, import all from AS
+rake clear_eads_history           # Clear database entries for EADs to clear indexing history
+rake import_eads                  # Import and Index EADs
+rake import_updated_eads          # Import and Index EADs
+rake purge_and_index_docs         # Clear EAD indexing history, destroy Solr docs, import all from AS
 ```
 
 For example, this will work in real time and can be useful to troubleshoot issues with specific documents:
