@@ -6,7 +6,7 @@ require 'pathname'
 RSpec.describe EadProcessor, clean: true do
   it 'gets the client without args' do
     client = EadProcessor.client
-    expect(client).to eq 'http://localhost/assets/ead_export/'
+    expect(client).to eq ENV['ASPACE_EXPORT_URL']
   end
 
   it 'gets the client with args' do
@@ -59,28 +59,31 @@ RSpec.describe EadProcessor, clean: true do
     expect(EadProcessor.should_process_file(args, 'Not a test file')).to be false
   end
 
-  it 'adds the repository to the db' do
+  it 'updates the repository name & last update_date' do
     repo_id = 'test'
     repo_name = "Working Men's Institute of New Harmony, Indiana"
+    repo = Repository.create!(repository_id: repo_id, name: 'fake', last_updated_at: nil)
     repo_last_updated_at = DateTime.parse('(last updated: 2020-04-24 06:01:53)') 
-    new_repository = EadProcessor.add_repository_to_db(repo_id, repo_name, repo_last_updated_at)
-    expect(new_repository.repository_id).to eq(repo_id)
-    expect(new_repository.name).to eq(repo_name)
-    expect(new_repository.last_updated_at).to eq(repo_last_updated_at)
+    expect(EadProcessor.update_repository(repo_id, repo_name, repo_last_updated_at)).to be true
+    updated_repo = Repository.find_by(repository_id: repo_id)
+    expect(updated_repo.repository_id).to eq(repo_id)
+    expect(updated_repo.name).to eq(repo_name)
+    expect(updated_repo.last_updated_at).to eq(repo_last_updated_at)
   end
 
   context 'eads' do
-    let(:repository) { Repository.new }
+    before do
+      Ead.destroy_all
+    end
+    let(:repository) { Repository.create(repository_id: 'mix') }
     let(:filename) { 'VAD3254.xml' }
 
     it 'adds the ead to the db' do
-      repository.repository_id = 'mix'
       ead = EadProcessor.add_ead_to_db(filename, repository.repository_id)
       expect(ead.filename).to eq(filename)
     end
 
     it 'adds the ead last_updated_at' do
-      repository.repository_id = 'mix'
       ead = EadProcessor.add_ead_to_db(filename, repository.repository_id)
       last_updated_at = Time.now
       updated_ead = EadProcessor.add_last_updated(filename, last_updated_at)
@@ -88,7 +91,6 @@ RSpec.describe EadProcessor, clean: true do
     end
 
     it 'adds the ead last_indexed_at' do
-      repository.repository_id = 'mix'
       ead = EadProcessor.add_ead_to_db(filename, repository.repository_id)
       last_indexed_at = Time.now
       updated_ead = EadProcessor.add_last_updated(filename, last_indexed_at)
@@ -98,8 +100,8 @@ RSpec.describe EadProcessor, clean: true do
     it 'removes a single ead' do
       repository.repository_id = 'mix'
       ead = EadProcessor.add_ead_to_db(filename, repository.repository_id)
-      r = repository.save
-      existing_repo = Repository.find(1)
+      expect(repository.save).to be true
+      existing_repo = Repository.find_by(repository_id: repository.repository_id)
       expect(Ead.count).to eq 1
       EadProcessor.remove_ead_from_db(filename)
       expect(Ead.count).to eq 0
