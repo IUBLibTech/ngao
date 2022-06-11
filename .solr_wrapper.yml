@@ -1,5 +1,7 @@
 # Place any default configuration for solr_wrapper here
 version: 8.8.2
+solr_zip_path: tmp/solr_install
+instance_dir: tmp/solr_instance
 # port: 8983
 collection:
   dir: solr/conf/
