@@ -48,3 +48,7 @@ log/*
 !/data/.keep
 !/data/paleontology
 
+# ignore files created by import process
+/public/as_export
+/public/ead
+/public/html
