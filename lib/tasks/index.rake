@@ -22,7 +22,7 @@ namespace :arclight do
                  ENV['SOLR_URL'] || 'http://127.0.0.1:8983/solr/blacklight-core'
                end
     elapsed_time = Benchmark.realtime do
-      system("bundle exec traject -u #{solr_url} -i xml -c ./lib/ngao-arclight/traject/ead2_config.rb #{ENV['FILE']}", exception: true)
+      system("bundle exec traject -u #{solr_url} -i xml -c ./lib/ngao-arclight/traject/ead2_config.rb '#{ENV['FILE']}'", exception: true)
     end
     puts "NGAO-Arclight indexed #{ENV['FILE']} (in #{elapsed_time.round(3)} secs).\n"
   end
