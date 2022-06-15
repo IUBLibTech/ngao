@@ -35,6 +35,13 @@
 
   <%= content_tag :h1, class: "breadcrumb-item breadcrumb-item-#{parents.length + 4} media" do %>
     <span class="media-body" aria-hidden="true"><%= blacklight_icon "arrow-return-right" %></span>
-    <span class="col"><%= document.normalized_title %></span>
+    <span class="col">
+          <% if document.level == "Series" %> 
+          <span class="text-muted">Series:</span>
+        <% end %>
+        <% if document.level == "Subseries" %> 
+          <span class="text-muted">Subseries:</span>
+        <% end %>
+      <%= document.normalized_title %></span>
   <% end %>
 </nav>
