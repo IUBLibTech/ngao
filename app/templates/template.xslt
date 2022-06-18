@@ -1,89 +1,41 @@
-<!-- Based on EAD Cookbook Style 6 and dsc1 -->
-
-<!--  This stylesheet generates a very simple printer-friendly HTML. 
-      It presumes the presence of the associated style sheet, 
-      eadprint.css style. All font properties - family, size, weight,
-      etc - are set in the css style sheet, not in the XSLT. -->
-
-<!--  Line 75 calls out the logo of the university. -->
-
-
-<!-- ******************************************************************** -->
-<!-- ******                    CHANGE RECORD                      ******* -->
-<!-- ******************************************************************** -->
-
-<!-- MRC - 6/27/07
-     Moved Related Finding Aids section to follow arrangement. -->
-
-<!-- MRC - 5/17/07
-     Added "Tape" as permissible second container type
-     Added phystech handling (puts it in parens, after the
-     date but before the extent, e.g. "My Show 8/19/98 (VHS) (5 tapes) 
-     Modifed small collection container processing, container
-     type should now be "SC" and the contents will be just the folder
-     number, e.g. <container type="SC">175</container> which will yield
-     "SC 175" as the container name. -->
-
-<!-- MRC - 9/7/06
-     Fixed problems when there are two container elements
-     Tested with vassos_j.xml (map-case/drawer) and kenya_full.xml (reels) -->
-
-<!-- 31 Aug 2006
-     Added "Package" as allowable container type -->
-
-<!-- 24 Aug 2006
-     Moved indexes to the end of the finding aid, added for-each to make
-     them all show up in the TOC -->
-
-<!-- 25 Jul 2006
-     Merged bulk and inclusive dates into one line to take up less space -->
-
-
-
-<!-- ******************************************************************** -->
-<!-- *******                 END OF CHANGE RECORD                 ******* -->
-<!-- ******************************************************************** -->
-
-
-
-
-	<!-- ****************************************************************** -->
-	<!-- Outputs header information for the HTML document 			-->
-	<!-- ****************************************************************** -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This EAD stylesheet is reworked from the EAD Cookbook Style 6 and dsc1                 -->
+<!--  an original copy can be found here:                                                    -->
+<!--  https://github.com/saa-ead-roundtable/ead-stylesheets/tree/master/print-friendly-html  -->
 
 	<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:strip-space elements="*"/>
-	<xsl:output method="html" encoding="ISO-8859-1" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
+	<xsl:output method="html" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
 	<!-- Creates the body of the finding aid.-->
 	<xsl:template match="/ead">
 		<html>
+			<!-- ****************************************************************** -->
+			<!-- Outputs header information for the HTML document 			-->
+			<!-- ****************************************************************** -->
 			<head>
-      	<link rel="stylesheet" type="text/css" href="eadprint.css" />
+				<link rel="stylesheet" href="/assets/print.scss" />
+				<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico"/>
 				<title>
-					<xsl:value-of select="eadheader/filedesc/titlestmt/titleproper"/>
-					<xsl:text>  </xsl:text>
-					<xsl:value-of select="eadheader/filedesc/titlestmt/subtitle"/>
+					<xsl:apply-templates select="eadheader/filedesc/titlestmt/titleproper"/>
 				</title>
 			</head>
 
 
-			<body style="padding:20px;">
-	
-				<!-- Inserts logo and title at the top of the display. -->
+			<body class="ead-print">
 
-				<center>
-						
-					<xsl:apply-templates select="eadheader"/>
+				<div class="title-block">
+					<h1 class="finding-aid-title">
+						<xsl:apply-templates select="eadheader/filedesc/titlestmt/titleproper"/>
+					</h1>
 
-          <!-- output information about the author(s) and date(s) of the finding aid -->
+					<h2 class="finding-aid-subtitle">
+						<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/subtitle"/>
+					</h2>
 
-				<p class="fa-info">
-					Finding aid created by: <xsl:apply-templates select="//eadheader/filedesc/titlestmt/author"/><br/>
-				</p>
-
- 				</center>
-													
-				<hr/>
+					<p class="finding-aid-author">
+						<xsl:apply-templates select="eadheader/filedesc/titlestmt/author"/>
+					</p>
+				</div>
 				
 				<!--To change the order of display, adjust the sequence of
 				the following apply-template statements which invoke the various
@@ -456,19 +408,26 @@
 		</xsl:choose>
 	</xsl:template>
 
-
 	<!-- ****************************************************************** -->
 	<!-- TITLEPROPER and SUBTITLE are output	 			-->
 	<!-- ****************************************************************** -->
 
-	<xsl:template match="eadheader">
-	<h2>
-		<xsl:apply-templates select="filedesc/titlestmt/titleproper[1]"/>
-	</h2>
-	<h3>
-		<xsl:apply-templates select="filedesc/titlestmt/subtitle"/>
-	</h3>
-	<br/>
+	<!-- suppress <num> nodes from titles -->
+	<xsl:template match="eadheader/filedesc/titlestmt/titleproper">
+		<xsl:apply-templates select="node()[name() != 'num']"/>
+	</xsl:template>
+
+	<!-- suppress other <titleproper> nodes if there is a filing node -->
+	<xsl:template match="titleproper[count(//titleproper[@type='filing']) >= 1 and not(@type='filing')]"/>
+
+	<!-- suppress all but the first <titleproper> if there is not a filing node -->
+	<xsl:template match="titleproper[count(//titleproper[@type='filing']) = 0 and position() > 1]"/>
+
+	<xsl:template match="eadheader/filedesc/titlestmt/author">
+		<xsl:if test="not(contains(text(), 'Finding'))">
+			Finding aid created by
+		</xsl:if>
+		<xsl:apply-templates select="node()"/>
 	</xsl:template>
 
 
