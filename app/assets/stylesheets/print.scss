@@ -1,0 +1,83 @@
+@media screen {
+  body.ead-print {
+    font-size: 12pt;
+    padding-top: 5rem;
+    width: 70rem;
+    max-width: 95%;
+    margin: auto;
+  }
+}
+
+@media print {
+  html {
+    width: 100%;
+    margin: auto;
+  }
+
+  body.ead-print {
+    font-size: 10pt;
+  }
+}
+
+body.ead-print {
+  font-family: GeorgiaProRegular, Georgia, "Times New Roman", Times, serif;
+}
+
+div.title-block {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2.5pt solid;
+
+  h1 {
+    font-size: 175%;
+  }
+
+  p {
+    font-size: 125%;
+  }
+}
+
+div.did {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2.5pt solid;
+}
+
+table.overview {
+  td {
+    padding-top: .25rem;
+  }
+
+  td.did-label {
+    font-weight: bold;
+    vertical-align: text-top;
+    width: 8rem;
+  }
+
+  td.did-value {
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+div.archdesc-section {
+  border-bottom: 1.5pt solid;
+
+  h3 {
+    margin-block-end: 0.5rem;
+  }
+
+  p {
+    margin-block-start: 0.25rem;
+  }
+
+  .subject-headings > * h5 {
+    font-size: 110%;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  li.subj-label {
+    margin-bottom: 0.75rem;
+  }
+}
