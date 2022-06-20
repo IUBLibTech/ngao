@@ -462,17 +462,22 @@
 					</td>
 					<td>
 						<xsl:for-each select="unitdate">
-							<xsl:choose>
-								<xsl:when test="@encodinganalog='245$f'">
-									<xsl:value-of select="."/>
-								</xsl:when>
-								<xsl:when test="@encodinganalog='245$g'">
-									(bulk: <xsl:value-of select="."/>)
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:value-of select="."/>
-								</xsl:otherwise>
-							</xsl:choose>
+							<!-- display type if there are additional unitdate nodes -->
+							<xsl:if test="position() != 1">
+								<xsl:value-of select="@type"/>
+								<xsl:text> </xsl:text>
+							</xsl:if>
+							<xsl:if test="@encodinganalog='245$g'">
+								<xsl:text>bulk </xsl:text>
+							</xsl:if>
+
+							<!-- display the unitdate -->
+							<xsl:value-of select="."/>
+
+							<!-- separate multiple entries with a comma -->
+							<xsl:if test="position() != last()">
+								<xsl:text>, </xsl:text>
+							</xsl:if>
 						</xsl:for-each>
 					</td>
 				</tr>
