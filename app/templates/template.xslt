@@ -1353,14 +1353,14 @@
 		</xsl:template>
 
 
-                <!-- Adds parens around extent elements in inventory listing but not in archdesc/did -->
+	    <!-- Adds parens around extent elements except for the first entry in archdesc/did -->
 		<xsl:template match="extent">
 			<xsl:choose>
-				<xsl:when test="ancestor::c01|c02|co3|co4|co5|co6|c07|c08">
-					(<xsl:apply-templates />)
+				<xsl:when test="ancestor::did and position() = 1">
+					<xsl:apply-templates/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:apply-templates/>
+					(<xsl:apply-templates/>)
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:template>
