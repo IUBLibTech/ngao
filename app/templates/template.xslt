@@ -663,40 +663,7 @@
 		<h3><xsl:apply-templates/></h3>
 	</xsl:template>
 
-
-	<!-- The next three templates format a list within an arrangement
-	statement whether it is directly within <archdesc> or embedded in
-	<scopecontent>.-->
 	
-	<xsl:template match="archdesc/scopecontent/arrangement/list/head">
-		<div class="arrangement-list arrangement-list-head">
-			<xsl:apply-templates/>
-		</div>
-	</xsl:template>
-	
-	<xsl:template match="archdesc/arrangement/list/head">
-		<div class="arrangement-list arrangement-list-head">
-			<xsl:apply-templates/>
-		</div>
-	</xsl:template>
-
-	<xsl:template match="archdesc/scopecontent/arrangement/list |
-			     archdesc/arrangement/list">
-		<ul class="arrangement-list">
-			<xsl:apply-templates/>
-		</ul>
-	</xsl:template>
-
-	
-	<xsl:template match="archdesc/scopecontent/arrangement/list//item |
-			     archdesc/arrangement/list//item">
-		<li>
-			<xsl:apply-templates/>
-		</li>
-	</xsl:template>
-
-
-
 	<!-- ****************************************************************** -->
 	<!-- Controlled Access headings 					-->
 	<!-- Formats controlled access headings.  Does NOT handle recursive 	-->
