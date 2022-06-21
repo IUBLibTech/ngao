@@ -1160,7 +1160,7 @@
 
 
 	    <!-- Adds parens around extent elements except for the first entry in archdesc/did -->
-		<xsl:template match="extent">
+		<xsl:template match="extent | physfacet">
 			<xsl:choose>
 				<xsl:when test="ancestor::did and position() = 1">
 					<xsl:apply-templates/>
