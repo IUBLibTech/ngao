@@ -9,7 +9,7 @@ services:
 
   main:
     build: .
-    image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG:-master}"
+    image: "${REGISTRY_HOST}${REGISTRY_URI}:${TAG:-main}"
     env_file:
       - .env.development
       - .env
