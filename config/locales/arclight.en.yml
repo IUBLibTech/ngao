@@ -13,3 +13,6 @@ en:
       repositories:
         show: "%{name} - Archives Online at Indiana University"
         title: Repositories - Archives Online at Indiana University
+      show:
+        expand: Show items above
+        collapse: Hide items above

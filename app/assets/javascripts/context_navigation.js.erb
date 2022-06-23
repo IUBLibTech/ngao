@@ -58,10 +58,14 @@ class ExpandButton {
    * @constructor
    */
   constructor(data) {
-    this.collapseText = data.collapse;
-    this.expandText = data.expand;
+    var collapseIcon = `<img alt='collapse' src='<%= image_path('blacklight/collapse.svg') %>'>`;
+    var expandIcon = `<img alt='expand' src='<%= image_path('blacklight/expand.svg') %>'>`;
+  
+    this.collapseText =  collapseIcon + data.collapse;
+    this.expandText =  expandIcon + data.expand ;
 
-    this.$el = $(`<button class="my-3 btn btn-secondary btn-sm">${this.expandText}</button>`);
+
+    this.$el = $(`<span class="divider" text-position="left"><button class="btn btn-link btn-sm">${this.expandText}</button></span>`);
     this.handleClick = this.handleClick.bind(this);
     this.$el.click(this.handleClick);
   }
