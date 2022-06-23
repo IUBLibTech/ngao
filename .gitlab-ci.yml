@@ -55,7 +55,7 @@ review:
   only:
     - branches
   except:
-    - master
+    - main
   script:
 
     - CHANGME
@@ -78,7 +78,7 @@ staging:
   type: deploy
   script:
   only:
-    - master
+    - main
   tags:
     - docker
 
@@ -88,6 +88,6 @@ production:
   script:
   when: manual
   only:
-    - master
+    - main
   tags:
     - docker
