@@ -56,7 +56,7 @@ bundle exec rake jobs:work
 
 ### Run as an image
 Docker images are built and pushed automatically via GitHub Actions on certain
-events, like merging to master. Available images are available at
+events, like merging to main. Available images are available at
 https://hub.docker.com/repository/docker/iublibtech/archives_online. 
 
 Resulting images are used to deploy into our server container environment, and should also 
