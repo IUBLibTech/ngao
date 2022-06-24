@@ -59,6 +59,8 @@ DID_SEARCHABLE_NOTES_FIELDS = %w[
 ].freeze
 
 settings do
+  provide 'solr_writer.thread_pool', '0'
+  provide 'processing_thread_pool', '0'
   provide 'reader_class_name', 'Arclight::Traject::NokogiriNamespacelessReader'
   provide 'solr_writer.commit_on_close', 'true'
   provide 'repository', ENV['REPOSITORY_ID']

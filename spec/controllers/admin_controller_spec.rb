@@ -6,6 +6,10 @@ require 'webmock/rspec'
 RSpec.describe AdminController, type: :controller, omni: true do
   include Devise::Test::ControllerHelpers
 
+  before :all do
+     Repository.create(repository_id: 'paleontology', name: 'Test - Paleontology Collection')
+  end
+
   let(:admin_user) { FactoryBot.create(:user, role = 'admin') }
   let(:manager_user) { FactoryBot.create(:user, role = 'manager') }
   let(:export_response_body) { File.open('./spec/fixtures/as_export.txt') }
@@ -18,8 +22,8 @@ RSpec.describe AdminController, type: :controller, omni: true do
     request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:cas]
     ENV['ASPACE_EXPORT_URL'] = aspace_export_url
     stub_request(:get, aspace_export_url).to_return(export_response_body)
-    stub_request(:get, "#{aspace_export_url}paleontology.zip").
-      to_return(status: 200, body: zip_response_body, headers: zip_response_headers)
+    stub_request(:get, "#{aspace_export_url}paleontology.zip")
+      .to_return(status: 200, body: zip_response_body, headers: zip_response_headers)
   end
 
   OmniAuth.config.mock_auth[:cas] =

@@ -24,7 +24,11 @@ module ArclightHelper
     breadcrumb_links << add_parent_campus_link(document) unless document.parent_campus.nil? && !document.campus.nil?
     breadcrumb_links << build_repository_link(document)
     breadcrumb_links << document_parents(document).map do |parent|
-      link_to parent.label, solr_document_path(parent.global_id)
+      if parent.level =~ /collection/i
+        link_to "Collection: #{document.collection_unitid}: #{parent.label}", solr_document_path(parent.global_id)
+      else
+        link_to parent.label, solr_document_path(parent.global_id)
+      end
     end
     safe_join(breadcrumb_links, aria_hidden_breadcrumb_separator)
   end
@@ -88,7 +92,12 @@ module ArclightHelper
   ##
   # @param [SolrDocument]
   def document_parents(document)
-    Arclight::Parents.from_solr_document(document).as_parents
+    # "All Results" searches do not return solrdocs with level information,
+    # so we infer it from the surrounding solrdoc & the collection name
+    Arclight::Parents.from_solr_document(document).as_parents.map{|x|
+      x.level='collection' if x.label == document['collection_ssm'].first
+      x
+    }
   end
 
   def repository_collections_path(repository)

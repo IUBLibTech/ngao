@@ -90,19 +90,20 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
+    config.add_facet_field 'campus_unit_sim', label: 'Campus', helper_method: :render_campus_facet
+    config.add_facet_field 'repository_sim', label: 'Repository', limit: 10
     config.add_facet_field 'collection_sim', label: 'Collection', limit: 10
+    config.add_facet_field 'level_sim', label: 'Level', limit: 10
     config.add_facet_field 'creator_ssim', label: 'Creator', limit: 10
     config.add_facet_field 'creators_ssim', label: 'Creator', show: false
-    config.add_facet_field 'date_range_sim', label: 'Date range', range: true
-    config.add_facet_field 'level_sim', label: 'Level', limit: 10
+    config.add_facet_field 'component_level_isim', show: false
+    config.add_facet_field 'date_range_sim', label: 'Date Range', range: true
     config.add_facet_field 'names_ssim', label: 'Names', limit: 10
-    config.add_facet_field 'repository_sim', label: 'Repository', limit: 10
     config.add_facet_field 'geogname_sim', label: 'Place', limit: 10
     config.add_facet_field 'places_ssim', label: 'Places', show: false
     config.add_facet_field 'access_subjects_ssim', label: 'Subject', limit: 10
-    config.add_facet_field 'component_level_isim', show: false
     config.add_facet_field 'parent_ssim', show: false
-    config.add_facet_field 'campus_unit_sim', label: 'Campus', helper_method: :render_campus_facet
+
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
@@ -110,16 +111,16 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field 'unitid_ssm', label: 'Unit ID'
-    config.add_index_field 'repository_ssm', label: 'Repository'
     config.add_index_field 'campus_unit_ssm', label: 'Campus', helper_method: :render_campus_name
+    config.add_index_field 'repository_ssm', label: 'Repository'
+    config.add_index_field 'collection_ssm', label: 'Collection Title'
+    config.add_index_field 'unitid_ssm', label: 'Unit ID'
     config.add_index_field 'normalized_date_ssm', label: 'Date'
     config.add_index_field 'creator_ssm', label: 'Creator'
     config.add_index_field 'language_ssm', label: 'Language'
     config.add_index_field 'scopecontent_tesim', label: 'Scope Content', helper_method: :render_html_tags
     config.add_index_field 'extent_ssm', label: 'Physical Description'
     config.add_index_field 'accessrestrict_ssm', label: 'Conditions Governing Access', helper_method: :render_html_tags
-    config.add_index_field 'collection_ssm', label: 'Collection Title'
     config.add_index_field 'geogname_ssm', label: 'Place'
 
     config.add_facet_field 'has_online_content_ssim', label: 'Access', query: {
@@ -275,8 +276,8 @@ class CatalogController < ApplicationController
     config.add_summary_field 'prefercite_ssm', label: 'Preferred citation', helper_method: :render_html_tags
 
     # Collection Show Page - Background Section
-    config.add_background_field 'scopecontent_tesim', label: 'Scope and Content', helper_method: :render_html_tags
     config.add_background_field 'bioghist_ssm', label: 'Biographical / Historical', helper_method: :render_html_tags
+    config.add_background_field 'scopecontent_tesim', label: 'Scope and Content', helper_method: :render_html_tags
     config.add_background_field 'acqinfo_ssim', label: 'Acquisition information', helper_method: :render_html_tags
     config.add_background_field 'appraisal_ssm', label: 'Appraisal information', helper_method: :render_html_tags
     config.add_background_field 'custodhist_ssm', label: 'Custodial history', helper_method: :render_html_tags

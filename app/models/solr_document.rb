@@ -25,4 +25,8 @@ class SolrDocument
   def parent_campus
     fetch('parent_campus_unit_ssm', [])
   end
+
+  def containers
+    fetch('containers_ssim', [])
+  end
 end

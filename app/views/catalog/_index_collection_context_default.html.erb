@@ -20,6 +20,12 @@
     <%# REMOVE ICON FROM COLLECTION CONTEXT %>    
     <div class="col col-no-left-padding d-flex flex-wrap">
       <div class="index_title document-title-heading my-w-75 w-md-100 order-0">
+        <% if document.level == "Series" %> 
+          <span class="text-nowrap text-muted">Series:</span>
+        <% end %>
+        <% if document.level == "Subseries" %> 
+          <span class="text-nowrap text-muted">Subseries:</span>
+        <% end %>
         <% counter = document_counter_with_offset(document_counter) %>
         <%= link_to_document document, document_show_link_field(document), counter: counter %>
         <% if document.children? %>

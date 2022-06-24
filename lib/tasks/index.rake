@@ -15,15 +15,15 @@ namespace :arclight do
   task :index do
     raise 'Please specify your EAD document, ex. FILE=<path/to/ead.xml>' unless ENV['FILE']
 
-    print "NGAO-Arclight loading #{ENV['FILE']} into index...\n"
+    puts "NGAO-Arclight loading #{ENV['FILE']} into index...\n"
     solr_url = begin
                  Blacklight.default_index.connection.base_uri
                rescue StandardError
                  ENV['SOLR_URL'] || 'http://127.0.0.1:8983/solr/blacklight-core'
                end
     elapsed_time = Benchmark.realtime do
-      `bundle exec traject -u #{solr_url} -i xml -c ./lib/ngao-arclight/traject/ead2_config.rb #{ENV['FILE']}`
+      system("bundle exec traject -u #{solr_url} -i xml -c ./lib/ngao-arclight/traject/ead2_config.rb '#{ENV['FILE']}'", exception: true)
     end
-    print "NGAO-Arclight indexed #{ENV['FILE']} (in #{elapsed_time.round(3)} secs).\n"
+    puts "NGAO-Arclight indexed #{ENV['FILE']} (in #{elapsed_time.round(3)} secs).\n"
   end
 end

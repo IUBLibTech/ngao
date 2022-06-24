@@ -21,7 +21,7 @@
                   <% end %>
                 <% end %>
                 <% if repository.repo_inst_url.present? %>
-                    <%= link_to "Visit #{repository.name}", repository.repo_inst_url %>
+                    <%= link_to (repository.homepage_url_text || "Visit #{repository.name}"), repository.repo_inst_url %>
                 <% end %>
              </div>
 

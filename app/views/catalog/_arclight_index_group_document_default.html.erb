@@ -4,7 +4,7 @@
   <% breadcrumbs = parents_to_links(document) %>
   <div class="documentHeader row">
     <div class="col-auto">
-      <%= blacklight_icon document_or_parent_icon(document) %>
+      &nbsp;
     </div>
     <div class="col col-no-left-padding">
       <h4>
@@ -18,7 +18,7 @@
       </h4>
       <div class='breadcrumb-links media'>
         <% unless breadcrumbs.nil? %>
-          <span class="media-body" aria-hidden="true"><%= blacklight_icon :folder, classes: 'al-folder-icon' %></span>
+          <span class="media-body" aria-hidden="true"></span>
           <span class="col" ><%= parents_to_links(document) %></span>
         <% end %>
     </div>

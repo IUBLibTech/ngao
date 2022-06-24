@@ -6,8 +6,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
 
   # We have to cache classes with Delayed Job or it will peg the CPU reloading classes every 5 seconds when
-  # it checks for jobs.
-  config.cache_classes = true
+  # it checks for jobs. This also causes pages to not refresh on modificiation, 
+  config.cache_classes = false
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -66,5 +66,12 @@ Rails.application.configure do
                                                host: ENV['SITE_HOST'] || 'localhost:3000'}
   unless ENV['AL_AUTHN'] == 'database'
     config.force_ssl = true
+  else
+    # HSTS is sticky, so to turn it off, set the timeout to 0
+    # to expire it from the browser on the next request
+    # If hsts has ever been set, the first request will fail
+    # since it hasn't seen the new HSTS setting yet
+    config.force_ssl = false
+    config.ssl_options = {hsts: {timeout: 0}}
   end
 end
