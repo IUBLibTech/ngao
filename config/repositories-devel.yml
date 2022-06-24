@@ -14,6 +14,7 @@ iupuigeneral:
   contact_info: 'speccoll@iupui.edu'
   thumbnail_url: 'https://assets.iu.edu/brand/legacy/trident-large.png'
   repo_inst_url: 'http://www.ulib.iupui.edu/special'
+  homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
 iupuiga:
   campus: 'US-iniu'
   name: 'IUPUI German-American Archives'
@@ -30,6 +31,7 @@ iupuiga:
   contact_info: 'speccoll@iupui.edu'
   thumbnail_url: 'https://assets.iu.edu/brand/legacy/trident-large.png'
   repo_inst_url: 'http://www.ulib.iupui.edu/special'
+  homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
 iupuipsa:
   campus: 'US-iniu'
   name: 'IUPUI Philanthropic Studies Archives'
@@ -46,6 +48,7 @@ iupuipsa:
   contact_info: 'speccoll@iupui.edu'
   thumbnail_url: 'https://assets.iu.edu/brand/legacy/trident-large.png'
   repo_inst_url: 'http://www.ulib.iupui.edu/special'
+  homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
 iupuiua:
   campus: 'US-iniu'
   name: 'IUPUI University Archives'
@@ -62,6 +65,7 @@ iupuiua:
   contact_info: 'speccoll@iupui.edu'
   thumbnail_url: 'https://assets.iu.edu/brand/legacy/trident-large.png'
   repo_inst_url: 'http://www.ulib.iupui.edu/special'
+  homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
 lilly:
   campus: 'US-InU'
   name: 'Lilly Library'
@@ -130,6 +134,7 @@ archives:
   contact_info: 'archives@indiana.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/archives.jpg'
   repo_inst_url: 'https://libraries.indiana.edu/university-archives'
+  homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
 africanstudies:
   campus: 'US-InU'
   name: 'African Studies Collection'
@@ -498,3 +503,4 @@ peirceedition:
   contact_info: 'cpeirce@iupui.edu'
   thumbnail_url: 'https://uisapp2.iu.edu/confluence-prd/download/thumbnails/620660033/IATPeirceReposImage.png'
   repo_inst_url: 'https://peirce.iupui.edu/resources.html#holdings'
+  homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
