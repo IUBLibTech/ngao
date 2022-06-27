@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
+  mount BlacklightAdvancedSearch::Engine => '/'
+
   mount Arclight::Engine => '/'
+  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
 
   root to: 'arclight/repositories#index'
   concern :searchable, Blacklight::Routes::Searchable.new
@@ -51,4 +53,6 @@ Rails.application.routes.draw do
   get '/contribute', to: 'pages#contribute', as: 'contribute'
   get '/help', to: 'pages#help', as: 'help'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # this "fixes" the advanced search field failing due to incompatibility with the range_limit gem, i'm not sure why.
+  get 'advanced/range_limit' => 'advanced#range_limit', as: 'limit_panel'
 end

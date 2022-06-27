@@ -1,19 +1,29 @@
 # frozen_string_literal: true
 
 class CatalogController < ApplicationController
-  include Blacklight::Catalog
   include BlacklightRangeLimit::ControllerOverride
+  include BlacklightAdvancedSearch::Controller
+  include Blacklight::Catalog
 
   include Arclight::Catalog
   include Arclight::FieldConfigHelpers
 
   configure_blacklight do |config|
+    # default advanced config values
+    config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
+    # config.advanced_search[:qt] ||= 'advanced'
+    config.advanced_search[:url_key] ||= 'advanced'
+    config.advanced_search[:query_parser] ||= 'dismax'
+    config.advanced_search[:form_solr_parameters] ||= {}
+
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
     #
     ## Class for converting Blacklight's url parameters to into request parameters for the search index
     # config.search_builder_class = ::SearchBuilder
     #
+    # Adds AND OR NOT etc to regular search
+    ::SearchBuilder.default_processor_chain << :add_advanced_parse_q_to_solr
     ## Model that maps search index responses to the blacklight response model
     # config.response_model = Blacklight::Solr::Response
 
@@ -431,4 +441,5 @@ class CatalogController < ApplicationController
     config.view.compact
     config.view.compact.partials = %i[arclight_index_compact]
   end
+
 end
