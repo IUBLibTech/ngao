@@ -64,64 +64,11 @@
 					<xsl:call-template name="archdesc-admininfo"/>
 					<xsl:apply-templates select="archdesc/fileplan | archdesc/*/fileplan"/>
 					<xsl:apply-templates select="archdesc/bibliography | archdesc/*/bibliography"/>
-					<xsl:call-template name="toc"/>
 					<xsl:apply-templates select="archdesc/dsc"/>
 					<xsl:apply-templates select="archdesc/index | archdesc/*/index"/>
 				</div>
 			</body>
 		</html>
-	</xsl:template>
-
-
-	<!-- ****************************************************************** -->
-	<!-- TABLE OF CONTENTS TEMPLATE						-->
-	<!-- Because paper copies have no linking capabilities, no linking	-->
-	<!-- HTML in included.  Also, none of the front matter is listed in 	-->
-	<!-- the TOC since in the paper version the TOC comes after the front	-->
-	<!-- matter and right before the actual inventory itself		-->
-	<!-- ****************************************************************** -->
-
-	<xsl:template name="toc">
-		<div class="archdesc-section toc">
-			<h3>
-				<xsl:text>Table of Contents</xsl:text>
-			</h3>
-
-		<!-- *************************************************	-->
-		<!-- Captures unittitle and unitdates for c01's whose	-->
-		<!-- @level is subgrp, subcollection,series or 		-->
-		<!-- subseries, and generates TOC (no page #s)  	-->
-		<!-- *************************************************	-->
-
-			<xsl:for-each select="archdesc/dsc/c01[@level='series' or @level='subseries'
-		                          or @level='subgrp' or @level='subcollection']">
-				<ul class="toc-para1">
-					<xsl:choose>
-						<xsl:when test="did/unittitle/unitdate">
-							<xsl:for-each select="did/unittitle">
-								<li>
-									<xsl:value-of select="text()"/>
-									<xsl:text> </xsl:text>
-									<xsl:apply-templates select="./unitdate"/>
-								</li>
-							</xsl:for-each>
-						</xsl:when>
-						<xsl:otherwise>
-							<li>
-								<xsl:apply-templates select="did/unittitle"/>
-								<xsl:text> </xsl:text>
-								<xsl:apply-templates select="did/unitdate"/>
-							</li>
-						</xsl:otherwise>
-					</xsl:choose>
-				</ul>
-			</xsl:for-each>
-			<xsl:for-each select="archdesc/index | archdesc/*/index">
-				<p class="toc-para1">
-					<xsl:apply-templates select="head"/>
-				</p>
-			</xsl:for-each>
-		</div>
 	</xsl:template>
 
 
