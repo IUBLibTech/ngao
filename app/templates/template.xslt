@@ -53,7 +53,7 @@
 					<xsl:apply-templates select="archdesc/bioghist"/>
 					<xsl:apply-templates select="archdesc/scopecontent"/>
 					<xsl:apply-templates select="archdesc/arrangement"/>
-					<xsl:apply-templates select="archdesc//otherfindaid"/>
+					<xsl:apply-templates select="archdesc/otherfindaid"/>
 					<xsl:call-template name="archdesc-restrict"/>
 					<xsl:apply-templates select="archdesc/separatedmaterial"/>
 					<xsl:apply-templates select="archdesc/relatedmaterial"/>
@@ -63,7 +63,7 @@
 					<xsl:apply-templates select="archdesc/phystech"/>
 					<xsl:call-template name="archdesc-admininfo"/>
 					<xsl:apply-templates select="archdesc/fileplan | archdesc/*/fileplan"/>
-					<xsl:apply-templates select="archdesc/bibliography | archdesc/*/bibliography"/>
+					<xsl:apply-templates select="archdesc/bibliography"/>
 					<xsl:apply-templates select="archdesc/dsc"/>
 					<xsl:apply-templates select="archdesc/index | archdesc/*/index"/>
 				</div>
@@ -81,6 +81,12 @@
 		<p>
 			<xsl:apply-templates/>
 		</p>
+	</xsl:template>
+
+	<!-- add whitespace between any two adjacent text() elements -->
+	<xsl:template match="//text()">
+		<xsl:value-of select="."/>
+		<xsl:text> </xsl:text>
 	</xsl:template>
 
 	<xsl:template match="blockquote">
@@ -133,7 +139,11 @@
 		</b>
 	</xsl:template>
 
-
+	<xsl:template match="title">
+		<i>
+			<xsl:apply-templates/>
+		</i>
+	</xsl:template>
 
 	<!-- ****************************************************************** -->
 	<!-- LINKS								-->
@@ -204,6 +214,12 @@
 		</li>
 	</xsl:template>
 
+	<xsl:template match="bibref">
+		<li class="bibliography">
+			<xsl:apply-templates select="node()"/>
+		</li>
+	</xsl:template>
+
 
 	<!-- ****************************************************************** -->
 	<!-- TABLE								-->
@@ -230,7 +246,7 @@
 			<xsl:for-each select="tgroup">
 				<tr>
 					<xsl:for-each select="colspec">
-						<td width="{@colwidth}"></td>
+						<td width="{@colwidth}"> </td>
 					</xsl:for-each>
 				</tr>
 				<xsl:for-each select="thead">
@@ -250,7 +266,7 @@
 				<xsl:for-each select="tbody">
 					<xsl:for-each select="row">
 						<xsl:if test="@id">
-							<a id="{@id}"></a>
+							<a id="{@id}"> </a>
 						</xsl:if>
 						<tr>
 							<xsl:for-each select="entry">
@@ -593,10 +609,9 @@
 		archdesc/separatedmaterial |
 		archdesc/relatedmaterial |
 		archdesc/controlaccess |
-		archdesc/otherfindaid | archdesc/*/otherfindaid |
+		archdesc/otherfindaid |
 		archdesc/originalsloc |
-		archdesc/fileplan | archdesc/*/fileplan |
-		archdesc/bibliography | archdesc/*/bibliography |
+		archdesc/fileplan |
 		archdesc/dsc">
 		<div>
 			<xsl:attribute name="class">archdesc-section
@@ -606,10 +621,21 @@
 		</div>
 	</xsl:template>
 
+	<xsl:template match="archdesc/bibliography">
+		<div>
+			<xsl:attribute name="class">archdesc-section
+				<xsl:value-of select="name()"/>
+			</xsl:attribute>
+			<xsl:apply-templates select="head"/>
+			<ul class="bibliography">
+				<xsl:apply-templates select="*[name()!='head']"/>
+			</ul>
+		</div>
+	</xsl:template>
+
 	<xsl:template match="archdesc/*/head">
 		<h3><xsl:apply-templates/></h3>
 	</xsl:template>
-
 	
 	<!-- ****************************************************************** -->
 	<!-- Controlled Access headings 					-->
@@ -845,14 +871,12 @@
 
 	<!-- ****************************************************************** -->
 	<!-- Other helpful elements processing					-->
-	<!-- Processes OTHERFINDAID, BIBLIOGRAPHY, INDEX, FILEPLAN, PHYSTECH,	-->
+	<!-- Processes OTHERFINDAID, INDEX, FILEPLAN, PHYSTECH,	-->
 	<!-- ORIGINALSLOC elements, including any NOT or HEAD child elements.	-->
 	<!-- ****************************************************************** -->
 		
 	<xsl:template match="archdesc/otherfindaid
 		| archdesc/*/otherfindaid
-		| archdesc/bibliography
-		| archdesc/*/bibliography
 		| archdesc/originalsloc
 		| archdesc/phystech">
 			<xsl:apply-templates/>
@@ -861,8 +885,6 @@
 		
 	<xsl:template match="archdesc/otherfindaid/head
 		| archdesc/*/otherfindaid/head
-		| archdesc/bibliography/head
-		| archdesc/*/bibliography/head
 		| archdesc/fileplan/head
 		| archdesc/*/fileplan/head
 		| archdesc/phystech/head
@@ -876,12 +898,8 @@
 
 	<xsl:template match="archdesc/otherfindaid/p
 		| archdesc/*/otherfindaid/p
-		| archdesc/bibliography/p
-		| archdesc/*/bibliography/p
 		| archdesc/otherfindaid/note/p
 		| archdesc/*/otherfindaid/note/p
-		| archdesc/bibliography/note/p
-		| archdesc/*/bibliography/note/p
 		| archdesc/fileplan/p
 		| archdesc/*/fileplan/p
 		| archdesc/fileplan/note/p
