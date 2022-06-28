@@ -222,67 +222,40 @@
 
 
 	<!-- ****************************************************************** -->
-	<!-- TABLE								-->
-	<!-- Formats a simple table. The width of each column is defined 	-->
-	<!-- by the colwidth attribute in a colspec element. The template	-->
-	<!-- is named so it can be called from inside c0# elements.  ID  	-->
-	<!-- attribute is implemented for ROW but not ENTRY 			-->
+	<!-- TABLE                                                              -->
+	<!-- Implements a very basic crosswalk of EAD <table> to HTML <table>   -->
+	<!-- as of 2022/06/28, IU has only one collection that uses <table>,    -->
+	<!-- see InU-Ar-VAA1616                                                 -->
 	<!-- ****************************************************************** -->
 	
 	<xsl:template match="table">
-		<xsl:call-template name="table"/>
-	</xsl:template>
-
-
-	<xsl:template name="table">
-		<table width="75%" style="margin-left: 25pt">
-			<tr>
-				<td colspan="3">
-					<h4>
-						<xsl:apply-templates select="head"/>
-					</h4>
-				</td>
-			</tr>
-			<xsl:for-each select="tgroup">
-				<tr>
-					<xsl:for-each select="colspec">
-						<td width="{@colwidth}"> </td>
-					</xsl:for-each>
-				</tr>
-				<xsl:for-each select="thead">
-					<xsl:for-each select="row">
-						<tr>
-							<xsl:for-each select="entry">
-								<td valign="top">
-									<b>
-										<xsl:apply-templates/>
-									</b>
-								</td>
-							</xsl:for-each>
-						</tr>
-					</xsl:for-each>
-				</xsl:for-each>
-
-				<xsl:for-each select="tbody">
-					<xsl:for-each select="row">
-						<xsl:if test="@id">
-							<a id="{@id}"> </a>
-						</xsl:if>
-						<tr>
-							<xsl:for-each select="entry">
-								<td valign="top">
-									<xsl:apply-templates/>
-								</td>
-							</xsl:for-each>
-						</tr>
-					</xsl:for-each>
-				</xsl:for-each>
-			</xsl:for-each>
+		<table>
+			<xsl:apply-templates/>
 		</table>
 	</xsl:template>
 
-	<xsl:template match="entry/note">
-		<br/><i><xsl:apply-templates/></i>
+	<xsl:template match="thead">
+		<thead>
+			<xsl:apply-templates/>
+		</thead>
+	</xsl:template>
+
+	<xsl:template match="tbody">
+		<tbody>
+			<xsl:apply-templates/>
+		</tbody>
+	</xsl:template>
+
+	<xsl:template match="thead/row | tbody|row">
+		<tr>
+			<xsl:apply-templates/>
+		</tr>
+	</xsl:template>
+
+	<xsl:template match="entry">
+		<td>
+			<xsl:apply-templates/>
+		</td>
 	</xsl:template>
 
 
@@ -1101,9 +1074,6 @@
 				</xsl:when>
 				<xsl:when test="parent::note | self::note">
 					<i><xsl:apply-templates/></i>
-				</xsl:when>
-				<xsl:when test="self::table">
-					<xsl:call-template name="table"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:apply-templates/>
