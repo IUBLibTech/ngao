@@ -47,7 +47,22 @@ div.did {
   border-bottom: 2.5pt solid;
 }
 
+table {
+  width: 95%;
+  margin: auto;
+  font-size: 100%; // required to override some user agent stylesheets
+
+  thead {
+    vertical-align: top; // required to override some user agent stylesheets
+    font-weight: bold;
+  }
+
+  tbody {
+    vertical-align: top; // required to override some user agent stylesheets
+  }
+}
 table.overview {
+  width: 100%;
   td {
     padding-top: .25rem;
   }
