@@ -51,7 +51,7 @@ class ExpandButton {
     this.$el.toggleClass('collapsed');
 
     const containerText = this.$el.hasClass('collapsed') ? this.collapseText : this.expandText;
-    this.$el.text(containerText);
+    this.$el.html(containerText);
   }
 
   /**
@@ -64,8 +64,8 @@ class ExpandButton {
     this.collapseText =  collapseIcon + data.collapse;
     this.expandText =  expandIcon + data.expand ;
 
-
-    this.$el = $(`<span class="divider" text-position="left"><button class="btn btn-link btn-sm">${this.expandText}</button></span>`);
+    
+    this.$el = $(`<span class="divider" text-position="left">` + `<span class=btn btn-link btn-sm">${this.expandText}</span>` + `</span`);
     this.handleClick = this.handleClick.bind(this);
     this.$el.click(this.handleClick);
   }
@@ -80,7 +80,7 @@ class NestedExpandButton extends ExpandButton {
   /**
    * This retrieves the <li> elements which are hidden/rendered in response to
    *   clicking the <button> element
-   * @param {jQuery} $li - the <button> element
+   * @param {jQuery} $span - the <button> element
    * @return {jQuery} - a jQuery object containing the targeted <li>
    */
   findSiblings() {
@@ -104,7 +104,7 @@ class Placeholder {
   buildElement() {
     // CHANGED PLACEHOLDER ELEMENT
     const elementMarkup = '<div class="al-hierarchy-placeholder">' +
-      '<h3 class="col-md-9"> <img alt="loading icon" src="<%= image_path('ajax-loader.gif') %>"> Loading...</h3>' +
+      '<h5 class="col-md-9"> <img alt="loading icon" src="<%= image_path('ajax-loader.gif') %>"> Loading...</h5>' +
       '</div>';
     return $(elementMarkup);
   }
