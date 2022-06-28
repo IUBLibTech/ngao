@@ -84,7 +84,7 @@ lilly:
   repo_inst_url: 'https://libraries.indiana.edu/lilly-library'
   request_types:
     aeon_web_ead:
-      request_url: 'https://iub.aeon.atlas-sys.com/Logon/'
+      request_url: 'https://iub.aeon.atlas-sys.com/Logon'
       request_mappings: 'Action=10&Form=31&Value=ead_url'
 wyliehouse:
   campus: 'US-InU'
