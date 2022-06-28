@@ -39,9 +39,7 @@
 
 				<!--To change the order of display, adjust the sequence of
 				the following apply-template statements which invoke the various
-				templates that populate the finding aid.  Multiple statements
-				are included to handle the possibility that descgrp has been used
-				as a wrapper to replace add and admininfo.  In several cases where
+				templates that populate the finding aid. In several cases where
 				multiple elements are displayed together in the output, a call-template
 				statement is used -->
 
@@ -72,6 +70,32 @@
 	</xsl:template>
 
 
+	<!-- ************************************************************** -->
+	<!-- DID processing:                                                -->
+	<!-- This template creates a table for the top-level did, followed  -->
+	<!-- by each of the did elements.  To change the order of 	        -->
+	<!-- appearance of these elements, change the sequence here.		-->
+	<!-- ************************************************************** -->
+
+	<xsl:template match="archdesc/did">
+		<div class="archdesc did">
+			<table class="overview">
+				<xsl:apply-templates select="origination"/>
+				<xsl:apply-templates select="unittitle"/>
+				<xsl:apply-templates select="unitid"/>
+				<xsl:apply-templates select="unitdate[1]"/>
+				<xsl:apply-templates select="physdesc"/>
+				<xsl:apply-templates select="abstract"/>
+				<xsl:apply-templates select="physloc"/>
+				<xsl:apply-templates select="langmaterial"/>
+				<xsl:apply-templates select="repository"/>
+				<xsl:apply-templates select="materialspec"/>
+				<xsl:apply-templates select="note"/>
+			</table>
+		</div>
+	</xsl:template>
+
+
 	<!-- ******************************************************************	-->
 	<!-- Formats variety of text properties (bold, italic) from @RENDER     -->
 	<!-- Also BLOCKQUOTE handling                                           -->
@@ -81,6 +105,10 @@
 		<p>
 			<xsl:apply-templates/>
 		</p>
+	</xsl:template>
+
+	<xsl:template match="lb">
+		<br/>
 	</xsl:template>
 
 	<!-- add whitespace between any two adjacent text() elements -->
@@ -144,42 +172,7 @@
 			<xsl:apply-templates/>
 		</i>
 	</xsl:template>
-
-	<!-- ****************************************************************** -->
-	<!-- LINKS								-->
-	<!-- Converts REF, EXTREF and PTR elements into HTML links as needed 	-->
-	<!-- ****************************************************************** -->
-
-	<!-- <xsl:template match="ref">
-		<a href="#{@target}">
-			<xsl:apply-templates/>
-		</a>
-	</xsl:template>
-	<xsl:template match="extref">
-		<a href="{@href}">
-			<xsl:apply-templates/>
-		</a>
-	</xsl:template>
-	<xsl:template match="ptr">
-		<a href="{@href}">
-			<xsl:value-of select="@href"/><xsl:apply-templates/>
-		</a>
-	</xsl:template> -->
-
-	<xsl:template match="extptr">
-
-		<xsl:choose>
-			<xsl:when test="self::extptr[@show='embed']">
-				<img src="{@xpointer}" alt="{@title}" align="{@altrender}"/>
-			</xsl:when>
-
-			<xsl:otherwise>
-                              {@title} [Link to external file "{@xpointer}"]
-			</xsl:otherwise>
-		</xsl:choose>
-
-	</xsl:template>
-
+	
 	
 	<!-- ****************************************************************** -->
 	<!-- LIST                                                               -->
@@ -361,34 +354,6 @@
 			Finding aid created by
 		</xsl:if>
 		<xsl:apply-templates select="node()"/>
-	</xsl:template>
-
-
-	<!-- ****************************************************************** -->
-	<!-- DID processing: 							-->
-	<!-- This template creates a table for the did, inserts the head and  	-->
-	<!-- then each of the other did elements.  To change the order of 	-->
-	<!-- appearance of these elements, change the sequence here.		-->
-	<!-- UNITID is suppressed as not being useful to researchers; to show	-->
-	<!-- it, uncomment the unitid line below.				-->
-	<!-- ****************************************************************** -->
-
-	<xsl:template match="archdesc/did">
-		<div class="archdesc did">
-		<table class="overview">
-			<xsl:apply-templates select="origination"/>	
-			<xsl:apply-templates select="unittitle"/>
-			<xsl:apply-templates select="unitdate[1]"/>
-			<xsl:apply-templates select="physdesc"/>
-			<xsl:apply-templates select="abstract"/>
-			<!-- <xsl:apply-templates select="unitid"/>  -->
-			<xsl:apply-templates select="physloc"/>
-			<xsl:apply-templates select="langmaterial"/>
-			<xsl:apply-templates select="repository"/>
-			<xsl:apply-templates select="materialspec"/>
-			<xsl:apply-templates select="note"/>
-		</table>
-		</div>
 	</xsl:template>
 
 
@@ -585,7 +550,8 @@
 		archdesc/otherfindaid |
 		archdesc/originalsloc |
 		archdesc/fileplan |
-		archdesc/dsc">
+		archdesc/dsc
+		archdesx/index">
 		<div>
 			<xsl:attribute name="class">archdesc-section
 				<xsl:value-of select="name()"/>
@@ -887,88 +853,10 @@
 	</xsl:template>
 
 
-	<xsl:template match="archdesc/index
-		| archdesc/*/index">
-			<table width="100%">
-				<tr>
-					<td width="5%"> </td>
-					<td width="45%"> </td>
-					<td width="50%"> </td>
-				</tr>
-				<tr>
-					<td colspan="3">
-						<h3>
-							<b>
-								<xsl:apply-templates select="head"/>
-							</b>
-						</h3>
-					</td>
-				</tr>
-				<xsl:for-each select="p | note/p">
-					<tr>
-						<td></td>
-						<td colspan="2">
-							<xsl:apply-templates/>
-						</td>
-					</tr>
-				</xsl:for-each>
-
-				<!--Processes each index entry.-->
-				<xsl:for-each select="indexentry">
-
-				<!--Sorts each entry term.-->
-					<xsl:sort select="corpname | famname | function | genreform | geogname | name | occupation | persname | subject"/>
-					<tr>
-						<td></td>
-						<td>
-							<xsl:apply-templates select="corpname | famname | function | genreform | geogname | name | occupation | persname | subject"/>
-						</td>
-						<!--Supplies whitespace and punctuation if there is a pointer
-						group with multiple entries.-->
-
-						<xsl:choose>
-							<xsl:when test="ptrgrp">
-								<td>
-									<xsl:for-each select="ptrgrp">
-										<xsl:for-each select="ref | ptr">
-											<xsl:apply-templates/>
-											<xsl:if test="preceding-sibling::ref or preceding-sibling::ptr">
-												<xsl:text>, </xsl:text>
-											</xsl:if>
-										</xsl:for-each>
-									</xsl:for-each>
-								</td>
-							</xsl:when>
-							<!--If there is no pointer group, process each reference or pointer.-->
-							<xsl:otherwise>
-								<td>
-									<xsl:for-each select="ref | ptr">
-										<xsl:apply-templates/>
-									</xsl:for-each>
-								</td>
-							</xsl:otherwise>
-						</xsl:choose>
-					</tr>
-					<!--Closes the indexentry.-->
-				</xsl:for-each>
-			</table>
-
-			<hr/>
-	</xsl:template>
-
-
-
 	<!-- ****************************************************************** -->
-	<!-- INVENTORY LIST PROCESSING						-->
-	<!-- Now we get into the actual box/folder listings			-->
+	<!-- INVENTORY LIST PROCESSING	<dsc> & <cxx>                           -->
+	<!-- Now we get into the actual box/folder listings			            -->
 	<!-- ****************************************************************** -->
-
-
-		<!-- ****************************************************************** -->
-		<!-- This section of the stylesheet formats dsc, its head, and		-->
-		<!-- other top-level elements						-->
-		<!-- ****************************************************************** -->
-
 
 	<xsl:template match="archdesc/dsc">
 		<div class="archdesc-section dsc">
@@ -978,25 +866,12 @@
 						<xsl:value-of select="head"/>
 					</xsl:when>
 					<xsl:otherwise>
-						Component Listing
+						Collection Inventory
 					</xsl:otherwise>
 				</xsl:choose>
 			</h3>
 			<xsl:apply-templates/>
 		</div>
-	</xsl:template>
-
-	<!--Formats dsc/head and makes it a link target.-->
-	<xsl:template match="dsc/head">
-		<h3>
-			<xsl:apply-templates/>
-		</h3>
-	</xsl:template>
-
-	<xsl:template match="dsc/p | dsc/note/p">
-		<p class="inv-1">
-			<xsl:apply-templates/>
-		</p>
 	</xsl:template>
 
 	
@@ -1107,9 +982,7 @@
 		</xsl:template>
 
 
-		<xsl:template match="lb">
-			<br/>
-		</xsl:template>
+
 
 
 		<!-- This template handles the labeling of containers.  Note limitations on @type. -->
