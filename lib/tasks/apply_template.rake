@@ -11,8 +11,8 @@ desc 'Re-apply XSLT template to update HTML versions of finding aids'
 
 task apply_template: :environment do
   ARGV.each { |a| task a.to_sym do ; end }
-  options = ARGV[1] || "public/ead"
-  file_path = Rails.root.join(options) + '**/*.xml' if File.extname(options) != ".xml"
+  file_path = ARGV[1] || "public/ead"
+  file_path = Rails.root.join(file_path) + '**/*.xml' if File.extname(file_path) != ".xml"
   puts "Scanning: #{file_path}\n\n"
   Dir.glob(file_path) do |file|
     puts "Converting: #{file}"
