@@ -167,3 +167,11 @@ tr.needs-update {
 .divider[text-position="left"]:before {
   content: none;
 }
+
+// Repository Show page overrides
+.blacklight-repositories-show {
+  .al-repository-collections::after{
+    content: '';
+  }
+}
+

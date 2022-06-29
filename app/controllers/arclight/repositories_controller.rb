@@ -20,7 +20,7 @@ module Arclight
       search_service = Blacklight.repository_class.new(blacklight_config)
       @response = search_service.search(
         q: "level_sim:Collection repository_sim:\"#{@repository.name}\"",
-        rows: 100,
+        rows: 50,
         sort: 'title_sort asc'
       )
       @collections = @response.documents

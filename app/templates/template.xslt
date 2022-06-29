@@ -466,11 +466,11 @@
 			<xsl:when test="text()">
 				<xsl:apply-templates/>
 			</xsl:when>
-			<xsl:when test="@xlink:title">
-				<xsl:value-of select="@xlink:title"/>
+			<xsl:when test="@title | @xlink:title">
+				<xsl:value-of select="@title | @xlink:title"/>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="@xlink:href"/>
+				<xsl:value-of select="@href | @xlink:href"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
