@@ -129,3 +129,10 @@ tr.needs-update {
   font-weight: bold;
   background-color: $iu-cream;
 }
+
+// Repository Show page overrides
+.blacklight-repositories-show {
+  .al-repository-collections::after{
+    content: '';
+  }
+}
