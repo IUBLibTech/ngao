@@ -49,7 +49,9 @@ div.did {
 
 table {
   width: 95%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
   font-size: 100%; // required to override some user agent stylesheets
 
   thead {
@@ -60,7 +62,12 @@ table {
   tbody {
     vertical-align: top; // required to override some user agent stylesheets
   }
+
+  td {
+    min-width: 15%;
+  }
 }
+
 table.overview {
   width: 100%;
   td {
@@ -76,6 +83,15 @@ table.overview {
   td.did-value {
     font-weight: normal;
     font-style: italic;
+  }
+}
+
+table.chronlist {
+  td.date {
+    width: 8rem;
+  }
+  h4 {
+    margin-block-end: 0.25rem;
   }
 }
 

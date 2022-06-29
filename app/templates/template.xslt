@@ -172,7 +172,7 @@
 			<xsl:apply-templates/>
 		</i>
 	</xsl:template>
-	
+
 	
 	<!-- ****************************************************************** -->
 	<!-- LIST                                                               -->
@@ -258,19 +258,16 @@
 	<!-- ****************************************************************** -->
 
 	<xsl:template match="chronlist">
-		<table width="100%" style="margin-left:25pt">
-			<tr>
-				<td width="5%"> </td>
-				<td width="15%"> </td>
-				<td width="80%"> </td>
-			</tr>
-			<xsl:apply-templates/>
+		<table class="chronlist">
+			<tbody>
+				<xsl:apply-templates/>
+			</tbody>
 		</table>
 	</xsl:template>
 	
 	<xsl:template match="chronlist/head">
 		<tr>
-			<td colspan="3">
+			<td colspan="2">
 				<h4>
 					<xsl:apply-templates/>			
 				</h4>
@@ -280,13 +277,12 @@
 	
 	<xsl:template match="chronlist/listhead">
 		<tr>
-			<td> </td>
-			<td>
+			<td class="date">
 				<b>
 					<xsl:apply-templates select="head01"/>
 				</b>
 			</td>
-			<td>
+			<td class="event">
 				<b>
 					<xsl:apply-templates select="head02"/>
 				</b>
@@ -295,44 +291,22 @@
 	</xsl:template>
 
 	<xsl:template match="chronitem">
-		<!--Determine if there are event groups.-->
-		<xsl:choose>
-			<xsl:when test="eventgrp">
-				<!--Put the date and first event on the first line.-->
-				<tr>
-					<td> </td>
-					<td valign="top">
-						<xsl:apply-templates select="date"/>
-					</td>
-					<td valign="top">
-						<xsl:apply-templates select="eventgrp/event[position()=1]"/>
-					</td>
-				</tr>
-				<!--Put each successive event on another line.-->
-				<xsl:for-each select="eventgrp/event[not(position()=1)]">
-					<tr>
-						<td> </td>
-						<td> </td>
-						<td valign="top">
-							<xsl:apply-templates select="."/>
-						</td>
-					</tr>
-				</xsl:for-each>
-			</xsl:when>
-			<!--Put the date and event on a single line.-->
-			<xsl:otherwise>
-				<tr>
-					<td> </td>
-					<td valign="top">
-						<xsl:apply-templates select="date"/>
-					</td>
-					<td valign="top">
-						<xsl:apply-templates select="event"/>
-					</td>
-				</tr>
-			</xsl:otherwise>
-		</xsl:choose>
+		<tr>
+			<td class="date">
+				<xsl:apply-templates select="date"/>
+			</td>
+			<td class="event">
+				<xsl:apply-templates select="event | eventgrp"/>
+			</td>
+		</tr>
 	</xsl:template>
+
+	<xsl:template match="chronitem/eventgrp">
+		<xsl:for-each select="*">
+			<xsl:apply-templates/><br/>
+		</xsl:for-each>
+	</xsl:template>
+
 
 	<!-- ****************************************************************** -->
 	<!-- TITLEPROPER and SUBTITLE are output	 			-->
@@ -550,8 +524,8 @@
 		archdesc/otherfindaid |
 		archdesc/originalsloc |
 		archdesc/fileplan |
-		archdesc/dsc
-		archdesx/index">
+		archdesc/dsc |
+		archdesc/index">
 		<div>
 			<xsl:attribute name="class">archdesc-section
 				<xsl:value-of select="name()"/>
