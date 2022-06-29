@@ -423,9 +423,6 @@
 				<xsl:value-of select="@type"/>
 				<xsl:value-of select="$space"/>
 			</xsl:if>
-			<xsl:if test="@encodinganalog='245$g'">
-				<xsl:text>bulk</xsl:text>
-			</xsl:if>
 
 			<!-- display the unitdate -->
 			<xsl:value-of select="."/>
@@ -435,76 +432,6 @@
 				<xsl:text>,</xsl:text>
 				<xsl:value-of select="$space"/>
 			</xsl:if>
-		</xsl:for-each>
-	</xsl:template>
-
-
-	<!-- ************************* -->
-	<!-- NOTE element within a DID -->
-	<!-- ************************* -->
-
-	<xsl:template match="archdesc/did/note">
-		<xsl:for-each select="p">
-			<!--The template tests to see if there is a label attribute, inserting the contents if there is or adding one if there isn't. -->
-			<xsl:choose>
-				<xsl:when test="parent::note[@label]">
-					<!--This nested choose tests for and processes the first paragraph. Additional paragraphs do not get a label.-->
-					<xsl:choose>
-						<xsl:when test="position()=1">
-							<tr>
-
-								<td valign="top">
-									<b>
-										<xsl:value-of select="@label"/>
-									</b>
-								</td>
-								<td valign="top">
-									<xsl:apply-templates/>
-								</td>
-							</tr>
-						</xsl:when>
-
-						<xsl:otherwise>
-							<tr>
-
-								<td valign="top"></td>
-								<td valign="top">
-									<xsl:apply-templates/>
-								</td>
-							</tr>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:when>
-
-				<xsl:otherwise>
-
-					<xsl:choose>
-						<xsl:when test="position()=1">
-							<tr>
-
-								<td valign="top">
-									<b>
-										<xsl:text>Note:</xsl:text>
-									</b>
-								</td>
-								<td>
-									<xsl:apply-templates/>
-								</td>
-							</tr>
-						</xsl:when>
-
-						<xsl:otherwise>
-							<tr>
-								<td valign="top"></td>
-								<td>
-									<xsl:apply-templates/>
-								</td>
-							</tr>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:otherwise>
-			</xsl:choose>
-			<!--Closes each paragraph-->
 		</xsl:for-each>
 	</xsl:template>
 
@@ -770,84 +697,6 @@
 		| archdesc/*/appraisal/head
 		| archdesc/*/accruals/head">
 		<p class="subhead-1">
-			<xsl:apply-templates/>
-		</p>
-	</xsl:template>
-
-	<xsl:template match="custodhist/p
-		| archdesc/altformavail/p
-		| archdesc/prefercite/p
-		| archdesc/acqinfo/p
-		| archdesc/processinfo/p
-		| archdesc/appraisal/p
-		| archdesc/accruals/p
-		| archdesc/*/custodhist/p
-		| archdesc/*/altformavail/p
-		| archdesc/*/prefercite/p
-		| archdesc/*/acqinfo/p
-		| archdesc/*/processinfo/p
-		| archdesc/*/appraisal/p
-		| archdesc/*/accruals/p
-		| archdesc/custodhist/note/p
-		| archdesc/altformavail/note/p
-		| archdesc/prefercite/note/p
-		| archdesc/acqinfo/note/p
-		| archdesc/processinfo/note/p
-		| archdesc/appraisal/note/p
-		| archdesc/accruals/note/p
-		| archdesc/*/custodhist/note/p
-		| archdesc/*/altformavail/note/p
-		| archdesc/*/prefercite/note/p
-		| archdesc/*/acqinfo/note/p
-		| archdesc/*/processinfo/note/p
-		| archdesc/*/appraisal/note/p
-		| archdesc/*/accruals/note/p">
-		<p class="subhead-2">
-			<xsl:apply-templates/>
-		</p>
-	</xsl:template>
-
-
-	<!-- ****************************************************************** -->
-	<!-- Other helpful elements processing                                  -->
-	<!-- Processes OTHERFINDAID, INDEX, FILEPLAN, PHYSTECH,                 -->
-	<!-- ORIGINALSLOC elements, including any NOT or HEAD child elements.   -->
-	<!-- ****************************************************************** -->
-
-	<xsl:template match="archdesc/otherfindaid
-		| archdesc/*/otherfindaid
-		| archdesc/originalsloc
-		| archdesc/phystech">
-		<xsl:apply-templates/>
-		<hr/>
-	</xsl:template>
-
-	<xsl:template match="archdesc/otherfindaid/head
-		| archdesc/*/otherfindaid/head
-		| archdesc/fileplan/head
-		| archdesc/*/fileplan/head
-		| archdesc/phystech/head
-		| archdesc/originalsloc/head">
-		<h3>
-			<b>
-				<xsl:apply-templates/>
-			</b>
-		</h3>
-	</xsl:template>
-
-	<xsl:template match="archdesc/otherfindaid/p
-		| archdesc/*/otherfindaid/p
-		| archdesc/otherfindaid/note/p
-		| archdesc/*/otherfindaid/note/p
-		| archdesc/fileplan/p
-		| archdesc/*/fileplan/p
-		| archdesc/fileplan/note/p
-		| archdesc/*/fileplan/note/p
-		| archdesc/phystech/p
-		| archdesc/phystech/note/p
-		| archdesc/originalsloc/p
-		| archdesc/originalsloc/note/p">
-		<p class="inv-1">
 			<xsl:apply-templates/>
 		</p>
 	</xsl:template>
