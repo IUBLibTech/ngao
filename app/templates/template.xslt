@@ -513,104 +513,213 @@
 	<!-- the style sheet handles this.                                      -->
 	<!-- ****************************************************************** -->
 
-	<xsl:template match="archdesc/controlaccess">
+	<!-- top-level entry point -->
+	<xsl:template match="wip-archdesc/controlaccess">
 		<div class="archdesc-section controlaccess">
 			<h3>Subject Headings</h3>
+			<xsl:apply-templates select="*" mode="top-level"/>
+		</div>
+	</xsl:template>
+
+	<!-- compoent-level entry point and formatting -->
+	<xsl:template match="dsc//controlaccess">
+		<p class="controlaccess">
+			<span class="label">Subject Headings:</span>
 			<ul class="subject-headings">
-				<xsl:for-each select=".">
-					<xsl:if test="persname | famname">
-						<li class="subj-label">
-							<h5>Persons</h5>
-							<ul class="subj-values">
-								<xsl:for-each select="famname | persname">
-									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li>
-										<xsl:apply-templates/>
-									</li>
-								</xsl:for-each>
-							</ul>
-						</li>
-					</xsl:if>
-					<xsl:if test="corpname">
-						<li class="subj-label">
-							<h5>Corporate Bodies</h5>
-							<ul class="subj-values">
-								<xsl:for-each select="corpname">
-									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li>
-										<xsl:apply-templates/>
-									</li>
-								</xsl:for-each>
-							</ul>
-						</li>
-					</xsl:if>
-					<xsl:if test="title">
-						<li class="subj-label">
-							<h5>Associated Titles</h5>
-							<ul class="subj-values">
-								<xsl:for-each select="title">
-									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li>
-										<xsl:apply-templates/>
-									</li>
-								</xsl:for-each>
-							</ul>
-						</li>
-					</xsl:if>
-					<xsl:if test="subject">
-						<li class="subj-label">
-							<h5>Subjects</h5>
-							<ul class="subj-values">
-								<xsl:for-each select="subject">
-									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li>
-										<xsl:apply-templates/>
-									</li>
-								</xsl:for-each>
-							</ul>
-						</li>
-					</xsl:if>
-					<xsl:if test="geogname">
-						<li class="subj-label">
-							<h5>Places</h5>
-							<ul class="subj-values">
-								<xsl:for-each select="geogname">
-									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li>
-										<xsl:apply-templates/>
-									</li>
-								</xsl:for-each>
-							</ul>
-						</li>
-					</xsl:if>
-					<xsl:if test="genreform">
-						<li class="subj-label">
-							<h5>Genres and Forms</h5>
-							<ul class="subj-values">
-								<xsl:for-each select="genreform">
-									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li>
-										<xsl:apply-templates/>
-									</li>
-								</xsl:for-each>
-							</ul>
-						</li>
-					</xsl:if>
-					<xsl:if test="occupation | function">
-						<li class="subj-label">
-							<h5>Occupationss</h5>
-							<ul class="subj-values">
-								<xsl:for-each select="occupation | function">
-									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li>
-										<xsl:apply-templates/>
-									</li>
-								</xsl:for-each>
-							</ul>
-						</li>
-					</xsl:if>
-				</xsl:for-each>
+				<xsl:apply-templates select="subject[1] | title[1]  |
+				persname[1]  | famname[1]  | corpname[1]  |
+				geogname[1]  | genreform[1]  | occupation[1]  |
+				function[1]" mode="component"/>
 			</ul>
+		</p>
+	</xsl:template>
+
+	<!-- Group controlaccess elements by type -->
+	<xsl:template match="controlaccess/subject[1]" mode="component">
+		<li class="subj-label">
+			<span class="label">Subjects:</span>
+			<ul class="subject-value">
+				<xsl:apply-templates select="../child::subject"/>
+			</ul>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="controlaccess/title[1]" mode="component">
+		<li class="subj-label">
+			<span class="label">Associated Titles:</span>
+			<ul class="subject-value">
+				<xsl:apply-templates select="../child::title"/>
+			</ul>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="controlaccess/persname[1]" mode="component">
+		<li class="subj-label">
+			<span class="label">People:</span>
+			<ul class="subject-value">
+				<xsl:apply-templates select="../child::persname"/>
+			</ul>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="controlaccess/famname[1]" mode="component">
+		<li class="subj-label">
+			<span class="label">Family Names:</span>
+			<ul class="subject-value">
+				<xsl:apply-templates select="../child::famname"/>
+			</ul>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="controlaccess/corpname[1]" mode="component">
+		<li class="subj-label">
+			<span class="label">Corporate Bodies:</span>
+			<ul class="subject-value">
+				<xsl:apply-templates select="../child::corpname"/>
+			</ul>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="controlaccess/geogname[1]" mode="component">
+		<li class="subj-label">
+			<span class="label">Places:</span>
+			<ul class="subject-value">
+				<xsl:apply-templates select="../child::geogname"/>
+			</ul>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="controlaccess/genreform[1]" mode="component">
+		<li class="subj-label">
+			<span class="label">Genre and Forms:</span>
+			<ul class="subject-value">
+				<xsl:apply-templates select="../child::genreform"/>
+			</ul>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="controlaccess/occupation[1]" mode="component">
+		<li class="subj-label">
+			<span class="label">Occupations:</span>
+			<ul class="subject-value">
+				<xsl:apply-templates select="../child::occupation"/>
+			</ul>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="controlaccess/function[1]" mode="component">
+		<li class="subj-label">
+			<span class="label">Functions:</span>
+			<ul class="subject-value">
+				<xsl:apply-templates select="../child::function"/>
+			</ul>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="controlaccess/*">
+		<li>
+			<xsl:apply-templates/>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="archdesc/controlaccess">
+		<div class="archdesc-section controlaccess">
+		<h3>Subject Headings</h3>
+		<ul class="subject-headings">
+			<xsl:for-each select=".">
+				<xsl:if test="persname | famname">
+					<li class="subj-label">
+						<h5>Persons</h5>
+						<ul class="subj-values">
+							<xsl:for-each select="famname | persname">
+								<xsl:sort select="." data-type="text" order="ascending"/>
+								<li>
+									<xsl:apply-templates/>
+								</li>
+							</xsl:for-each>
+						</ul>
+					</li>
+				</xsl:if>
+				<xsl:if test="corpname">
+					<li class="subj-label">
+						<h5>Corporate Bodies</h5>
+						<ul class="subj-values">
+							<xsl:for-each select="corpname">
+								<xsl:sort select="." data-type="text" order="ascending"/>
+								<li>
+									<xsl:apply-templates/>
+								</li>
+							</xsl:for-each>
+						</ul>
+					</li>
+				</xsl:if>
+				<xsl:if test="title">
+					<li class="subj-label">
+						<h5>Associated Titles</h5>
+						<ul class="subj-values">
+							<xsl:for-each select="title">
+								<xsl:sort select="." data-type="text" order="ascending"/>
+								<li>
+									<xsl:apply-templates/>
+								</li>
+							</xsl:for-each>
+						</ul>
+					</li>
+				</xsl:if>
+				<xsl:if test="subject">
+					<li class="subj-label">
+						<h5>Subjects</h5>
+						<ul class="subj-values">
+							<xsl:for-each select="subject">
+								<xsl:sort select="." data-type="text" order="ascending"/>
+								<li>
+									<xsl:apply-templates/>
+								</li>
+							</xsl:for-each>
+						</ul>
+					</li>
+				</xsl:if>
+				<xsl:if test="geogname">
+					<li class="subj-label">
+						<h5>Places</h5>
+						<ul class="subj-values">
+							<xsl:for-each select="geogname">
+								<xsl:sort select="." data-type="text" order="ascending"/>
+								<li>
+									<xsl:apply-templates/>
+								</li>
+							</xsl:for-each>
+						</ul>
+					</li>
+				</xsl:if>
+				<xsl:if test="genreform">
+					<li class="subj-label">
+						<h5>Genres and Forms</h5>
+						<ul class="subj-values">
+							<xsl:for-each select="genreform">
+								<xsl:sort select="." data-type="text" order="ascending"/>
+								<li>
+									<xsl:apply-templates/>
+								</li>
+							</xsl:for-each>
+						</ul>
+					</li>
+				</xsl:if>
+				<xsl:if test="occupation | function">
+					<li class="subj-label">
+						<h5>Occupationss</h5>
+						<ul class="subj-values">
+							<xsl:for-each select="occupation | function">
+								<xsl:sort select="." data-type="text" order="ascending"/>
+								<li>
+									<xsl:apply-templates/>
+								</li>
+							</xsl:for-each>
+						</ul>
+					</li>
+				</xsl:if>
+			</xsl:for-each>
+		</ul>
 		</div>
 	</xsl:template>
 
