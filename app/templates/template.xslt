@@ -382,7 +382,7 @@
 						<xsl:text>Location:</xsl:text>
 					</xsl:when>
 					<xsl:when test="self::unitid">
-						<xsl:text>Identification:</xsl:text>
+						<xsl:text>Collection No.:</xsl:text>
 					</xsl:when>
 					<xsl:when test="self::unitdate">
 						<xsl:text>Dates:</xsl:text>
