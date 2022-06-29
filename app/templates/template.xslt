@@ -191,7 +191,7 @@
 		</ol>
 	</xsl:template>
 
-	<xsl:template match="list[@type='simple']">
+	<xsl:template match="list[@type='simple'] | list[@type='deflist']">
 		<ol class="no-bullets">
 			<xsl:apply-templates/>
 		</ol>
@@ -203,10 +203,17 @@
 		</ul>
 	</xsl:template>
 
-	<xsl:template match="list/item">
+	<xsl:template match="list/item | defitem">
 		<li>
 			<xsl:apply-templates/>
 		</li>
+	</xsl:template>
+
+	<xsl:template match="defitem/label">
+		<b>
+			<xsl:apply-templates/>:
+			<xsl:value-of select="$space"/>
+		</b>
 	</xsl:template>
 
 	<xsl:template match="bibref">
