@@ -341,11 +341,8 @@
 		<xsl:apply-templates select="node()[name() != 'num']"/>
 	</xsl:template>
 
-	<!-- suppress other <titleproper> nodes if there is a filing node -->
-	<xsl:template match="titleproper[count(//titleproper[@type='filing']) >= 1 and not(@type='filing')]"/>
-
-	<!-- suppress all but the first <titleproper> if there is not a filing node -->
-	<xsl:template match="titleproper[count(//titleproper[@type='filing']) = 0 and position() > 1]"/>
+	<!-- suppress <titleproper type='filing'> elements -->
+	<xsl:template match="titleproper[@type='filing']"/>
 
 	<xsl:template match="eadheader/filedesc/titlestmt/author">
 		<xsl:if test="not(contains(text(), 'Finding'))">
