@@ -678,36 +678,6 @@
 		</xsl:if>
 	</xsl:template>
 
-	<xsl:template match="//eadheader/revisiondesc/list/item">
-		<xsl:choose>
-			<xsl:when test="not(position()=last())">
-				<xsl:apply-templates/>;
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:apply-templates/>
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:template>
-
-	<xsl:template match="custodhist/head
-		| archdesc/altformavail/head
-		| archdesc/prefercite/head
-		| archdesc/acqinfo/head
-		| archdesc/processinfo/head
-		| archdesc/appraisal/head
-		| archdesc/accruals/head
-		| archdesc/*/custodhist/head
-		| archdesc/*/altformavail/head
-		| archdesc/*/prefercite/head
-		| archdesc/*/acqinfo/head
-		| archdesc/*/processinfo/head
-		| archdesc/*/appraisal/head
-		| archdesc/*/accruals/head">
-		<p class="subhead-1">
-			<xsl:apply-templates/>
-		</p>
-	</xsl:template>
-
 
 	<!-- ****************************************************************** -->
 	<!-- INVENTORY LIST PROCESSING	<dsc> & <cxx>                           -->
