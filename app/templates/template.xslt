@@ -112,8 +112,9 @@
 	</xsl:template>
 
 	<!-- add whitespace between any two adjacent text() elements -->
+	<!-- except for <head> elements which often get a colon added directly after -->
 	<xsl:variable name="space" select="'&#x20;'"/>
-	<xsl:template match="//text()">
+	<xsl:template match="//*[name!='head']/text()">
 		<xsl:value-of select="."/>
 		<xsl:value-of select="$space"/>
 	</xsl:template>
@@ -418,7 +419,7 @@
 	<xsl:template match="unitdate/child::text()">
 		<xsl:for-each select="parent::node()/../unitdate">
 			<!-- display type if there are additional unitdate nodes -->
-			<xsl:if test="position() != 1">
+			<xsl:if test="position() != 1 and @type!='inclusive'">
 				<xsl:value-of select="@type"/>
 				<xsl:value-of select="$space"/>
 			</xsl:if>
