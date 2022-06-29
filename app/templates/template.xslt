@@ -432,6 +432,8 @@
 		</tr>
 	</xsl:template>
 
+	
+
 	<!-- ****************************************************************** -->
 	<!-- UNITDATE                                                           -->
 	<!-- Concatenate all <unitdate> sibling nodes & display @type           -->
@@ -516,7 +518,7 @@
 	<!-- top-level entry point -->
 	<xsl:template match="wip-archdesc/controlaccess">
 		<div class="archdesc-section controlaccess">
-			<h3>Subject Headings</h3>
+			<h3>Indexed Terms</h3>
 			<xsl:apply-templates select="*" mode="top-level"/>
 		</div>
 	</xsl:template>
@@ -524,7 +526,7 @@
 	<!-- compoent-level entry point and formatting -->
 	<xsl:template match="dsc//controlaccess">
 		<p class="controlaccess">
-			<span class="label">Subject Headings:</span>
+			<span class="label">Indexed Terms:</span>
 			<ul class="subject-headings">
 				<xsl:apply-templates select="subject[1] | title[1]  |
 				persname[1]  | famname[1]  | corpname[1]  |
@@ -624,7 +626,7 @@
 
 	<xsl:template match="archdesc/controlaccess">
 		<div class="archdesc-section controlaccess">
-		<h3>Subject Headings</h3>
+		<h3>Indexed Terms</h3>
 		<ul class="subject-headings">
 			<xsl:for-each select=".">
 				<xsl:if test="persname | famname">
