@@ -357,14 +357,13 @@
 
 	<!-- ****************************************************************** -->
 	<!-- COLLECTION INFO:                                                   -->
-	<!-- This handles repository, origination, physdesc, abstract,unitid,   -->
+	<!-- This handles origination, physdesc, abstract, unitid,              -->
 	<!-- physloc and materialspec elements of archdesc/did which share a    -->
 	<!-- common appearance.  Labels are also generated; to change the label -->
 	<!-- generated for these sections, modify the text below.               -->
 	<!-- ****************************************************************** -->
 
-	<xsl:template match="archdesc/did/repository
-	| archdesc/did/origination
+	<xsl:template match="archdesc/did/origination
 	| archdesc/did/unittitle
 	| archdesc/did/unitdate
 	| archdesc/did/physdesc
@@ -432,7 +431,53 @@
 		</tr>
 	</xsl:template>
 
-	
+	<!-- ****************************************************************** -->
+	<!-- REPOSITORY                                                         -->
+	<!-- Provides special handling to pull in publisher address from header -->
+	<!-- ****************************************************************** -->
+
+	<xsl:template match="archdesc/did/repository">
+		<tr>
+			<td class="did-label">
+				<xsl:choose>
+					<!-- Use @label if it exists -->
+					<xsl:when test="@label">
+						<xsl:value-of select="@label"/>
+						<xsl:text>: </xsl:text>
+					</xsl:when>
+					<!--Otherwise, use default label based on the node type  -->
+					<xsl:otherwise>
+						<xsl:text>Repository:</xsl:text>
+					</xsl:otherwise>
+				</xsl:choose>
+			</td>
+			<td class="did-value">
+				<xsl:apply-templates select="@* | node()"/>
+				<br/>
+				<xsl:apply-templates select="/ead/eadheader/filedesc/publicationstmt/address"/>
+			</td>
+		</tr>
+	</xsl:template>
+
+	<xsl:template match="addressline">
+		<xsl:apply-templates/>
+		<br/>
+	</xsl:template>
+
+	<xsl:template match="addressline/extptr" xmlns:xlink="http://www.w3.org/1999/xlink" >
+		<xsl:choose>
+			<xsl:when test="text()">
+				<xsl:apply-templates/>
+			</xsl:when>
+			<xsl:when test="@xlink:title">
+				<xsl:value-of select="@xlink:title"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="@xlink:href"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+
 
 	<!-- ****************************************************************** -->
 	<!-- UNITDATE                                                           -->
