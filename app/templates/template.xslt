@@ -114,7 +114,7 @@
 	<!-- add whitespace between any two adjacent text() elements -->
 	<!-- except for <head> elements which often get a colon added directly after -->
 	<xsl:variable name="space" select="'&#x20;'"/>
-	<xsl:template match="//*[name!='head']/text()">
+	<xsl:template match="//*[name()!='head']/text()">
 		<xsl:value-of select="."/>
 		<xsl:value-of select="$space"/>
 	</xsl:template>
