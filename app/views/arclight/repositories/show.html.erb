@@ -1,0 +1,47 @@
+<% @page_title = t(:'arclight.views.repositories.show', name: @repository.name) %>
+<%= render 'shared/breadcrumbs' %>
+<%= render @repository %>
+<div class="row al-repository-show-header">
+  <div class="col col-md-8 col-lg-9">
+    <h2 class="h4">
+      <%= t('arclight.views.show.our_collections') %>
+    </h2>
+  </div>
+  <div class="col text-right">
+    <span class="al-repository-collections">
+      <%= link_to(t(:'arclight.views.repositories.view_all_collections', count: collection_count), repository_collections_path(@repository), class: 'btn btn-primary') %>
+    </span>
+  </div>
+</div>
+
+<div class="row">
+  <% @collections.each do |document| %>
+    <div class="col-md-12">
+      <div class='al-document-title-bar'>
+        <div class='row'>
+          <div class='col-md-10 col-lg-9'>
+            <h3 class="h5"><%= link_to document.normalized_title, solr_document_path(document.id) %></h3>
+            <%= content_tag('div', class: 'al-document-abstract-or-scope') do %>
+              <%= content_tag('div', 'data-arclight-truncate' => true) do %>
+                <%= document.abstract_or_scope %>
+              <% end %>
+              <% end if document.abstract_or_scope %>
+            </div>
+            <% if document.unitid %>
+              <div class='col text-right al-collection-id'>
+                <%= t(:'arclight.views.show.collection_id', id: document.unitid) %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row al-repository-show-footer my-3 mt-1">
+
+    <div class="col text-right ">
+      <span class="al-repository-collections">
+        <%= link_to(t(:'arclight.views.repositories.view_all_collections', count: collection_count), repository_collections_path(@repository), class: 'btn btn-primary') %>
+      </span>
+    </div>
+  </div>
