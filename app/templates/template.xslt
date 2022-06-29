@@ -114,7 +114,7 @@
 	<!-- add whitespace between any two adjacent text() elements -->
 	<xsl:template match="//text()">
 		<xsl:value-of select="."/>
-		<xsl:text> </xsl:text>
+		<xsl:text></xsl:text>
 	</xsl:template>
 
 	<xsl:template match="blockquote">
@@ -173,7 +173,7 @@
 		</i>
 	</xsl:template>
 
-	
+
 	<!-- ****************************************************************** -->
 	<!-- LIST                                                               -->
 	<!-- Formats a list anywhere except in ARRANGEMENT or REVISIONDESC.     -->
@@ -220,7 +220,7 @@
 	<!-- as of 2022/06/28, IU has only one collection that uses <table>,    -->
 	<!-- see InU-Ar-VAA1616                                                 -->
 	<!-- ****************************************************************** -->
-	
+
 	<xsl:template match="table">
 		<table>
 			<xsl:apply-templates/>
@@ -253,8 +253,8 @@
 
 
 	<!-- ****************************************************************** -->
-	<!-- CHRONLIST								-->
-	<!-- Formats a chronology list with items			 	-->
+	<!-- CHRONLIST                                                          -->
+	<!-- Formats a chronology list with items                               -->
 	<!-- ****************************************************************** -->
 
 	<xsl:template match="chronlist">
@@ -264,17 +264,17 @@
 			</tbody>
 		</table>
 	</xsl:template>
-	
+
 	<xsl:template match="chronlist/head">
 		<tr>
 			<td colspan="2">
 				<h4>
-					<xsl:apply-templates/>			
+					<xsl:apply-templates/>
 				</h4>
 			</td>
 		</tr>
 	</xsl:template>
-	
+
 	<xsl:template match="chronlist/listhead">
 		<tr>
 			<td class="date">
@@ -303,13 +303,14 @@
 
 	<xsl:template match="chronitem/eventgrp">
 		<xsl:for-each select="*">
-			<xsl:apply-templates/><br/>
+			<xsl:apply-templates/>
+			<br/>
 		</xsl:for-each>
 	</xsl:template>
 
 
 	<!-- ****************************************************************** -->
-	<!-- TITLEPROPER and SUBTITLE are output	 			-->
+	<!-- TITLEPROPER and SUBTITLE are output                                -->
 	<!-- ****************************************************************** -->
 
 	<!-- suppress <num> nodes from titles -->
@@ -332,11 +333,11 @@
 
 
 	<!-- ****************************************************************** -->
-	<!-- COLLECTION INFO: 							-->
-	<!-- This handles repository, origination, physdesc, abstract,unitid, 	-->
-	<!-- physloc and materialspec elements of archdesc/did which share a 	-->
-	<!-- common appearance.  Labels are also generated; to change the label	-->
-	<!-- generated for these sections, modify the text below.		-->
+	<!-- COLLECTION INFO:                                                   -->
+	<!-- This handles repository, origination, physdesc, abstract,unitid,   -->
+	<!-- physloc and materialspec elements of archdesc/did which share a    -->
+	<!-- common appearance.  Labels are also generated; to change the label -->
+	<!-- generated for these sections, modify the text below.               -->
 	<!-- ****************************************************************** -->
 
 	<xsl:template match="archdesc/did/repository
@@ -350,10 +351,10 @@
 	| archdesc/did/langmaterial
 	| archdesc/did/materialspec">
 
-	<!-- ****************************************************************** -->
-	<!-- Tests for @LABEL.  If @LABEL is present it is used, otherwise 	-->
-	<!-- a label is supplied (to alter supplied text, make change below).	-->
-	<!-- ****************************************************************** -->
+		<!-- ****************************************************************** -->
+		<!-- Tests for @LABEL.  If @LABEL is present it is used, otherwise      -->
+		<!-- a label is supplied (to alter supplied text, make change below).   -->
+		<!-- ****************************************************************** -->
 
 		<tr>
 			<td class="did-label">
@@ -414,27 +415,27 @@
 	<!-- ****************************************************************** -->
 
 	<xsl:template match="unitdate/child::text()">
-	   <xsl:for-each select="parent::node()/../unitdate">
-		   <!-- display type if there are additional unitdate nodes -->
-		   <xsl:if test="position() != 1">
-			   <xsl:value-of select="@type"/>
-			   <xsl:text> </xsl:text>
-		   </xsl:if>
-		   <xsl:if test="@encodinganalog='245$g'">
-			   <xsl:text>bulk </xsl:text>
-		   </xsl:if>
+		<xsl:for-each select="parent::node()/../unitdate">
+			<!-- display type if there are additional unitdate nodes -->
+			<xsl:if test="position() != 1">
+				<xsl:value-of select="@type"/>
+				<xsl:text></xsl:text>
+			</xsl:if>
+			<xsl:if test="@encodinganalog='245$g'">
+				<xsl:text>bulk</xsl:text>
+			</xsl:if>
 
-		   <!-- display the unitdate -->
-		   <xsl:value-of select="."/>
+			<!-- display the unitdate -->
+			<xsl:value-of select="."/>
 
-		   <!-- separate multiple entries with a comma -->
-		   <xsl:if test="position() != last()">
-			   <xsl:text>, </xsl:text>
-		   </xsl:if>
-	   </xsl:for-each>
+			<!-- separate multiple entries with a comma -->
+			<xsl:if test="position() != last()">
+				<xsl:text>,</xsl:text>
+			</xsl:if>
+		</xsl:for-each>
 	</xsl:template>
 
-	
+
 	<!-- ************************* -->
 	<!-- NOTE element within a DID -->
 	<!-- ************************* -->
@@ -448,7 +449,7 @@
 					<xsl:choose>
 						<xsl:when test="position()=1">
 							<tr>
-							
+
 								<td valign="top">
 									<b>
 										<xsl:value-of select="@label"/>
@@ -462,7 +463,7 @@
 
 						<xsl:otherwise>
 							<tr>
-								
+
 								<td valign="top"></td>
 								<td valign="top">
 									<xsl:apply-templates/>
@@ -477,10 +478,10 @@
 					<xsl:choose>
 						<xsl:when test="position()=1">
 							<tr>
-								
+
 								<td valign="top">
 									<b>
-										<xsl:text>Note: </xsl:text>
+										<xsl:text>Note:</xsl:text>
 									</b>
 								</td>
 								<td>
@@ -488,7 +489,7 @@
 								</td>
 							</tr>
 						</xsl:when>
-		
+
 						<xsl:otherwise>
 							<tr>
 								<td valign="top"></td>
@@ -506,11 +507,11 @@
 
 
 	<!-- ****************************************************************** -->
-	<!-- ARCHDESC Processing						-->
-	<!-- Formats the top-level bioghist, scopecontent, phystech, odd, and	-->
-	<!-- arrangement elements and creates a link back to the top of the	-->
-	<!-- page after the display of the element.  Each HEAD element is also	-->
-	<!-- given a generated ID so it can be linked to from the TOC.		-->
+	<!-- ARCHDESC Processing                                                -->
+	<!-- Formats the top-level bioghist, scopecontent, phystech, odd, and   -->
+	<!-- arrangement elements and creates a link back to the top of the     -->
+	<!-- page after the display of the element.  Each HEAD element is also  -->
+	<!-- given a generated ID so it can be linked to from the TOC.          -->
 	<!-- ****************************************************************** -->
 
 	<xsl:template match="archdesc/bioghist |
@@ -547,18 +548,20 @@
 	</xsl:template>
 
 	<xsl:template match="archdesc/*/head">
-		<h3><xsl:apply-templates/></h3>
+		<h3>
+			<xsl:apply-templates/>
+		</h3>
 	</xsl:template>
-	
+
 	<!-- ****************************************************************** -->
-	<!-- Controlled Access headings 					-->
+	<!-- Controlled Access headings                                         -->
 	<!-- Formats controlled access headings.  Does NOT handle recursive 	-->
 	<!-- controlaccess elements. Does NOT require HEAD elements (makes for	-->
-	<!-- easier tagging), instead captions are generated.  Subelements 	-->
+	<!-- easier tagging), instead captions are generated.  Subelements      -->
 	<!-- (genreform, etc) do not need to be alphabetized or sorted by type, -->
-	<!-- the style sheet handles this.					-->
+	<!-- the style sheet handles this.                                      -->
 	<!-- ****************************************************************** -->
-	
+
 	<xsl:template match="archdesc/controlaccess">
 		<div class="archdesc-section controlaccess">
 			<h3>Subject Headings</h3>
@@ -570,7 +573,9 @@
 							<ul class="subj-values">
 								<xsl:for-each select="famname | persname">
 									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li><xsl:apply-templates/></li>
+									<li>
+										<xsl:apply-templates/>
+									</li>
 								</xsl:for-each>
 							</ul>
 						</li>
@@ -581,7 +586,9 @@
 							<ul class="subj-values">
 								<xsl:for-each select="corpname">
 									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li><xsl:apply-templates/></li>
+									<li>
+										<xsl:apply-templates/>
+									</li>
 								</xsl:for-each>
 							</ul>
 						</li>
@@ -592,7 +599,9 @@
 							<ul class="subj-values">
 								<xsl:for-each select="title">
 									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li><xsl:apply-templates/></li>
+									<li>
+										<xsl:apply-templates/>
+									</li>
 								</xsl:for-each>
 							</ul>
 						</li>
@@ -603,7 +612,9 @@
 							<ul class="subj-values">
 								<xsl:for-each select="subject">
 									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li><xsl:apply-templates/></li>
+									<li>
+										<xsl:apply-templates/>
+									</li>
 								</xsl:for-each>
 							</ul>
 						</li>
@@ -614,7 +625,9 @@
 							<ul class="subj-values">
 								<xsl:for-each select="geogname">
 									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li><xsl:apply-templates/></li>
+									<li>
+										<xsl:apply-templates/>
+									</li>
 								</xsl:for-each>
 							</ul>
 						</li>
@@ -625,7 +638,9 @@
 							<ul class="subj-values">
 								<xsl:for-each select="genreform">
 									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li><xsl:apply-templates/></li>
+									<li>
+										<xsl:apply-templates/>
+									</li>
 								</xsl:for-each>
 							</ul>
 						</li>
@@ -636,7 +651,9 @@
 							<ul class="subj-values">
 								<xsl:for-each select="occupation | function">
 									<xsl:sort select="." data-type="text" order="ascending"/>
-									<li><xsl:apply-templates/></li>
+									<li>
+										<xsl:apply-templates/>
+									</li>
 								</xsl:for-each>
 							</ul>
 						</li>
@@ -648,15 +665,17 @@
 
 
 	<!-- ****************************************************************** -->
-	<!-- Access and Use Restriction processing				-->
-	<!-- Inclused processing of any NOTE child elements.			-->
+	<!-- Access and Use Restriction processing                              -->
+	<!-- Inclused processing of any NOTE child elements.                    -->
 	<!-- ****************************************************************** -->
 
 	<xsl:template name="archdesc-restrict">
 		<xsl:if test="string(archdesc/userestrict/*)
 		or string(archdesc/accessrestrict/*)">
 			<div class="archdesc-section restrict">
-				<h3><xsl:text>Restrictions</xsl:text></h3>
+				<h3>
+					<xsl:text>Restrictions</xsl:text>
+				</h3>
 
 				<div class="accessrestrict">
 					<xsl:apply-templates select="archdesc/accessrestrict"/>
@@ -671,16 +690,17 @@
 
 	<xsl:template match="archdesc//accessrestrict/head |
 			     archdesc//userestrict/head">
-		<h4><xsl:apply-templates/>: </h4>
+		<h4><xsl:apply-templates/>:
+		</h4>
 	</xsl:template>
 
 
 	<!-- ****************************************************************** -->
-	<!-- Other Admin Info processing					-->
-	<!-- Inclused processing of any other administrative information	-->
-	<!-- elements and consolidates them into one block under a common	-->
-	<!-- heading, "Administrative Information."  If child elements contain	-->
-	<!-- a HEAD element it is retained and used as the section title.	-->
+	<!-- Other Admin Info processing                                        -->
+	<!-- Inclused processing of any other administrative information        -->
+	<!-- elements and consolidates them into one block under a common       -->
+	<!-- heading, "Administrative Information."  If child elements contain  -->
+	<!-- a HEAD element it is retained and used as the section title.       -->
 	<!-- ****************************************************************** -->
 
 	<xsl:template name="archdesc-admininfo">
@@ -724,15 +744,14 @@
 	<xsl:template match="//eadheader/revisiondesc/list/item">
 		<xsl:choose>
 			<xsl:when test="not(position()=last())">
-				<xsl:apply-templates/>; 
+				<xsl:apply-templates/>;
 			</xsl:when>
-		<xsl:otherwise>
-			<xsl:apply-templates/>
-		</xsl:otherwise>
-		</xsl:choose>             
+			<xsl:otherwise>
+				<xsl:apply-templates/>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
-	
 	<xsl:template match="custodhist/head
 		| archdesc/altformavail/head
 		| archdesc/prefercite/head
@@ -747,9 +766,11 @@
 		| archdesc/*/processinfo/head
 		| archdesc/*/appraisal/head
 		| archdesc/*/accruals/head">
-		<p class="subhead-1"><xsl:apply-templates/></p>
-	</xsl:template>	
-		
+		<p class="subhead-1">
+			<xsl:apply-templates/>
+		</p>
+	</xsl:template>
+
 	<xsl:template match="custodhist/p
 		| archdesc/altformavail/p
 		| archdesc/prefercite/p
@@ -778,24 +799,26 @@
 		| archdesc/*/processinfo/note/p
 		| archdesc/*/appraisal/note/p
 		| archdesc/*/accruals/note/p">
-		<p class="subhead-2"><xsl:apply-templates/></p>
+		<p class="subhead-2">
+			<xsl:apply-templates/>
+		</p>
 	</xsl:template>
 
 
 	<!-- ****************************************************************** -->
-	<!-- Other helpful elements processing					-->
-	<!-- Processes OTHERFINDAID, INDEX, FILEPLAN, PHYSTECH,	-->
-	<!-- ORIGINALSLOC elements, including any NOT or HEAD child elements.	-->
+	<!-- Other helpful elements processing                                  -->
+	<!-- Processes OTHERFINDAID, INDEX, FILEPLAN, PHYSTECH,                 -->
+	<!-- ORIGINALSLOC elements, including any NOT or HEAD child elements.   -->
 	<!-- ****************************************************************** -->
-		
+
 	<xsl:template match="archdesc/otherfindaid
 		| archdesc/*/otherfindaid
 		| archdesc/originalsloc
 		| archdesc/phystech">
-			<xsl:apply-templates/>
-			<hr/>
-		</xsl:template>
-		
+		<xsl:apply-templates/>
+		<hr/>
+	</xsl:template>
+
 	<xsl:template match="archdesc/otherfindaid/head
 		| archdesc/*/otherfindaid/head
 		| archdesc/fileplan/head
@@ -848,118 +871,124 @@
 		</div>
 	</xsl:template>
 
-	
-		<!-- ****************************************************************** -->
-		<!-- This section of the stylesheet contains named templates that are	-->
-		<!-- used generically throughout the stylesheet.			-->
-		<!-- ****************************************************************** -->
 
-			<!-- This template formats the unitid, origination, unittitle, unitdate,-->
-			<!-- and physdesc elements of components at all levels.  They appear on -->
-			<!-- a separate line from other did elements. It is generic to all 	-->
-			<!-- component levels.							-->
+	<!-- ****************************************************************** -->
+	<!-- This section of the stylesheet contains named templates that are	-->
+	<!-- used generically throughout the stylesheet.			-->
+	<!-- ****************************************************************** -->
 
-		<xsl:template name="component-did">
-			<xsl:if test="unitid">
-				<xsl:apply-templates select="unitid"/>
-				<xsl:text>&#x20;</xsl:text>
-			</xsl:if>
+	<!-- This template formats the unitid, origination, unittitle, unitdate,-->
+	<!-- and physdesc elements of components at all levels.  They appear on -->
+	<!-- a separate line from other did elements. It is generic to all 	-->
+	<!-- component levels.							-->
 
-
-			<!-- Handles cases where unitdate is a child of unittitle or separate child of did.-->
-			<xsl:choose>
-				<!-- unitdate is a child of unittitle -->
-				<xsl:when test="unittitle/unitdate">
-					<xsl:apply-templates select="unittitle/text()| unittitle/*"/>
-				</xsl:when>
-
-				<!-- unitdate is not a child of untititle, date and title are processed 
-				IN THE ORDER THEY OCCUR IN THE ORIGINAL, so we can have some series
-				that are organized by date. -->
-				<xsl:otherwise>
-					<xsl:for-each select="unitdate|unittitle">
-						<xsl:apply-templates/>
-						<xsl:text>&#x20;</xsl:text>
-					</xsl:for-each>
-				</xsl:otherwise>
-			</xsl:choose>
-
-			<!--Inserts abstract, on same line as date/title, separated with dash.-->
-			<xsl:if test="abstract">
-        - <xsl:apply-templates select="abstract"/>
-				<xsl:text>&#x20;</xsl:text>
-			</xsl:if>
+	<xsl:template name="component-did">
+		<xsl:if test="unitid">
+			<xsl:apply-templates select="unitid"/>
+			<xsl:text>&#x20;</xsl:text>
+		</xsl:if>
 
 
-			<!--Inserts origination and a space if it exists in the markup.-->
-			<xsl:if test="origination">
-				<xsl:if test="origination/@label">
-					<br/><xsl:value-of select="origination/@label" />
-				</xsl:if>
-				<xsl:apply-templates select="origination"/>
-				<xsl:text> </xsl:text>
-			</xsl:if>
+		<!-- Handles cases where unitdate is a child of unittitle or separate child of did.-->
+		<xsl:choose>
+			<!-- unitdate is a child of unittitle -->
+			<xsl:when test="unittitle/unitdate">
+				<xsl:apply-templates select="unittitle/text()| unittitle/*"/>
+			</xsl:when>
 
-			<xsl:if test="../phystech">
-				(<xsl:value-of select="../phystech"/>)
-			</xsl:if>
-        
-			<xsl:apply-templates select="physdesc"/>
-	
-			<xsl:if test="physloc">
-				<br/><xsl:apply-templates select="physloc"/>
-			</xsl:if>
-
-		</xsl:template>
-
-
-		<!-- These templates handle notes and tables within other elements.
-                     Can be called from anywhere -->
-
-		<xsl:template name="special-handling">
-			<xsl:choose>
-				<xsl:when test="self::head">
-					<b><xsl:apply-templates/></b>
-				</xsl:when>
-				<xsl:when test="parent::note | self::note">
-					<i><xsl:apply-templates/></i>
-				</xsl:when>
-				<xsl:otherwise>
+			<!-- unitdate is not a child of untititle, date and title are processed
+            IN THE ORDER THEY OCCUR IN THE ORIGINAL, so we can have some series
+            that are organized by date. -->
+			<xsl:otherwise>
+				<xsl:for-each select="unitdate|unittitle">
 					<xsl:apply-templates/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:template>
+					<xsl:text>&#x20;</xsl:text>
+				</xsl:for-each>
+			</xsl:otherwise>
+		</xsl:choose>
+
+		<!--Inserts abstract, on same line as date/title, separated with dash.-->
+		<xsl:if test="abstract">
+			-
+			<xsl:apply-templates select="abstract"/>
+			<xsl:text>&#x20;</xsl:text>
+		</xsl:if>
 
 
-		<xsl:template name="special-handling-did">
-			<xsl:choose>
-				<xsl:when test="parent::note">
-					<i><xsl:apply-templates/></i>
-				</xsl:when>
-				<xsl:otherwise>
+		<!--Inserts origination and a space if it exists in the markup.-->
+		<xsl:if test="origination">
+			<xsl:if test="origination/@label">
+				<br/>
+				<xsl:value-of select="origination/@label"/>
+			</xsl:if>
+			<xsl:apply-templates select="origination"/>
+			<xsl:text></xsl:text>
+		</xsl:if>
+
+		<xsl:if test="../phystech">
+			(<xsl:value-of select="../phystech"/>)
+		</xsl:if>
+
+		<xsl:apply-templates select="physdesc"/>
+
+		<xsl:if test="physloc">
+			<br/>
+			<xsl:apply-templates select="physloc"/>
+		</xsl:if>
+
+	</xsl:template>
+
+
+	<!-- These templates handle notes and tables within other elements.
+                 Can be called from anywhere -->
+
+	<xsl:template name="special-handling">
+		<xsl:choose>
+			<xsl:when test="self::head">
+				<b>
 					<xsl:apply-templates/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:template>
-
-
-	    <!-- Adds parens around extent elements except for the first entry in archdesc/did -->
-		<xsl:template match="extent | physfacet">
-			<xsl:choose>
-				<xsl:when test="ancestor::did and position() = 1">
+				</b>
+			</xsl:when>
+			<xsl:when test="parent::note | self::note">
+				<i>
 					<xsl:apply-templates/>
-				</xsl:when>
-				<xsl:otherwise>
-					(<xsl:apply-templates/>)
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:template>
+				</i>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:apply-templates/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
 
 
+	<xsl:template name="special-handling-did">
+		<xsl:choose>
+			<xsl:when test="parent::note">
+				<i>
+					<xsl:apply-templates/>
+				</i>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:apply-templates/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
 
 
+	<!-- Adds parens around extent elements except for the first entry in archdesc/did -->
+	<xsl:template match="extent | physfacet">
+		<xsl:choose>
+			<xsl:when test="ancestor::did and position() = 1">
+				<xsl:apply-templates/>
+			</xsl:when>
+			<xsl:otherwise>
+				(<xsl:apply-templates/>)
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
 
-		<!-- This template handles the labeling of containers.  Note limitations on @type. -->
+
+	<!-- This template handles the labeling of containers.  Note limitations on @type. -->
 
 		<xsl:template name="container-label">
 	
