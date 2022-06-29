@@ -53,7 +53,7 @@
 					<xsl:apply-templates select="archdesc/bioghist"/>
 					<xsl:apply-templates select="archdesc/scopecontent"/>
 					<xsl:apply-templates select="archdesc/arrangement"/>
-					<xsl:apply-templates select="archdesc//otherfindaid"/>
+					<xsl:apply-templates select="archdesc/otherfindaid"/>
 					<xsl:call-template name="archdesc-restrict"/>
 					<xsl:apply-templates select="archdesc/separatedmaterial"/>
 					<xsl:apply-templates select="archdesc/relatedmaterial"/>
@@ -63,65 +63,12 @@
 					<xsl:apply-templates select="archdesc/phystech"/>
 					<xsl:call-template name="archdesc-admininfo"/>
 					<xsl:apply-templates select="archdesc/fileplan | archdesc/*/fileplan"/>
-					<xsl:apply-templates select="archdesc/bibliography | archdesc/*/bibliography"/>
-					<xsl:call-template name="toc"/>
+					<xsl:apply-templates select="archdesc/bibliography"/>
 					<xsl:apply-templates select="archdesc/dsc"/>
 					<xsl:apply-templates select="archdesc/index | archdesc/*/index"/>
 				</div>
 			</body>
 		</html>
-	</xsl:template>
-
-
-	<!-- ****************************************************************** -->
-	<!-- TABLE OF CONTENTS TEMPLATE						-->
-	<!-- Because paper copies have no linking capabilities, no linking	-->
-	<!-- HTML in included.  Also, none of the front matter is listed in 	-->
-	<!-- the TOC since in the paper version the TOC comes after the front	-->
-	<!-- matter and right before the actual inventory itself		-->
-	<!-- ****************************************************************** -->
-
-	<xsl:template name="toc">
-		<div class="archdesc-section toc">
-			<h3>
-				<xsl:text>Table of Contents</xsl:text>
-			</h3>
-
-		<!-- *************************************************	-->
-		<!-- Captures unittitle and unitdates for c01's whose	-->
-		<!-- @level is subgrp, subcollection,series or 		-->
-		<!-- subseries, and generates TOC (no page #s)  	-->
-		<!-- *************************************************	-->
-
-			<xsl:for-each select="archdesc/dsc/c01[@level='series' or @level='subseries'
-		                          or @level='subgrp' or @level='subcollection']">
-				<ul class="toc-para1">
-					<xsl:choose>
-						<xsl:when test="did/unittitle/unitdate">
-							<xsl:for-each select="did/unittitle">
-								<li>
-									<xsl:value-of select="text()"/>
-									<xsl:text> </xsl:text>
-									<xsl:apply-templates select="./unitdate"/>
-								</li>
-							</xsl:for-each>
-						</xsl:when>
-						<xsl:otherwise>
-							<li>
-								<xsl:apply-templates select="did/unittitle"/>
-								<xsl:text> </xsl:text>
-								<xsl:apply-templates select="did/unitdate"/>
-							</li>
-						</xsl:otherwise>
-					</xsl:choose>
-				</ul>
-			</xsl:for-each>
-			<xsl:for-each select="archdesc/index | archdesc/*/index">
-				<p class="toc-para1">
-					<xsl:apply-templates select="head"/>
-				</p>
-			</xsl:for-each>
-		</div>
 	</xsl:template>
 
 
@@ -134,6 +81,12 @@
 		<p>
 			<xsl:apply-templates/>
 		</p>
+	</xsl:template>
+
+	<!-- add whitespace between any two adjacent text() elements -->
+	<xsl:template match="//text()">
+		<xsl:value-of select="."/>
+		<xsl:text> </xsl:text>
 	</xsl:template>
 
 	<xsl:template match="blockquote">
@@ -186,7 +139,11 @@
 		</b>
 	</xsl:template>
 
-
+	<xsl:template match="title">
+		<i>
+			<xsl:apply-templates/>
+		</i>
+	</xsl:template>
 
 	<!-- ****************************************************************** -->
 	<!-- LINKS								-->
@@ -257,69 +214,48 @@
 		</li>
 	</xsl:template>
 
+	<xsl:template match="bibref">
+		<li class="bibliography">
+			<xsl:apply-templates select="node()"/>
+		</li>
+	</xsl:template>
+
 
 	<!-- ****************************************************************** -->
-	<!-- TABLE								-->
-	<!-- Formats a simple table. The width of each column is defined 	-->
-	<!-- by the colwidth attribute in a colspec element. The template	-->
-	<!-- is named so it can be called from inside c0# elements.  ID  	-->
-	<!-- attribute is implemented for ROW but not ENTRY 			-->
+	<!-- TABLE                                                              -->
+	<!-- Implements a very basic crosswalk of EAD <table> to HTML <table>   -->
+	<!-- as of 2022/06/28, IU has only one collection that uses <table>,    -->
+	<!-- see InU-Ar-VAA1616                                                 -->
 	<!-- ****************************************************************** -->
 	
 	<xsl:template match="table">
-		<xsl:call-template name="table"/>
-	</xsl:template>
-
-
-	<xsl:template name="table">
-		<table width="75%" style="margin-left: 25pt">
-			<tr>
-				<td colspan="3">
-					<h4>
-						<xsl:apply-templates select="head"/>
-					</h4>
-				</td>
-			</tr>
-			<xsl:for-each select="tgroup">
-				<tr>
-					<xsl:for-each select="colspec">
-						<td width="{@colwidth}"></td>
-					</xsl:for-each>
-				</tr>
-				<xsl:for-each select="thead">
-					<xsl:for-each select="row">
-						<tr>
-							<xsl:for-each select="entry">
-								<td valign="top">
-									<b>
-										<xsl:apply-templates/>
-									</b>
-								</td>
-							</xsl:for-each>
-						</tr>
-					</xsl:for-each>
-				</xsl:for-each>
-
-				<xsl:for-each select="tbody">
-					<xsl:for-each select="row">
-						<xsl:if test="@id">
-							<a id="{@id}"></a>
-						</xsl:if>
-						<tr>
-							<xsl:for-each select="entry">
-								<td valign="top">
-									<xsl:apply-templates/>
-								</td>
-							</xsl:for-each>
-						</tr>
-					</xsl:for-each>
-				</xsl:for-each>
-			</xsl:for-each>
+		<table>
+			<xsl:apply-templates/>
 		</table>
 	</xsl:template>
 
-	<xsl:template match="entry/note">
-		<br/><i><xsl:apply-templates/></i>
+	<xsl:template match="thead">
+		<thead>
+			<xsl:apply-templates/>
+		</thead>
+	</xsl:template>
+
+	<xsl:template match="tbody">
+		<tbody>
+			<xsl:apply-templates/>
+		</tbody>
+	</xsl:template>
+
+	<xsl:template match="thead/row | tbody|row">
+		<tr>
+			<xsl:apply-templates/>
+		</tr>
+	</xsl:template>
+
+	<xsl:template match="entry">
+		<td>
+			<xsl:apply-templates/>
+		</td>
 	</xsl:template>
 
 
@@ -646,10 +582,9 @@
 		archdesc/separatedmaterial |
 		archdesc/relatedmaterial |
 		archdesc/controlaccess |
-		archdesc/otherfindaid | archdesc/*/otherfindaid |
+		archdesc/otherfindaid |
 		archdesc/originalsloc |
-		archdesc/fileplan | archdesc/*/fileplan |
-		archdesc/bibliography | archdesc/*/bibliography |
+		archdesc/fileplan |
 		archdesc/dsc">
 		<div>
 			<xsl:attribute name="class">archdesc-section
@@ -659,10 +594,21 @@
 		</div>
 	</xsl:template>
 
+	<xsl:template match="archdesc/bibliography">
+		<div>
+			<xsl:attribute name="class">archdesc-section
+				<xsl:value-of select="name()"/>
+			</xsl:attribute>
+			<xsl:apply-templates select="head"/>
+			<ul class="bibliography">
+				<xsl:apply-templates select="*[name()!='head']"/>
+			</ul>
+		</div>
+	</xsl:template>
+
 	<xsl:template match="archdesc/*/head">
 		<h3><xsl:apply-templates/></h3>
 	</xsl:template>
-
 	
 	<!-- ****************************************************************** -->
 	<!-- Controlled Access headings 					-->
@@ -898,14 +844,12 @@
 
 	<!-- ****************************************************************** -->
 	<!-- Other helpful elements processing					-->
-	<!-- Processes OTHERFINDAID, BIBLIOGRAPHY, INDEX, FILEPLAN, PHYSTECH,	-->
+	<!-- Processes OTHERFINDAID, INDEX, FILEPLAN, PHYSTECH,	-->
 	<!-- ORIGINALSLOC elements, including any NOT or HEAD child elements.	-->
 	<!-- ****************************************************************** -->
 		
 	<xsl:template match="archdesc/otherfindaid
 		| archdesc/*/otherfindaid
-		| archdesc/bibliography
-		| archdesc/*/bibliography
 		| archdesc/originalsloc
 		| archdesc/phystech">
 			<xsl:apply-templates/>
@@ -914,8 +858,6 @@
 		
 	<xsl:template match="archdesc/otherfindaid/head
 		| archdesc/*/otherfindaid/head
-		| archdesc/bibliography/head
-		| archdesc/*/bibliography/head
 		| archdesc/fileplan/head
 		| archdesc/*/fileplan/head
 		| archdesc/phystech/head
@@ -929,12 +871,8 @@
 
 	<xsl:template match="archdesc/otherfindaid/p
 		| archdesc/*/otherfindaid/p
-		| archdesc/bibliography/p
-		| archdesc/*/bibliography/p
 		| archdesc/otherfindaid/note/p
 		| archdesc/*/otherfindaid/note/p
-		| archdesc/bibliography/note/p
-		| archdesc/*/bibliography/note/p
 		| archdesc/fileplan/p
 		| archdesc/*/fileplan/p
 		| archdesc/fileplan/note/p
@@ -1136,9 +1074,6 @@
 				</xsl:when>
 				<xsl:when test="parent::note | self::note">
 					<i><xsl:apply-templates/></i>
-				</xsl:when>
-				<xsl:when test="self::table">
-					<xsl:call-template name="table"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:apply-templates/>
