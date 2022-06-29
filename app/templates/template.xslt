@@ -210,10 +210,12 @@
 	</xsl:template>
 
 	<xsl:template match="defitem/label">
-		<b>
-			<xsl:apply-templates/>:
-			<xsl:value-of select="$space"/>
-		</b>
+		<xsl:if test="not(text()=' ' or text()='' or not(text()))">
+			<b>
+				<xsl:apply-templates/>:
+				<xsl:value-of select="$space"/>
+			</b>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="bibref">
