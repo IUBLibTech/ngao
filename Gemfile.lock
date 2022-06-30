@@ -66,6 +66,9 @@ GEM
       view_component
     blacklight-locale_picker (0.2.0)
       rails (>= 5.2.3, < 6.1)
+    blacklight_advanced_search (7.0.0)
+      blacklight (~> 7.0)
+      parslet
     blacklight_range_limit (7.9.1)
       blacklight (~> 7.0)
     bootsnap (1.4.8)
@@ -233,6 +236,7 @@ GEM
     parallel (1.19.2)
     parser (2.7.1.5)
       ast (~> 2.4.1)
+    parslet (2.0.0)
     popper_js (1.16.0)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -463,6 +467,7 @@ PLATFORMS
 DEPENDENCIES
   arclight
   blacklight-locale_picker
+  blacklight_advanced_search
   blacklight_range_limit (~> 7.1)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.0)
