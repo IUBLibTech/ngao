@@ -107,7 +107,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'creator_ssim', label: 'Creator', limit: 10
     config.add_facet_field 'creators_ssim', label: 'Creator', show: false
     config.add_facet_field 'component_level_isim', show: false
-    config.add_facet_field 'date_range_sim', label: 'Date Range', range: true, :include_in_advanced_search => false
+    config.add_facet_field 'date_range_sim', label: 'Year', range: {assumed_boundaries: [0, Time.now.year + 2]}
     config.add_facet_field 'names_ssim', label: 'Names', limit: 10
     config.add_facet_field 'geogname_sim', label: 'Place', limit: 10
     config.add_facet_field 'places_ssim', label: 'Places', show: false
