@@ -18,6 +18,10 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
 
+  def root_url
+    "https://archives.iu.edu" # ideally, we'd find a way to look this up from the runnign host
+  end
+
   def campus
     first('campus_unit_ssm')
   end

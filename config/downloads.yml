@@ -22,5 +22,5 @@ default:
   printable_view:
     template: '/html/%{eadid}.html'
   ead:
-    template: '/ead/%{eadid}.xml'
+    template: "%{root_url}/ead/%{eadid}.xml"
   
