@@ -62,7 +62,7 @@
 					<xsl:call-template name="archdesc-admininfo"/>
 					<xsl:apply-templates select="archdesc/fileplan | archdesc/*/fileplan"/>
 					<xsl:apply-templates select="archdesc/bibliography"/>
-					<xsl:apply-templates select="archdesc/dsc"/>
+					<xsl:apply-templates select="archdesc/dsc[count(*)>0]"/>
 					<xsl:apply-templates select="archdesc/index | archdesc/*/index"/>
 				</div>
 			</body>
