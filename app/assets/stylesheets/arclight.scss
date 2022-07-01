@@ -136,10 +136,11 @@ tr.needs-update {
   align-items: center;
   padding: 0;
   cursor: pointer;
+  white-space:nowrap;
   .btn{
   display: flex;
   align-items: center;
-  white-space:nowrap;
+
   color: #4A3C31;
   padding-left: 0;
     img{
