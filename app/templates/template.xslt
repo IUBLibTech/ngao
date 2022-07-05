@@ -62,7 +62,7 @@
 					<xsl:call-template name="archdesc-admininfo"/>
 					<xsl:apply-templates select="archdesc/fileplan | archdesc/*/fileplan"/>
 					<xsl:apply-templates select="archdesc/bibliography"/>
-					<xsl:apply-templates select="archdesc/dsc"/>
+					<xsl:apply-templates select="archdesc/dsc[count(*)>0]"/>
 					<xsl:apply-templates select="archdesc/index | archdesc/*/index"/>
 				</div>
 			</body>
@@ -114,7 +114,7 @@
 	<!-- add whitespace between any two adjacent text() elements -->
 	<!-- except for <head> elements which often get a colon added directly after -->
 	<xsl:variable name="space" select="'&#x20;'"/>
-	<xsl:template match="//*[name!='head']/text()">
+	<xsl:template match="//*[name()!='head']/text()">
 		<xsl:value-of select="."/>
 		<xsl:value-of select="$space"/>
 	</xsl:template>

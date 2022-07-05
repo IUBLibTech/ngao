@@ -3,8 +3,7 @@
 <li id="<%= document.id %>" class="al-collection-context row d-flex align-items-start">
   <div class="documentHeader row" data-document-id="<%= document.id %>">
     <% requestable = item_requestable?('', { document: document }) %>
-
-    <%# REMOVE ICON FROM COLLECTION CONTEXT %>
+    <%# REMOVE ICON FROM COLLECTION CONTEXT %>    
     <div class="col col-no-left-padding d-flex flex-wrap">
       <div class="index_title document-title-heading my-w-75 w-md-100 order-0">
         <div class="al-toggle-children-container">
@@ -13,7 +12,7 @@
             <%= link_to(
           "##{document.id}-collapsible-hierarchy",
           class: "al-toggle-view-children #{!show_expanded?(document) ? 'collapsed' : ''}",
-          'aria-label': t('arclight.hierarchy.view_all'),
+          'aria-label': "Toggle children",
             data: {
               toggle: 'collapse'
             }
@@ -43,12 +42,12 @@
             <%=  document.normalized_title  %>
           <% end %>
 
-          <%= link_to  "more details", document, class: "small", 'aria-label': t('arclight.hierarchy.view_all') %>
+          <%= link_to  "more details", document, class: "small", 'aria-label':  "more details about #{document.normalized_title}" %>
         </div>
       </div>
-
+      
       <div class="my-w-25 w-md-100 order-12 order-md-1">
-        <%= render_index_doc_actions document, wrapping_class: 'd-flex justify-content-end' %>
+        <%= render_index_doc_actions document, wrapping_class: 'd-flex justify-content-end text-right' %>
       </div>
 
       <div class="order-2">
