@@ -136,3 +136,26 @@ tr.needs-update {
     content: '';
   }
 }
+
+// Container show page overrides
+.al-toggle-children-container{
+  margin-left: 0;
+}
+
+.al-toggle-view-children:not(.collapsed)::before {
+  content: image-url('blacklight/minus.svg');
+  position: relative;
+  top: 6px;
+}
+.al-toggle-view-children::before {
+  content: image-url('blacklight/plus.svg');
+  position: relative;
+  top: 6px;
+}
+
+.al-toggle-view-children:not(.collapsed)::after {
+  content: none;
+}
+.al-toggle-view-children::after {
+  content: none;
+}
