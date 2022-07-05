@@ -3,38 +3,51 @@
 <li id="<%= document.id %>" class="al-collection-context row d-flex align-items-start">
   <div class="documentHeader row" data-document-id="<%= document.id %>">
     <% requestable = item_requestable?('', { document: document }) %>
-    <% if document.children? %>
-      <div class="al-toggle-children-container">
-        <%= link_to(
-          '',
-          "##{document.id}-collapsible-hierarchy",
-          class: "al-toggle-view-children #{!show_expanded?(document) ? 'collapsed' : ''}",
-          'aria-label': t('arclight.hierarchy.view_all'),
-            data: {
-              toggle: 'collapse'
-            }
-          )
-        %>
-      </div>
-    <% end %>
     <%# REMOVE ICON FROM COLLECTION CONTEXT %>    
     <div class="col col-no-left-padding d-flex flex-wrap">
       <div class="index_title document-title-heading my-w-75 w-md-100 order-0">
-        <% if document.level == "Series" %> 
-          <span class="text-nowrap text-muted">Series:</span>
-        <% end %>
-        <% if document.level == "Subseries" %> 
-          <span class="text-nowrap text-muted">Subseries:</span>
-        <% end %>
-        <% counter = document_counter_with_offset(document_counter) %>
-        <%= link_to_document document, document_show_link_field(document), counter: counter %>
+        <div class="al-toggle-children-container">
         <% if document.children? %>
-          <span class="badge badge-pill badge-secondary al-number-of-children-badge"><%= document.number_of_children %><span class="sr-only"><%= t(:'arclight.views.index.number_of_components', count: document.number_of_children) %></span></span>
-        <% end %>
+          
+            <%= link_to(
+          "##{document.id}-collapsible-hierarchy",
+          class: "al-toggle-view-children #{!show_expanded?(document) ? 'collapsed' : ''}",
+          'aria-label': "Toggle children",
+            data: {
+              toggle: 'collapse'
+            }
+          ) do
+        %>
+
+              <% if document.level == "Series" %>
+                <span class="text-nowrap text-muted">Series:</span>
+              <% end %>
+              <% if document.level == "Subseries" %>
+                <span class="text-nowrap text-muted">Subseries:</span>
+              <% end %>
+              <% counter = document_counter_with_offset(document_counter) %>
+              <%=  document.normalized_title  %>
+              <span class="badge badge-pill badge-secondary al-number-of-children-badge">
+                <%= document.number_of_children %>
+                <span class="sr-only"><%= t(:'arclight.views.index.number_of_components', count: document.number_of_children) %></span>
+              </span>
+            <% end %>
+          <% else %>
+            <% if document.level == "Series" %>
+              <span class="text-nowrap text-muted">Series:</span>
+            <% end %>
+            <% if document.level == "Subseries" %>
+              <span class="text-nowrap text-muted">Subseries:</span>
+            <% end %>
+            <%=  document.normalized_title  %>
+          <% end %>
+
+          <%= link_to  "more details", document, class: "small", 'aria-label':  "more details about #{document.normalized_title}" %>
+        </div>
       </div>
       
       <div class="my-w-25 w-md-100 order-12 order-md-1">
-        <%= render_index_doc_actions document, wrapping_class: 'd-flex justify-content-end' %>
+        <%= render_index_doc_actions document, wrapping_class: 'd-flex justify-content-end text-right' %>
       </div>
 
       <div class="order-2">
