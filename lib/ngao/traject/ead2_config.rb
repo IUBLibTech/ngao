@@ -271,7 +271,7 @@ to_field 'dimensions_teim', extract_xpath('/ead/archdesc/did/physdesc/dimensions
 to_field 'genreform_sim', extract_xpath('/ead/archdesc/controlaccess/genreform')
 to_field 'genreform_ssm', extract_xpath('/ead/archdesc/controlaccess/genreform')
 
-to_field 'date_range_sim', extract_xpath('/ead/archdesc/did/unitdate/@normal', to_text: false) do |_record, accumulator|
+to_field 'date_range_iim', extract_xpath('/ead/archdesc/did/unitdate/@normal', to_text: false) do |_record, accumulator|
   range = Ngao::YearRange.new
   next range.years if accumulator.blank?
 
@@ -587,7 +587,7 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
     end
   end
 
-  to_field 'date_range_sim', extract_xpath('./did/unitdate/@normal', to_text: false) do |_record, accumulator|
+  to_field 'date_range_iim', extract_xpath('./did/unitdate/@normal', to_text: false) do |_record, accumulator|
     range = Ngao::YearRange.new
     next range.years if accumulator.blank?
 
