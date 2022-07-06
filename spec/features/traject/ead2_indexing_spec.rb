@@ -12,7 +12,7 @@ RSpec.describe 'EAD 2 traject indexing', type: :feature do
 
   let(:indexer) do
     Traject::Indexer::NokogiriIndexer.new.tap do |i|
-      i.load_config_file(Rails.root.join('lib', 'ngao-arclight', 'traject', 'ead2_config.rb'))
+      i.load_config_file(Rails.root.join('lib', 'ngao', 'traject', 'ead2_config.rb'))
     end
   end
 
