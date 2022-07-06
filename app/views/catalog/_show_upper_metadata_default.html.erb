@@ -7,7 +7,7 @@
         <% if generic_should_render_field?(metadata, document, field) %>
           <dt class="blacklight-<%= field_name.parameterize %>"><%= generic_render_document_field_label(metadata, document, field: field_name) %></dt>
           <% if field_name =~/creator/i %>
-            <dd class="blacklight-<%= field_name.parameterize %>"><%= link_to(doc_presenter.field_value(field), search_catalog_path("f[creator_ssim][]": doc_presenter.field_value(field))) %></dd>
+            <dd class="blacklight-<%= field_name.parameterize %>"><%= link_to(doc_presenter.field_value(field), search_catalog_path("f[creators_ssim][]": doc_presenter.field_value(field))) %></dd>
           <%else%>
             <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
           <%end%>
