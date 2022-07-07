@@ -2,18 +2,18 @@
   <% parents = Arclight::Parents.from_solr_document(document).as_parents %>
   <dl class="al-metadata-section">
     <% blacklight_config.show.component_metadata_partials.each do |metadata| %>
-      <% show_presenter = show_presenter(document).with_field_group(metadata) %>
+      <% presenter = show_presenter(document).with_field_group(metadata) %>
       <% generic_document_fields(metadata).each do |field_name, field| %>
         <% if generic_should_render_field?(metadata, document, field) %>
           <dt class="blacklight-<%= field_name.parameterize %>"><%= generic_render_document_field_label(metadata, document, field: field_name) %></dt>
           <% if field_name =~/creator/i %>
-            <% show_presenter.document.fetch('creators_ssim').each do |v| %>
+            <% presenter.document.fetch('creators_ssim').each do |v| %>
             <dd class="blacklight-<%= field_name.parameterize %>">
               <%= link_to(v, search_catalog_path("f[creators_ssim][]": v)) %>
             </dd>
           <%end%>
           <%else%>
-            <dd class="blacklight-<%= field_name.parameterize %>"><%= show_presenter.field_value field %></dd>
+            <dd class="blacklight-<%= field_name.parameterize %>"><%= presenter.field_value field %></dd>
           <%end%>
         <% end %>
       <% end %>
