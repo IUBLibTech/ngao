@@ -200,4 +200,19 @@ tr.needs-update {
   content: none;
 }
 
+.al-hierarchy-highlight > .documentMetadata,
+.al-hierarchy-highlight > .documentHeader {
+  background: #FDF7E7;
+}
+li.al-collection-context {
+  .documentHeader {
+    margin-bottom: 0 !important;
+    padding-bottom: 1rem;
+  }
+  .documentMetadata {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+}
 

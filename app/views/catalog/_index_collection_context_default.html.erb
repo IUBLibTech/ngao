@@ -3,12 +3,12 @@
 <li id="<%= document.id %>" class="al-collection-context row d-flex align-items-start">
   <div class="documentHeader row" data-document-id="<%= document.id %>">
     <% requestable = item_requestable?('', { document: document }) %>
-    <%# REMOVE ICON FROM COLLECTION CONTEXT %>    
+    <%# REMOVE ICON FROM COLLECTION CONTEXT %>
     <div class="col col-no-left-padding d-flex flex-wrap">
       <div class="index_title document-title-heading my-w-75 w-md-100 order-0">
         <div class="al-toggle-children-container">
-        <% if document.children? %>
-          
+          <% if document.children? %>
+
             <%= link_to(
           "##{document.id}-collapsible-hierarchy",
           class: "al-toggle-view-children #{!show_expanded?(document) ? 'collapsed' : ''}",
@@ -42,10 +42,10 @@
             <%=  document.normalized_title  %>
           <% end %>
 
-          <%= link_to  "more details", document, class: "small", 'aria-label':  "more details about #{document.normalized_title}" %>
+          <%= link_to "more details", document, class: "small", 'aria-label':  "more details about #{document.normalized_title}" %>
         </div>
       </div>
-      
+
       <div class="my-w-25 w-md-100 order-12 order-md-1">
         <%= render_index_doc_actions document, wrapping_class: 'd-flex justify-content-end text-right' %>
       </div>
@@ -69,5 +69,31 @@
         <%= generic_context_navigation(document, component_level: document.component_level + 1, original_parents: params[:original_parents]) %>
       <% end %>
     <% end %>
+
+
+    <% if document.present? %>
+      <% if blacklight_config.show.component_metadata_partials.present? %>
+        <div class="documentMetadata row" data-document-id="<%= document.id %>>
+          <% parents = Arclight::Parents.from_solr_document(document).as_parents %>
+          <dl class="al-metadata-section">
+            <% blacklight_config.show.component_metadata_partials.each do |metadata| %>
+              <% doc_presenter = show_presenter(document).with_field_group(metadata) %>
+              <% generic_document_fields(metadata).each do |field_name, field| %>
+                <% if generic_should_render_field?(metadata, document, field) %>
+                  <dt class="blacklight-<%= field_name.parameterize %>"><%= generic_render_document_field_label(metadata, document, field: field_name) %></dt>
+                  <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
+                <% end %>
+              <% end %>
+            <% end %>
+          </dl>
+        </div>
+      <% end %>
+    <% end %>
+
+
+
+    
+
+
   </li>
 </li>
