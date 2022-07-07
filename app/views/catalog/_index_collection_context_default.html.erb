@@ -71,9 +71,9 @@
     <% end %>
 
 
-    <% if document.present? %>
+    <% if original_document?(document) %>
       <% if blacklight_config.show.component_metadata_partials.present? %>
-        <div class="documentMetadata row" data-document-id="<%= document.id %>>
+        <div class="documentMetadata row" data-document-id="<%= document.id %>">
           <% parents = Arclight::Parents.from_solr_document(document).as_parents %>
           <dl class="al-metadata-section">
             <% blacklight_config.show.component_metadata_partials.each do |metadata| %>

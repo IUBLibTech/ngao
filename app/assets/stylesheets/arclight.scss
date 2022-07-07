@@ -200,9 +200,15 @@ tr.needs-update {
   content: none;
 }
 
-.al-hierarchy-highlight > .documentMetadata,
-.al-hierarchy-highlight > .documentHeader {
-  background: #FDF7E7;
+.al-hierarchy-highlight {
+  > .documentMetadata,
+  > .documentHeader {
+   background: #FDF7E7;
+   padding: 0 1rem;
+ }
+ > .documentHeader {
+  padding-top: 1rem;
+}
 }
 li.al-collection-context {
   .documentHeader {
