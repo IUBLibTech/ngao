@@ -959,11 +959,31 @@
 		</p>
 	</xsl:template>
 
-	<xsl:template match="dsc//did/physdesc">
+	<xsl:template match="dsc//did/physdesc[not(child::dimensions or child::extent)]">
 		<p>
 			<span class="label">
 				<xsl:value-of select="@type"/>
 				<xsl:text>Physical Description: </xsl:text>
+			</span>
+			<xsl:apply-templates/>
+		</p>
+	</xsl:template>
+
+	<xsl:template match="did/physdesc/dimensions">
+		<p>
+			<span class="label">
+				<xsl:value-of select="@type"/>
+				<xsl:text>Dimensions: </xsl:text>
+			</span>
+			<xsl:apply-templates select="node()"/>
+		</p>
+	</xsl:template>
+
+	<xsl:template match="did/physdesc/extent">
+		<p>
+			<span class="label">
+				<xsl:value-of select="@type"/>
+				<xsl:text>Quantity: </xsl:text>
 			</span>
 			<xsl:apply-templates select="node()"/>
 		</p>
