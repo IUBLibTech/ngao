@@ -45,11 +45,11 @@
           <%= link_to "more details", document, class: "small", 'aria-label':  "more details about #{document.normalized_title}" %>
         </div>
       </div>
-
-      <div class="my-w-25 w-md-100 order-12 order-md-1">
-        <%= render_index_doc_actions document, wrapping_class: 'd-flex justify-content-end text-right' %>
-      </div>
-
+      <% unless original_document?(document) %>
+        <div class="my-w-25 w-md-100 order-12 order-md-1">
+          <%= render_index_doc_actions document, wrapping_class: 'd-flex justify-content-end text-right' %>
+        </div>
+  <% end %>
       <div class="order-2">
         <div class="row">
           <%= content_tag('div', class: 'al-document-abstract-or-scope mb-0') do %>
