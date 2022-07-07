@@ -929,10 +929,10 @@
 	</xsl:template>
 
 	<xsl:template match="dsc//did">
-		<h4 class="label">
-			<xsl:apply-templates select="../@level"/>
-		</h4>
-		<div class="unittitle">
+		<xsl:apply-templates select="../@level"/>
+		<div>
+			<xsl:attribute name="class">unittitle <xsl:value-of select="../@level"/>
+			</xsl:attribute>
 			<xsl:apply-templates select="unittitle"/>
 			<xsl:apply-templates select="unitdate[1]"/>
 		</div>
@@ -982,10 +982,14 @@
 	<xsl:template match="attribute::level">
 		<xsl:choose>
 			<xsl:when test="../@level='series'">
-				Series:
+				<h4 class="label">
+					Series:
+				</h4>
 			</xsl:when>
 			<xsl:when test="../@level='subseries'">
-				Subseries:
+				<h4 class="label">
+					Subseries:
+				</h4>
 			</xsl:when>
 		</xsl:choose>
 	</xsl:template>
