@@ -49,6 +49,7 @@ div.did {
 }
 
 table {
+  table-layout: fixed; // fix to prevent firefox from trying to distribute columns evenly
   width: 95%;
   margin-left: auto;
   margin-right: auto;
@@ -78,7 +79,7 @@ table.overview {
   td.did-label {
     font-weight: bold;
     vertical-align: text-top;
-    width: 8rem;
+    width: 8.5rem;
   }
 
   td.did-value {
@@ -173,7 +174,7 @@ div.component {
 
   p, ol, ul {
     margin-block-start: 0.25rem;
-    margin-block-end: 0.5rem;
+    margin-block-end: 0.25rem;
   }
 
   .label {
@@ -198,6 +199,7 @@ div.component {
   div.component-info{
     border-top: 1.25pt solid dimgrey;
     padding-top: 4pt;
+    padding-left: 4pt;
     margin-bottom: 6pt;
     width: 100%;
 
@@ -216,12 +218,13 @@ div.component {
   }
 
   .unittitle {
+    display: inline;
     font-family: GeorgiaProBold, Georgia, "Times New Roman", Times, serif;
-    margin-bottom: 4pt;
+    margin-bottom: 6pt;
   }
 }
 
-.c01 .unittitle, .c02 .unittitle {
+.unittitle.series, .unittitle.subseries {
   font-size: 115%;
   font-weight: bold;
 }
