@@ -15,5 +15,5 @@ en:
         title: Repositories - Archives Online at Indiana University
         view_all_collections: "View all %{count} collections"
       show:
-        expand: " items above"
-        collapse: " items below"
+        expand: "items above"
+        collapse: "items below"

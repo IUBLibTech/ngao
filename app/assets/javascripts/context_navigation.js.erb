@@ -52,6 +52,9 @@ class ExpandButton {
 
     const containerText = this.$el.hasClass('collapsed') ? this.collapseText : this.expandText;
     this.$el.html(containerText);
+    // Update count on click
+    const alCount = this.findSiblings().length;
+    this.$el.find( ".al-count" ).text(alCount);
   }
 
   /**
@@ -62,10 +65,10 @@ class ExpandButton {
     var expandIcon = `<img alt='expand' src='<%= image_path('blacklight/expand.svg') %>'>`;
     
     // Find Siblings count
-    var siblingCount = this.findSiblings.length;
+    var siblingCount =   `&nbsp;<span class='al-count'>999</span>&nbsp;`;
 
-    this.collapseText =  collapseIcon + `Hide `+ siblingCount  + data.collapse;
-    this.expandText =  expandIcon + `Show ` + siblingCount + data.expand;
+    this.collapseText =  collapseIcon + `Hide`+ siblingCount  + data.collapse;
+    this.expandText =  expandIcon + `Show` + siblingCount + data.expand;
 
     
     this.$el = $(`<button class="btn btn-link btn-sm">${this.expandText}</button>`);
@@ -90,7 +93,7 @@ class NestedExpandButton extends ExpandButton {
   findSiblings() {
     const highlighted = this.$el.siblings('.al-hierarchy-highlight');
     const $siblings = highlighted.prevAll('.al-collection-context');
-    return $siblings.slice(0, -1);
+    return $siblings;
   }
 }
 
@@ -178,7 +181,7 @@ class ContextNavigation {
    * @returns {jQuery}
    */
   buildExpandList() {
-    const $ul = $('<ul data-siblingcount="IV"></ul>');
+    const $ul = $('<ul></ul>');
     $ul.addClass('pl-0');
     $ul.addClass('prev-siblings');
 
@@ -186,8 +189,6 @@ class ContextNavigation {
     $span.addClass('divider');
     $span.attr('text-position', 'left');
     $ul.append($span);
-
-    
 
     const button = new ExpandButton(this.data);
     $span.append(button.$el);
@@ -220,9 +221,6 @@ class ContextNavigation {
 
       prevSiblingList.append(renderedPrevSiblingItems);
       this.ul.append(prevSiblingList);
-
-      //Update hide/show button count
-      this.ul.find('.siblingCount').text(prevSiblingList.children('li').length);
 
       nextSiblingDocs = newDocs.slice(originalDocumentIndex);
     } else {
@@ -268,9 +266,7 @@ class ContextNavigation {
       renderedBeforeDocs = beforeDocs.map(newDoc => newDoc.render()).join('');
       prevParentList = this.buildExpandList();
 
-      // //Update hide/show button count
-      // this.ul.find('.siblingCount').text(prevParentList.children('li').length);
-      
+
       prevParentList.append(renderedBeforeDocs);
 
       
@@ -364,6 +360,12 @@ class ContextNavigation {
     this.el.parent().data('resolved', true);
     this.addListenersForPlusMinus();
     this.enablebuttons();
+    this.showSiblingCount(      
+      newDocs,
+      that.data.arclight.originalParents,
+      that.data.arclight.parent,
+      that.parentLi
+    );
     Blacklight.doBookmarkToggleBehavior();
     this.el.trigger('navigation.contains.elements');
   }
@@ -374,7 +376,12 @@ class ContextNavigation {
     var srOnly = $('h2[data-sr-enable-me]');
     toEnable.removeClass('disabled');
     toEnable.text(srOnly.data('hasContents'));
-    srOnly.text(srOnly.data('hasContents'));
+    srOnly.text(srOnly.data('hasContents'));  
+  }
+
+  showSiblingCount(){
+    const alCount = this.updateSiblings.length;
+    this.el.find( ".al-count" ).text(alCount); 
   }
 
   addListenersForPlusMinus() {
@@ -408,4 +415,5 @@ Blacklight.onLoad(function () {
       );
     contextNavigation.getData();
   });
+ 
 });
