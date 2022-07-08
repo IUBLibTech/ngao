@@ -78,7 +78,7 @@ table.overview {
   td.did-label {
     font-weight: bold;
     vertical-align: text-top;
-    width: 8rem;
+    width: 8.5rem;
   }
 
   td.did-value {
@@ -219,6 +219,58 @@ div.component {
     font-family: GeorgiaProBold, Georgia, "Times New Roman", Times, serif;
     margin-bottom: 4pt;
   }
+
+  // The component-info contains descriptive text about the container
+  div.component-info{
+    border-top: 1.25pt solid dimgrey;
+    padding-top: 4pt;
+    padding-left: 4pt;
+    margin-bottom: 6pt;
+    width: 100%;
+
+    h4, h5 {
+      display: inline;
+      color: #4A3C31; //#7D6F64;
+      text-transform: uppercase;
+      margin-right: .5rem;
+      margin-top: 4pt;
+      margin-bottom: 0;
+    }
+
+    h5 {
+      font-size: initial;
+    }
+  }
+
+  .unittitle {
+    display: inline;
+    font-family: GeorgiaProBold, Georgia, "Times New Roman", Times, serif;
+    margin-bottom: 6pt;
+  }
+}
+
+.unittitle.series, .unittitle.subseries {
+  font-size: 115%;
+  font-weight: bold;
+}
+
+// Container level-specific formatting, primarily indentation
+
+.c01 div.component-info,
+.c   div.component-info {
+  margin-left: 0;  // Using 0 margin-left to make the rest of the math easier, set the margin-right on .box-folder instead
+}
+
+.c02 div.component-info {
+  margin-left: $component-indent;
+}
+
+.c03 div.component-info {
+  margin-left: $component-indent * 2;
+}
+
+.c04 div.component-info {
+  margin-left: $component-indent * 3;
 }
 
 .c01 .unittitle, .c02 .unittitle {

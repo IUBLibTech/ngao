@@ -9,6 +9,7 @@ require 'traject'
 require 'traject/nokogiri_reader'
 require 'traject_plus'
 require 'traject_plus/macros'
+require 'arclight/exceptions'
 require 'arclight/level_label'
 require 'arclight/normalized_date'
 require 'arclight/normalized_title'
@@ -67,7 +68,8 @@ settings do
   provide 'logger', Logger.new($stderr)
 end
 
-each_record do |_record, context|
+each_record do |record, context|
+  logger.error('traject') { "XML is not well formed and may not parse successfully.  Please check the following erors: " + record.errors.join(", ") } if record.errors.any?
   next unless settings['repository']
 
   context.clipboard[:repository] = Arclight::Repository.find_by(
@@ -269,8 +271,8 @@ to_field 'dimensions_teim', extract_xpath('/ead/archdesc/did/physdesc/dimensions
 to_field 'genreform_sim', extract_xpath('/ead/archdesc/controlaccess/genreform')
 to_field 'genreform_ssm', extract_xpath('/ead/archdesc/controlaccess/genreform')
 
-to_field 'date_range_sim', extract_xpath('/ead/archdesc/did/unitdate/@normal', to_text: false) do |_record, accumulator|
-  range = Arclight::YearRange.new
+to_field 'date_range_iim', extract_xpath('/ead/archdesc/did/unitdate/@normal', to_text: false) do |_record, accumulator|
+  range = Ngao::YearRange.new
   next range.years if accumulator.blank?
 
   ranges = accumulator.map(&:to_s)
@@ -337,8 +339,9 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
                      strategy = Arclight::MissingIdStrategy.selected
                      hexdigest = strategy.new(record).to_hexdigest
                      parent_id = context.clipboard[:parent].output_hash['id'].first
-                     logger.warn('MISSING ID WARNING') do
+                     logger.warn('traject') do
                        [
+                         'MISSING ID WARNING:',
                          "A component in #{parent_id} did not have an ID so one was minted using the #{strategy} strategy.",
                          "The ID of this document will be #{parent_id}#{hexdigest}."
                        ].join(' ')
@@ -379,7 +382,11 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
       context.output_hash['unitdate_other_ssim']
     ).to_s
     title = context.output_hash['title_ssm']&.first
-    accumulator << Arclight::NormalizedTitle.new(title, dates).to_s
+    begin
+      accumulator << Arclight::NormalizedTitle.new(title, dates).to_s
+    rescue Arclight::Exceptions::TitleNotFound => e
+      logger.error('traject') { [e.to_s, context.output_hash['id'], e.message].join(' ') }
+    end
   end
 
   to_field 'normalized_date_ssm' do |_record, accumulator, context|
@@ -580,8 +587,8 @@ compose 'components', ->(record, accumulator, _context) { accumulator.concat rec
     end
   end
 
-  to_field 'date_range_sim', extract_xpath('./did/unitdate/@normal', to_text: false) do |_record, accumulator|
-    range = Arclight::YearRange.new
+  to_field 'date_range_iim', extract_xpath('./did/unitdate/@normal', to_text: false) do |_record, accumulator|
+    range = Ngao::YearRange.new
     next range.years if accumulator.blank?
 
     ranges = accumulator.map(&:to_s)

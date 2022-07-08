@@ -113,6 +113,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'places_ssim', label: 'Places', show: false
     config.add_facet_field 'access_subjects_ssim', label: 'Subject', limit: 10
     config.add_facet_field 'parent_ssim', show: false
+    config.add_facet_field 'date_range_iim', label: 'Year', range: {assumed_boundaries: [0, Time.now.year + 2]}, :include_in_advanced_search => false
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request

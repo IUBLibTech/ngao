@@ -97,6 +97,8 @@
     <fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
     <fieldType name="plong" class="solr.LongPointField" docValues="true"/>
     <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+    <!-- trie numeric field type for faster range queries -->
+    <fieldType name="tint" class="solr.TrieIntField" precisionStep="8" positionIncrementGap="0"/>
 
     <!-- The format for this date field is of the form 1995-12-31T23:59:59Z, and
          is a more restricted form of the canonical representation of dateTime
@@ -316,6 +318,7 @@
    <dynamicField name="*_ssim"  type="string"    stored="true"  indexed="true"  multiValued="true"  />
    <dynamicField name="*_isim"  type="pint"      stored="true"  indexed="true"  multiValued="true"  />
    <dynamicField name="*_ii"    type="pint"      stored="false" indexed="true"  multiValued="false" />
+   <dynamicField name="*_iim"   type="tint"      stored="false" indexed="true"  multiValued="true" />
  </fields>
 
  <!-- Field to use to determine and enforce document uniqueness.
