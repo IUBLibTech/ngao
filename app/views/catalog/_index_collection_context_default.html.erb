@@ -46,54 +46,35 @@
         </div>
       </div>
       <% unless original_document?(document) %>
-        <div class="my-w-25 w-md-100 order-12 order-md-1">
-          <%= render_index_doc_actions document, wrapping_class: 'd-flex justify-content-end text-right' %>
-        </div>
-  <% end %>
-      <div class="order-2">
-        <div class="row">
-          <%= content_tag('div', class: 'al-document-abstract-or-scope mb-0') do %>
-            <%= content_tag('div', data: { 'arclight-truncate': true, 'truncate-more': I18n.t('arclight.truncation.view_more'), 'truncate-less': I18n.t('arclight.truncation.view_less') } ) do %>
-              <%= document.abstract_or_scope %>
-            <% end %>
-            <% end if document.abstract_or_scope %>
-          </div>
+      <div class="my-w-25 w-md-100 order-12 order-md-1">
+        <%= render_index_doc_actions document, wrapping_class: 'd-flex justify-content-end text-right' %>
+      </div>
+    <% end %>
+    <div class="order-2">
+      <div class="row">
+        <%= content_tag('div', class: 'al-document-abstract-or-scope mb-0') do %>
+          <%= content_tag('div', data: { 'arclight-truncate': true, 'truncate-more': I18n.t('arclight.truncation.view_more'), 'truncate-less': I18n.t('arclight.truncation.view_less') } ) do %>
+            <%= document.abstract_or_scope %>
+          <% end %>
+          <% end if document.abstract_or_scope %>
         </div>
       </div>
     </div>
-    <% if document.number_of_children > 0 %>
-      <%= content_tag(:div, id: "#{document.id}-collapsible-hierarchy",
+  </div>
+  <% if document.number_of_children > 0 %>
+    <%= content_tag(:div, id: "#{document.id}-collapsible-hierarchy",
       class: "collapse al-collection-context-collapsible al-hierarchy-level-#{document.component_level} #{'show' if show_expanded?(document)}",
       data: { resolved: false }
     ) do %>
-        <%= generic_context_navigation(document, component_level: document.component_level + 1, original_parents: params[:original_parents]) %>
-      <% end %>
+      <%= generic_context_navigation(document, component_level: document.component_level + 1, original_parents: params[:original_parents]) %>
     <% end %>
+  <% end %>
 
 
-    <% if original_document?(document) %>
-      <% if blacklight_config.show.component_metadata_partials.present? %>
-        <div class="documentMetadata row" data-document-id="<%= document.id %>">
-          <% parents = Arclight::Parents.from_solr_document(document).as_parents %>
-          <dl class="al-metadata-section">
-            <% blacklight_config.show.component_metadata_partials.each do |metadata| %>
-              <% doc_presenter = show_presenter(document).with_field_group(metadata) %>
-              <% generic_document_fields(metadata).each do |field_name, field| %>
-                <% if generic_should_render_field?(metadata, document, field) %>
-                  <dt class="blacklight-<%= field_name.parameterize %>"><%= generic_render_document_field_label(metadata, document, field: field_name) %></dt>
-                  <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
-                <% end %>
-              <% end %>
-            <% end %>
-          </dl>
-        </div>
-      <% end %>
-    <% end %>
+  <% if original_document?(document) %>
+    <div class="documentMetadata row" data-document-id="<%= document.id %>">
+      <%= render partial: 'show_upper_metadata_default', locals:{document: document} %>
+    </div>
+  <% end %>
 
-
-
-    
-
-
-  </li>
-</li>
+</li></li>
