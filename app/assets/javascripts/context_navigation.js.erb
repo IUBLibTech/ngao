@@ -111,8 +111,7 @@ class Placeholder {
   buildElement() {
     // CHANGED PLACEHOLDER ELEMENT
     const elementMarkup = '<div class="al-hierarchy-placeholder">' +
-      '<h5 class="col-md-9"> <img alt="loading icon" src="<%= image_path('ajax-loader.gif') %>"> Loading...</h5>' +
-      '</div>';
+      `<h5 class="col-md-9"> <img alt="loading icon" src="<%= image_path('ajax-loader.gif') %>"> Loading...</h5></div>`;
     return $(elementMarkup);
   }
   /* eslint-enable class-methods-use-this */
@@ -360,12 +359,7 @@ class ContextNavigation {
     this.el.parent().data('resolved', true);
     this.addListenersForPlusMinus();
     this.enablebuttons();
-    this.showSiblingCount(      
-      newDocs,
-      that.data.arclight.originalParents,
-      that.data.arclight.parent,
-      that.parentLi
-    );
+    this.showSiblingCount();
     Blacklight.doBookmarkToggleBehavior();
     this.el.trigger('navigation.contains.elements');
   }
@@ -380,8 +374,8 @@ class ContextNavigation {
   }
 
   showSiblingCount(){
-    const alCount = this.updateSiblings.length;
-    this.el.find( ".al-count" ).text(alCount); 
+    var alCount = this.el.find('.prev-siblings').children('li').length;
+    this.el.find( ".al-count" ).text(alCount);
   }
 
   addListenersForPlusMinus() {
