@@ -66,14 +66,14 @@ body {
     border: 1px solid transparent;
     border-width: 2px;
     border-radius: 20px;
-    padding: .5625em 1em;
+    padding: 0.5625em 1em;
     margin: 0 0 1rem;
     font-size: 1rem;
     background-color: #900;
     color: #fff;
-    font-family: BentonSansBold,Helvetica,Arial,sans-serif;
+    font-family: BentonSansBold, Helvetica, Arial, sans-serif;
     font-weight: 400;
-    transition: background-color .2s ease-out,color .2s ease-out,border-color .18s ease-out;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out, border-color 0.18s ease-out;
   }
 }
 
@@ -103,7 +103,7 @@ h2.repository-header {
   display: none;
   text-decoration: none;
   color: #ffffff;
-  background-color: rgba(153, 0, 0, .7);
+  background-color: rgba(153, 0, 0, 0.7);
   padding: 10px 20px 10px 10px;
   font-size: 12px;
 }
@@ -119,7 +119,7 @@ h2.repository-header {
   margin-bottom: 1rem;
 
   h3 {
-    padding-top: .5rem;
+    padding-top: 0.5rem;
     padding-bottom: 3rem;
   }
 }
@@ -130,25 +130,65 @@ tr.needs-update {
   background-color: $iu-cream;
 }
 
+// Divider for Collections
+.divider {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  .btn {
+    display: flex;
+    align-items: center;
+
+    color: #4a3c31;
+    padding-left: 0;
+    img {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.divider:before,
+.divider:after {
+  content: "";
+  flex: 0 1 100%;
+  border-bottom: 1px solid rgba(74, 60, 49, 0.3);
+  margin: 0 1rem;
+}
+
+.divider:before {
+  margin-left: 0;
+}
+
+.divider:after {
+  margin-right: 0;
+}
+
+.divider[text-position="right"]:after,
+.divider[text-position="left"]:before {
+  content: none;
+}
+
 // Repository Show page overrides
 .blacklight-repositories-show {
-  .al-repository-collections::after{
-    content: '';
+  .al-repository-collections::after {
+    content: "";
   }
 }
 
 // Container show page overrides
-.al-toggle-children-container{
+.al-toggle-children-container {
   margin-left: 0;
 }
 
 .al-toggle-view-children:not(.collapsed)::before {
-  content: image-url('blacklight/minus.svg');
+  content: image-url("blacklight/minus.svg");
   position: relative;
   top: 6px;
 }
 .al-toggle-view-children::before {
-  content: image-url('blacklight/plus.svg');
+  content: image-url("blacklight/plus.svg");
   position: relative;
   top: 6px;
 }
@@ -158,4 +198,26 @@ tr.needs-update {
 }
 .al-toggle-view-children::after {
   content: none;
+}
+
+.al-hierarchy-highlight {
+  > .documentMetadata,
+  > .documentHeader {
+   background: #FDF7E7;
+   padding: 0 1rem;
+ }
+ > .documentHeader {
+  padding-top: 1rem;
+}
+}
+li.al-collection-context {
+  .documentHeader {
+    margin-bottom: 0 !important;
+    padding-bottom: 1rem;
+  }
+  .documentMetadata {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
 }
