@@ -2,34 +2,21 @@
   <% parents = Arclight::Parents.from_solr_document(document).as_parents %>
   <dl class="al-metadata-section">
     <% blacklight_config.show.component_metadata_partials.each do |metadata| %>
-<<<<<<< HEAD
-      <% show_presenter = show_presenter(document).with_field_group(metadata) %>
-      <% generic_document_fields(metadata).each do |field_name, field| %>
-        <% if generic_should_render_field?(metadata, document, field) %>
-          <dt class="blacklight-<%= field_name.parameterize %>"><%= generic_render_document_field_label(metadata, document, field: field_name) %></dt>
-          <% if field_name =~/creator/i  %>
-            <% show_presenter.document.fetch('creators_ssim', []).each do |v| %>
-=======
       <% presenter = show_presenter(document).with_field_group(metadata) %>
       <% generic_document_fields(metadata).each do |field_name, field| %>
         <% if generic_should_render_field?(metadata, document, field) %>
           <dt class="blacklight-<%= field_name.parameterize %>"><%= generic_render_document_field_label(metadata, document, field: field_name) %></dt>
-          <% if field_name =~/creator/i %>
+          <% if field_name =~/creator/i && document.has_key?('creators_ssim') %>
             <% presenter.document.fetch('creators_ssim').each do |v| %>
->>>>>>> 56f9133c82a161e1ea900e7687380fd476881247
-            <dd class="blacklight-<%= field_name.parameterize %>">
-              <%= link_to(v, search_catalog_path("f[creators_ssim][]": v)) %>
-            </dd>
-          <%end%>
-          <%else%>
-<<<<<<< HEAD
-            <dd class="blacklight-<%= field_name.parameterize %>"><%= show_presenter.field_value field %></dd>
-=======
-            <dd class="blacklight-<%= field_name.parameterize %>"><%= presenter.field_value field %></dd>
->>>>>>> 56f9133c82a161e1ea900e7687380fd476881247
-          <%end%>
+              <dd class="blacklight-<%= field_name.parameterize %>">
+                <%= link_to(v, search_catalog_path("f[creators_ssim][]": v)) %>
+              </dd>
+              <%end%>
+              <%else%>
+              <dd class="blacklight-<%= field_name.parameterize %>"><%= presenter.field_value field %></dd>
+              <%end%>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
+      </dl>
     <% end %>
-  </dl>
-<% end %>
