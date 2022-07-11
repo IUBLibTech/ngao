@@ -34,8 +34,8 @@ class ExpandButton {
    * @return {jQuery} - a jQuery object containing the targeted <li>
    */
   findSiblings() {
-    const $siblings = this.$el.parent().children('li');
-    return $siblings.slice(0, -1);
+    const $siblings = this.$el.parent().siblings('li');
+    return $siblings;
   }
 
   /**
@@ -51,20 +51,31 @@ class ExpandButton {
     this.$el.toggleClass('collapsed');
 
     const containerText = this.$el.hasClass('collapsed') ? this.collapseText : this.expandText;
-    this.$el.text(containerText);
+    this.$el.html(containerText);
+    // Update count on click
+    const alCount = this.findSiblings().length;
+    this.$el.find( ".al-count" ).text(alCount);
   }
 
   /**
    * @constructor
    */
   constructor(data) {
-    this.collapseText = data.collapse;
-    this.expandText = data.expand;
+    var collapseIcon = `<img alt='collapse' src='<%= image_path('blacklight/collapse.svg') %>'>`;
+    var expandIcon = `<img alt='expand' src='<%= image_path('blacklight/expand.svg') %>'>`;
+    
+    // Find Siblings count
+    var siblingCount =   `&nbsp;<span class='al-count'>999</span>&nbsp;`;
 
-    this.$el = $(`<button class="my-3 btn btn-secondary btn-sm">${this.expandText}</button>`);
+    this.collapseText =  collapseIcon + `Hide`+ siblingCount  + data.collapse;
+    this.expandText =  expandIcon + `Show` + siblingCount + data.expand;
+
+    
+    this.$el = $(`<button class="btn btn-link btn-sm">${this.expandText}</button>`);
     this.handleClick = this.handleClick.bind(this);
     this.$el.click(this.handleClick);
   }
+  
 }
 
 /**
@@ -76,13 +87,13 @@ class NestedExpandButton extends ExpandButton {
   /**
    * This retrieves the <li> elements which are hidden/rendered in response to
    *   clicking the <button> element
-   * @param {jQuery} $li - the <button> element
+   * @param {jQuery} $span - the <button> element
    * @return {jQuery} - a jQuery object containing the targeted <li>
    */
   findSiblings() {
     const highlighted = this.$el.siblings('.al-hierarchy-highlight');
     const $siblings = highlighted.prevAll('.al-collection-context');
-    return $siblings.slice(0, -1);
+    return $siblings;
   }
 }
 
@@ -100,8 +111,7 @@ class Placeholder {
   buildElement() {
     // CHANGED PLACEHOLDER ELEMENT
     const elementMarkup = '<div class="al-hierarchy-placeholder">' +
-      '<h3 class="col-md-9"> <img alt="loading icon" src="<%= image_path('ajax-loader.gif') %>"> Loading...</h3>' +
-      '</div>';
+      `<h5 class="col-md-9"> <img alt="loading icon" src="<%= image_path('ajax-loader.gif') %>"> Loading...</h5></div>`;
     return $(elementMarkup);
   }
   /* eslint-enable class-methods-use-this */
@@ -173,8 +183,15 @@ class ContextNavigation {
     const $ul = $('<ul></ul>');
     $ul.addClass('pl-0');
     $ul.addClass('prev-siblings');
+
+    const $span = $('<span></span>');
+    $span.addClass('divider');
+    $span.attr('text-position', 'left');
+    $ul.append($span);
+
     const button = new ExpandButton(this.data);
-    $ul.append(button.$el);
+    $span.append(button.$el);
+  
     return $ul;
   }
 
@@ -193,7 +210,7 @@ class ContextNavigation {
     let nextSiblingDocs = [];
 
     if (prevSiblingDocs.length > 1 && originalDocumentIndex > 0) {
-      const hiddenPrevSiblingDocs = prevSiblingDocs.slice(0, -1);
+      const hiddenPrevSiblingDocs = prevSiblingDocs;
       hiddenPrevSiblingDocs.forEach(siblingDoc => {
         siblingDoc.collapse();
       });
@@ -214,6 +231,7 @@ class ContextNavigation {
     // Insert the rendered sibling documents before the <li> elements
     this.ul.append(renderedNextSiblingItems);
     this.el.html(this.ul);
+
   }
 
   /**
@@ -246,7 +264,11 @@ class ContextNavigation {
       });
       renderedBeforeDocs = beforeDocs.map(newDoc => newDoc.render()).join('');
       prevParentList = this.buildExpandList();
+
+
       prevParentList.append(renderedBeforeDocs);
+
+      
     } else {
       renderedBeforeDocs = beforeDocs.map(newDoc => newDoc.render()).join('');
     }
@@ -254,6 +276,7 @@ class ContextNavigation {
     // Silly but works for now
     this.ul.append(prevParentList || renderedBeforeDocs);
 
+  
     let itemDoc = newDocs.slice(newDocIndex, newDocIndex + 1);
     let renderedItemDoc = itemDoc.map(doc => doc.render()).join('');
 
@@ -289,12 +312,12 @@ class ContextNavigation {
   updateListSiblings($li) {
     const prevSiblings = $li.prevAll('.al-collection-context');
     if (prevSiblings.length > 1) {
-      const hiddenNextSiblings = prevSiblings.slice(0, -1);
+      const hiddenNextSiblings = prevSiblings;
       hiddenNextSiblings.toggleClass('collapsed');
 
       const button = new NestedExpandButton();
 
-      const lastHiddenNextSibling = hiddenNextSiblings[hiddenNextSiblings.length - 1];
+      const lastHiddenNextSibling = hiddenNextSiblings[hiddenNextSiblings.length];
       button.$el.insertAfter(lastHiddenNextSibling);
     }
   }
@@ -336,6 +359,7 @@ class ContextNavigation {
     this.el.parent().data('resolved', true);
     this.addListenersForPlusMinus();
     this.enablebuttons();
+    this.showSiblingCount();
     Blacklight.doBookmarkToggleBehavior();
     this.el.trigger('navigation.contains.elements');
   }
@@ -346,7 +370,12 @@ class ContextNavigation {
     var srOnly = $('h2[data-sr-enable-me]');
     toEnable.removeClass('disabled');
     toEnable.text(srOnly.data('hasContents'));
-    srOnly.text(srOnly.data('hasContents'));
+    srOnly.text(srOnly.data('hasContents'));  
+  }
+
+  showSiblingCount(){
+    var alCount = this.el.find('.prev-siblings').children('li').length;
+    this.el.find( ".al-count" ).text(alCount);
   }
 
   addListenersForPlusMinus() {
@@ -380,4 +409,5 @@ Blacklight.onLoad(function () {
       );
     contextNavigation.getData();
   });
+ 
 });
