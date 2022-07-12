@@ -9,7 +9,7 @@
       // Add a placeholder so flashes of text are not as significant
       // replaced placeholder from arclight
       var placeholder = '<div class="al-hierarchy-placeholder">' +
-        '<h3 class="col-md-9"> <img alt="loading icon" src="<%= image_path('ajax-loader.gif') %>"> Loading...</h3>' +
+        `<h5 class="col-md-9"> <img alt="loading icon" src="<%= image_path('ajax-loader.gif') %>"> Loading...</h5>` +
         '</div>';
       $el.html(placeholder);
       $.ajax({

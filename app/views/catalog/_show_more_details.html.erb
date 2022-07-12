@@ -4,12 +4,14 @@
     <% blacklight_config.show.component_metadata_partials.each do |metadata| %>
       <% presenter = show_presenter(document).with_field_group(metadata) %>
       <% generic_document_fields(metadata).each do |field_name, field| %>
+        <%# byebug if field_name == 'odd_ssm' %>
         <% if generic_should_render_field?(metadata, document, field) %>
+          
           <dt class="blacklight-<%= field_name.parameterize %>"><%= generic_render_document_field_label(metadata, document, field: field_name) %></dt>
-          <% if field_name =~/creator/i && document.has_key?('creators_ssim') %>
-            <% presenter.document.fetch('creators_ssim').each do |v| %>
+          <% if field_name =~/creator/i && document.has_key?('creator_ssm') %>
+            <% presenter.document.fetch('creator_ssm').each do |v| %>
               <dd class="blacklight-<%= field_name.parameterize %>">
-                <%= link_to(v, search_catalog_path("f[creators_ssim][]": v)) %>
+                <%= link_to(v, search_catalog_path("f[creator_ssm][]": v)) %>
               </dd>
               <%end%>
               <%else%>

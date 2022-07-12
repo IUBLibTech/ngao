@@ -73,7 +73,7 @@
 
   <% if original_document?(document) %>
     <div class="documentMetadata row" data-document-id="<%= document.id %>">
-      <%= render partial: 'show_upper_metadata_default', locals:{document: document} %>
+      <%= render partial: 'show_more_details', locals:{document: document} %>
     </div>
   <% end %>
 
