@@ -1,7 +1,7 @@
 <%# COPIED FROM ARCLIGHT TO REMOVE ICON FROM COLLECTION CONTEXT %>
 
 <li id="<%= document.id %>" class="al-collection-context row d-flex align-items-start">
-  <div class="documentHeader row" data-document-id="<%= document.id %>">
+  <div class="documentHeader col-12" data-document-id="<%= document.id %>">
     <% requestable = item_requestable?('', { document: document }) %>
     <%# REMOVE ICON FROM COLLECTION CONTEXT %>
     <div class="col col-no-left-padding d-flex flex-wrap">
@@ -71,7 +71,10 @@
 
 
 <% if original_document?(document) %>
-  <div class="documentMetadata row" data-document-id="<%= document.id %>">
+  <div class="documentMetadata col-12" data-document-id="<%= document.id %>">
     <%= render partial: 'show_more_details', locals:{document: document} %>
   </div>
-<% end %></li></li>
+<% end %>
+
+
+</li>
