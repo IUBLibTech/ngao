@@ -285,6 +285,7 @@ class CatalogController < ApplicationController
     config.add_summary_field 'extent_ssm', label: 'Extent'
     config.add_summary_field 'language_ssm', label: 'Language'
     config.add_summary_field 'prefercite_ssm', label: 'Preferred citation', helper_method: :render_html_tags
+    
 
     # Collection Show Page - Background Section
     config.add_background_field 'bioghist_ssm', label: 'Biographical / Historical', helper_method: :render_html_tags
@@ -369,9 +370,14 @@ class CatalogController < ApplicationController
     config.add_component_field 'fileplan_ssm', label: 'File plan', helper_method: :render_html_tags
     config.add_component_field 'materialspec_ssm', label: 'Materials specific details', helper_method: :render_html_tags
     config.add_component_field 'physdesc_ssm', label: 'Physical description', helper_method: :render_html_tags
-    config.add_component_field 'creator_ssm', label: 'Creator', helper_method: :render_html_tags
-
+    
     # Component Show Page - Indexed Terms Section
+    config.add_component_indexed_terms_field 'creator_ssm', label: 'Creator', link_to_facet: true, separator_options: {
+      words_connector: '<br/>',
+      two_words_connector: '<br/>',
+      last_word_connector: '<br/>'
+    }
+
     config.add_component_indexed_terms_field 'access_subjects_ssim', label: 'Subjects', link_to_facet: true, separator_options: {
       words_connector: '<br/>',
       two_words_connector: '<br/>',
