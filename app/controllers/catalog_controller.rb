@@ -107,6 +107,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'creator_ssim', label: 'Creator', limit: 10
     config.add_facet_field 'creators_ssim', label: 'Creator', show: false
     config.add_facet_field 'component_level_isim', show: false
+    config.add_facet_field 'date_range_sim', label: 'Year', range: {assumed_boundaries: [0, Time.now.year + 2]}
     config.add_facet_field 'names_ssim', label: 'Names', limit: 10
     config.add_facet_field 'geogname_sim', label: 'Place', limit: 10
     config.add_facet_field 'places_ssim', label: 'Places', show: false
@@ -297,7 +298,7 @@ class CatalogController < ApplicationController
     config.add_background_field 'phystech_ssm', label: 'Physical / technical requirements', helper_method: :render_html_tags
     config.add_background_field 'physloc_ssm', label: 'Physical location', helper_method: :render_html_tags
     config.add_background_field 'descrules_ssm', label: 'Rules or conventions', helper_method: :render_html_tags
-    config.add_background_field 'physfacet_ssm', label: 'Physical facet', helper_method: :render_html_tags
+    config.add_background_field 'physfacet_ssm', label: 'Physical facet'
     config.add_background_field 'dimensions_ssm', label: 'Dimensions', helper_method: :render_html_tags
     config.add_background_field 'odd_ssm', label: 'General note', helper_method: :render_html_tags
     config.add_background_field 'bibliography_ssm', label: 'Bibliography', helper_method: :render_html_tags
@@ -356,7 +357,7 @@ class CatalogController < ApplicationController
     config.add_component_field 'phystech_ssm', label: 'Physical / technical requirements', helper_method: :render_html_tags
     config.add_component_field 'physloc_ssm', label: 'Physical location', helper_method: :render_html_tags
     config.add_component_field 'altformavail_ssm', label: 'Alternative form available', helper_method: :render_html_tags
-    config.add_component_field 'physfacet_ssm', label: 'Physical facet', helper_method: :render_html_tags
+    config.add_component_field 'physfacet_ssm', label: 'Physical facet'
     config.add_component_field 'dimensions_ssm', label: 'Dimensions', helper_method: :render_html_tags
     config.add_component_field 'odd_ssm', label: 'General note', helper_method: :render_html_tags
     config.add_component_field 'bioghist_ssm', label: 'Biographical / Historical', helper_method: :render_html_tags
@@ -368,9 +369,14 @@ class CatalogController < ApplicationController
     config.add_component_field 'fileplan_ssm', label: 'File plan', helper_method: :render_html_tags
     config.add_component_field 'materialspec_ssm', label: 'Materials specific details', helper_method: :render_html_tags
     config.add_component_field 'physdesc_ssm', label: 'Physical description', helper_method: :render_html_tags
-    config.add_component_field 'creator_ssm', label: 'Creator', helper_method: :render_html_tags
-
+    
     # Component Show Page - Indexed Terms Section
+    config.add_component_indexed_terms_field 'creator_ssm', label: 'Creator', link_to_facet: true, separator_options: {
+      words_connector: '<br/>',
+      two_words_connector: '<br/>',
+      last_word_connector: '<br/>'
+    }
+
     config.add_component_indexed_terms_field 'access_subjects_ssim', label: 'Subjects', link_to_facet: true, separator_options: {
       words_connector: '<br/>',
       two_words_connector: '<br/>',
@@ -421,7 +427,7 @@ class CatalogController < ApplicationController
     end
 
     # Insert the breadcrumbs at the beginning
-    config.show.partials.unshift(:show_upper_metadata)
+    # config.show.partials.unshift(:show_upper_metadata)
     config.show.partials.unshift(:show_breadcrumbs)
     config.show.partials.delete(:show_header)
 
