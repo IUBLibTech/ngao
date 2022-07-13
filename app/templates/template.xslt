@@ -13,7 +13,7 @@
 			<!-- Outputs header information for the HTML document 			-->
 			<!-- ****************************************************************** -->
 			<head>
-				<link rel="stylesheet" href="/assets/print.scss"/>
+				<link rel="stylesheet" href="/html/print.css"/>
 				<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico"/>
 				<title>
 					<xsl:apply-templates select="eadheader/filedesc/titlestmt/titleproper"/>

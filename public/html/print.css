@@ -1,0 +1,327 @@
+@media screen {
+  /* line 4, app/assets/stylesheets/print.scss */
+  body.ead-print {
+    font-size: 12pt;
+    padding-top: 5rem;
+    width: 70rem;
+    max-width: 95%;
+  }
+}
+
+@media print {
+  /* line 13, app/assets/stylesheets/print.scss */
+  html {
+    width: 100%;
+  }
+  /* line 17, app/assets/stylesheets/print.scss */
+  body.ead-print {
+    font-size: 10pt;
+  }
+}
+
+/* line 22, app/assets/stylesheets/print.scss */
+body.ead-print {
+  font-family: GeorgiaPro, Georgia, "Times New Roman", Times, serif;
+  margin: auto;
+}
+
+/* line 27, app/assets/stylesheets/print.scss */
+.no-bullets {
+  list-style-type: none;
+}
+
+/* line 31, app/assets/stylesheets/print.scss */
+div.title-block {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2.5pt solid;
+}
+
+/* line 36, app/assets/stylesheets/print.scss */
+div.title-block h1 {
+  font-size: 175%;
+}
+
+/* line 40, app/assets/stylesheets/print.scss */
+div.title-block p {
+  font-size: 125%;
+}
+
+/* line 45, app/assets/stylesheets/print.scss */
+div.did {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2.5pt solid;
+}
+
+/* line 51, app/assets/stylesheets/print.scss */
+table {
+  table-layout: fixed;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  font-size: 100%;
+}
+
+/* line 59, app/assets/stylesheets/print.scss */
+table thead {
+  vertical-align: top;
+  font-weight: bold;
+}
+
+/* line 64, app/assets/stylesheets/print.scss */
+table tbody {
+  vertical-align: top;
+}
+
+/* line 68, app/assets/stylesheets/print.scss */
+table td {
+  min-width: 15%;
+}
+
+/* line 73, app/assets/stylesheets/print.scss */
+table.overview {
+  width: 100%;
+}
+
+/* line 75, app/assets/stylesheets/print.scss */
+table.overview td {
+  padding-top: .25rem;
+}
+
+/* line 79, app/assets/stylesheets/print.scss */
+table.overview td.did-label {
+  font-weight: bold;
+  vertical-align: text-top;
+  width: 8.5rem;
+}
+
+/* line 85, app/assets/stylesheets/print.scss */
+table.overview td.did-value {
+  font-weight: normal;
+}
+
+/* line 91, app/assets/stylesheets/print.scss */
+table.chronlist td.date {
+  width: 8rem;
+}
+
+/* line 94, app/assets/stylesheets/print.scss */
+table.chronlist h4 {
+  -webkit-margin-after: 0.25rem;
+          margin-block-end: 0.25rem;
+}
+
+/* line 99, app/assets/stylesheets/print.scss */
+div.archdesc-section {
+  border-bottom: 1.5pt solid;
+}
+
+/* line 102, app/assets/stylesheets/print.scss */
+div.archdesc-section h3 {
+  -webkit-margin-after: 0.5rem;
+          margin-block-end: 0.5rem;
+}
+
+/* line 106, app/assets/stylesheets/print.scss */
+div.archdesc-section p {
+  -webkit-margin-before: 0.25rem;
+          margin-block-start: 0.25rem;
+}
+
+/* line 110, app/assets/stylesheets/print.scss */
+div.archdesc-section ul.subject-headings {
+  list-style-type: none;
+  margin: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+
+/* line 115, app/assets/stylesheets/print.scss */
+div.archdesc-section ul.subject-headings h5 {
+  font-size: 100%;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+/* line 121, app/assets/stylesheets/print.scss */
+div.archdesc-section ul.subject-headings ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* line 127, app/assets/stylesheets/print.scss */
+div.archdesc-section li.subj-label {
+  margin-bottom: 0.75rem;
+  display: flex;
+}
+
+/* line 131, app/assets/stylesheets/print.scss */
+div.archdesc-section li.subj-label ul {
+  margin-top: 0;
+}
+
+/* line 135, app/assets/stylesheets/print.scss */
+div.archdesc-section li.subj-label .label, div.archdesc-section li.subj-label h5 {
+  width: 9rem;
+  text-align: right;
+  margin-right: 1rem;
+}
+
+/* line 144, app/assets/stylesheets/print.scss */
+div.archdesc-section.restrict h4 {
+  display: inline;
+  margin-right: .5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  float: left;
+}
+
+/* line 154, app/assets/stylesheets/print.scss */
+div.archdesc-section.admininfo .subhead-1 {
+  font-weight: bold;
+  display: inline;
+}
+
+/* line 159, app/assets/stylesheets/print.scss */
+ul.bibliography {
+  -webkit-margin-before: 0.5rem;
+          margin-block-start: 0.5rem;
+}
+
+/* line 164, app/assets/stylesheets/print.scss */
+.component:nth-of-type(odd) {
+  background-color: #edebeb;
+  margin-left: -4pt;
+  padding-left: 4pt;
+}
+
+/* line 172, app/assets/stylesheets/print.scss */
+div.component {
+  display: flex;
+}
+
+/* line 175, app/assets/stylesheets/print.scss */
+div.component p, div.component ol, div.component ul {
+  -webkit-margin-before: 0.25rem;
+          margin-block-start: 0.25rem;
+  -webkit-margin-after: 0.25rem;
+          margin-block-end: 0.25rem;
+}
+
+/* line 180, app/assets/stylesheets/print.scss */
+div.component .label {
+  text-transform: uppercase;
+  color: #4A3C31;
+}
+
+/* line 189, app/assets/stylesheets/print.scss */
+div.component div.box-folder {
+  margin-bottom: 6pt;
+  padding-top: 5.5pt;
+  font-family: BentonSansCondBold, "Arial Narrow", "Helvetica Neue Condensed Bold", sans-serif;
+  font-weight: bold;
+  vertical-align: top;
+  width: 6rem;
+}
+
+/* line 199, app/assets/stylesheets/print.scss */
+div.component div.component-info {
+  border-top: 1.25pt solid dimgrey;
+  padding-top: 4pt;
+  padding-left: 4pt;
+  margin-bottom: 6pt;
+  width: 100%;
+}
+
+/* line 206, app/assets/stylesheets/print.scss */
+div.component div.component-info h4, div.component div.component-info h5 {
+  display: inline;
+  color: #4A3C31;
+  text-transform: uppercase;
+  margin-right: .5rem;
+  margin-top: 4pt;
+  margin-bottom: 0;
+}
+
+/* line 215, app/assets/stylesheets/print.scss */
+div.component div.component-info h5 {
+  font-size: initial;
+}
+
+/* line 220, app/assets/stylesheets/print.scss */
+div.component .unittitle {
+  display: inline;
+  font-family: GeorgiaProBold, Georgia, "Times New Roman", Times, serif;
+  margin-bottom: 6pt;
+}
+
+/* line 227, app/assets/stylesheets/print.scss */
+.unittitle.series, .unittitle.subseries {
+  font-size: 115%;
+  font-weight: bold;
+}
+
+/* line 234, app/assets/stylesheets/print.scss */
+.c01 div.component-info,
+.c div.component-info {
+  margin-left: 0;
+}
+
+/* line 239, app/assets/stylesheets/print.scss */
+.c02 div.component-info {
+  margin-left: 2rem;
+}
+
+/* line 243, app/assets/stylesheets/print.scss */
+.c03 div.component-info {
+  margin-left: 4rem;
+}
+
+/* line 247, app/assets/stylesheets/print.scss */
+.c04 div.component-info {
+  margin-left: 6rem;
+}
+
+/* line 251, app/assets/stylesheets/print.scss */
+.c05 div.component-info {
+  margin-left: 8rem;
+}
+
+/* line 255, app/assets/stylesheets/print.scss */
+.c06 div.component-info {
+  margin-left: 10rem;
+}
+
+/* line 259, app/assets/stylesheets/print.scss */
+.c07 div.component-info {
+  margin-left: 12rem;
+}
+
+/* line 263, app/assets/stylesheets/print.scss */
+.c08 div.component-info {
+  margin-left: 14rem;
+}
+
+/* line 267, app/assets/stylesheets/print.scss */
+.c09 div.component-info {
+  margin-left: 16rem;
+}
+
+/* line 271, app/assets/stylesheets/print.scss */
+.c10 div.component-info {
+  margin-left: 18rem;
+}
+
+/* line 274, app/assets/stylesheets/print.scss */
+.c11 div.component-info {
+  margin-left: 20rem;
+}
+
+/* line 278, app/assets/stylesheets/print.scss */
+.c12 div.component-info {
+  margin-left: 22rem;
+}
