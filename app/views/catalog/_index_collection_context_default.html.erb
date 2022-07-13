@@ -1,14 +1,13 @@
 <%# COPIED FROM ARCLIGHT TO REMOVE ICON FROM COLLECTION CONTEXT %>
 
 <li id="<%= document.id %>" class="al-collection-context row d-flex align-items-start">
-  <div class="documentHeader row" data-document-id="<%= document.id %>">
+  <div class="documentHeader col-12" data-document-id="<%= document.id %>">
     <% requestable = item_requestable?('', { document: document }) %>
     <%# REMOVE ICON FROM COLLECTION CONTEXT %>
     <div class="col col-no-left-padding d-flex flex-wrap">
       <div class="index_title document-title-heading my-w-75 w-md-100 order-0">
         <div class="al-toggle-children-container">
           <% if document.children? %>
-
             <%= link_to(
           "##{document.id}-collapsible-hierarchy",
           class: "al-toggle-view-children #{!show_expanded?(document) ? 'collapsed' : ''}",
@@ -16,9 +15,7 @@
             data: {
               toggle: 'collapse'
             }
-          ) do
-        %>
-
+          ) do %>
               <% if document.level == "Series" %>
                 <span class="text-nowrap text-muted">Series:</span>
               <% end %>
@@ -52,22 +49,32 @@
     <% end %>
     <div class="order-2">
       <div class="row">
+        <% unless original_document?(document) %>
         <%= content_tag('div', class: 'al-document-abstract-or-scope mb-0') do %>
           <%= content_tag('div', data: { 'arclight-truncate': true, 'truncate-more': I18n.t('arclight.truncation.view_more'), 'truncate-less': I18n.t('arclight.truncation.view_less') } ) do %>
             <%= document.abstract_or_scope %>
           <% end %>
           <% end if document.abstract_or_scope %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
-  <% if document.number_of_children > 0 %>
-    <%= content_tag(:div, id: "#{document.id}-collapsible-hierarchy",
+</div>
+<% if document.number_of_children > 0 %>
+  <%= content_tag(:div, id: "#{document.id}-collapsible-hierarchy",
       class: "collapse al-collection-context-collapsible al-hierarchy-level-#{document.component_level} #{'show' if show_expanded?(document)}",
       data: { resolved: false }
     ) do %>
-      <%= generic_context_navigation(document, component_level: document.component_level + 1, original_parents: params[:original_parents]) %>
-    <% end %>
+    <%= generic_context_navigation(document, component_level: document.component_level + 1, original_parents: params[:original_parents]) %>
   <% end %>
+<% end %>
 
-</li></li>
+
+<% if original_document?(document) %>
+  <div class="documentMetadata col-12" data-document-id="<%= document.id %>">
+    <%= render partial: 'show_more_details', locals:{document: document} %>
+  </div>
+<% end %>
+
+
+</li>
