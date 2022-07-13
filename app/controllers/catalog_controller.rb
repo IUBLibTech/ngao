@@ -333,6 +333,7 @@ class CatalogController < ApplicationController
     }, if: lambda { |_context, _field_config, document|
       document.containers.present?
     }
+    config.add_component_field 'unitid_ssm', label: 'Component Identifier', helper_method: :render_html_tags
     config.add_component_field 'abstract_ssm', label: 'Abstract', helper_method: :render_html_tags
     config.add_component_field 'extent_ssm', label: 'Extent'
     config.add_component_field 'scopecontent_tesim', label: 'Scope and Content', helper_method: :render_html_tags
