@@ -1,19 +1,29 @@
 # frozen_string_literal: true
 
 class CatalogController < ApplicationController
-  include Blacklight::Catalog
   include BlacklightRangeLimit::ControllerOverride
+  include BlacklightAdvancedSearch::Controller
+  include Blacklight::Catalog
 
   include Arclight::Catalog
   include Arclight::FieldConfigHelpers
 
   configure_blacklight do |config|
+    # default advanced config values
+    config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
+    # config.advanced_search[:qt] ||= 'advanced'
+    config.advanced_search[:url_key] ||= 'advanced'
+    config.advanced_search[:query_parser] ||= 'dismax'
+    config.advanced_search[:form_solr_parameters] ||= {}
+
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
     #
     ## Class for converting Blacklight's url parameters to into request parameters for the search index
     # config.search_builder_class = ::SearchBuilder
     #
+    # Adds AND OR NOT etc to regular search
+    ::SearchBuilder.default_processor_chain << :add_advanced_parse_q_to_solr
     ## Model that maps search index responses to the blacklight response model
     # config.response_model = Blacklight::Solr::Response
 
@@ -97,12 +107,13 @@ class CatalogController < ApplicationController
     config.add_facet_field 'creator_ssim', label: 'Creator', limit: 10
     config.add_facet_field 'creators_ssim', label: 'Creator', show: false
     config.add_facet_field 'component_level_isim', show: false
-    config.add_facet_field 'date_range_sim', label: 'Date Range', range: true
+    config.add_facet_field 'date_range_sim', label: 'Year', range: {assumed_boundaries: [0, Time.now.year + 2]}
     config.add_facet_field 'names_ssim', label: 'Names', limit: 10
     config.add_facet_field 'geogname_sim', label: 'Place', limit: 10
     config.add_facet_field 'places_ssim', label: 'Places', show: false
     config.add_facet_field 'access_subjects_ssim', label: 'Subject', limit: 10
     config.add_facet_field 'parent_ssim', show: false
+    config.add_facet_field 'date_range_iim', label: 'Year', range: {assumed_boundaries: [0, Time.now.year + 2]}, :include_in_advanced_search => false
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -287,7 +298,7 @@ class CatalogController < ApplicationController
     config.add_background_field 'phystech_ssm', label: 'Physical / technical requirements', helper_method: :render_html_tags
     config.add_background_field 'physloc_ssm', label: 'Physical location', helper_method: :render_html_tags
     config.add_background_field 'descrules_ssm', label: 'Rules or conventions', helper_method: :render_html_tags
-    config.add_background_field 'physfacet_ssm', label: 'Physical facet', helper_method: :render_html_tags
+    config.add_background_field 'physfacet_ssm', label: 'Physical facet'
     config.add_background_field 'dimensions_ssm', label: 'Dimensions', helper_method: :render_html_tags
     config.add_background_field 'odd_ssm', label: 'General note', helper_method: :render_html_tags
     config.add_background_field 'bibliography_ssm', label: 'Bibliography', helper_method: :render_html_tags
@@ -347,7 +358,7 @@ class CatalogController < ApplicationController
     config.add_component_field 'phystech_ssm', label: 'Physical / technical requirements', helper_method: :render_html_tags
     config.add_component_field 'physloc_ssm', label: 'Physical location', helper_method: :render_html_tags
     config.add_component_field 'altformavail_ssm', label: 'Alternative form available', helper_method: :render_html_tags
-    config.add_component_field 'physfacet_ssm', label: 'Physical facet', helper_method: :render_html_tags
+    config.add_component_field 'physfacet_ssm', label: 'Physical facet'
     config.add_component_field 'dimensions_ssm', label: 'Dimensions', helper_method: :render_html_tags
     config.add_component_field 'odd_ssm', label: 'General note', helper_method: :render_html_tags
     config.add_component_field 'bioghist_ssm', label: 'Biographical / Historical', helper_method: :render_html_tags
@@ -359,9 +370,14 @@ class CatalogController < ApplicationController
     config.add_component_field 'fileplan_ssm', label: 'File plan', helper_method: :render_html_tags
     config.add_component_field 'materialspec_ssm', label: 'Materials specific details', helper_method: :render_html_tags
     config.add_component_field 'physdesc_ssm', label: 'Physical description', helper_method: :render_html_tags
-    config.add_component_field 'creator_ssm', label: 'Creator', helper_method: :render_html_tags
-
+    
     # Component Show Page - Indexed Terms Section
+    config.add_component_indexed_terms_field 'creator_ssm', label: 'Creator', link_to_facet: true, separator_options: {
+      words_connector: '<br/>',
+      two_words_connector: '<br/>',
+      last_word_connector: '<br/>'
+    }
+
     config.add_component_indexed_terms_field 'access_subjects_ssim', label: 'Subjects', link_to_facet: true, separator_options: {
       words_connector: '<br/>',
       two_words_connector: '<br/>',
@@ -412,7 +428,7 @@ class CatalogController < ApplicationController
     end
 
     # Insert the breadcrumbs at the beginning
-    config.show.partials.unshift(:show_upper_metadata)
+    # config.show.partials.unshift(:show_upper_metadata)
     config.show.partials.unshift(:show_breadcrumbs)
     config.show.partials.delete(:show_header)
 
@@ -432,4 +448,5 @@ class CatalogController < ApplicationController
     config.view.compact
     config.view.compact.partials = %i[arclight_index_compact]
   end
+
 end

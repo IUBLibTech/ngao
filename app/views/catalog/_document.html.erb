@@ -1,0 +1,12 @@
+<% # container for a single doc -%>
+<%component = (blacklight_config.view_config(document_index_view_type).document_component || Blacklight::DocumentComponent).new(document: document, counter: document_counter_with_offset(document_counter)) %>
+<%= render(component) do |component| %>
+  <% 
+      having_partials = blacklight_config.view_config(document_index_view_type).partials.any? 
+  blank_component =  blacklight_config.view_config(document_index_view_type).document_component.blank?
+
+%>
+  <% component.with( blank_component && having_partials  ? :body : :partials) do %>
+    <%= render_document_partials document, blacklight_config.view_config(document_index_view_type).partials, component: component, document_counter: document_counter %>
+  <% end %>
+<% end %>

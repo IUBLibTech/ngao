@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
+  # Turn this back on if the /advanced endpoint is desired
+  # mount BlacklightAdvancedSearch::Engine => '/'
+
   mount Arclight::Engine => '/'
+  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
 
   root to: 'arclight/repositories#index'
   concern :searchable, Blacklight::Routes::Searchable.new
