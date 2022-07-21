@@ -372,7 +372,7 @@ class CatalogController < ApplicationController
     config.add_component_field 'physdesc_ssm', label: 'Physical description', helper_method: :render_html_tags
     
     # Component Show Page - Indexed Terms Section
-    config.add_component_indexed_terms_field 'creator_ssm', label: 'Creator', link_to_facet: true, separator_options: {
+    config.add_component_indexed_terms_field 'creator_ssim', label: 'Creator', link_to_facet: true, separator_options: {
       words_connector: '<br/>',
       two_words_connector: '<br/>',
       last_word_connector: '<br/>'
