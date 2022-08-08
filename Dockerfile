@@ -1,5 +1,5 @@
 # system dependency image
-FROM ruby:2.7-buster AS ngao-sys-deps
+FROM ruby:2.7 AS ngao-sys-deps
 
 # TODO: setup app user inside the container instead of running the Rails processes as root
 ARG USER_ID=1000
@@ -51,7 +51,9 @@ ENTRYPOINT ["bundle", "exec"]
 # webserver image
 FROM ngao-deps as ngao-web
 RUN bundle exec rake assets:precompile
-RUN mkdir /app/tmp/pids 
+RUN bundle exec sass ./app/assets/stylesheets/print.scss ./public/assets/print.scss
+RUN ls -l ./public/assets/print.scss
+RUN mkdir /app/tmp/pids
 EXPOSE 3000
 ARG SOURCE_COMMIT
 ENV SOURCE_COMMIT $SOURCE_COMMIT
