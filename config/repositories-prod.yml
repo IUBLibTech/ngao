@@ -213,7 +213,7 @@ bfca:
   country: 'United States'
   phone: '812-855-6041'
   contact_info: 'bfca@indiana.edu'
-  thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/bfca.png'
+  thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/bfca.jpg'
   repo_inst_url: 'https://bfca.sitehost.iu.edu'
 cshm:
   campus: 'US-InU'
