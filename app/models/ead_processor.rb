@@ -64,7 +64,9 @@ class EadProcessor
         filename = File.basename(fpath)
         zip_file.extract(f, fpath)
         add_ead_to_db(filename, directory)
-        add_last_indexed(filename, DateTime.now)
+        add_last_updated(filename, Time.now.utc)
+        # Bump the indexed time out, or status will show as needing indexed when compared with last updated
+        add_last_indexed(filename, Time.now.utc + 30)
         EadProcessor.save_ead_for_downloading(fpath)
         EadProcessor.convert_ead_to_html(fpath)
         EadProcessor.delay.index_file(fpath, directory)
@@ -86,7 +88,7 @@ class EadProcessor
     fpath = File.join(path, file_name)
     IO.copy_stream(download, fpath)
     filename = File.basename(fpath)
-    add_last_indexed(filename, DateTime.now)
+    add_last_indexed(filename, Time.now.utc)
     EadProcessor.save_ead_for_downloading(fpath)
     EadProcessor.convert_ead_to_html(fpath)
     EadProcessor.delay.index_file(fpath, repository)
@@ -134,7 +136,7 @@ class EadProcessor
 
       value = { name: repository.children.text }
       repositories[key] = value
-      last_updated_at = DateTime.parse(repository.next_sibling.text)
+      last_updated_at = Time.parse(repository.next_sibling.text).utc
       update_repository(key, value[:name], last_updated_at)
       eads = []
       if ext == '.zip'
@@ -210,7 +212,7 @@ class EadProcessor
       next unless ext == '.xml'
 
       ead_filename = name + ext
-      ead_last_updated_at = DateTime.parse(ead.next_sibling.text)
+      ead_last_updated_at = Time.parse(ead.next_sibling.text).utc
       add_last_updated(ead_filename, ead_last_updated_at)
     end
   end

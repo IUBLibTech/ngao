@@ -80,8 +80,8 @@
                       <% needs_update_style = !ead.last_indexed_at.present? || (ead.last_indexed_at.present? && last_update > ead.last_indexed_at) ? 'needs-update' : 'no-update' %>
                       <tr class="<%= needs_update_style %>">
                         <td><%= ead.filename %></td>
-                        <td><%= last_update&.strftime("%m/%d/%Y at %I:%M%p") %></td>
-                        <td><%= ead.last_indexed_at&.strftime("%m/%d/%Y at %I:%M%p") %></td>
+                        <td><%= last_update&.localtime.strftime("%m/%d/%Y at %I:%M%p %Z") %></td>
+                        <td><%= ead.last_indexed_at&.localtime.strftime("%m/%d/%Y at %I:%M%p %Z") %></td>
                         <td>
                           <%= link_to "Index", index_ead_url(repository: repo.repository_id, ead: ead.filename), class: 'btn btn-sm btn-primary' %>
                           <%= link_to "Delete", delete_ead_url(ead: ead.filename), class: 'btn btn-sm btn-primary', data: { confirm: "Are you sure?" } %>
