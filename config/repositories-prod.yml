@@ -138,7 +138,7 @@ archives:
 africanstudies:
   campus: 'US-InU'
   name: 'African Studies Collection'
-  visit_note: ''
+  visit_note: 'Attention Visiting Researchers: The African Studies Collection is currently closed for research.'
   description: 'Attention Visiting Researchers: The African Studies Collection is currently closed for research. The IUB Libraries’ African Studies Collection is among the top academic collections in the United States and is particularly strong in the humanities and social sciences, covering Africa South of the Sahara at a research level and North Africa at a general level. The collection includes pamphlets, posters, film, newspapers, manuscripts, and personal papers.'
   building: ''
   address1: 'Herman B Wells Library E660'
@@ -378,7 +378,7 @@ lamc:
 lcp:
   campus: 'US-InU'
   name: 'Liberian Collections'
-  visit_note: ''
+  visit_note: 'Attention Visiting Researchers: The African Studies Collection is currently closed for research.'
   description: 'Attention Visiting Researchers: The Liberian Collections are currently closed for research. The Liberian Collections maintains the world’s largest non-governmental collection of Liberian materials. Holdings spanning back to the 1820s include personal papers of Liberian political leaders, intellectuals and scholars, ethnographic research records, government publications, newspapers and photographs.'
   building: ''
   address1: 'Herman B Wells Library'
