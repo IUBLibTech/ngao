@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build and push to Docker Hub
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: iublibtech/archives_online
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
