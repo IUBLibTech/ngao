@@ -409,7 +409,7 @@ politicalpapers:
   repo_inst_url: 'https://libraries.indiana.edu/modern-political-papers'
 paleontology:
   campus: 'US-InU'
-  name: 'Paleontology Collection'
+  name: 'Test Name Change'
   visit_note: ''
   description: 'The IU Paleontology Collection was formally established as a public trust research repository for fossil material in 1903. The Collection is available for study by the international scientific community and it contains more than a thousand nomenclatorial type specimens, 1.3 million fossil specimen lots, and thousands of photographs, negatives, 35mm slides, manuscripts, and field notebooks detailing the history of paleobiological research at Indiana University.'
   building: ''
