@@ -11,4 +11,12 @@ class UniversalViewer
   def manifest_url
     @document.digital_objects.first.href
   end
+
+  def uv_host
+    ENV['UV_HOST']
+  end
+
+  def uv_config_host
+    ENV['UV_CONFIG_HOST']
+  end
 end
