@@ -1,22 +1,12 @@
-<div
-  id="uv"
-  class="uv" 
-  data-locale="en-GB:English (GB),cy-GB:Cymraeg" 
-  data-config="/uv_config.json" 
-  data-uri=<%= viewer.manifest_url %>
-  data-collectionindex="0" 
-  data-manifestindex="0" 
-  data-sequenceindex="0" 
-  data-canvasindex="0" 
-  data-xywh="-2204,-248,7873,4957" 
-  data-rotation="0" 
-  style="width:560px; height:420px; background-color: #000">
+
+<div>
+
+<iframe
+  src="<%= viewer.uv_host %>/uv/uv.html#?manifest=<%= viewer.manifest_url %>&config=<%= viewer.uv_config_host %>/uv/uv_config.json&m=0&cv=0"
+  width="1024" height="640" allowfullscreen frameborder="0">
+</iframe>
+
 </div>
-<script   
-  type="text/javascript" 
-  id="embedUV" 
-  src="https://pages.dlib.indiana.edu/bower_includes/universalviewer/dist/uv-2.0.1/lib/embed.js">
-</script>
 
 <script>
   (function() {
