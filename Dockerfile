@@ -13,7 +13,7 @@ RUN groupadd -g ${GROUP_ID} app_archives && \
     apt-get update -qq && \
     apt-get install -y build-essential nodejs yarn
 RUN yarn && \
-    yarn config set no-progress && \     
+    yarn config set no-progress && \
     yarn config set silent
 
 ###
@@ -30,7 +30,7 @@ VOLUME /container-data
 RUN bundle config --global frozen 1
 
 COPY --chown=app_archives:app_archives Gemfile Gemfile.lock ./
-RUN gem update bundler && \
+RUN gem install bundler -v "~> 2.4.22" && \
     bundle install -j 2 --retry=3 --deployment --without development
 
 COPY --chown=app_archives:app_archives . .
