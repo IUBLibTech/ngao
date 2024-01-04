@@ -1,4 +1,4 @@
-<% 
+<%
 # Copied from ArcLight at commit 57dc0ae to specify suggest path for autocomplete
 %>
 
@@ -24,30 +24,32 @@
         <%= hidden_field_tag :search_field, search_fields.first.last %>
       <% end %>
 
-      <label for="q" class="sr-only"><%= t('blacklight.search.form.search.label') %></label>
-    
+      <label id="search_label" for="q" class="sr-only"><%= t('blacklight.search.form.search.label') %></label>
+
       <%
         # Customizes autocomplete for within collection scope
       %>
       <% if within_collection_context? %>
-        <%= text_field_tag :q, 
-                          params[:q], 
-                          placeholder: t('blacklight.search.form.search.placeholder'), 
-                          class: "search-q q rounded-0 form-control", 
-                          id: "q", 
-                          autofocus: presenter.autofocus?, 
+        <%= text_field_tag :q,
+                          params[:q],
+                          placeholder: t('blacklight.search.form.search.placeholder'),
+                          class: "search-q q rounded-0 form-control",
+                          id: "q",
+                          autofocus: presenter.autofocus?,
+                          'aria-labelledby': "search_label",
                           data: { autocomplete_enabled: false }  %>
       <% else %>
         <%
           # Use "autocomplete_path: suggest_index_catalog_path" explicitly so that the RepositoriesController gets the appropriate
           # autocomplete path w/o having to have the search form action be local to the controller (by including Blacklight::Catalog)
         %>
-        <%= text_field_tag :q, 
-                          params[:q], 
-                          placeholder: t('blacklight.search.form.search.placeholder'), 
-                          class: "search-q q rounded-0 form-control", 
-                          id: "q", 
-                          autofocus: presenter.autofocus?, 
+        <%= text_field_tag :q,
+                          params[:q],
+                          placeholder: t('blacklight.search.form.search.placeholder'),
+                          class: "search-q q rounded-0 form-control",
+                          id: "q",
+                          autofocus: presenter.autofocus?,
+                          'aria-labelledby': "search_label",
                           data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: suggest_index_catalog_path }  %>
       <% end %>
 

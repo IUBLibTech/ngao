@@ -3,9 +3,11 @@
 // links (e.g. in the menu bar)
 a {
   color: $iu-crimson;
+  text-decoration : underline;
 }
-a:hover {
+a:hover, a:focus {
   color: $iu-mahogany;
+  text-decoration : none;
 }
 .page-link {
   color: $iu-crimson;
