@@ -63,19 +63,19 @@ class ExpandButton {
   constructor(data) {
     var collapseIcon = `<img alt='collapse' src='<%= image_path('blacklight/collapse.svg') %>'>`;
     var expandIcon = `<img alt='expand' src='<%= image_path('blacklight/expand.svg') %>'>`;
-    
+
     // Find Siblings count
     var siblingCount =   `&nbsp;<span class='al-count'>999</span>&nbsp;`;
 
     this.collapseText =  collapseIcon + `Hide`+ siblingCount  + data.collapse;
     this.expandText =  expandIcon + `Show` + siblingCount + data.expand;
 
-    
+
     this.$el = $(`<button class="btn btn-link btn-sm">${this.expandText}</button>`);
     this.handleClick = this.handleClick.bind(this);
     this.$el.click(this.handleClick);
   }
-  
+
 }
 
 /**
@@ -187,11 +187,12 @@ class ContextNavigation {
     const $span = $('<span></span>');
     $span.addClass('divider');
     $span.attr('text-position', 'left');
+    $span.attr('role', 'listitem');
     $ul.append($span);
 
     const button = new ExpandButton(this.data);
     $span.append(button.$el);
-  
+
     return $ul;
   }
 
@@ -268,7 +269,7 @@ class ContextNavigation {
 
       prevParentList.append(renderedBeforeDocs);
 
-      
+
     } else {
       renderedBeforeDocs = beforeDocs.map(newDoc => newDoc.render()).join('');
     }
@@ -276,7 +277,7 @@ class ContextNavigation {
     // Silly but works for now
     this.ul.append(prevParentList || renderedBeforeDocs);
 
-  
+
     let itemDoc = newDocs.slice(newDocIndex, newDocIndex + 1);
     let renderedItemDoc = itemDoc.map(doc => doc.render()).join('');
 
@@ -370,7 +371,7 @@ class ContextNavigation {
     var srOnly = $('h2[data-sr-enable-me]');
     toEnable.removeClass('disabled');
     toEnable.text(srOnly.data('hasContents'));
-    srOnly.text(srOnly.data('hasContents'));  
+    srOnly.text(srOnly.data('hasContents'));
   }
 
   showSiblingCount(){
@@ -409,5 +410,5 @@ Blacklight.onLoad(function () {
       );
     contextNavigation.getData();
   });
- 
+
 });
