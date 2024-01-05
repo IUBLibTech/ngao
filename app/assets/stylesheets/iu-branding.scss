@@ -177,3 +177,14 @@ li.al-collection-context .al-online-content-icon svg,
 .toggle-delete:hover {
   text-decoration: none;
 }
+
+// Increase contrast ratios for accessibility
+.text-muted {
+  color: #34373a !important;
+}
+
+.facet-values {
+  .remove {
+    color: #34373a !important;
+  }
+}
