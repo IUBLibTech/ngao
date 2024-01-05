@@ -8,7 +8,7 @@
 	<xsl:output method="html" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
 	<!-- Creates the body of the finding aid.-->
 	<xsl:template match="/ead">
-		<html>
+		<html lang="en">
 			<!-- ****************************************************************** -->
 			<!-- Outputs header information for the HTML document 			-->
 			<!-- ****************************************************************** -->
