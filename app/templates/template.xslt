@@ -24,13 +24,18 @@
 			<body class="ead-print">
 
 				<div class="title-block">
-					<h1 class="finding-aid-title">
-						<xsl:apply-templates select="eadheader/filedesc/titlestmt/titleproper"/>
-					</h1>
+					<xsl:if test="eadheader/filedesc/titlestmt/titleproper">
+						<h1 class="finding-aid-title">
+							<xsl:apply-templates select="eadheader/filedesc/titlestmt/titleproper"/>
+						</h1>
+					</xsl:if>
 
-					<h2 class="finding-aid-subtitle">
-						<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/subtitle"/>
-					</h2>
+					<xsl:if test="/ead/eadheader/filedesc/titlestmt/subtitle">
+						<h2 class="finding-aid-subtitle">
+							<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/subtitle"/>
+						</h2>
+					</xsl:if>
+
 
 					<p class="finding-aid-author">
 						<xsl:apply-templates select="eadheader/filedesc/titlestmt/author"/>
@@ -198,15 +203,19 @@
 
 
 	<xsl:template match="list[@type='ordered']">
-		<ol>
-			<xsl:apply-templates/>
-		</ol>
+		<xsl:if test="./item">
+			<ol>
+				<xsl:apply-templates/>
+			</ol>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="list[@type='simple'] | list[@type='deflist']">
-		<ol class="no-bullets">
-			<xsl:apply-templates/>
-		</ol>
+		<xsl:if test="./defitem">
+			<ol class="no-bullets">
+				<xsl:apply-templates/>
+			</ol>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="list">
@@ -536,9 +545,9 @@
 				<xsl:value-of select="name()"/>
 			</xsl:attribute>
 			<xsl:apply-templates select="head"/>
-			<ul class="bibliography">
+			<div class="bibliography">
 				<xsl:apply-templates select="*[name()!='head']"/>
-			</ul>
+			</div>
 		</div>
 	</xsl:template>
 
@@ -751,7 +760,7 @@
 				</xsl:if>
 				<xsl:if test="occupation | function">
 					<li class="subj-label">
-						<h5>Occupationss</h5>
+						<h5>Occupations</h5>
 						<ul class="subj-values">
 							<xsl:for-each select="occupation | function">
 								<xsl:sort select="." data-type="text" order="ascending"/>
