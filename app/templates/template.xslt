@@ -203,15 +203,19 @@
 
 
 	<xsl:template match="list[@type='ordered']">
-		<ol>
-			<xsl:apply-templates/>
-		</ol>
+		<xsl:if test="./item">
+			<ol>
+				<xsl:apply-templates/>
+			</ol>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="list[@type='simple'] | list[@type='deflist']">
-		<ol class="no-bullets">
-			<xsl:apply-templates/>
-		</ol>
+		<xsl:if test="./defitem">
+			<ol class="no-bullets">
+				<xsl:apply-templates/>
+			</ol>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="list">
@@ -541,9 +545,9 @@
 				<xsl:value-of select="name()"/>
 			</xsl:attribute>
 			<xsl:apply-templates select="head"/>
-			<ul class="bibliography">
+			<div class="bibliography">
 				<xsl:apply-templates select="*[name()!='head']"/>
-			</ul>
+			</div>
 		</div>
 	</xsl:template>
 
