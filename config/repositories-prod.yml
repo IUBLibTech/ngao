@@ -214,7 +214,7 @@ bfca:
   phone: '812-855-6041'
   contact_info: 'bfca@indiana.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/bfca.jpg'
-  repo_inst_url: 'https://bfca.sitehost.iu.edu'
+  repo_inst_url: 'bfca.indiana.edu'
 cshm:
   campus: 'US-InU'
   name: 'Center for Documentary Research and Practice'
