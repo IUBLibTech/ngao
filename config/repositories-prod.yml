@@ -501,6 +501,6 @@ rbc:
   country: 'United States'
   phone: '317-274-1451'
   contact_info: 'bradbury@iupui.edu'
-  thumbnail_url: ''
+  thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/rbc.jpg'
   repo_inst_url: 'https://liberalarts.iupui.edu/centers/bradbury-center/ray-bradbury-studies/archive/'
   homepage_url_text: 'Visit the Ray Bradbury Center Archives'
