@@ -6,7 +6,7 @@ namespace :ngao do
     raise 'Please specify your EAD document, ex. ead.xml' unless ENV['FILE']
 
     filename = ENV['FILE']
-    solr_id = File.basename(filename)
+    solr_id = File.basename(filename, '.xml')
     raise "Unexpected file type: #{File.extname(filename)}" unless  File.extname(filename) =~/.xml/
 
     puts "NGAO-Arclight deleting #{ENV['FILE']}...\n"
@@ -24,7 +24,10 @@ namespace :ngao do
     solr_url = solr_url.chomp('/')
 
     solr_elapsed_time = Benchmark.realtime do
+      puts "Deleting document with ID #{solr_id}"
       system(%Q{curl -s -X POST "#{solr_url}/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><id>#{solr_id}</id></delete>"}, exception: true)
+      # Ensure related component level documents are also deleted...
+      system(%Q{curl -s -X POST "#{solr_url}/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><ead_ssi>#{solr_id}</ead_ssi></delete>"}, exception: true)
     end
 
     puts "NGAO-Arclight deleted #{filename} from solr index (in #{solr_elapsed_time.round(3)} secs).\n"
