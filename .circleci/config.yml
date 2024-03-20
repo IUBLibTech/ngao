@@ -86,8 +86,9 @@ jobs:
     - run:
         name: Install dependencies
         command: |
-          gem update --system
-          gem update bundler
+          # We can't do these global gem updates because our support Ruby is falling too far behind...
+          # gem update --system
+          # gem update bundler
           bundle config path $CIRCLE_WORKING_DIRECTORY/vendor/bundle
           bundle install
           bundle pristine webdrivers
