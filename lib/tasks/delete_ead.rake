@@ -26,8 +26,6 @@ namespace :ngao do
     solr_elapsed_time = Benchmark.realtime do
       puts "Deleting document with ID #{solr_id}"
       system(%Q{curl -s -X POST "#{solr_url}/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><id>#{solr_id}</id></delete>"}, exception: true)
-      # Ensure related component level documents are also deleted...
-      system(%Q{curl -s -X POST "#{solr_url}/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><ead_ssi>#{solr_id}</ead_ssi></delete>"}, exception: true)
     end
 
     puts "NGAO-Arclight deleted #{filename} from solr index (in #{solr_elapsed_time.round(3)} secs).\n"
