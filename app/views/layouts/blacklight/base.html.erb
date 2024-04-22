@@ -14,7 +14,7 @@
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
 
-    <% if ENV['SITE_HOST']&.include?('.edu') %>
+    <% unless ENV['SITE_HOST'] =~ /localhost|devel|stage|test|preview/ %>
       <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2B2XVXX8M"></script>
       <script>
