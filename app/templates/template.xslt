@@ -946,6 +946,8 @@
 			<xsl:apply-templates select="unitdate[1]"/>
 		</div>
 		<xsl:apply-templates select="unitid[@type or (count(..//unitid[@type])=0 and position()=1)]"/>
+		<!-- Julie H 2024-10-10 - adding component level origination -->
+		<xsl:apply-templates select="origination"/>
 		<xsl:apply-templates select="physdesc"/>
 		<xsl:apply-templates select="langmaterial"/>
 	</xsl:template>
@@ -965,6 +967,16 @@
 				<xsl:text> No(s): </xsl:text>
 			</span>
 			<xsl:apply-templates select="node()"/>
+		</p>
+	</xsl:template>
+	
+	<!-- Julie H 2024-10-10 - selecting @label and content within origination (often within <persname>); 2024-10-28 - adding colon and space after label -->
+	<xsl:template match="dsc//did/origination">
+		<p>
+			<span class="label">
+				<xsl:value-of select="@label"/><xsl:text>: </xsl:text>
+			</span>
+			<xsl:apply-templates/>
 		</p>
 	</xsl:template>
 
