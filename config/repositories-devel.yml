@@ -79,7 +79,7 @@ lilly:
   zip: '47405-5500'
   country: 'USA'
   phone: '(812) 855-2452'
-  contact_info: 'liblilly@indiana.edu'
+  contact_info: 'liblilly@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/lilly.png'
   repo_inst_url: 'https://libraries.indiana.edu/lilly-library'
   request_types:
@@ -99,7 +99,7 @@ wyliehouse:
   zip: '47401'
   country: 'United States'
   phone: '812-855-6224'
-  contact_info: 'libwylie@indiana.edu'
+  contact_info: 'libwylie@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/wyliehouse.jpg'
   repo_inst_url: 'https://libraries.indiana.edu/wylie-house-museum'
 wmi:
@@ -131,7 +131,7 @@ archives:
   zip: '47405-7000'
   country: 'United States'
   phone: '812-855-1127'
-  contact_info: 'archives@indiana.edu'
+  contact_info: 'archives@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/archives.jpg'
   repo_inst_url: 'https://libraries.indiana.edu/university-archives'
   homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
@@ -148,7 +148,7 @@ africanstudies:
   zip: '47405'
   country: 'United States'
   phone: ''
-  contact_info: 'afstlib@indiana.edu'
+  contact_info: 'afstlib@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/africanstudies.png'
   repo_inst_url: 'https://libraries.indiana.edu/african-studies'
 iuse:
@@ -164,7 +164,7 @@ iuse:
   zip: '47150'
   country: 'United States'
   phone: '812-941-2489'
-  contact_info: 'serefdsk@ius.edu'
+  contact_info: 'serefdsk@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/iuse.jpg'
   repo_inst_url: 'https://www.ius.edu/library/find-information/special-collections.php'
 aaamc:
@@ -180,7 +180,7 @@ aaamc:
   zip: '47408-2601'
   country: 'United States'
   phone: '812-855-8547'
-  contact_info: 'aaamc@indiana.edu'
+  contact_info: 'aaamc@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/aaamc.jpg'
   repo_inst_url: 'https://aaamc.indiana.edu/'
 atm:
@@ -196,7 +196,7 @@ atm:
   zip: '47405'
   country: 'United States'
   phone: '812-855-4679'
-  contact_info: 'atmusic@indiana.edu'
+  contact_info: 'atmusic@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/atm.jpg'
   repo_inst_url: 'https://libraries.indiana.edu/archives-traditional-music'
 bfca:
@@ -228,7 +228,7 @@ cshm:
   zip: '47405'
   country: 'United States'
   phone: '812-855-2856'
-  contact_info: 'ohrc@indiana.edu'
+  contact_info: 'ohrc@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/cshm.jpg'
   repo_inst_url: 'https://cdrp.mediaschool.indiana.edu/'
 ewv:
@@ -244,7 +244,7 @@ ewv:
   zip: '47408'
   country: 'United States'
   phone: '812-855-9544'
-  contact_info: 'gbl@indiana.edu'
+  contact_info: 'gbl@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/ewv.jpg'
   repo_inst_url: 'https://gbl.indiana.edu/collections/library-archives.html'
 folklore:
@@ -260,7 +260,7 @@ folklore:
   zip: '47405-7000'
   country: 'United States'
   phone: '812-855-1550'
-  contact_info: 'molsmith@indiana.edu'
+  contact_info: 'molsmith@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/folklore.jpg'
   repo_inst_url: 'http://www.libraries.iub.edu/folklore'
 gimms:
@@ -292,7 +292,7 @@ iueast:
   zip: '47374'
   country: 'United States'
   phone: '765-973-8311'
-  contact_info: 'liblearn@iue.edu'
+  contact_info: 'liblearn@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/iueast.jpg'
   repo_inst_url: 'http://iue.libguides.com/iuearchives'
 music:
@@ -308,7 +308,7 @@ music:
   zip: '47405'
   country: 'United States'
   phone: '812-855-2970'
-  contact_info: 'libmus@indiana.edu'
+  contact_info: 'libmus@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/music.jpg'
   repo_inst_url: 'https://libraries.indiana.edu/music'
 iukokomo:
@@ -324,7 +324,7 @@ iukokomo:
   zip: '46902'
   country: 'United States'
   phone: '765-455-9412'
-  contact_info: 'iukarch@iuk.edu'
+  contact_info: 'iukarch@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/iukokomo.jpg'
   repo_inst_url: 'https://www.iuk.edu/library/campus-archives.html'
 iusb:
@@ -340,7 +340,7 @@ iusb:
   zip: '46634'
   country: 'United States'
   phone: '574-520-4392'
-  contact_info: 'archiusb@iusb.edu'
+  contact_info: 'archiusb@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/iusb.jpg'
   repo_inst_url: 'https://library.iusb.edu/search-find/archives/index.html'
 iulmia:
@@ -356,7 +356,7 @@ iulmia:
   zip: '47405-7000'
   country: 'United States'
   phone: '812-856-7086'
-  contact_info: 'iulmia@indiana.edu'
+  contact_info: 'iulmia@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/iulmia.jpg'
   repo_inst_url: 'http://www.libraries.iub.edu/iulmia'
 lamc:
@@ -372,7 +372,7 @@ lamc:
   zip: '47405'
   country: 'United States'
   phone: '812-855-2991'
-  contact_info: 'lamc@indiana.edu'
+  contact_info: 'lamc@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/lamc.jpg'
   repo_inst_url: 'https://music.indiana.edu/lamc/'
 lcp:
@@ -388,7 +388,7 @@ lcp:
   zip: '47405'
   country: 'United States'
   phone: ''
-  contact_info: 'afstlib@indiana.edu'
+  contact_info: 'afstlib@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/lcp.jpg'
   repo_inst_url: 'https://libraries.indiana.edu/african-studies'
 politicalpapers:
@@ -404,7 +404,7 @@ politicalpapers:
   zip: '47405-7000'
   country: 'United States'
   phone: '812-856-4601'
-  contact_info: 'congpprs@indiana.edu'
+  contact_info: 'congpprs@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/politicalpapers.jpg'
   repo_inst_url: 'https://libraries.indiana.edu/modern-political-papers'
 paleontology:
@@ -420,7 +420,7 @@ paleontology:
   zip: '47405-1405'
   country: 'United States'
   phone: '812-856-3500'
-  contact_info: 'palcoll@indiana.edu'
+  contact_info: 'palcoll@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/paleontology.png'
   repo_inst_url: 'https://palcoll.sitehost.iu.edu'
 ruthlillymedical:
@@ -436,7 +436,7 @@ ruthlillymedical:
   zip: '46202'
   country: 'United States'
   phone: '317-274-7182'
-  contact_info: 'medlref@iupui.edu'
+  contact_info: 'medlref@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/ruthlillymedical.jpg'
   repo_inst_url: 'https://library.mednet.iu.edu/history-of-medicine/'
 kinsey:
@@ -452,7 +452,7 @@ kinsey:
   zip: '47405'
   country: 'United States'
   phone: '812-855-7686'
-  contact_info: 'libknsy@indiana.edu'
+  contact_info: 'libknsy@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/kinsey.jpg'
   repo_inst_url: 'https://kinseyinstitute.org/collections/library'
 mediaschool:
@@ -468,7 +468,7 @@ mediaschool:
   zip: '47405'
   country: 'United States'
   phone: '812-855-9247'
-  contact_info: 'tmsarch@indiana.edu'
+  contact_info: 'tmsarch@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/mediaschool.png'
   repo_inst_url: 'https://mediaschool.indiana.edu/about/archive.html'
 iunw:
@@ -501,7 +501,7 @@ peirceedition:
   zip: '46202'
   country: 'United States'
   phone: '317-274-2033'
-  contact_info: 'cpeirce@iupui.edu'
+  contact_info: 'cpeirce@iu.edu'
   thumbnail_url: 'https://uisapp2.iu.edu/confluence-prd/download/thumbnails/620660033/IATPeirceReposImage.png'
   repo_inst_url: 'https://peirce.iupui.edu/resources.html#holdings'
   homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
@@ -518,7 +518,7 @@ rbc:
   zip: '46202'
   country: 'United States'
   phone: '317-274-1451'
-  contact_info: 'bradbury@iupui.edu'
+  contact_info: 'bradbury@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/rbc.jpg'
   repo_inst_url: 'https://liberalarts.iupui.edu/centers/bradbury-center/ray-bradbury-studies/archive/'
   homepage_url_text: 'Visit the Ray Bradbury Center Archives'
@@ -535,7 +535,7 @@ sseasian:
   zip: '47405'
   country: 'United States'
   phone: '812-856-2178'
-  contact_info: 'gskirk@indiana.edu'
+  contact_info: 'gskirk@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/south_and_southeast_asian_archive.jpeg'
   repo_inst_url: ''
   homepage_url_text: ''
