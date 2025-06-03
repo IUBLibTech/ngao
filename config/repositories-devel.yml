@@ -182,7 +182,7 @@ aaamc:
   phone: '812-855-8547'
   contact_info: 'aaamc@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/aaamc.jpg'
-  repo_inst_url: 'https://aaamc.iu.edu/'
+  repo_inst_url: 'aaamc.indiana.edu'
 atm:
   campus: 'US-InU'
   name: 'Archives of Traditional Music'
