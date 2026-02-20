@@ -9,6 +9,10 @@ class CatalogController < ApplicationController
   include Arclight::FieldConfigHelpers
 
   configure_blacklight do |config|
+    # Disable user search and session features we don't use because
+    # they have a huge performance impact when crawled by bots
+    config.crawler_detector = ->(req) { true }
+
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     # config.advanced_search[:qt] ||= 'advanced'
