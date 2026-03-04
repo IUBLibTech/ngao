@@ -134,7 +134,7 @@ archives:
   contact_info: 'archives@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/archives.jpg'
   repo_inst_url: 'https://libraries.indiana.edu/university-archives'
-  homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
+  homepage_url_text: 'Visit the University Archives'
 africanstudies:
   campus: 'US-InU'
   name: 'African Studies Collection'
@@ -484,7 +484,7 @@ iunw:
   zip: '46408'
   country: 'United States'
   phone: '219-980-6547'
-  contact_info: 'jpekarek@iu.edu'
+  contact_info: 'dlh5@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/IUNW_Reading_Room_August_2023.jpg'
   repo_inst_url: 'https://libguides.iun.edu/archives/Home'
   homepage_url_text: 'Visit Indiana University Northwest Archives and Special Collections'
