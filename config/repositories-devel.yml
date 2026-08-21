@@ -155,8 +155,8 @@ archives:
 africanstudies:
   campus: 'US-InU'
   name: 'African Studies Collection'
-  visit_note: ''
-  description: 'The IUB Libraries’ African Studies Collection is among the top academic collections in the United States and is particularly strong in the humanities and social sciences, covering Africa South of the Sahara at a research level and North Africa at a general level. The collection includes pamphlets, posters, film, newspapers, manuscripts, and personal papers.'
+  visit_note: 'Attention Visiting Researchers: The African Studies is currently closed for research until January 2027.'
+  description: 'Attention Visiting Researchers: The African Studies is currently closed for research until January 2027. The IUB Libraries’ African Studies Collection is among the top academic collections in the United States and is particularly strong in the humanities and social sciences, covering Africa South of the Sahara at a research level and North Africa at a general level. The collection includes pamphlets, posters, film, newspapers, manuscripts, and personal papers.'
   building: ''
   address1: 'Herman B Wells Library E660'
   address2: '1320 East Tenth Street'
@@ -395,8 +395,8 @@ lamc:
 lcp:
   campus: 'US-InU'
   name: 'Liberian Collections'
-  visit_note: 'Processed Liberian Collections are open to researchers with advance notice. However, the African Studies Librarian position is currently vacant and because of this, reference and research support is limited.'
-  description: 'Processed Liberian Collections are open to researchers with advance notice. However, the African Studies Librarian position is currently vacant and because of this, reference and research support is limited. The Liberian Collections maintains the world’s largest non-governmental collection of Liberian materials. Holdings spanning back to the 1820s include personal papers of Liberian political leaders, intellectuals and scholars, ethnographic research records, government publications, newspapers and photographs.'
+  visit_note: 'Attention Visiting Researchers: Liberian Collections is currently closed for research until January 2027.'
+  description: 'Attention Visiting Researchers: Liberian Collections is currently closed for research until January 2027. The Liberian Collections maintains the world’s largest non-governmental collection of Liberian materials. Holdings spanning back to the 1820s include personal papers of Liberian political leaders, intellectuals and scholars, ethnographic research records, government publications, newspapers and photographs.'
   building: ''
   address1: 'Herman B Wells Library'
   address2: '1320 East Tenth Street'
