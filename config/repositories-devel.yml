@@ -263,7 +263,7 @@ ewv:
   phone: '812-855-9544'
   contact_info: 'iumaa@iu.edu'
   thumbnail_url: 'https://webapp1.dlib.indiana.edu/archivesOnline/repositoryImages/ewv.jpg'
-  repo_inst_url: 'https://gbl.indiana.edu/collections/library-archives.html'
+  repo_inst_url: 'iumaa.iu.edu'
 folklore:
   campus: 'US-InU'
   name: 'Folklore Collection'
