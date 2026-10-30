@@ -17,9 +17,9 @@ iuinsa:
   homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'  
 iupuigeneral:
   campus: 'US-iniu'
-  name: 'Indiana University Indianapolis General Collections'
+  name: 'Indiana University Indianapolis Community Collections'
   visit_note: ''
-  description: 'The General Collections include the records and papers of organizations and individuals with ties to the University and/or Indianapolis.'
+  description: 'The Community Collections include the records and papers of organizations and individuals with ties to the University and/or Indianapolis.'
   building: 'University Library 0133'
   address1: '755 West Michigan Street'
   address2: ''
@@ -34,9 +34,9 @@ iupuigeneral:
   homepage_url_text: 'Visit the Ruth Lilly Special Collections and Archives'
 iupuiga:
   campus: 'US-iniu'
-  name: 'Indiana University Indianapolis German-American Archives'
+  name: 'Indiana University Indianapolis German American Collections'
   visit_note: ''
-  description: 'The German-American Collections include the records of national and local social, cultural, economic, and athletic organizations started by German immigrants. Particularly significant are the national and local records of the American Turners, a social organization of German origin whose is physical fitness, sports, and the propagation of German culture.'
+  description: 'The German American Collections include the records of national and local social, cultural, economic, and athletic organizations started by German immigrants. Particularly significant are the national and local records of the American Turners, a social organization of German origin whose is physical fitness, sports, and the propagation of German culture.'
   building: 'University Library 0133'
   address1: '755 West Michigan Street'
   address2: ''
